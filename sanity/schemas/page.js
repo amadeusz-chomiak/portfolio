@@ -1,11 +1,12 @@
 export default {
-  name: 'vendor',
-  title: 'Vendor',
+  name: 'page',
+  title: 'Page',
   type: 'document',
   fields: [
     {
       name: 'title',
       title: 'Title',
+      description: 'On links to this page',
       type: 'string'
     },
     {
@@ -17,21 +18,10 @@ export default {
         maxLength: 96
       }
     },
-    {
-      name: 'logo',
-      title: 'logo',
-      type: 'image'
-    },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'blockContent'
-    }
   ],
   preview: {
     select: {
-      title: 'title',
-      media: 'logo'
+      title: 'title'
     }
   }
 }
