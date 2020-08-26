@@ -14,6 +14,7 @@ export default {
     title: lang.title,
     name: lang.id,
     type: 'text',
-    fieldset: lang.isDefault ? null : 'translations'
+    fieldset: lang.isDefault ? null : 'translations',
+      rows: 6
   }))
 }
