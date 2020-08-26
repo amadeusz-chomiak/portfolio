@@ -1,5 +1,5 @@
 import {create, createImage, createObject} from '../utils/typedSchema'
-export default {
+export default createObject({
   name: 'Meta',
   title: 'Meta tags',
   description: 'Page meta tags for SEO and social media',
@@ -39,14 +39,10 @@ export default {
       ]
     })
   ],
-  options: {
-    collapsible: true,
-    collapsed: true
-  },
   preview: {
     select: {
       title: 'Title',
       subtitle: 'Description'
     }
   }
-}
+})

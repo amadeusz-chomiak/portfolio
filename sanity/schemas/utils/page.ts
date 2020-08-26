@@ -3,6 +3,7 @@ const createPage = (name: string, customFields: object[], title = name) => ({
   title,
   type: 'document',
   fields: [
+    ...customFields,
     // {
     //   name: 'Core',
     //   title: 'Core page settings',
@@ -13,7 +14,6 @@ const createPage = (name: string, customFields: object[], title = name) => ({
       title: 'SEO meta tags',
       type: 'Meta',
     },
-    ...customFields,
   ],
   preview: {
     select: {

@@ -3,15 +3,16 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
-// import content schemas
+//* import content schemas
 import privacyPolicy from './content/privacyPolicy'
 
-// import types schemas
+//* import types schemas
 import pageMeta from './types/pageMeta'
 
+//* import components schemas
+import card from './components/card'
 
-
-// Import locales
+//* Import locales
 // import blockContent from './locale/BlockContent'
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -30,6 +31,9 @@ export default createSchema({
 
     // types schemas
     pageMeta,
+
+    // components schemas
+    card,
 
     // locales schemas
     // blockContent,
