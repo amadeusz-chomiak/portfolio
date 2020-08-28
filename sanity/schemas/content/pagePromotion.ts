@@ -7,7 +7,7 @@ import {
   createReference,
 } from '../utils/typedSchema';
 
-export default createPage('PagePromotions', [
+export default createPage('PagePromotion', [
   createArray({
     name: 'Promotions',
     description: 'Active promotions',
@@ -23,11 +23,11 @@ export default createPage('PagePromotions', [
     description: 'Content of Promotion page',
     type: 'LocaleBlockContentComplex',
   }),
-  createObject({
-    name: 'ExampleButton',
-    type: 'Button',
-  }),
   // todo implement
+  // createObject({
+  //   name: 'ExampleButton',
+  //   type: 'Button',
+  // }),
   // createReference({
   //   name: 'ExamplePage',
   //   to: [{ type: 'PageExample' }],

@@ -1,25 +1,47 @@
-const createPage = (name: string, customFields: object[], title = name) => ({
-  name,
-  title,
-  type: 'document',
-  fields: [
+import { createObject, Schema, create } from './typedSchema';
+
+interface Analytic {
+  url: string;
+  title: string;
+}
+
+const analyticVersions: Analytic[] = [
+  { title: 'Second version for analytic', url: 'b' },
+  { title: 'Third version for analytic', url: 'c' },
+];
+
+const addAnalytic = (fields: Schema[]) =>
+  analyticVersions.map((analytic) =>
+    createObject({
+      name: analytic.url,
+      title: analytic.title,
+      description: `Analytic will redirect some user for this version prefixed with "${analytic.url}". The same prefix will be used for analytic tags. You don't need to set every option`,
+      fields: fields.map(field => ({required: 'no',...field}))
+    })
+  );
+
+export const createPage = (name: string, customFields: Schema[], title = name) => {
+  const fields = [
     ...customFields,
-    // {
-    //   name: 'Core',
-    //   title: 'Core page settings',
-    //   type: 'Core',
-    // },
-    {
+    createObject({
       name: 'meta',
       title: 'SEO meta tags',
       type: 'Meta',
-    },
-  ],
-  preview: {
-    select: {
-      title: 'title',
-    },
-  },
-});
+    }),
+  ]
 
-export { createPage };
+  return {
+    name,
+    title,
+    type: 'document',
+    fields: [
+      ...fields,
+      ...addAnalytic(fields)
+    ],
+    preview: {
+      select: {
+        title: 'title',
+      },
+    },
+  }
+};

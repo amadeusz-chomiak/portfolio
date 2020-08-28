@@ -5,7 +5,12 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 //* import content schemas
 import privacyPolicy from './content/privacyPolicy'
-import pagePromotions from './content/pagePromotions'
+import pageAbout from './content/pageAbout'
+import pageContact from './content/pageContact'
+import pageHero from './content/pageHero'
+import pageSolution from './content/pageSolution'
+import solution from './content/solution'
+import pagePromotions from './content/pagePromotion'
 import promotion from './content/promotion'
 
 //* import types schemas
@@ -38,6 +43,11 @@ export default createSchema({
     privacyPolicy,
     pagePromotions,
     promotion,
+    pageAbout,
+    pageContact,
+    pageHero,
+    pageSolution,
+    solution,
 
     // types schemas
     pageMeta,

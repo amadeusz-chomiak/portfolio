@@ -2,8 +2,9 @@ type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
 type SchemaSpecial = 'reference' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
 type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
-type SchemaTypesDocuments = 'PageExample' | 'PagePromotions' | 'Promotion';
+type SchemaTypesDocuments = 'PageExample' | 'PagePromotions' | 'Promotion' | 'Solution';
 type SchemaTypesPlugins = 'color';
+type SchemaTypesCustom = 'Meta';
 type SchemaTypesLocale =
   | 'LocaleString'
   | 'LocaleText'
@@ -15,7 +16,8 @@ type SchemaTypes =
   | SchemaTypesWithFields
   | SchemaTypesComponents
   | SchemaTypesPlugins
-  | SchemaSpecial;
+  | SchemaSpecial
+  | SchemaTypesCustom;
 
 type Validation = 'error' | 'warn' | 'no';
 
@@ -35,7 +37,7 @@ type PreviewSelectData<T extends PreviewSelectAny> = {
 
 interface Preview<T extends PreviewSelectAny = PreviewSelectAny> {
   select: T;
-  prepare: (
+  prepare?: (
     data: PreviewSelectData<T>
   ) => PreviewSelect;
 }
@@ -44,7 +46,7 @@ interface SchemaType {
   type: SchemaTypes | SchemaTypesDocuments;
 }
 
-interface Schema {
+export interface Schema {
   name: string;
   type: SchemaTypes;
   description?: string;
@@ -134,7 +136,7 @@ interface SchemaComponent {
   name: string;
   description?: string;
   title?: string;
-  type?: SchemaTypesComponents;
+  type: SchemaTypesComponents | SchemaTypesLocale | SchemaTypesCustom;
   required?: Validation;
   collapsed?: Collapsed;
   preview?: Preview;
