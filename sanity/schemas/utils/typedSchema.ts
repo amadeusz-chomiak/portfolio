@@ -1,6 +1,8 @@
-type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number' | 'array';
+type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
+type SchemaSpecial = 'reference' | 'array'
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
 type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
+type SchemaTypesDocuments = 'PageExample' | 'PagePromotions' | 'Promotion';
 type SchemaTypesPlugins = 'color';
 type SchemaTypesLocale =
   | 'LocaleString'
@@ -12,7 +14,8 @@ type SchemaTypes =
   | SchemaTypesLocale
   | SchemaTypesWithFields
   | SchemaTypesComponents
-  | SchemaTypesPlugins;
+  | SchemaTypesPlugins
+  | SchemaSpecial;
 
 type Validation = 'error' | 'warn' | 'no';
 
@@ -23,6 +26,11 @@ interface Preview {
     media?: string;
   };
 }
+
+interface SchemaType {
+  type: SchemaTypes | SchemaTypesDocuments
+}
+
 interface Schema {
   name: string;
   type: SchemaTypes;
@@ -32,22 +40,12 @@ interface Schema {
   required?: Validation;
   fields?: Schema[];
   preview?: Preview;
+  weak?: Boolean;
+  to?: SchemaType[];
 }
 
 type Rule = { required: () => any };
-const createSchema = (schema: Schema) => {
-  const fields = schema.fields;
-  if (fields)
-    fields.forEach((field) => {
-      if (field === undefined)
-        throw new Error(
-          `Undefined field! name: ${schema.name} type: ${schema.type} description: ${schema.description} fields: ${field.name}`
-        );
-    });
-  if (schema === undefined)
-    throw new Error(
-      `Undefined schema! name: ${schema.name} type: ${schema.type} description: ${schema.description} fields: ${field.name}`
-    );
+const createSchema = (schema: Schema) => {  
   const title = schema.title ?? schema.name;
   const validation = (Rule: Rule) =>
     schema.required === 'error'
@@ -143,7 +141,6 @@ interface SchemaArray {
   description?: string;
   title?: string;
   required?: Validation;
-  preview?: Preview;
 }
 
 export const createArray = (schema: SchemaArray) => {
@@ -152,3 +149,23 @@ export const createArray = (schema: SchemaArray) => {
     ...schema,
   });
 };
+
+
+
+interface SchemaReference {
+  name: string;
+  to: SchemaType[];
+  description?: string;
+  title?: string;
+  required?: Validation;
+  week?: true;
+}
+
+export const createReference = (schema: SchemaReference) => {
+  return createSchema({
+    type: 'reference',
+    weak: !!schema.week,
+    ...schema,
+  });
+};
+
