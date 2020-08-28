@@ -8,7 +8,7 @@ import {
 } from '../utils/typedSchema';
 
 export default createPage('PageContact', [
-  create({
+  createObject({
     name: 'Content',
     description: 'Content of about page',
     type: 'LocaleBlockContent',

@@ -18,7 +18,7 @@ export default createPage('PagePromotion', [
       }),
     ],
   }),
-  create({
+  createObject({
     name: 'Content',
     description: 'Content of Promotion page',
     type: 'LocaleBlockContent',

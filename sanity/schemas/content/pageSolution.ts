@@ -8,7 +8,7 @@ import {
 } from '../utils/typedSchema';
 
 export default createPage('PageSolution', [
-  create({
+  createObject({
     name: 'Content',
     description: 'Content of solution page',
     type: 'LocaleBlockContent',

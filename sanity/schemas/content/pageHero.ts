@@ -8,7 +8,7 @@ import {
 } from '../utils/typedSchema';
 
 export default createPage('PageHero', [
-  create({
+  createObject({
     name: 'Content',
     description: 'Content of hero page',
     type: 'LocaleBlockContent',
