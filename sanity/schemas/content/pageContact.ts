@@ -11,7 +11,7 @@ export default createPage('PageContact', [
   create({
     name: 'Content',
     description: 'Content of about page',
-    type: 'LocaleBlockContentComplex',
+    type: 'LocaleBlockContent',
   }),
   // createObject({
   //   name: 'Email',

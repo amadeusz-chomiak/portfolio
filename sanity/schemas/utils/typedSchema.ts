@@ -8,8 +8,8 @@ type SchemaTypesCustom = 'Meta';
 type SchemaTypesLocale =
   | 'LocaleString'
   | 'LocaleText'
-  | 'LocaleBlockContentComplex'
-  | 'LocaleBlockContentBasic';
+  | 'LocaleBlockContent'
+  | 'LocaleBlockContent';
 type SchemaTypes =
   | SchemaTypesBasic
   | SchemaTypesLocale

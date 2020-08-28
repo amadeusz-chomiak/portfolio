@@ -21,7 +21,7 @@ export default createPage('PagePromotion', [
   create({
     name: 'Content',
     description: 'Content of Promotion page',
-    type: 'LocaleBlockContentComplex',
+    type: 'LocaleBlockContent',
   }),
   // todo implement
   // createObject({

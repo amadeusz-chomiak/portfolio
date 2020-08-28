@@ -22,7 +22,7 @@ export default createObject({
     create({
       name: 'Content',
       description: 'Content of the card',
-      type: 'LocaleBlockContentBasic'
+      type: 'LocaleBlockContent'
     }), 
     createObject({
       name: 'Action',

@@ -16,6 +16,6 @@ export default createPage('Privacy', [
   create({
     name: 'Content',
     description: 'Content of privacy policy',
-    type: 'LocaleBlockContentComplex'
+    type: 'LocaleBlockContent'
   }),
 ])

@@ -11,6 +11,6 @@ export default createPage('PageHero', [
   create({
     name: 'Content',
     description: 'Content of hero page',
-    type: 'LocaleBlockContentComplex',
+    type: 'LocaleBlockContent',
   }),
 ]);

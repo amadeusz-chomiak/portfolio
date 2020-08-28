@@ -11,11 +11,11 @@ export default createPage('PageAbout', [
   createObject({
     name: 'Content',
     description: 'Content of about page',
-    type: 'LocaleBlockContentComplex',
+    type: 'LocaleBlockContent',
   }),
   createObject({
     name: 'EmailContent',
-    type: 'LocaleBlockContentComplex'
+    type: 'LocaleBlockContent'
   }),
   createObject({
     name: 'EmailButton',
@@ -23,7 +23,7 @@ export default createPage('PageAbout', [
   }),
   createObject({
     name: 'GithubContent',
-    type: 'LocaleBlockContentComplex'
+    type: 'LocaleBlockContent'
   }),
   createObject({
     name: 'GithubButton',

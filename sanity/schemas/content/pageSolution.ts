@@ -11,7 +11,7 @@ export default createPage('PageSolution', [
   create({
     name: 'Content',
     description: 'Content of solution page',
-    type: 'LocaleBlockContentComplex',
+    type: 'LocaleBlockContent',
   }),
   createArray({
     name: 'Solutions',
