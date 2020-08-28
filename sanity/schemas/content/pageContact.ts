@@ -5,9 +5,15 @@ import {
   createObject,
   createArray,
   createReference,
+  createImage,
 } from '../utils/typedSchema';
 
 export default createPage('PageContact', [
+  createImage({
+    name: 'Image',
+    description: 'Full height image',
+    required: 'warn',
+  }),
   createObject({
     name: 'Content',
     description: 'Content of about page',
@@ -19,6 +25,6 @@ export default createPage('PageContact', [
   // }),
   createObject({
     name: 'EmailButton',
-    type: 'Button'
-  })
+    type: 'Button',
+  }),
 ]);

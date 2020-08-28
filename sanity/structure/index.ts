@@ -1,11 +1,13 @@
 import S from '@sanity/desk-tool/structure-builder';
 import { showPage } from './page';
 import { showGroup } from './group';
+import { GrDocumentConfig } from 'react-icons/gr';
 
 export default () =>
   S.list()
     .title('Content')
     .items([     
+      showPage('Site', 'Main site structure', GrDocumentConfig),
       showPage('PagePrivacy', 'Privacy policy page'),
       showPage('PageHero', 'Hero page'),
       showPage('PageSolution', 'Solutions page'),

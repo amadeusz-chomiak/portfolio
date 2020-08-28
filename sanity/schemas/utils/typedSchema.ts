@@ -2,7 +2,14 @@ type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
 type SchemaSpecial = 'reference' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
 type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
-export type SchemaTypesPages = 'PageAbout' | 'PageContact' | 'PageHero' | 'PagePromotion' | 'PageSolution' | 'PagePrivacy';
+export type SchemaTypesPages =
+  | 'PageAbout'
+  | 'PageContact'
+  | 'PageHero'
+  | 'PagePromotion'
+  | 'PageSolution'
+  | 'PagePrivacy'
+  | 'Site';
 export type SchemaTypesGroups = 'Promotion' | 'Solution';
 type SchemaTypesDocuments = SchemaTypesPages | 'Promotion' | 'Solution';
 type SchemaTypesPlugins = 'color';
@@ -30,18 +37,16 @@ interface PreviewSelect {
 }
 
 interface PreviewSelectAny extends PreviewSelect {
-  [key: string]: string | JSX.Element
+  [key: string]: string | JSX.Element;
 }
 
 type PreviewSelectData<T extends PreviewSelectAny> = {
-  [Key in keyof T]: any
-}
+  [Key in keyof T]: any;
+};
 
 interface Preview<T extends PreviewSelectAny = PreviewSelectAny> {
   select: T;
-  prepare?: (
-    data: PreviewSelectData<T>
-  ) => PreviewSelect;
+  prepare?: (data: PreviewSelectData<T>) => PreviewSelect;
 }
 
 interface SchemaType {
@@ -105,6 +110,7 @@ export const createImage = (schema: SchemaImage) =>
     options: {
       storeOriginalFilename: false,
       hotspot: !!schema.hotspot,
+     
     },
     fields: [
       createSchema({
@@ -116,6 +122,8 @@ export const createImage = (schema: SchemaImage) =>
         required: 'warn',
         options: {
           isHighlighted: true,
+          collapsible: true,
+          collapsed: true,
         },
       }),
     ],

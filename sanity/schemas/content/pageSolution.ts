@@ -5,9 +5,15 @@ import {
   createObject,
   createArray,
   createReference,
+  createImage,
 } from '../utils/typedSchema';
 
 export default createPage('PageSolution', [
+  createImage({
+    name: 'Image',
+    description: 'Full height image',
+    required: 'warn',
+  }),
   createObject({
     name: 'Content',
     description: 'Content of solution page',

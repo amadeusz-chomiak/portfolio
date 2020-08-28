@@ -1,5 +1,10 @@
-import { createPage } from "../utils/page";
-import { create, createObject, createArray } from "../utils/typedSchema";
+import { createPage } from '../utils/page';
+import {
+  create,
+  createObject,
+  createArray,
+  createReference,
+} from '../utils/typedSchema';
 
 //* main page landing structure (menu, header)
 export default createPage('Site', [
@@ -7,9 +12,55 @@ export default createPage('Site', [
     name: 'Pages',
     description: 'Order of pages on main site',
     of: [
-      {
-        type: 'PagePromotions'
-      }
-    ]
-  })
+      createObject({
+        name: 'Page',
+        fields: [
+          createReference({
+            name: 'Page',
+            to: [
+              {
+                type: 'PageAbout',
+              },
+              {
+                type: 'PageContact',
+              },
+              {
+                type: 'PageHero',
+              },
+              {
+                type: 'PagePrivacy',
+              },
+              {
+                type: 'PagePromotion',
+              },
+              {
+                type: 'PageSolution',
+              },
+            ],
+          }),
+          createObject({
+            name: 'Title',
+            description: 'Text on menu button to this page',
+            type: 'LocaleString'
+          }),
+          createObject({
+            name: 'Link',
+            description: 'Text on links to this page',
+            type: 'LocaleString'
+          }),
+          createObject({
+            name: 'Card',
+            description: 'Use card only on one of pages! Or else it will be too crowded!',
+            type: 'Card'
+          }), 
+        ],
+        preview: {
+          select: {
+            title: 'Title',
+            subtitle: 'Link'
+          } 
+        }
+      }),
+    ],
+  }),
 ]);

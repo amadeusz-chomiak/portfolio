@@ -5,9 +5,15 @@ import {
   createObject,
   createArray,
   createReference,
+  createImage,
 } from '../utils/typedSchema';
 
 export default createPage('PagePromotion', [
+  createImage({
+    name: 'Image',
+    description: 'Full height image',
+    required: 'warn',
+  }),
   createArray({
     name: 'Promotions',
     description: 'Active promotions',

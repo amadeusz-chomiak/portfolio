@@ -4,6 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 //* import content schemas
+import site from './content/site'
 import privacyPolicy from './content/privacyPrivacy'
 import pageAbout from './content/pageAbout'
 import pageContact from './content/pageContact'
@@ -38,6 +39,7 @@ export default createSchema({
   types: schemaTypes.concat([
    
     //* content schemas
+    site,
     privacyPolicy,
     pagePromotions,
     promotion,
