@@ -27,8 +27,9 @@ export default createPage('PagePromotions', [
     name: 'ExampleButton',
     type: 'Button',
   }),
-  createReference({
-    name: 'ExamplePage',
-    to: [{ type: 'PageExample' }],
-  }),
+  // todo implement
+  // createReference({
+  //   name: 'ExamplePage',
+  //   to: [{ type: 'PageExample' }],
+  // }),
 ]);

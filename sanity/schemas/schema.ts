@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 //* import content schemas
 import privacyPolicy from './content/privacyPolicy'
 import pagePromotions from './content/pagePromotions'
+import promotion from './content/promotion'
 
 //* import types schemas
 import pageMeta from './types/pageMeta'
@@ -14,6 +15,7 @@ import blockContentComplex from './types/blockContentComplex'
 
 //* import components schemas
 import card from './components/card'
+import button from './components/button'
 import definition from './components/definition'
 
 //* Import locales
@@ -34,13 +36,17 @@ export default createSchema({
    
     //* content schemas
     privacyPolicy,
+    pagePromotions,
+    promotion,
 
     // types schemas
     pageMeta,
     blockContentBasic,
     blockContentComplex,
+
     // components schemas
     card,
+    button,
     definition,
 
     // locales schemas
@@ -48,6 +54,5 @@ export default createSchema({
     localeString,
     localeBlockContentBasic,
     localeBlockContentComplex,
-  
   ])
 })
