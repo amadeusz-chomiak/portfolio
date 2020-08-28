@@ -5,9 +5,12 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 //* import content schemas
 import privacyPolicy from './content/privacyPolicy'
+import pagePromotions from './content/pagePromotions'
 
 //* import types schemas
 import pageMeta from './types/pageMeta'
+import blockContentBasic from './types/blockContentBasic'
+import blockContentComplex from './types/blockContentComplex'
 
 //* import components schemas
 import card from './components/card'
@@ -17,8 +20,8 @@ import definition from './components/definition'
 // import blockContent from './locale/BlockContent'
 import localeString from './locale/string'
 import localeText from './locale/text'
-import blockContentBasic from './locale/blockContentBasic'
-import blockContentComplex from './locale/blockContentComplex'
+import localeBlockContentBasic from './locale/blockContentBasic'
+import localeBlockContentComplex from './locale/blockContentComplex'
 // import localeBlockContent from './locale/BlockContent'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -34,15 +37,17 @@ export default createSchema({
 
     // types schemas
     pageMeta,
-
+    blockContentBasic,
+    blockContentComplex,
     // components schemas
     card,
     definition,
-    
+
     // locales schemas
     localeText,
     localeString,
-    blockContentBasic,
-    blockContentComplex,
+    localeBlockContentBasic,
+    localeBlockContentComplex,
+  
   ])
 })

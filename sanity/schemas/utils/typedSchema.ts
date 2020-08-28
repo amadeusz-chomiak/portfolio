@@ -1,5 +1,5 @@
 type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
-type SchemaSpecial = 'reference' | 'array'
+type SchemaSpecial = 'reference' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
 type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
 type SchemaTypesDocuments = 'PageExample' | 'PagePromotions' | 'Promotion';
@@ -19,16 +19,29 @@ type SchemaTypes =
 
 type Validation = 'error' | 'warn' | 'no';
 
-interface Preview {
-  select: {
-    title?: string;
-    subtitle?: string;
-    media?: string;
-  };
+interface PreviewSelect {
+  title?: string;
+  subtitle?: string;
+  media?: string | JSX.Element;
+}
+
+interface PreviewSelectAny extends PreviewSelect {
+  [key: string]: string | JSX.Element
+}
+
+type PreviewSelectData<T extends PreviewSelectAny> = {
+  [Key in keyof T]: any
+}
+
+interface Preview<T extends PreviewSelectAny = PreviewSelectAny> {
+  select: T;
+  prepare: (
+    data: PreviewSelectData<T>
+  ) => PreviewSelect;
 }
 
 interface SchemaType {
-  type: SchemaTypes | SchemaTypesDocuments
+  type: SchemaTypes | SchemaTypesDocuments;
 }
 
 interface Schema {
@@ -42,10 +55,11 @@ interface Schema {
   preview?: Preview;
   weak?: Boolean;
   to?: SchemaType[];
+  of?: SchemaType[];
 }
 
 type Rule = { required: () => any };
-const createSchema = (schema: Schema) => {  
+const createSchema = (schema: Schema) => {
   const title = schema.title ?? schema.name;
   const validation = (Rule: Rule) =>
     schema.required === 'error'
@@ -64,6 +78,10 @@ const createSchema = (schema: Schema) => {
     options: schema.options ?? {},
     fields: schema.fields ?? undefined,
     validation,
+    weak: schema.weak,
+    to: schema.to,
+    of: schema.of,
+    preview: schema.preview,
   };
 };
 
@@ -137,7 +155,7 @@ export const createObject = (schema: SchemaObject | SchemaComponent) => {
 
 interface SchemaArray {
   name: string;
-  of: Schema[];
+  of: SchemaType[];
   description?: string;
   title?: string;
   required?: Validation;
@@ -149,8 +167,6 @@ export const createArray = (schema: SchemaArray) => {
     ...schema,
   });
 };
-
-
 
 interface SchemaReference {
   name: string;
@@ -168,4 +184,3 @@ export const createReference = (schema: SchemaReference) => {
     ...schema,
   });
 };
-
