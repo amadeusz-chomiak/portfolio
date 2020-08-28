@@ -11,6 +11,7 @@ import pageMeta from './types/pageMeta'
 
 //* import components schemas
 import card from './components/card'
+import definition from './components/definition'
 
 //* Import locales
 // import blockContent from './locale/BlockContent'
@@ -36,7 +37,8 @@ export default createSchema({
 
     // components schemas
     card,
-
+    definition,
+    
     // locales schemas
     localeText,
     localeString,

@@ -24,6 +24,19 @@ export default createObject({
       description: 'Content of the card',
       type: 'LocaleBlockContentBasic'
     }), 
+    createObject({
+      name: 'Action',
+      fields: [
+        create({
+          name: 'Primary',
+          type: 'LocaleString'
+        }),
+        create({
+          name: 'Secondary',
+          type: 'LocaleString'
+        })
+      ] 
+    })
   ],
   preview: {
     select: {
