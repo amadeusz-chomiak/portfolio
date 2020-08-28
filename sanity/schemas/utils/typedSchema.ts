@@ -1,8 +1,12 @@
-type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
+type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
 type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
 type SchemaTypesPlugins = 'color';
-type SchemaTypesLocale = 'LocaleString' | 'LocaleText' | 'LocaleBlockContentComplex' | 'LocaleBlockContentBasic';
+type SchemaTypesLocale =
+  | 'LocaleString'
+  | 'LocaleText'
+  | 'LocaleBlockContentComplex'
+  | 'LocaleBlockContentBasic';
 type SchemaTypes =
   | SchemaTypesBasic
   | SchemaTypesLocale
@@ -76,7 +80,7 @@ interface SchemaImage {
 }
 
 export const createImage = (schema: SchemaImage) =>
- createSchema({
+  createSchema({
     type: 'image',
     options: {
       storeOriginalFilename: false,
@@ -101,16 +105,26 @@ export const createImage = (schema: SchemaImage) =>
 type Collapsed = 'disallow' | 'allow' | 'collapse';
 interface SchemaObject {
   name: string;
-  fields?: Schema[];
+  fields: Schema[];
   description?: string;
   title?: string;
-  type?: SchemaTypesWithFields | SchemaTypesComponents;
+  type?: SchemaTypesWithFields;
   required?: Validation;
   collapsed?: Collapsed;
   preview?: Preview;
 }
 
-export const createObject = (schema: SchemaObject) => {
+interface SchemaComponent {
+  name: string;
+  description?: string;
+  title?: string;
+  type?: SchemaTypesComponents;
+  required?: Validation;
+  collapsed?: Collapsed;
+  preview?: Preview;
+}
+
+export const createObject = (schema: SchemaObject | SchemaComponent) => {
   const collapsed = schema.collapsed ?? 'collapse';
 
   return createSchema({
@@ -119,6 +133,22 @@ export const createObject = (schema: SchemaObject) => {
       collapsible: collapsed === 'collapse' || collapsed === 'allow',
       collapsed: collapsed === 'collapse',
     },
+    ...schema,
+  });
+};
+
+interface SchemaArray {
+  name: string;
+  of: Schema[];
+  description?: string;
+  title?: string;
+  required?: Validation;
+  preview?: Preview;
+}
+
+export const createArray = (schema: SchemaArray) => {
+  return createSchema({
+    type: 'array',
     ...schema,
   });
 };
