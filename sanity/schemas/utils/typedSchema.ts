@@ -3,6 +3,7 @@ type SchemaSpecial = 'reference' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
 type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
 export type SchemaTypesPages = 'PageAbout' | 'PageContact' | 'PageHero' | 'PagePromotion' | 'PageSolution' | 'PagePrivacy';
+export type SchemaTypesGroups = 'Promotion' | 'Solution';
 type SchemaTypesDocuments = SchemaTypesPages | 'Promotion' | 'Solution';
 type SchemaTypesPlugins = 'color';
 type SchemaTypesCustom = 'Meta';
