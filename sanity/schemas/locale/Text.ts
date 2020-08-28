@@ -1,7 +1,7 @@
 import supportedLanguages from './supportedLanguages'
 
 export default {
-  name: 'localeText',
+  name: 'LocaleText',
   type: 'object',
   fieldsets: [
     {

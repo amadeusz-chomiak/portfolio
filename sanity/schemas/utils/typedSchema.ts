@@ -1,12 +1,14 @@
 type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
-type SchemaTypesComponents = 'Card' | 'Button';
-type SchemaTypesLocale = 'localeString' | 'localeText';
+type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
+type SchemaTypesPlugins = 'color';
+type SchemaTypesLocale = 'LocaleString' | 'LocaleText' | 'LocaleBlockContentComplex' | 'LocaleBlockContentBasic';
 type SchemaTypes =
   | SchemaTypesBasic
   | SchemaTypesLocale
   | SchemaTypesWithFields
-  | SchemaTypesComponents;
+  | SchemaTypesComponents
+  | SchemaTypesPlugins;
 
 type Validation = 'error' | 'warn' | 'no';
 
@@ -86,7 +88,7 @@ export const createImage = (schema: SchemaImage) =>
         title: 'Alternate text',
         description:
           'Describe what is on the image for people with vision problems',
-        type: 'localeText',
+        type: 'LocaleText',
         required: 'warn',
         options: {
           isHighlighted: true,

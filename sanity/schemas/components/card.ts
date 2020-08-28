@@ -11,19 +11,19 @@ export default createObject({
     create({
       name: 'Title',
       description: 'Title of the card',
-      type: 'localeString',
+      type: 'LocaleString',
       required: 'error'
     }),
     create({
       name: 'Subtitle',
       description: 'Subtitle of the card',
-      type: 'localeText'
+      type: 'LocaleText'
     }),
-    // create({
-    //   name: 'Content',
-    //   description: 'Content of the card',
-    //   type: 'blockContentBasic'
-    // }), 
+    create({
+      name: 'Content',
+      description: 'Content of the card',
+      type: 'LocaleBlockContentBasic'
+    }), 
   ],
   preview: {
     select: {

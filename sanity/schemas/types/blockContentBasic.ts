@@ -8,6 +8,8 @@
  *    type: 'blockContent'
  *  }
  */
+import {create, createImage, createObject} from '../utils/typedSchema'
+
 export default {
   title: 'Block Content Basic',
   name: 'BlockContentBasic',
@@ -54,8 +56,15 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      type: 'image',
-      options: {hotspot: true}
+      type: 'array',
+      name: 'Definitions',
+      title: 'Definitions',
+      of: [
+        create({
+          name: 'Definition',
+          type: 'Definition'
+        })
+      ]
     }
   ]
 }

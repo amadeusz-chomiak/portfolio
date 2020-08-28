@@ -8,5 +8,9 @@ export default createPage('Privacy', [
     description: 'Card for privacy policy author',
     type: 'Card'
   }),
-  // todo add block content block
+  create({
+    name: 'Content',
+    description: 'Content of privacy policy',
+    type: 'LocaleBlockContentComplex'
+  }),
 ])

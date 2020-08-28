@@ -14,8 +14,10 @@ import card from './components/card'
 
 //* Import locales
 // import blockContent from './locale/BlockContent'
-import localeString from './locale/String'
-import localeText from './locale/Text'
+import localeString from './locale/string'
+import localeText from './locale/text'
+import blockContentBasic from './locale/blockContentBasic'
+import blockContentComplex from './locale/blockContentComplex'
 // import localeBlockContent from './locale/BlockContent'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -36,9 +38,9 @@ export default createSchema({
     card,
 
     // locales schemas
-    // blockContent,
     localeText,
-    // localeBlockContent,
     localeString,
+    blockContentBasic,
+    blockContentComplex,
   ])
 })

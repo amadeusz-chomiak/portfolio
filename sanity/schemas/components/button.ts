@@ -1,7 +1,7 @@
 export default {
   name: 'Button',
   title: 'Button',
-  type: 'document',
+  type: 'object',
   fields: [
     {
       name: 'Title',

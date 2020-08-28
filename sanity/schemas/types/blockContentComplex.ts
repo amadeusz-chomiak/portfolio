@@ -10,7 +10,7 @@
  */
 export default {
   title: 'Block Content',
-  name: 'blockContent',
+  name: 'BlockContentComplex',
   type: 'array',
   of: [
     {

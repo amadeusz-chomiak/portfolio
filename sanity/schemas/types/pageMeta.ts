@@ -8,13 +8,13 @@ export default createObject({
     create({
       name: 'Title',
       description: 'Title will be used in site-map and page title meta tag',
-      type: 'localeString',
+      type: 'LocaleString',
       required: 'error'
     }),
     create({
       name: 'Description',
       description: 'Description will be used in site-map and page description meta tag',
-      type: 'localeText',
+      type: 'LocaleText',
       required: 'warn'
     }),
     createObject({
@@ -23,12 +23,12 @@ export default createObject({
       fields: [
         create({
           name: 'Title',
-          type: 'localeString',
+          type: 'LocaleString',
           description: 'Title specific to social media, if not set will use meta title'
         }),
         create({
           name: 'Description',
-          type: 'localeText',
+          type: 'LocaleText',
           description: 'Description specific to social media, if not set will use meta description'
         }),
         createImage({
