@@ -4,7 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 //* import content schemas
-import privacyPolicy from './content/privacyPolicy'
+import privacyPolicy from './content/privacyPrivacy'
 import pageAbout from './content/pageAbout'
 import pageContact from './content/pageContact'
 import pageHero from './content/pageHero'

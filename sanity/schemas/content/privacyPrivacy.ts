@@ -2,7 +2,7 @@
 import {createPage} from '../utils/page'
 import {create, createObject} from '../utils/typedSchema'
 
-export default createPage('Privacy', [
+export default createPage('PagePrivacy', [
   create({
     name: 'Cookie',
     description: 'Cookie definition',
