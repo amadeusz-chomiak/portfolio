@@ -37,7 +37,7 @@ export default {
         addStyle('normal', 1),
         addStyle('subtitle', 1.125),
         addStyle('title', 1.25),
-        // addStyle('unimportant', 0.9, 0.85),
+        addStyle('unimportant', 0.9, 0.85),
         // addStyle('hidden', 1, 0.6),
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
