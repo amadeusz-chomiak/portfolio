@@ -1,5 +1,6 @@
 import React from 'react';
-
+import {BiArrowFromTop} from 'react-icons/bi'
+import {RiRouteLine} from 'react-icons/ri'
 const addStyle = (value: string, size: number, opacity: number = 1) => ({
   title: value,
   value: value,
@@ -51,11 +52,27 @@ export default {
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: 'URL',
-            name: 'link',
+            title: 'Route',
+            name: 'Route',
             type: 'object',
+            icon: RiRouteLine,
             fields: [
               createRouteLink()
+            ],
+          },
+          {
+            title: 'Scroll',
+            name: 'Scroll',
+            type: 'object',
+            icon: BiArrowFromTop,
+            fields: [
+              create({
+                name: 'title',
+                title: 'Scroll to title',
+                type: 'string',
+                description: 'Will scroll to first partial match to title in this content field',
+                required: 'error'
+              })
             ],
           },
         ],
