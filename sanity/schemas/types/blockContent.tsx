@@ -59,22 +59,7 @@ export default {
             fields: [
               createRouteLink()
             ],
-          },
-          {
-            title: 'Scroll',
-            name: 'Scroll',
-            type: 'object',
-            icon: BiArrowFromTop,
-            fields: [
-              create({
-                name: 'title',
-                title: 'Scroll to title',
-                type: 'string',
-                description: 'Will scroll to first partial match to title in this content field',
-                required: 'error'
-              })
-            ],
-          },
+          }
         ],
       },
     },
