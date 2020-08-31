@@ -9,7 +9,7 @@ export default createObject({
   name: 'Solution',
   type: 'document',
   fields: [
-    create({
+    createObject({
       type: 'LocaleString',
       name: 'Value',
       description: 'Highlighted value of solution',

@@ -10,7 +10,7 @@ export default createObject({
   name: 'Promotion',
   type: 'document',
   fields: [
-    create({
+    createObject({
       type: 'LocaleString',
       name: 'Value',
       description: 'Highlighted value of promotion',
