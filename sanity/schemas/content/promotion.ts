@@ -5,7 +5,7 @@ import {
   createArray,
   createReference,
 } from '../utils/typedSchema';
-
+ 
 export default createObject({
   name: 'Promotion',
   type: 'document',

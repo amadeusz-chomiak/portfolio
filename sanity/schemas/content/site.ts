@@ -45,20 +45,28 @@ export default createPage('Site', [
           }),
           createObject({
             name: 'Link',
-            description: 'Text on links to this page',
+            description: 'Text on link to next route',
             type: 'LocaleString'
           }),
           createObject({
             name: 'Card',
             description: 'Use card only on one of pages! Or else it will be too crowded!',
             type: 'Card'
-          }), 
+          }),
         ],
         preview: {
           select: {
             title: 'Title',
-            subtitle: 'Link'
-          } 
+            link: 'Link',
+            page: 'Page'
+          },
+          prepare({title, link, page}) {
+
+            return {
+              title: title?.pl,
+              subtitle: `ref: ${page?._ref ?? '[no ref]'} | ${link?.pl ?? '[no link]'}`
+            }
+          }
         }
       }),
     ],

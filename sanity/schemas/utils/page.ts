@@ -30,7 +30,7 @@ export const createPage = (name: string, customFields: Schema[], title = name) =
     }),
   ]
 
-  return {
+  return createObject({
     name,
     title,
     type: 'document',
@@ -40,8 +40,21 @@ export const createPage = (name: string, customFields: Schema[], title = name) =
     ],
     preview: {
       select: {
-        title: 'title',
+        content: 'Content',
+        meta: 'Meta',
+        image: 'Image',
+        id: '_id'
       },
+      prepare({ content, meta, image, id }) {
+        const title: string = content?.pl[0]?.children.map(child => child.text).join(' ') ?? meta?.Title?.pl ?? '[No title]' 
+        const subtitle: string = `id: ${id} | ${meta?.Description?.pl ?? '[No meta description]'}`
+        const media: string =  image ?? meta?.Social?.Image
+        return {
+          title,
+          subtitle, 
+          media
+        }
+      }  
     },
-  }
+  })
 };
