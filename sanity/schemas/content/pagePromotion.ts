@@ -9,11 +9,7 @@ import {
 } from '../utils/typedSchema';
 
 export default createPage('PagePromotion', [
-  createImage({
-    name: 'Image',
-    description: 'Full height image',
-    required: 'warn',
-  }),
+  
   createArray({
     name: 'Promotions',
     description: 'Active promotions',
@@ -28,6 +24,11 @@ export default createPage('PagePromotion', [
     name: 'Content',
     description: 'Content of Promotion page',
     type: 'LocaleBlockContent',
+  }),
+  createImage({
+    name: 'Image',
+    description: 'Full height image',
+    required: 'warn',
   }),
   // todo implement
   // createObject({
