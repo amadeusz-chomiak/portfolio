@@ -6,10 +6,18 @@ import {
   createReference,
 } from '../utils/typedSchema';
 
-export default createPage('Promotion', [
-  create({ type: 'LocaleString', name: 'Value', description: 'Highlighted value of promotion' }),
-  createObject({
-    type: 'Card',
-    name: 'Promotion',
-  }),
-]);
+export default createObject({
+  name: 'Promotion',
+  type: 'document',
+  fields: [
+    create({
+      type: 'LocaleString',
+      name: 'Value',
+      description: 'Highlighted value of promotion',
+    }),
+    createObject({
+      type: 'Card',
+      name: 'Promotion',
+    }),
+  ],
+});

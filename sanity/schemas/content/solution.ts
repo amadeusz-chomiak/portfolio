@@ -1,4 +1,3 @@
-import { createPage } from '../utils/page';
 import {
   create,
   createObject,
@@ -6,10 +5,18 @@ import {
   createReference,
 } from '../utils/typedSchema';
 
-export default createPage('Solution', [
-  create({ type: 'LocaleString', name: 'Value', description: 'Highlighted value of solution' }),
-  createObject({
-    type: 'Card',
-    name: 'Promotion',
-  }),
-]);
+export default createObject({
+  name: 'Solution',
+  type: 'document',
+  fields: [
+    create({
+      type: 'LocaleString',
+      name: 'Value',
+      description: 'Highlighted value of solution',
+    }),
+    createObject({
+      type: 'Card',
+      name: 'Solution',
+    }),
+  ],
+});
