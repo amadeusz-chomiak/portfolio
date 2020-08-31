@@ -7,4 +7,4 @@ export const showPage = (name: SchemaTypesPages, title: string, icon: IconType =
   S.listItem()
     .title(title)
     .icon(icon)
-    .child(S.editor().schemaType(name).documentId(name));
+    .child(S.editor().title(title).schemaType(name).documentId(name));

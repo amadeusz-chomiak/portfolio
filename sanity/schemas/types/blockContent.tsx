@@ -1,19 +1,24 @@
-/**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- */
+import React from 'react';
+
+const addStyle = (value: string, size: number, opacity: number = 1) => ({
+  title: value,
+  value: value,
+  blockEditor: {
+    render: (props) => (
+      <span style={{ fontFamily: 'Montserrat', fontSize: `${size}rem`, opacity }}>
+        {props.children}
+      </span>
+    ),
+  },
+});
+
 import {
   create,
   createImage,
   createObject,
   createArray,
 } from '../utils/typedSchema';
+import { createRouteLink } from '../utils/routes';
 
 export default {
   title: 'Block Content Basic',
@@ -28,11 +33,11 @@ export default {
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        { title: 'Normal', value: 'normal' },
-        { title: 'H1', value: 'h1' },
-        { title: 'H2', value: 'h2' },
-        { title: 'H3', value: 'h3' },
-        { title: 'H4', value: 'h4' },
+        addStyle('normal', 1),
+        addStyle('subtitle', 1.125),
+        addStyle('title', 1.25),
+        // addStyle('unimportant', 0.9, 0.85),
+        // addStyle('hidden', 1, 0.6),
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
       // Marks let you mark up inline text in the block editor.
@@ -50,11 +55,7 @@ export default {
             name: 'link',
             type: 'object',
             fields: [
-              {
-                title: 'URL',
-                name: 'href',
-                type: 'url',
-              },
+              createRouteLink()
             ],
           },
         ],

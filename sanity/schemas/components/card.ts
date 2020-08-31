@@ -4,22 +4,18 @@ export default createObject({
   title: 'Card',
   description: 'Will render card',
   fields: [
-    createImage({
-      name: 'Image',
-      description: 'Small corner image for the card'
-    }),
-    create({
-      name: 'Title',
-      description: 'Title of the card',
-      type: 'LocaleString',
-      required: 'error'
-    }),
-    create({
-      name: 'Subtitle',
-      description: 'Subtitle of the card',
-      type: 'LocaleText'
-    }),
-    create({
+    // createObject({
+    //   name: 'Title',
+    //   description: 'Title of the card',
+    //   type: 'LocaleString',
+    //   required: 'error'
+    // }),
+    // createObject({
+    //   name: 'Subtitle',
+    //   description: 'Subtitle of the card',
+    //   type: 'LocaleText'
+    // }),
+    createObject({
       name: 'Content',
       description: 'Content of the card',
       type: 'LocaleBlockContent'
@@ -36,7 +32,11 @@ export default createObject({
           type: 'LocaleString'
         })
       ] 
-    })
+    }),
+    createImage({
+      name: 'Image',
+      description: 'Small corner image for the card'
+    }),
   ],
   preview: {
     select: {
