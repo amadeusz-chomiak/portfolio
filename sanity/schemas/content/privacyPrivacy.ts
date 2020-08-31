@@ -6,16 +6,18 @@ export default createPage('PagePrivacy', [
   createObject({
     name: 'Cookie',
     description: 'Cookie definition',
-    type: 'Card'    
+    type: 'Card',
+    required: 'error',
   }),
   createObject({
     name: 'Author',
     description: 'Card for privacy policy author',
-    type: 'Card'
+    type: 'Card',
   }),
   createObject({
     name: 'Content',
     description: 'Content of privacy policy',
-    type: 'LocaleBlockContent'
+    type: 'LocaleBlockContent',
+    required: 'error',
   }),
 ])

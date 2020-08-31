@@ -9,7 +9,12 @@ import {
 } from '../utils/typedSchema';
 
 export default createPage('PagePromotion', [
-  
+  createObject({
+    name: 'Content',
+    description: 'Content of Promotion page',
+    type: 'LocaleBlockContent',
+    required: 'error',
+  }),
   createArray({
     name: 'Promotions',
     description: 'Active promotions',
@@ -19,11 +24,6 @@ export default createPage('PagePromotion', [
         to: [{ type: 'Promotion' }],
       }),
     ],
-  }),
-  createObject({
-    name: 'Content',
-    description: 'Content of Promotion page',
-    type: 'LocaleBlockContent',
   }),
   createImage({
     name: 'Image',

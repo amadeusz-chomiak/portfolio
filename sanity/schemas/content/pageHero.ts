@@ -13,6 +13,7 @@ export default createPage('PageHero', [
     name: 'Content',
     description: 'Content of hero page',
     type: 'LocaleBlockContent',
+    required: 'error'
   }),
   createImage({
     name: 'Image',

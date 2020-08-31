@@ -12,27 +12,32 @@ export default createPage('PageAbout', [
   createImage({
     name: 'Image',
     description: 'Full height image',
-    required: 'warn'
+    required: 'warn',
   }),
   createObject({
     name: 'Content',
     description: 'Content of about page',
     type: 'LocaleBlockContent',
+    required: 'error',
   }),
   createObject({
     name: 'EmailContent',
-    type: 'LocaleBlockContent'
+    type: 'LocaleBlockContent',
+    required: 'error',
   }),
   createObject({
     name: 'EmailButton',
-    type: 'Button'
+    type: 'Button',
+    required: 'error',
   }),
   createObject({
     name: 'GithubContent',
-    type: 'LocaleBlockContent'
+    type: 'LocaleBlockContent',
+    required: 'error',
   }),
   createObject({
     name: 'GithubButton',
-    type: 'Button'
-  })
+    type: 'Button',
+    required: 'error',
+  }),
 ]);

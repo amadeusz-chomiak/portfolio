@@ -13,6 +13,7 @@ export default createPage('PageSolution', [
     name: 'Content',
     description: 'Content of solution page',
     type: 'LocaleBlockContent',
+    required: 'error',
   }),
   createArray({
     name: 'Solutions',

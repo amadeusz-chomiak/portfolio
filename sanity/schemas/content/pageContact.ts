@@ -18,6 +18,7 @@ export default createPage('PageContact', [
     name: 'Content',
     description: 'Content of about page',
     type: 'LocaleBlockContent',
+    required: 'error'
   }),
   // createObject({
   //   name: 'Email',
@@ -26,5 +27,6 @@ export default createPage('PageContact', [
   createObject({
     name: 'EmailButton',
     type: 'Button',
+    required: 'error',
   }),
 ]);
