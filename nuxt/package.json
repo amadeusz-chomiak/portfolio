@@ -12,6 +12,9 @@
     "lint": "yarn lint:js && yarn lint:style",
     "test": "jest"
   },
+  "engines": {
+    "npm": "use-yarn"
+  },
   "dependencies": {
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
