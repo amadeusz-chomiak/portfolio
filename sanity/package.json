@@ -8,9 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "deploy:graphql": "sanity graphql deploy --dataset production --playground",
-    "deploy:studio": "sanity deploy",
-    "deploy": "yarn deploy:studio && yarn deploy:graphql",
+    "deploy": "sanity deploy",
     "upgrade": "sanity upgrade",
     "test": "sanity check"
   },
