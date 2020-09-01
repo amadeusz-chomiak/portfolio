@@ -50,6 +50,7 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api',
+    'nuxt-typed-vuex',
   ],
   /*
    ** Nuxt.js modules
