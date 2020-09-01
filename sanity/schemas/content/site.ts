@@ -4,10 +4,25 @@ import {
   createObject,
   createArray,
   createReference,
+  createImage,
 } from '../utils/typedSchema';
 
 //* main page landing structure (menu, header)
 export default createPage('Site', [
+  createObject({
+    name: 'Header',
+    fields: [
+      createObject({
+        name: 'Title',
+        type: 'LocaleString'
+      }),
+      createObject({
+        name: 'Subtitle',
+        type: 'LocaleString'
+      }),
+      createImage({name: 'Image', description: 'Picture of Me'})
+    ]
+  }),
   createArray({
     name: 'Pages',
     description: 'Order of pages on main site',
