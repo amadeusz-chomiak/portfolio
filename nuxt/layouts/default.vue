@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-black grid">
     <TheHeader />
     <TheNavigation />
     <main>
