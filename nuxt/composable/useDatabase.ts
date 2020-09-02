@@ -1,7 +1,8 @@
-import { reactive, useStatic, ref, toRefs } from '@nuxtjs/composition-api'
-
+import { ref, computed } from '@nuxtjs/composition-api'
 import sanityClient from '@sanity/client'
+import imageUrlBuilder from '@sanity/image-url'
 import { useIndexDB } from './useIndexDB'
+import { querySite, QuerySite } from '~/dev/databaseQuery'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -12,7 +13,7 @@ const client = sanityClient({
   dataset: 'production',
   useCdn: true,
 })
-
+const imageBuilder = imageUrlBuilder(client)
 type QueryFunction = (params: {
   [key: string]: Promise<any>
 }) => object | number | string
@@ -22,30 +23,31 @@ const enum QueryIds {
   site,
 }
 
-type State = { [key: number]: object }
+type anyObject = { [key: string]: anyObject }
+type State = { [QueryIds.site]?: QuerySite }
 let state: State = {}
-
+type StateKeys = keyof State
+type StateValues = State[StateKeys]
 if (!isProduction) {
   state = {
-    // [QueryIds.site]: {},
+    [QueryIds.site]: querySite,
   }
 }
 
-const fetch = () => {}
-
-const useQuery = <Params extends object>(
+const useQuery = <Result extends StateValues, Params extends object = {}>(
   id: QueryIds,
   query: string,
-  params: Params
+  params: Params,
+  onlyFirst = true
 ) => {
   const fetching = ref(true)
-  const error = ref<Error | undefined>(undefined)
-  let result = reactive<object>({})
+  const error = ref<Error>()
+  const result = ref<Result>()
 
   const resultState = state[id]
   if (resultState) {
     fetching.value = false
-    result = reactive(resultState)
+    result.value = resultState as Result
 
     return {
       fetching,
@@ -57,10 +59,17 @@ const useQuery = <Params extends object>(
   // todo fetch while geting data from indexDB
   const fetchQuery = async (params: Params) => {
     try {
-      result = reactive(await client.fetch(query, params))
+      const resultArray = await client.fetch(query, params)
+      if (onlyFirst) {
+        result.value = resultArray[0]
+      } else {
+        throw new Error('Todo implement arrays')
+        // result.value = { list: resultArray }
+      }
       await cacheSet(id, result)
     } catch (err) {
       error.value = err
+      console.error(err)
       // todo add retry module
     } finally {
       fetching.value = false
@@ -70,9 +79,10 @@ const useQuery = <Params extends object>(
   cacheGet(id)
     .then((response) => {
       if (response && typeof response === 'object') {
-        result = reactive(response)
+        result.value = response as Result
       }
     })
+    .catch((err) => console.error(err))
     .finally(() => fetchQuery(params))
 
   return {
@@ -82,11 +92,27 @@ const useQuery = <Params extends object>(
   }
 }
 
-export const useDatabase: UseDatabase = () => ({
-  querySite: () =>
-    useQuery(
-      QueryIds.site,
-      /* groq */ `*[_type=='site']{Header, Pages[]{Page->,...}}`,
-      {}
-    ),
-})
+export const useQuerySite = () =>
+  useQuery<QuerySite>(
+    QueryIds.site,
+    /* groq */ `*[_type=='Site']{Header, Pages[]{Page->,...}}`,
+    {}
+  )
+
+export const useImage = (
+  image:
+    | DeepPartial<{
+        _type: string
+        asset: {
+          _ref: string
+          _type: string
+        }
+      }>
+    | undefined,
+  height: number = 1200
+) =>
+  computed(() =>
+    image
+      ? imageBuilder.image(image).auto('format').height(height).fit('max').url()
+      : ''
+  )

@@ -9,6 +9,8 @@ import {
 import { VueClass } from '@vue/test-utils'
 import Vue from 'vue'
 
+export { useQuerySite } from '~/composable/useDatabase'
+
 type LiteralUnion<T extends U, U = string> = T | (U & never)
 
 interface Temp<V extends Vue> {
