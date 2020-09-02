@@ -10,6 +10,7 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest',
   },
+  transformIgnorePatterns: ['/node_modules/(?!@nuxtjs/composition-api)'],
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
