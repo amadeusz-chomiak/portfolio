@@ -1,3 +1,6 @@
 {
-  "jest.pathToJest": "yarn run test --runInBand"
+  "jest.pathToJest": "yarn run test --runInBand",
+  "cSpell.words": [
+    "groq"
+  ]
 }
