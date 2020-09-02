@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= h.changeCase.pascal(name) %>.vue
+to: components/<%= h.changeCase.pascal(name) %>.vue
 ---
 <template>
   <div></div>
