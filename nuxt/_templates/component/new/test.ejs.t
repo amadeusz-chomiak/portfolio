@@ -1,8 +1,8 @@
 ---
-to: tests/unit/components/<%= h.changeCase.pascal(name) %>.spec.ts
+to: tests/unit/<%= h.changeCase.pascal(name) %>.spec.ts
 ---
 import { fireEvent } from '@testing-library/vue'
-import { Base } from '@/utils/tests/core'
+import { Base } from '../utils/core'
 import Component from "@/components/<%= h.changeCase.pascal(name) %>.vue";
 const base = new Base(Component)
 

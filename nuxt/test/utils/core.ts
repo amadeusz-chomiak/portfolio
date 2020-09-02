@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 import {
   render,
   fireEvent,
@@ -7,7 +8,6 @@ import {
 } from '@testing-library/vue'
 import { VueClass } from '@vue/test-utils'
 import Vue from 'vue'
-import store from '~/store'
 
 type LiteralUnion<T extends U, U = string> = T | (U & never)
 
@@ -24,6 +24,9 @@ type selectWithQuery<T extends string> = (
   query: T
 ) => selectReturn
 
+const testText = '__testText__'
+const testTag = `<div>${testText}</div>`
+
 export class Base<V extends Vue> {
   protected temp: Temp<V> = {}
   constructor(
@@ -33,7 +36,6 @@ export class Base<V extends Vue> {
 
   render(additionalOptions?: RenderOptions<V>) {
     const renderer = render(this.Component, {
-      store,
       ...this.options,
       ...this.temp.options,
       ...additionalOptions,
