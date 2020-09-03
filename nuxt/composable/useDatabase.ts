@@ -1,12 +1,9 @@
-import { ref, computed } from '@nuxtjs/composition-api'
+import { ref, computed, reactive, watchEffect } from '@nuxtjs/composition-api'
 import sanityClient from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import { useIndexDB } from './useIndexDB'
 import { querySite, QuerySite } from '~/dev/databaseQuery'
 
 const isProduction = process.env.NODE_ENV === 'production'
-
-const { cacheGet, cacheSet } = useIndexDB('database')
 
 const client = sanityClient({
   projectId: '29z9xfxx',
@@ -25,70 +22,50 @@ const enum QueryIds {
 
 type anyObject = { [key: string]: anyObject }
 type State = { [QueryIds.site]?: QuerySite }
-let state: State = {}
+let state = reactive<State>({})
 type StateKeys = keyof State
 type StateValues = State[StateKeys]
+
 if (!isProduction) {
-  state = {
+  state = reactive({
     [QueryIds.site]: querySite,
-  }
+  })
 }
+
+const fetchingQueries = new Set<QueryIds>()
 
 const useQuery = <Result extends StateValues, Params extends object = {}>(
   id: QueryIds,
   query: string,
-  params: Params,
-  onlyFirst = true
+  params: Params
 ) => {
-  const fetching = ref(true)
-  const error = ref<Error>()
   const result = ref<Result>()
 
-  const resultState = state[id]
-  if (resultState) {
-    fetching.value = false
-    result.value = resultState as Result
-
-    return {
-      fetching,
-      result,
-      error,
-    }
-  }
-
-  // todo fetch while geting data from indexDB
   const fetchQuery = async (params: Params) => {
     try {
       const resultArray = await client.fetch(query, params)
-      if (onlyFirst) {
-        result.value = resultArray[0]
-      } else {
-        throw new Error('Todo implement arrays')
-        // result.value = { list: resultArray }
-      }
-      await cacheSet(id, result)
+      result.value = resultArray[0]
     } catch (err) {
-      error.value = err
-      console.error(err)
-      // todo add retry module
-    } finally {
-      fetching.value = false
+      throw new Error(err)
     }
   }
 
-  cacheGet(id)
-    .then((response) => {
-      if (response && typeof response === 'object') {
-        result.value = response as Result
+  if (state[id]) {
+    result.value = state[id] as Result
+  } else if (!fetchingQueries.has(id)) {
+    fetchingQueries.add(id)
+    fetchQuery(params)
+  } else {
+    const stopWatch = watchEffect(() => {
+      if (state[id]) {
+        result.value = state[id] as Result
+        stopWatch()
       }
     })
-    .catch((err) => console.error(err))
-    .finally(() => fetchQuery(params))
+  }
 
   return {
-    fetching,
     result,
-    error,
   }
 }
 
