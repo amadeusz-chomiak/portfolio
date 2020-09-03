@@ -1,16 +1,23 @@
 <template>
   <header class="flex items-center">
-    <div class="mr-4 flex-shrink-0">
-      <img class="rounded-full h-20" :src="headerPicture" :alt="headerAlt" />
+    <div class="mr-4 flex-shrink-0 rounded-full relative self-start">
+      <img
+        class="rounded-full h-12 md:h-14 lg:h-16"
+        :src="headerPicture"
+        :alt="headerAlt"
+      />
+      <div
+        class="rounded-full absolute inset-0 bg-primary-600 blend-soft-light"
+      />
     </div>
     <div>
       <h1 class="inline-flex flex-wrap items-baseline">
         <span
-          class="font-bold text-3xl text-primary-500 block flex-shrink-0 mr-2"
+          class="font-medium md:font-bold text-lg md:text-2xl md:tracking-wide lg:text-3xl lg:tracking-wider text-primary-50 block md:flex-shrink-0 mr-2"
           >{{ headerTitle }}</span
         >
         <span
-          class="italic text-2xl text-opacity-75 text-primary-100 block flex-shrink-0"
+          class="font-light md:font-normal italic text-md md:text-xl lg:text-2xl lg:tracking-wide md:text-opacity-75 text-primary-100 block md:flex-shrink-0"
           >{{ headerSubtitle }}</span
         >
       </h1>
