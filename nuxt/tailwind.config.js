@@ -26,14 +26,20 @@ module.exports = {
       black: '#070707',
       white: '#F8F8F8',
     },
+
     //* typography
     fontFamily: false,
+    extend: {
+      spacing: {
+        14: '3.5rem',
+      },
+    },
   },
   future: {
     removeDeprecatedGapUtilities: true,
   },
   variants: {},
-  plugins: [],
+  plugins: [require('tailwindcss-blend-mode')()],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
