@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex-grow-0 flex-shrink-0 lg:w-64 h-24 lg:h-full bg-primary-300"
+    class="w-full flex-grow-0 flex-shrink-0 md:w-64 h-24 md:h-full bg-primary-300"
   ></div>
 </template>
 
