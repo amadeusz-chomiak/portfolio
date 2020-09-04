@@ -25,6 +25,7 @@ module.exports = {
       error: '#9F1D1D',
       black: '#070707',
       white: '#F8F8F8',
+      transparent: 'transparent',
     },
 
     //* typography
