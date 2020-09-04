@@ -27,7 +27,17 @@ module.exports = {
       white: '#F8F8F8',
       transparent: 'transparent',
     },
-
+    //* filters
+    filter: {
+      // defaults to {}
+      none: 'none',
+      blur: 'blur(2px)',
+    },
+    backdropFilter: {
+      // defaults to {}
+      none: 'none',
+      blur: 'blur(2px)',
+    },
     //* typography
     fontFamily: false,
     extend: {
@@ -43,6 +53,7 @@ module.exports = {
   plugins: [
     require('tailwindcss-blend-mode')(),
     require('tailwindcss-scroll-snap'),
+    require('tailwindcss-filters'),
   ],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
