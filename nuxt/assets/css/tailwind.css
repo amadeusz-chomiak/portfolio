@@ -2,5 +2,6 @@
 @import 'tailwindcss/components';
 
 @import './font';
+@import './border';
 
 @import 'tailwindcss/utilities';
