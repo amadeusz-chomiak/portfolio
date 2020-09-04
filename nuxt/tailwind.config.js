@@ -29,12 +29,11 @@ module.exports = {
     },
     //* filters
     filter: {
-      // defaults to {}
       none: 'none',
+
       blur: 'blur(2px)',
     },
     backdropFilter: {
-      // defaults to {}
       none: 'none',
       blur: 'blur(2px)',
     },
@@ -49,11 +48,14 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
   },
-  variants: {},
+  variants: {
+    borderColor: ['responsive', 'hover', 'focus', 'hocus'],
+  },
   plugins: [
     require('tailwindcss-blend-mode')(),
     require('tailwindcss-scroll-snap'),
     require('tailwindcss-filters'),
+    require('tailwindcss-interaction-variants'),
   ],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css

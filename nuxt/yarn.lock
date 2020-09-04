@@ -11368,6 +11368,14 @@ tailwindcss-filters@^3.0.0:
   dependencies:
     lodash "^4.17.15"
 
+tailwindcss-interaction-variants@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-interaction-variants/-/tailwindcss-interaction-variants-5.0.0.tgz#8e0825dfa4b2a81804cbae536915e48a85e96580"
+  integrity sha512-Tmx9HjwuNA3G7cLUcebGkNchKkNVIZXBroxa0LBoq/KUb/xEKEM8qugUG7QczSNPhaZzpXmo3IzPkRhf4tDaOQ==
+  dependencies:
+    lodash "^4.17.19"
+    postcss-selector-parser "^6.0.2"
+
 tailwindcss-scroll-snap@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tailwindcss-scroll-snap/-/tailwindcss-scroll-snap-1.0.3.tgz#4d2bb1a1125cab144d3feeaed038f127fac9d894"
