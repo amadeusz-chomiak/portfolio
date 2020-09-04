@@ -40,7 +40,10 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   variants: {},
-  plugins: [require('tailwindcss-blend-mode')()],
+  plugins: [
+    require('tailwindcss-blend-mode')(),
+    require('tailwindcss-scroll-snap'),
+  ],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
