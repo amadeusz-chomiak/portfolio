@@ -4,17 +4,29 @@ const base = new Base(Component)
 
 const content = '__test content__'
 describe('components/BaseButton.vue', () => {
-  test('Show "content" prop', () =>
-    base.testPropInline((select) => select.getByText(content), { content }))
-  test('Use border classes when prop "secondary" is true', () => {
-    base.render({ props: { secondary: true } })
-    const Root = base.selectRoot()
-    expect(
-      Array.from(Root.classList).find((cl) => cl.includes('border'))?.length
-    ).toBeGreaterThan(0)
-  })
-
   test('Show content slot', () => base.testHasSlot('content'))
+
+  describe('Props', () => {
+    test('Show "content" prop', () =>
+      base.testPropInline((select) => select.getByText(content), { content }))
+
+    test('Use border classes when prop "secondary" is true', () => {
+      base.render({ props: { secondary: true } })
+      const Root = base.selectRoot()
+      expect(
+        Array.from(Root.classList).find((cl) => cl.includes('border'))?.length
+      ).toBeGreaterThan(0)
+    })
+
+    test('Use small padding class when prop "slim" is true', () => {
+      base.render({ props: { slim: true } })
+      const Root = base.selectRoot()
+      expect(
+        Array.from(Root.children[0].classList).find((cl) => cl.includes('py-1'))
+          ?.length
+      ).toBeGreaterThan(0)
+    })
+  })
 
   describe('Root container', () => {
     test('Root container is a "button", by default', () => {

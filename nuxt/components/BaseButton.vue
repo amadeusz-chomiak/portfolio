@@ -9,7 +9,7 @@
   >
     <div
       :class="innerClasses"
-      class="rounded-button-8 py-3 px-6 flex-1 flex justify-center transform transition-transform duration-75 group-active:scale-105 group-active:translate-y-1"
+      class="rounded-button-8 px-6 flex-1 flex justify-center transform transition-transform duration-75 group-active:scale-105 group-active:translate-y-1"
     >
       <slot name="content"
         ><p class="text-lg" :class="textClasses">{{ props.content }}</p></slot
@@ -42,6 +42,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    slim: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const rootTag = computed(() =>
@@ -58,11 +62,15 @@ export default defineComponent({
           ]
         : []),
       ...(props.route ? ['border-opacity-50'] : []),
+      ...(props.slim ? ['rounded-button-7'] : ['rounded-button-9']),
     ])
 
     const innerClasses = computed(() => [
       ...(props.secondary ? ['border-3', 'border-primary-600'] : []),
       ...(props.route ? [''] : []),
+      ...(props.slim
+        ? ['py-1', 'rounded-button-6']
+        : ['py-3', 'rounded-button-8']),
     ])
 
     const textClasses = computed(() =>

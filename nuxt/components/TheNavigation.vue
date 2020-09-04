@@ -9,6 +9,7 @@
         route
         secondary
         class="mb-4"
+        :slim="index === links.length - 1"
       />
     </div>
   </div>
