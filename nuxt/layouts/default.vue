@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-black flex flex-col h-screen">
+  <div class="bg-black flex flex-col h-screen relative">
     <div
-      class="m-4 md:mt-8 md:mb-5 md:mx-6 lg:mt-10 lg:mb-6 lg:mx-8 xl:mt-12 xl:mb-8 xl:mx-10"
+      class="m-4 md:mt-8 md:mb-5 md:mx-8 lg:mt-10 lg:mb-6 lg:mx-10 xl:mt-12 xl:mb-8 xl:mx-12 z-10"
     >
       <TheHeader />
     </div>
-    <div class="flex flex-col-reverse md:flex-row flex-1">
+    <div class="flex flex-col-reverse md:flex-row flex-1 z-10">
       <div class="md:ml-5 lg:ml-6 xl:ml-8">
         <TheNavigation />
       </div>
@@ -14,6 +14,15 @@
       >
         <Nuxt />
       </main>
+    </div>
+    <div class="absolute inset-0 md:left-auto md:right-0 md:w-1/2">
+      <portal-target
+        name="background-image"
+        class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
+      />
+      <div
+        class="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent to-black"
+      />
     </div>
   </div>
 </template>
