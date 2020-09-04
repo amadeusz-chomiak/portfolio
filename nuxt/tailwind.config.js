@@ -30,8 +30,7 @@ module.exports = {
     //* filters
     filter: {
       none: 'none',
-
-      blur: 'blur(2px)',
+      blur: 'blur(1px)',
     },
     backdropFilter: {
       none: 'none',
