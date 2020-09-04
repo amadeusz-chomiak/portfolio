@@ -15,11 +15,8 @@
         <Nuxt />
       </main>
     </div>
-    <div class="absolute inset-0 md:left-auto md:right-0 md:w-1/2">
-      <portal-target
-        name="background-image"
-        class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
-      />
+    <div class="absolute inset-0 md:left-auto md:right-0 md:w-2/3 xl:w-3/4">
+      <portal-target class="h-full" name="background-image"></portal-target>
       <div
         class="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent to-black"
       />
