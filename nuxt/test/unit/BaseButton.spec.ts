@@ -4,9 +4,18 @@ const base = new Base(Component)
 
 const content = '__test content__'
 describe('components/BaseButton.vue', () => {
-  test('Show content prop', () =>
+  test('Show "content" prop', () =>
     base.testPropInline((select) => select.getByText(content), { content }))
+  test('Use border classes when prop "secondary" is true', () => {
+    base.render({ props: { secondary: true } })
+    const Root = base.selectRoot()
+    expect(
+      Array.from(Root.classList).find((cl) => cl.includes('border'))?.length
+    ).toBeGreaterThan(0)
+  })
+
   test('Show content slot', () => base.testHasSlot('content'))
+
   describe('Root container', () => {
     test('Root container is a "button", by default', () => {
       base.render()

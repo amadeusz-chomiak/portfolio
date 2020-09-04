@@ -43,13 +43,34 @@ module.exports = {
       spacing: {
         14: '3.5rem',
       },
+      borderWidth: {
+        3: '3px',
+      },
     },
   },
   future: {
     removeDeprecatedGapUtilities: true,
   },
   variants: {
-    borderColor: ['responsive', 'hover', 'focus', 'hocus'],
+    borderColor: [
+      'responsive',
+      'hover',
+      'focus',
+      'hocus',
+      'active',
+      'group-active',
+    ],
+    backgroundColor: [
+      'responsive',
+      'hover',
+      'focus',
+      'hocus',
+      'active',
+      'group-active',
+    ],
+    scale: ['responsive', 'active', 'group-active'],
+    translate: ['responsive', 'active', 'group-active'],
+    borderOpacity: ['responsive', 'active', 'group-active'],
   },
   plugins: [
     require('tailwindcss-blend-mode')(),
