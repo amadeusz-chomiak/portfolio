@@ -6,7 +6,9 @@
       <TheHeader />
     </div>
     <div class="flex flex-col-reverse md:flex-row flex-1 z-10">
-      <div class="md:ml-5 lg:ml-6 xl:ml-8">
+      <div
+        class="md:ml-5 md:max-w-2xs lg:ml-6 lg:max-w-xs xl:ml-8 xl:max-w-sm overflow-auto"
+      >
         <TheNavigation />
       </div>
       <main
