@@ -3,5 +3,6 @@
 
 @import './font';
 @import './border';
+@import './background';
 
 @import 'tailwindcss/utilities';

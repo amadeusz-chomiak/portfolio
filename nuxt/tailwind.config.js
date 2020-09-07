@@ -48,6 +48,12 @@ module.exports = {
       borderWidth: {
         3: '3px',
       },
+      borderRadius: {
+        xl: '1rem',
+      },
+      backgroundSize: {
+        56: '14rem',
+      },
     },
   },
   future: {
