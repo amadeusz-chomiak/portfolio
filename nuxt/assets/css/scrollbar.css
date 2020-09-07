@@ -1,0 +1,35 @@
+@variants hover {
+  .scroll-hide {
+    scrollbar-color: transparent bg-black;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      @apply w-1;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply rounded-full bg-black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-full bg-transparent;
+    }
+  }
+
+  .scroll {
+    scrollbar-color: theme('colors.primary.600') theme('colors.black');
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      @apply w-1;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply rounded-full bg-black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-full bg-primary-600;
+    }
+  }
+}
