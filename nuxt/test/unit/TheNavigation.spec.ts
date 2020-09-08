@@ -7,21 +7,21 @@ const { result } = useQuerySite()
 describe('components/TheNavigation.vue', () => {
   test('Render site links', () => {
     const { getByText } = base.render()
-    const pages = result.value?.Pages
+    const pages = result.value?.pages
     pages?.forEach((page) => {
-      const Link = getByText(page?.Title?.pl ?? '')
+      const Link = getByText(page?.title?.pl ?? '')
       expect(Link).toBeVisible()
     })
   })
 
   test('Render main link card', () => {
     const { getByText } = base.render()
-    const page = result.value?.Pages?.find((page) => page?.Card)
-    const Button = getByText(page?.Card?.Action?.Primary?.pl ?? '')
+    const page = result.value?.pages?.find((page) => page?.card)
+    const Button = getByText(page?.card?.action?.primary?.pl ?? '')
     expect(Button).toBeVisible()
 
     const Content = getByText(
-      page?.Card?.Content?.pl?.[0]?.children?.[0]?.text ?? ''
+      page?.card?.content?.pl?.[0]?.children?.[0]?.text ?? ''
     )
     expect(Content).toBeVisible()
   })

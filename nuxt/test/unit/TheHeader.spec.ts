@@ -9,7 +9,7 @@ describe('components/TheHeader.vue', () => {
     const { getByAltText } = base.render()
 
     const Image = getByAltText(
-      result.value?.Header?.Image?.Alt?.pl ?? ''
+      result.value?.header?.image?.alt?.pl ?? ''
     ) as HTMLImageElement
     expect(Image).toBeVisible()
     expect(Image.src).toContain('https://cdn.sanity.io/images/')
@@ -17,13 +17,13 @@ describe('components/TheHeader.vue', () => {
 
   test('Display Title', () => {
     const { getByText } = base.render()
-    const Title = getByText(result.value?.Header?.Title?.pl ?? '')
+    const Title = getByText(result.value?.header?.title?.pl ?? '')
     expect(Title).toBeVisible()
   })
 
   test('Display Subtitle', () => {
     const { getByText } = base.render()
-    const Subtitle = getByText(result.value?.Header?.Subtitle?.pl ?? '')
+    const Subtitle = getByText(result.value?.header?.subtitle?.pl ?? '')
     expect(Subtitle).toBeVisible()
   })
 })

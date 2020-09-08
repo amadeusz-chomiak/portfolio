@@ -1,7 +1,7 @@
 import { Base } from '../utils/core'
 import Component from '~/components/BaseContent.vue'
 import { querySite } from '~/dev/databaseQuery'
-const content = querySite.Pages[0].Page.Content.pl
+const content = querySite.pages[0].page.content.pl
 const base = new Base(Component, { props: { content } })
 
 describe('components/BaseContent.vue', () => {
