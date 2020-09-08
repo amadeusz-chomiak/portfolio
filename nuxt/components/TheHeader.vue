@@ -32,12 +32,12 @@ import { useQuerySite, useImage } from '~/composable/useDatabase'
 export default defineComponent({
   setup() {
     const { result } = useQuerySite()
-    const header = computed(() => result.value?.Header)
-    const headerPicture = useImage(header.value?.Image, 224)
-    const headerAlt = computed(() => header.value?.Image?.Alt?.pl)
+    const header = computed(() => result.value?.header)
+    const headerPicture = useImage(header.value?.image, 224)
+    const headerAlt = computed(() => header.value?.image?.alt?.pl)
 
-    const headerTitle = computed(() => header.value?.Title?.pl)
-    const headerSubtitle = computed(() => header.value?.Subtitle?.pl)
+    const headerTitle = computed(() => header.value?.title?.pl)
+    const headerSubtitle = computed(() => header.value?.subtitle?.pl)
     return { headerAlt, headerPicture, headerTitle, headerSubtitle }
   },
 })

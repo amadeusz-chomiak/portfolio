@@ -1,33 +1,40 @@
 export const querySite = {
-  Header: {
-    Image: {
-      Alt: {
-        _type: 'LocaleText',
+  header: {
+    image: {
+      _type: 'image',
+      alt: {
+        _type: 'localeText',
         pl:
           'Uśmiechnięty, przystojny mężczyzna o długich ciemnych włosach i ciemnobrązowych oczach. Stoi na tle zielonej kosodrzewiny.',
       },
-      _type: 'image',
       asset: {
         _ref: 'image-3a628b41bbf67a3395580c6c4de76b3273091183-437x437-jpg',
         _type: 'reference',
       },
     },
-    Subtitle: { _type: 'LocaleString', pl: 'Stwórzmy Twoją część internetu' },
-    Title: { _type: 'LocaleString', pl: 'Amadeusz Chomiak' },
+    subtitle: { _type: 'localeString', pl: 'Stwórzmy Twoją część internetu' },
+    title: { _type: 'localeString', pl: 'Amadeusz Chomiak' },
   },
-  Pages: [
+  pages: [
     {
-      Link: { _type: 'LocaleString', pl: 'Znajdź rozwiązanie' },
-      Page: {
-        Content: {
-          _type: 'LocaleBlockContent',
+      _key: 'c6a5b972655f',
+      _type: 'page',
+      link: { _type: 'localeString', pl: 'Znajdź rozwiązanie' },
+      page: {
+        _createdAt: '2020-09-08T09:20:52Z',
+        _id: 'pageHero',
+        _rev: 'MdZkBq3rwiPBKKi9PZtqz7',
+        _type: 'pageHero',
+        _updatedAt: '2020-09-08T09:51:24Z',
+        content: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: '78f6fefb7614',
+              _key: 'd560a448790d',
               _type: 'block',
               children: [
                 {
-                  _key: '33970e66a438',
+                  _key: '017e2b5762c4',
                   _type: 'span',
                   marks: [],
                   text: 'Wszyscy jesteśmy połączeni',
@@ -37,11 +44,11 @@ export const querySite = {
               style: 'title',
             },
             {
-              _key: '22fe36de7d3e',
+              _key: '116c13bb1190',
               _type: 'block',
               children: [
                 {
-                  _key: '640deaf45604',
+                  _key: 'a3accc7fd87f',
                   _type: 'span',
                   marks: [],
                   text: 'Czas to wykorzystać. ',
@@ -51,11 +58,11 @@ export const querySite = {
               style: 'normal',
             },
             {
-              _key: 'cb0198df4522',
+              _key: '9a72e1cc6a54',
               _type: 'block',
               children: [
                 {
-                  _key: 'e111ef2b7a4e',
+                  _key: 'f6e72f545600',
                   _type: 'span',
                   marks: [],
                   text:
@@ -67,7 +74,7 @@ export const querySite = {
             },
           ],
         },
-        Image: {
+        image: {
           _type: 'image',
           asset: {
             _ref:
@@ -75,28 +82,28 @@ export const querySite = {
             _type: 'reference',
           },
         },
-        _createdAt: '2020-08-28T16:54:46Z',
-        _id: 'PageHero',
-        _rev: 'cy7QcMhDtGpLRpQo3IdWsX',
-        _type: 'PageHero',
-        _updatedAt: '2020-08-31T18:54:54Z',
       },
-      Title: { _type: 'LocaleString', pl: 'Potrzeba' },
-      _key: 'd2dafd591f3e',
-      _type: 'Page',
+      title: { _type: 'localeString', pl: 'Potrzeba' },
     },
     {
-      Link: { _type: 'LocaleString', pl: 'Sprawdź cenę' },
-      Page: {
-        Content: {
-          _type: 'LocaleBlockContent',
+      _key: 'e0eb06f0d8b4',
+      _type: 'page',
+      link: { _type: 'localeString', pl: 'Sprawdź cenę' },
+      page: {
+        _createdAt: '2020-09-08T09:21:29Z',
+        _id: 'pageSolution',
+        _rev: 'n6hhUy2cDIEP6FOIXkwd2A',
+        _type: 'pageSolution',
+        _updatedAt: '2020-09-08T09:51:22Z',
+        content: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: '89e37fa7eac9',
+              _key: 'c71d68a1ac2a',
               _type: 'block',
               children: [
                 {
-                  _key: 'b6b2bf29e094',
+                  _key: '7a8f0568d1a3',
                   _type: 'span',
                   marks: [],
                   text: 'Czas to pieniądz',
@@ -106,11 +113,11 @@ export const querySite = {
               style: 'title',
             },
             {
-              _key: 'e60196d50118',
+              _key: 'cbc483ae7c27',
               _type: 'block',
               children: [
                 {
-                  _key: 'c842e0ab0e9c',
+                  _key: 'c79b21dac41d',
                   _type: 'span',
                   marks: [],
                   text:
@@ -122,7 +129,7 @@ export const querySite = {
             },
           ],
         },
-        Image: {
+        image: {
           _type: 'image',
           asset: {
             _ref:
@@ -130,35 +137,35 @@ export const querySite = {
             _type: 'reference',
           },
         },
-        Solutions: [
+        solutions: [
           {
-            _key: '3e5c912ad0ef',
-            _ref: '0943204d-e3a7-4881-b2e0-d000c7952af9',
-            _type: 'Reference',
+            _key: '707dff7c24ef',
+            _ref: '3a9f2a79-ae9b-42ca-9e27-71565b9cca0b',
+            _type: 'reference',
           },
         ],
-        _createdAt: '2020-08-28T17:32:07Z',
-        _id: 'PageSolution',
-        _rev: 'cy7QcMhDtGpLRpQo3IdX65',
-        _type: 'PageSolution',
-        _updatedAt: '2020-08-31T18:54:56Z',
       },
-      Title: { _type: 'LocaleString', pl: 'Rozwiązanie' },
-      _key: '9b40b1e1db8a',
-      _type: 'Page',
+      title: { _type: 'localeString', pl: 'Rozwiązanie' },
     },
     {
-      Link: { _type: 'LocaleString', pl: 'Współpracujmy' },
-      Page: {
-        Content: {
-          _type: 'LocaleBlockContent',
+      _key: '54c613aaf62d',
+      _type: 'page',
+      link: { _type: 'localeString', pl: 'Współpracujmy' },
+      page: {
+        _createdAt: '2020-09-08T09:22:51Z',
+        _id: 'pagePromotion',
+        _rev: 'kxPviwKqiOdMF7ZkiqUOhs',
+        _type: 'pagePromotion',
+        _updatedAt: '2020-09-08T09:51:19Z',
+        content: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: 'fd99ad4ddfad',
+              _key: 'a7c3c1455c07',
               _type: 'block',
               children: [
                 {
-                  _key: '05703b7b4c77',
+                  _key: '7c0a9e6ce4cd',
                   _type: 'span',
                   marks: [],
                   text: 'Wybierz zasady naszej współpracy',
@@ -168,24 +175,24 @@ export const querySite = {
               style: 'title',
             },
             {
-              _key: 'c0d1a4cd6c50',
+              _key: '0c0f32b912b6',
               _type: 'block',
               children: [
                 {
-                  _key: 'b36682719b72',
+                  _key: '1c94cf3d247e',
                   _type: 'span',
                   marks: [],
                   text:
                     'Prostą stronę firmową lub bloga wykonam dla Ciebie za około ',
                 },
                 {
-                  _key: '08e2d7e0b888',
+                  _key: 'd7eb55be733a',
                   _type: 'span',
                   marks: ['strong'],
                   text: '1200zł ',
                 },
                 {
-                  _key: 'c712e369e3b5',
+                  _key: 'c6f3a3458137',
                   _type: 'span',
                   marks: [],
                   text: 'w tydzień. Większe projekty wyceniam indywidualnie.',
@@ -196,7 +203,7 @@ export const querySite = {
             },
           ],
         },
-        Image: {
+        image: {
           _type: 'image',
           asset: {
             _ref:
@@ -204,35 +211,31 @@ export const querySite = {
             _type: 'reference',
           },
         },
-        Promotions: [
+        promotions: [
           {
-            _key: 'fcff4ec70eb4',
-            _ref: 'b7659b67-9a1b-4ac9-8623-b07b99ec92b2',
-            _type: 'Reference',
+            _key: '35c4c026a36f',
+            _ref: '03dc6fa5-015a-4853-9d37-b842e1266604',
+            _type: 'reference',
           },
         ],
-        _createdAt: '2020-08-31T13:50:17Z',
-        _id: 'PagePromotion',
-        _rev: 'fPRaaAbnANhL0x9GWaM0s2',
-        _type: 'PagePromotion',
-        _updatedAt: '2020-08-31T18:55:08Z',
       },
-      Title: { _type: 'LocaleString', pl: 'Promocyjna cena' },
-      _key: '8eb4e522b9fe',
-      _type: 'Page',
+      title: { _type: 'localeString', pl: 'Promocyjna cena' },
     },
     {
-      Card: {
-        Action: { Primary: { _type: 'LocaleString', pl: 'Współpracujmy' } },
-        Content: {
-          _type: 'LocaleBlockContent',
+      _key: '623e796be27b',
+      _type: 'page',
+      card: {
+        _type: 'card',
+        action: { primary: { _type: 'localeString', pl: 'Współpracujmy' } },
+        content: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: '7c5fdf1bae47',
+              _key: '63c1ba9fcd87',
               _type: 'block',
               children: [
                 {
-                  _key: '5437b050d14a',
+                  _key: '3adfac9d1e3c',
                   _type: 'span',
                   marks: [],
                   text:
@@ -243,11 +246,11 @@ export const querySite = {
               style: 'normal',
             },
             {
-              _key: '1efd4e61ca5b',
+              _key: 'cec354760222',
               _type: 'block',
               children: [
                 {
-                  _key: 'c8b2c5ca89e3',
+                  _key: '66d21cb28928',
                   _type: 'span',
                   marks: [],
                   text:
@@ -259,19 +262,23 @@ export const querySite = {
             },
           ],
         },
-        _type: 'Card',
       },
-      Link: { _type: 'LocaleString', pl: 'Rozpocznijmy współpracę' },
-      Page: {
-        Content: {
-          _type: 'LocaleBlockContent',
+      link: { _type: 'localeString', pl: 'Rozpocznijmy współpracę' },
+      page: {
+        _createdAt: '2020-09-08T09:49:25Z',
+        _id: 'pageContact',
+        _rev: 'kxPviwKqiOdMF7ZkiqUOMa',
+        _type: 'pageContact',
+        _updatedAt: '2020-09-08T09:51:15Z',
+        content: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: '892abb24c629',
+              _key: 'c398888f39fc',
               _type: 'block',
               children: [
                 {
-                  _key: '46308571b967',
+                  _key: 'dc330b1f2597',
                   _type: 'span',
                   marks: [],
                   text: 'Rozpocznijmy współpracę',
@@ -281,17 +288,17 @@ export const querySite = {
               style: 'title',
             },
             {
-              _key: '52727bf0670f',
+              _key: 'a3953197f8ea',
               _type: 'block',
               children: [
                 {
-                  _key: '629407137b51',
+                  _key: '452509f67c07',
                   _type: 'span',
                   marks: [],
                   text: 'Podaj swojego ',
                 },
                 {
-                  _key: '7602f21abc93',
+                  _key: 'c18619d673dd',
                   _type: 'span',
                   marks: [],
                   text: 'emalia',
@@ -302,15 +309,15 @@ export const querySite = {
             },
           ],
         },
-        EmailButton: {
-          Description: {
-            _type: 'LocaleText',
+        emailButton: {
+          _type: 'button',
+          description: {
+            _type: 'localeText',
             pl: 'Nie martw się, rozpoczęcie współpracy jest darmowe.',
           },
-          Title: { _type: 'LocaleString', pl: 'Rozpocznijmy współpracę' },
-          _type: 'Button',
+          title: { _type: 'localeString', pl: 'Rozpocznijmy współpracę' },
         },
-        Image: {
+        image: {
           _type: 'image',
           asset: {
             _ref:
@@ -318,27 +325,28 @@ export const querySite = {
             _type: 'reference',
           },
         },
-        _createdAt: '2020-08-28T17:34:07Z',
-        _id: 'PageContact',
-        _rev: 'cy7QcMhDtGpLRpQo3IdYsH',
-        _type: 'PageContact',
-        _updatedAt: '2020-08-31T18:55:19Z',
       },
-      Title: { _type: 'LocaleString', pl: 'Współpracujmy' },
-      _key: 'be0be4a163b2',
-      _type: 'Page',
+      title: { _type: 'localeString', pl: 'Współpracujmy' },
     },
     {
-      Page: {
-        Content: {
-          _type: 'LocaleBlockContent',
+      _key: 'e67a0d75b2b6',
+      _type: 'page',
+      outside: true,
+      page: {
+        _createdAt: '2020-09-08T09:50:17Z',
+        _id: 'pageAbout',
+        _rev: 'MdZkBq3rwiPBKKi9PZtpMx',
+        _type: 'pageAbout',
+        _updatedAt: '2020-09-08T09:51:13Z',
+        content: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: '874d99aec960',
+              _key: '755cff04c061',
               _type: 'block',
               children: [
                 {
-                  _key: '5ad22f437ef8',
+                  _key: 'cac2cbac38a8',
                   _type: 'span',
                   marks: [],
                   text: 'Kontakt',
@@ -349,19 +357,19 @@ export const querySite = {
             },
           ],
         },
-        EmailButton: {
-          Title: { _type: 'LocaleString', pl: 'Napisz do mnie' },
-          _type: 'Button',
+        emailButton: {
+          _type: 'button',
+          title: { _type: 'localeString', pl: 'Napisz do mnie' },
         },
-        EmailContent: {
-          _type: 'LocaleBlockContent',
+        emailContent: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: 'e7c783b3f892',
+              _key: 'fba92845dc1c',
               _type: 'block',
               children: [
                 {
-                  _key: '57dbc2edc663',
+                  _key: 'a7480dddc248',
                   _type: 'span',
                   marks: [],
                   text: 'Mój E-mail',
@@ -372,22 +380,22 @@ export const querySite = {
             },
           ],
         },
-        GithubButton: {
-          Title: {
-            _type: 'LocaleString',
+        githubButton: {
+          _type: 'button',
+          title: {
+            _type: 'localeString',
             pl: 'Obejrzyj moje publiczne projekty',
           },
-          _type: 'Button',
         },
-        GithubContent: {
-          _type: 'LocaleBlockContent',
+        githubContent: {
+          _type: 'localeBlockContent',
           pl: [
             {
-              _key: '22054e533fd0',
+              _key: '97e2248dec77',
               _type: 'block',
               children: [
                 {
-                  _key: '2600071bab59',
+                  _key: '316bd8f1487b',
                   _type: 'span',
                   marks: [],
                   text: 'Mój GitHub',
@@ -398,15 +406,8 @@ export const querySite = {
             },
           ],
         },
-        _createdAt: '2020-08-31T14:27:16Z',
-        _id: 'PageAbout',
-        _rev: 'fPRaaAbnANhL0x9GWZ1G7B',
-        _type: 'PageAbout',
-        _updatedAt: '2020-08-31T14:27:16Z',
       },
-      Title: { _type: 'LocaleString', pl: 'Kontakt' },
-      _key: 'd262df193098',
-      _type: 'Page',
+      title: { _type: 'localeString', pl: 'Kontakt' },
     },
   ],
 }

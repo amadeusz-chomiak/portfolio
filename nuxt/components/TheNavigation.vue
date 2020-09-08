@@ -4,7 +4,7 @@
       <template v-for="(link, index) in links">
         <BaseCard v-if="link.card" :key="index" background="circuit">
           <template #content>
-            <BaseContent :content="link.card.Content.pl" />
+            <BaseContent :content="link.card.content.pl" />
           </template>
           <template #action>
             <BaseButton :target="link.to || ''" :content="link.title" route />
@@ -18,7 +18,7 @@
           route
           secondary
           class="mb-4"
-          :slim="index === links.length - 1"
+          :slim="link.outside"
         />
       </template>
     </div>
@@ -37,12 +37,13 @@ import { useQuerySite } from '~/composable/useDatabase'
 export default defineComponent({
   setup() {
     const { result } = useQuerySite()
-    const pages = computed(() => result.value?.Pages)
+    const pages = computed(() => result.value?.pages)
     const links = computed(() =>
       pages.value?.map((page) => ({
-        title: page?.Title?.pl,
-        to: page?.Page?._id,
-        card: page?.Card,
+        title: page?.title?.pl,
+        to: page?.page?._id,
+        card: page?.card,
+        outside: page?.outside,
       }))
     )
 
