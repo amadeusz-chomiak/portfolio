@@ -1,10 +1,10 @@
-import { fireEvent } from '@testing-library/vue'
+// import { fireEvent } from '@testing-library/vue'
 import { Base, useQuerySite } from '../utils/core'
-import Component from '~/components/TheNavigation.vue'
+import Component from '~/components/TheNavigationContent.vue'
 const base = new Base(Component)
 const { result } = useQuerySite()
 
-describe('components/TheNavigation.vue', () => {
+describe('components/TheNavigationContent.vue', () => {
   test('Render site links', () => {
     const { getByText } = base.render()
     const pages = result.value?.pages
