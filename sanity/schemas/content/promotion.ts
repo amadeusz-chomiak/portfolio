@@ -7,17 +7,17 @@ import {
 } from '../utils/typedSchema';
  
 export default createObject({
-  name: 'Promotion',
+  name: 'promotion',
   type: 'document',
   fields: [
     createObject({
-      type: 'LocaleString',
+      type: 'localeString',
       name: 'Value',
       description: 'Highlighted value of promotion',
     }),
     createObject({
-      type: 'Card',
-      name: 'Promotion',
+      type: 'card',
+      name: 'promotion',
     }),
   ],
 });

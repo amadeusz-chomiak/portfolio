@@ -1,12 +1,12 @@
 export default {
-  name: 'Analytic',
+  name: 'analytic',
   title: 'Analytic',
   type: 'object',
   fields: [
     {
       name: 'meta',
       title: 'SEO meta tags',
-      type: 'Meta'
+      type: 'meta'
    }
   ],
   preview: {

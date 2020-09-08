@@ -8,15 +8,15 @@ import {
   createImage,
 } from '../utils/typedSchema';
 
-export default createPage('PageHero', [
+export default createPage('pageHero', [
   createObject({
-    name: 'Content',
-    description: 'Content of hero page',
-    type: 'LocaleBlockContent',
+    name: 'content',
+    description: 'content of hero page',
+    type: 'localeBlockContent',
     required: 'error'
   }),
   createImage({
-    name: 'Image',
+    name: 'image',
     description: 'Full height image',
     required: 'warn',
   }),

@@ -1,20 +1,20 @@
 import {create, createImage, createObject} from '../utils/typedSchema'
 export default createObject({
-  name: 'Meta',
-  title: 'Meta tags',
+  name: 'meta',
+  title: 'meta tags',
   description: 'Page meta tags for SEO and social media',
   type: 'object',
   fields: [
     create({
-      name: 'Title',
-      description: 'Title will be used in site-map and page title meta tag',
-      type: 'LocaleString',
+      name: 'title',
+      description: 'title will be used in site-map and page title meta tag',
+      type: 'localeString',
       required: 'error'
     }),
     create({
-      name: 'Description',
-      description: 'Description will be used in site-map and page description meta tag',
-      type: 'LocaleText',
+      name: 'description',
+      description: 'description will be used in site-map and page description meta tag',
+      type: 'localeText',
       required: 'warn'
     }),
     createObject({
@@ -22,18 +22,18 @@ export default createObject({
       name: 'Social',
       fields: [
         create({
-          name: 'Title',
-          type: 'LocaleString',
-          description: 'Title specific to social media, if not set will use meta title'
+          name: 'title',
+          type: 'localeString',
+          description: 'title specific to social media, if not set will use meta title'
         }),
         create({
-          name: 'Description',
-          type: 'LocaleText',
-          description: 'Description specific to social media, if not set will use meta description'
+          name: 'description',
+          type: 'localeText',
+          description: 'description specific to social media, if not set will use meta description'
         }),
         createImage({
-          name: 'Image',
-          description: 'Image for social media banners. Best image size 1200x630px',
+          name: 'image',
+          description: 'image for social media banners. Best image size 1200x630px',
           required: 'warn'
         })
       ]
@@ -41,8 +41,8 @@ export default createObject({
   ],
   preview: {
     select: {
-      title: 'Title',
-      subtitle: 'Description'
+      title: 'title',
+      subtitle: 'description'
     }
   }
 })

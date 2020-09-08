@@ -4,20 +4,20 @@ export default createObject({
   name: 'InputText',
   fields: [
     create({
-      name: 'Label',
-      description: 'Label of input',
-      type: 'LocaleString',
+      name: 'label',
+      description: 'label of input',
+      type: 'localeString',
       required: 'error'
     }),
     create({
       name: 'Placeholder',
       description: 'Placeholder of text input',
-      type: 'LocaleString',
+      type: 'localeString',
     }),
   ],
   preview: {
     select: {
-      title: 'Label',
+      title: 'label',
       subtitle: 'Placeholder'
     },
   },

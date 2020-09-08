@@ -8,71 +8,71 @@ import {
 } from '../utils/typedSchema';
 
 //* main page landing structure (menu, header)
-export default createPage('Site', [
+export default createPage('site', [
   createObject({
-    name: 'Header',
+    name: 'header',
     fields: [
       createObject({
-        name: 'Title',
-        type: 'LocaleString'
+        name: 'title',
+        type: 'localeString'
       }),
       createObject({
-        name: 'Subtitle',
-        type: 'LocaleString'
+        name: 'subtitle',
+        type: 'localeString'
       }),
-      createImage({name: 'Image', description: 'Picture of Me'})
+      createImage({name: 'image', description: 'Picture of Me'})
     ]
   }),
   createArray({
-    name: 'Pages',
+    name: 'pages',
     description: 'Order of pages on main site',
     of: [
       createObject({
-        name: 'Page',
+        name: 'page',
         fields: [
           createReference({
-            name: 'Page',
+            name: 'page',
             to: [
               {
-                type: 'PageAbout',
+                type: 'pageAbout',
               },
               {
-                type: 'PageContact',
+                type: 'pageContact',
               },
               {
-                type: 'PageHero',
+                type: 'pageHero',
               },
               {
-                type: 'PagePrivacy',
+                type: 'pagePrivacy',
               },
               {
-                type: 'PagePromotion',
+                type: 'pagePromotion',
               },
               {
-                type: 'PageSolution',
+                type: 'pageSolution',
               },
             ],
           }),
           createObject({
-            name: 'Title',
-            description: 'Text on menu button to this page',
-            type: 'LocaleString'
+            name: 'title',
+            description: 'text on menu button to this page',
+            type: 'localeString'
           }),
           createObject({
-            name: 'Link',
-            description: 'Text on link to next route',
-            type: 'LocaleString'
+            name: 'link',
+            description: 'text on link to next route',
+            type: 'localeString'
           }),
           createObject({
-            name: 'Card',
+            name: 'card',
             description: 'Use card only on one of pages! Or else it will be too crowded!',
-            type: 'Card'
+            type: 'card'
           }),
         ],
         preview: {
           select: {
-            title: 'Title',
-            link: 'Link',
+            title: 'title',
+            link: 'link',
             page: 'Page'
           },
           prepare({title, link, page}) {

@@ -8,11 +8,11 @@ import {
   createImage,
 } from '../utils/typedSchema';
 
-export default createPage('PageSolution', [
+export default createPage('pageSolution', [
   createObject({
-    name: 'Content',
-    description: 'Content of solution page',
-    type: 'LocaleBlockContent',
+    name: 'content',
+    description: 'content of solution page',
+    type: 'localeBlockContent',
     required: 'error',
   }),
   createArray({
@@ -20,13 +20,13 @@ export default createPage('PageSolution', [
     description: 'Active solutions',
     of: [
       createReference({
-        name: 'Reference',
-        to: [{ type: 'Solution' }],
+        name: 'reference',
+        to: [{ type: 'solution' }],
       }),
     ],
   }),
   createImage({
-    name: 'Image',
+    name: 'image',
     description: 'Full height image',
     required: 'warn',
   }),

@@ -3,41 +3,41 @@ import { create, createImage, createObject } from '../utils/typedSchema';
 import React from 'react';
 
 export default createObject({
-  name: 'Definition',
+  name: 'definition',
   description: 'Will render definition tooltip',
   fields: [
     create({
-      name: 'TextBefore',
+      name: 'textBefore',
       title: 'Before tooltip text',
-      description: 'Text that will be created before text for tooltip',
+      description: 'text that will be created before text for tooltip',
       type: 'string',
     }),
     create({
-      name: 'Text',
+      name: 'text',
       title: 'Tooltip text',
-      description: 'Text that will be highlighted as a tooltip link',
+      description: 'text that will be highlighted as a tooltip link',
       type: 'string',
     }),
     create({
-      name: 'TextAfter',
+      name: 'textAfter',
       title: 'After tooltip text',
-      description: 'Text that will be created after text for tooltip',
+      description: 'text that will be created after text for tooltip',
       type: 'string',
     }),
     create({
-      name: 'Title',
-      description: 'Title of the tooltip',
+      name: 'title',
+      description: 'title of the tooltip',
       type: 'string',
       required: 'error',
     }),
     create({
-      name: 'Content',
-      description: 'Content of the tooltip',
+      name: 'content',
+      description: 'content of the tooltip',
       type: 'text',
       required: 'warn'
     }),
     create({
-      name: 'Color',
+      name: 'color',
       description:
         "Main color of the tooltip. Will override default site colors. Useful for other brand's definitions",
       type: 'color',
@@ -48,11 +48,11 @@ export default createObject({
   ],
   preview: {
     select: {
-      textBefore: 'TextBefore',
-      text: 'Text',
-      textAfter: 'TextAfter',
-      title: 'Title',
-      color: 'Color',
+      textBefore: 'textBefore',
+      text: 'text',
+      textAfter: 'textAfter',
+      title: 'title',
+      color: 'color',
     },
     prepare({ title, color, text, textBefore, textAfter }) {
       return {

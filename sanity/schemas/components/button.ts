@@ -1,24 +1,24 @@
 import {create, createImage, createObject} from '../utils/typedSchema'
 
 export default createObject({
-  name: 'Button',
+  name: 'button',
   fields: [
     create({
-      name: 'Title',
-      description: 'Title inside the button',
-      type: 'LocaleString',
+      name: 'title',
+      description: 'title inside the button',
+      type: 'localeString',
       required: 'error'
     }),
     create({
-      name: 'Description',
+      name: 'description',
       description: 'Action description below the button',
-      type: 'LocaleText',
+      type: 'localeText',
     }),
   ],
   preview: {
     select: {
-      title: 'Title',
-      subtitle: 'Description'
+      title: 'title',
+      subtitle: 'description'
     },
   },
 });

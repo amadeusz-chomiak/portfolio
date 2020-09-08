@@ -22,8 +22,8 @@ import {
 import { createRouteLink } from '../utils/routes';
 
 export default {
-  title: 'Block Content Basic',
-  name: 'BlockContentBasic',
+  title: 'Block content Basic',
+  name: 'blockContentBasic',
   type: 'array',
   of: [
     {
@@ -53,7 +53,7 @@ export default {
         annotations: [
           {
             title: 'Route',
-            name: 'Route',
+            name: 'route',
             type: 'object',
             icon: RiRouteLine,
             fields: [
@@ -80,7 +80,7 @@ export default {
     // as a block type.
 
     {
-      type: 'Definition',
+      type: 'definition',
     },
   ],
 };

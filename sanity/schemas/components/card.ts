@@ -1,48 +1,48 @@
 import {create, createImage, createObject} from '../utils/typedSchema'
 export default createObject({
-  name: 'Card',
-  title: 'Card',
+  name: 'card',
+  title: 'card',
   description: 'Will render card',
   fields: [
     // createObject({
-    //   name: 'Title',
-    //   description: 'Title of the card',
-    //   type: 'LocaleString',
+    //   name: 'title',
+    //   description: 'title of the card',
+    //   type: 'localeString',
     //   required: 'error'
     // }),
     // createObject({
-    //   name: 'Subtitle',
-    //   description: 'Subtitle of the card',
-    //   type: 'LocaleText'
+    //   name: 'subtitle',
+    //   description: 'subtitle of the card',
+    //   type: 'localeText'
     // }),
     createObject({
-      name: 'Content',
-      description: 'Content of the card',
-      type: 'LocaleBlockContent'
+      name: 'content',
+      description: 'content of the card',
+      type: 'localeBlockContent'
     }), 
     createObject({
       name: 'Action',
       fields: [
         create({
           name: 'Primary',
-          type: 'LocaleString'
+          type: 'localeString'
         }),
         create({
           name: 'Secondary',
-          type: 'LocaleString'
+          type: 'localeString'
         })
       ] 
     }),
     createImage({
-      name: 'Image',
+      name: 'image',
       description: 'Small corner image for the card'
     }),
   ],
   preview: {
     select: {
-      title: 'Title',
-      subtitle: 'Subtitle',
-      media: 'Image'
+      title: 'title',
+      subtitle: 'subtitle',
+      media: 'image'
     }
   }
 })

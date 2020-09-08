@@ -8,32 +8,32 @@ import {
   createImage,
 } from '../utils/typedSchema';
 
-export default createPage('PagePromotion', [
+export default createPage('pagePromotion', [
   createObject({
-    name: 'Content',
-    description: 'Content of Promotion page',
-    type: 'LocaleBlockContent',
+    name: 'content',
+    description: 'content of promotion page',
+    type: 'localeBlockContent',
     required: 'error',
   }),
   createArray({
-    name: 'Promotions',
+    name: 'promotions',
     description: 'Active promotions',
     of: [
       createReference({
-        name: 'Reference',
-        to: [{ type: 'Promotion' }],
+        name: 'reference',
+        to: [{ type: 'promotion' }],
       }),
     ],
   }),
   createImage({
-    name: 'Image',
+    name: 'image',
     description: 'Full height image',
     required: 'warn',
   }),
   // todo implement
   // createObject({
   //   name: 'ExampleButton',
-  //   type: 'Button',
+  //   type: 'button',
   // }),
   // createReference({
   //   name: 'ExamplePage',

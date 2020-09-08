@@ -5,15 +5,15 @@ import { GrDocumentConfig } from 'react-icons/gr';
 
 export default () =>
   S.list()
-    .title('Content')
+    .title('content')
     .items([     
-      showPage('Site', 'Main site structure', GrDocumentConfig),
-      showPage('PagePrivacy', 'Privacy policy page'),
-      showPage('PageHero', 'Hero page'),
-      showPage('PageSolution', 'Solutions page'),
-      showGroup('Solution', 'Solutions'),
-      showPage('PagePromotion', 'Promotions page'),
-      showGroup('Promotion', 'Promotions'),
-      showPage('PageContact', 'Contact form page'),
-      showPage('PageAbout', 'About Me page'),
+      showPage('site', 'Main site structure', GrDocumentConfig),
+      showPage('pagePrivacy', 'Privacy policy page'),
+      showPage('pageHero', 'Hero page'),
+      showPage('pageSolution', 'Solutions page'),
+      showGroup('solution', 'Solutions'),
+      showPage('pagePromotion', 'Promotions page'),
+      showGroup('promotion', 'Promotions'),
+      showPage('pageContact', 'Contact form page'),
+      showPage('pageAbout', 'About Me page'),
     ]);

@@ -1,7 +1,7 @@
 import supportedLanguages from './supportedLanguages'
 
 export default {
-  name: 'LocaleBlockContent',
+  name: 'localeBlockContent',
   type: 'object',
   fieldsets: [
     {
@@ -13,7 +13,7 @@ export default {
   fields: supportedLanguages.map(lang => ({
     title: lang.title,
     name: lang.id,
-    type: 'BlockContentBasic',
+    type: 'blockContentBasic',
     fieldset: lang.isDefault ? null : 'translations'
   }))
 }

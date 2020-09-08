@@ -6,17 +6,17 @@ import {
 } from '../utils/typedSchema';
 
 export default createObject({
-  name: 'Solution',
+  name: 'solution',
   type: 'document',
   fields: [
     createObject({
-      type: 'LocaleString',
+      type: 'localeString',
       name: 'Value',
       description: 'Highlighted value of solution',
     }),
     createObject({
-      type: 'Card',
-      name: 'Solution',
+      type: 'card',
+      name: 'solution',
     }),
   ],
 });

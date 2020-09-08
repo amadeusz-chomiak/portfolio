@@ -8,36 +8,36 @@ import {
   createImage,
 } from '../utils/typedSchema';
 
-export default createPage('PageAbout', [
+export default createPage('pageAbout', [
   createImage({
-    name: 'Image',
+    name: 'image',
     description: 'Full height image',
     required: 'warn',
   }),
   createObject({
-    name: 'Content',
-    description: 'Content of about page',
-    type: 'LocaleBlockContent',
+    name: 'content',
+    description: 'content of about page',
+    type: 'localeBlockContent',
     required: 'error',
   }),
   createObject({
     name: 'EmailContent',
-    type: 'LocaleBlockContent',
+    type: 'localeBlockContent',
     required: 'error',
   }),
   createObject({
     name: 'EmailButton',
-    type: 'Button',
+    type: 'button',
     required: 'error',
   }),
   createObject({
     name: 'GithubContent',
-    type: 'LocaleBlockContent',
+    type: 'localeBlockContent',
     required: 'error',
   }),
   createObject({
     name: 'GithubButton',
-    type: 'Button',
+    type: 'button',
     required: 'error',
   }),
 ]);

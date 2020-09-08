@@ -2,22 +2,22 @@
 import {createPage} from '../utils/page'
 import {create, createObject} from '../utils/typedSchema'
 
-export default createPage('PagePrivacy', [
+export default createPage('pagePrivacy', [
   createObject({
-    name: 'Cookie',
-    description: 'Cookie definition',
-    type: 'Card',
+    name: 'cookie',
+    description: 'cookie definition',
+    type: 'card',
     required: 'error',
   }),
   createObject({
-    name: 'Author',
-    description: 'Card for privacy policy author',
-    type: 'Card',
+    name: 'author',
+    description: 'card for privacy policy author',
+    type: 'card',
   }),
   createObject({
-    name: 'Content',
-    description: 'Content of privacy policy',
-    type: 'LocaleBlockContent',
+    name: 'content',
+    description: 'content of privacy policy',
+    type: 'localeBlockContent',
     required: 'error',
   }),
 ])

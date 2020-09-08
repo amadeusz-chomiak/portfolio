@@ -1,24 +1,24 @@
 type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
 type SchemaSpecial = 'reference' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
-type SchemaTypesComponents = 'Card' | 'Button' | 'Definition';
+type SchemaTypesComponents = 'card' | 'button' | 'definition';
 export type SchemaTypesPages =
-  | 'PageAbout'
-  | 'PageContact'
-  | 'PageHero'
-  | 'PagePromotion'
-  | 'PageSolution'
-  | 'PagePrivacy'
-  | 'Site';
-export type SchemaTypesGroups = 'Promotion' | 'Solution';
-type SchemaTypesDocuments = SchemaTypesPages | 'Promotion' | 'Solution';
+  | 'pageAbout'
+  | 'pageContact'
+  | 'pageHero'
+  | 'pagePromotion'
+  | 'pageSolution'
+  | 'pagePrivacy'
+  | 'site';
+export type SchemaTypesGroups = 'promotion' | 'solution';
+type SchemaTypesDocuments = SchemaTypesPages | 'promotion' | 'solution';
 type SchemaTypesPlugins = 'color';
-type SchemaTypesCustom = 'Meta';
+type SchemaTypesCustom = 'meta';
 type SchemaTypesLocale =
-  | 'LocaleString'
-  | 'LocaleText'
-  | 'LocaleBlockContent'
-  | 'LocaleBlockContent';
+  | 'localeString'
+  | 'localeText'
+  | 'localeBlockContent'
+  | 'localeBlockContent';
 type SchemaTypes =
   | SchemaTypesBasic
   | SchemaTypesLocale
@@ -67,6 +67,8 @@ export interface Schema {
   of?: SchemaType[];
 }
 
+const toCamelCase = (text: string) => text.charAt(0).toLowerCase() + text.slice(1)
+
 type Rule = { required: () => any };
 const createSchema = (schema: Schema) => {
   const title = schema.title ?? schema.name;
@@ -81,9 +83,9 @@ const createSchema = (schema: Schema) => {
 
   return {
     title,
-    name: schema.name,
+    name: toCamelCase(schema.name),
     description: schema.description ?? '',
-    type: schema.type,
+    type: toCamelCase(schema.type),
     options: schema.options ?? {},
     fields: schema.fields ?? undefined,
     validation,
@@ -118,7 +120,7 @@ export const createImage = (schema: SchemaImage) =>
         title: 'Alternate text',
         description:
           'Describe what is on the image for people with vision problems',
-        type: 'LocaleText',
+        type: 'localeText',
         required: 'warn',
         options: {
           isHighlighted: true,

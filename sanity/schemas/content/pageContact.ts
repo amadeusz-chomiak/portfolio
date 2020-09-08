@@ -8,16 +8,16 @@ import {
   createImage,
 } from '../utils/typedSchema';
 
-export default createPage('PageContact', [
+export default createPage('pageContact', [
   createImage({
-    name: 'Image',
+    name: 'image',
     description: 'Full height image',
     required: 'warn',
   }),
   createObject({
-    name: 'Content',
-    description: 'Content of about page',
-    type: 'LocaleBlockContent',
+    name: 'content',
+    description: 'content of about page',
+    type: 'localeBlockContent',
     required: 'error'
   }),
   // createObject({
@@ -26,7 +26,7 @@ export default createPage('PageContact', [
   // }),
   createObject({
     name: 'EmailButton',
-    type: 'Button',
+    type: 'button',
     required: 'error',
   }),
 ]);

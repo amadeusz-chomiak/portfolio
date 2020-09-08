@@ -27,7 +27,7 @@ import definition from './components/definition'
 // import blockContent from './locale/BlockContent'
 import localeString from './locale/string'
 import localeText from './locale/text'
-import LocaleBlockContent from './locale/blockContent'
+import localeBlockContent from './locale/blockContent'
 // import localeBlockContent from './locale/BlockContent'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -61,6 +61,6 @@ export default createSchema({
     // locales schemas
     localeText,
     localeString,
-    LocaleBlockContent,
+    localeBlockContent,
   ])
 })
