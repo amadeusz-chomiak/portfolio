@@ -68,18 +68,25 @@ export default createPage('site', [
             description: 'Use card only on one of pages! Or else it will be too crowded!',
             type: 'card'
           }),
+          create({
+            name: 'outside',
+            title: 'Outside link',
+            type: 'boolean',
+            description: 'Do not render page inside site, but show it in menu'
+          })
         ],
         preview: {
           select: {
             title: 'title',
             link: 'link',
-            page: 'Page'
+            page: 'page',
+            outside: 'outside'
           },
-          prepare({title, link, page}) {
-
+          prepare({title, link, page, outside}) {
+            console.log('page', page)
             return {
               title: title?.pl,
-              subtitle: `ref: ${page?._ref ?? '[no ref]'} | ${link?.pl ?? '[no link]'}`
+              subtitle: `ref: ${page?._ref ?? '[no ref]'} | ${link?.pl ?? '[no link]'} ${outside ? '| [outside link]' : ''}`
             }
           }
         }
