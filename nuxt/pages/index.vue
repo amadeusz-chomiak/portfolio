@@ -1,26 +1,11 @@
 <template>
-  <div class="bg-primary-800 h-full">
-    <div>
-      <h1 class="title">nuxt</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="h-full">
+    <portal to="background-image"
+      ><img
+        class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
+        src="https://cdn.pixabay.com/photo/2016/01/19/17/29/earth-1149733_960_720.jpg"
+      />
+    </portal>
   </div>
 </template>
 
