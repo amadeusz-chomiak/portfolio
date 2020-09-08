@@ -38,6 +38,7 @@ export class Base<V extends Vue> {
 
   render(additionalOptions?: RenderOptions<V>) {
     const renderer = render(this.Component, {
+      stubs: ['nuxt-link'],
       ...this.options,
       ...this.temp.options,
       ...additionalOptions,
