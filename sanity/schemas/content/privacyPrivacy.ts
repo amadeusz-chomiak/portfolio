@@ -15,6 +15,12 @@ export default createPage('pagePrivacy', [
     type: 'card',
   }),
   createObject({
+    name: 'title',
+    description: 'title of privacy policy',
+    type: 'localeString',
+    required: 'error',
+  }),
+  createObject({
     name: 'content',
     description: 'content of privacy policy',
     type: 'localeBlockContent',
