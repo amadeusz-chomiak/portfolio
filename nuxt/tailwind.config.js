@@ -79,6 +79,7 @@ module.exports = {
     scale: ['responsive', 'active', 'group-active'],
     translate: ['responsive', 'active', 'group-active'],
     borderOpacity: ['responsive', 'active', 'group-active'],
+    boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-active'],
   },
   plugins: [
     require('tailwindcss-blend-mode')(),

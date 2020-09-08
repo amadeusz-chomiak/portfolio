@@ -10,6 +10,21 @@ describe('components/BaseButton.vue', () => {
     test('Show "content" prop', () =>
       base.testPropInline((select) => select.getByText(content), { content }))
 
+    test('Use primary style classes, by default', () => {
+      const { getByText } = base.render({ props: { content } })
+      const Button = getByText(content).parentElement
+      expect(
+        Array.from(Button?.classList ?? '').find((cl) =>
+          cl.includes('bg-primary')
+        )?.length
+      ).toBeGreaterThan(0)
+      //* check to not have secondary style borders
+      expect(
+        Array.from(Button?.classList ?? '').find((cl) => cl.includes('border'))
+          ?.length
+      ).toBe(undefined)
+    })
+
     test('Use border classes when prop "secondary" is true', () => {
       base.render({ props: { secondary: true } })
       const Root = base.selectRoot()
@@ -47,7 +62,7 @@ describe('components/BaseButton.vue', () => {
     test('Root container is a "nuxt-link", if "target" is set and "route" is true', () => {
       base.render({ props: { target: 'pageAbout', route: true } })
       const Root = base.selectRoot()
-      expect(Root.tagName.toLowerCase()).toBe('nuxt-link')
+      expect(Root.tagName.toLowerCase()).toBe('nuxt-link-stub')
       expect(Root).toHaveAttribute('to', 'pageAbout')
     })
   })
