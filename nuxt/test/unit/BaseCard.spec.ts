@@ -5,21 +5,22 @@ const base = new Base(Component)
 describe('components/BaseCard.vue', () => {
   test('show "content" slot', () => base.testHasSlot('content'))
   test('show "action" slot', () => base.testHasSlot('action'))
-  test('Change background based on "background" prop', async () => {
-    const { updateProps } = base.render()
-    const Root = base.selectRoot()
-    expect(Root).toHaveClass('bg-primary-600')
+  test('Set background class for "background" prop equal to "circuit"', () => {
+    const renderer = base.render({ props: { background: 'circuit' } })
+    const Root = base.selectRoot(renderer)
 
-    //* dark
-    await updateProps({ background: 'dark' })
-    expect(Root).toHaveClass('bg-primary-600')
-
-    //* darker
-    await updateProps({ background: 'darker' })
-    expect(Root).toHaveClass('bg-primary-800')
-
-    //* circuit
-    await updateProps({ background: 'circuit' })
     expect(Root).toHaveClass('bg-circuit')
+  })
+  test('Set background class for "background" prop equal to "dark"', () => {
+    const renderer = base.render({ props: { background: 'dark' } })
+    const Root = base.selectRoot(renderer)
+
+    expect(Root).toHaveClass('bg-primary-600')
+  })
+  test('Set background class for "background" prop equal to "darker"', () => {
+    const renderer = base.render({ props: { background: 'darker' } })
+    const Root = base.selectRoot(renderer)
+
+    expect(Root).toHaveClass('bg-primary-800')
   })
 })

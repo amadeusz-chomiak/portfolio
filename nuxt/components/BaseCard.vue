@@ -6,7 +6,12 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent } from '@nuxtjs/composition-api'
+import {
+  ref,
+  reactive,
+  defineComponent,
+  computed,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -16,19 +21,19 @@ export default defineComponent({
     },
   },
   setup(props) {
-    let rootClasses: string[]
+    const rootClasses = computed(() => {
+      switch (props.background) {
+        case 'darker':
+          return ['bg-primary-800']
 
-    switch (props.background) {
-      case 'darker':
-        rootClasses = ['bg-primary-800']
-        break
-      case 'circuit':
-        rootClasses = ['bg-circuit']
-        break
-      default:
-        rootClasses = ['bg-primary-600']
-        break
-    }
+        case 'circuit':
+          return ['bg-circuit']
+
+        default:
+          return ['bg-primary-600']
+      }
+    })
+
     return { rootClasses }
   },
 })
