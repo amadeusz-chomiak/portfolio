@@ -7,7 +7,7 @@
     </div>
     <div class="flex flex-col-reverse md:flex-row flex-1 z-10">
       <div
-        class="md:ml-5 md:max-w-2xs lg:ml-6 lg:max-w-xs xl:ml-8 xl:max-w-sm overflow-auto hover:scroll scroll-hide"
+        class="md:ml-5 md:max-w-xs lg:ml-6 xl:ml-8 xl:max-w-sm overflow-auto hover:scroll scroll-hide"
       >
         <TheNavigation />
       </div>
@@ -17,7 +17,9 @@
         <Nuxt />
       </main>
     </div>
-    <div class="absolute inset-0 md:left-auto md:right-0 md:w-2/3 xl:w-3/4">
+    <div
+      class="absolute inset-0 flex justify-end md:left-auto md:right-0 md:w-2/3 xl:w-3/4"
+    >
       <portal-target class="h-full" name="background-image"></portal-target>
       <div
         class="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent to-black"

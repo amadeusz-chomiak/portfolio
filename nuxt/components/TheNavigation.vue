@@ -4,7 +4,10 @@
       <template v-for="(link, index) in links">
         <BaseCard v-if="link.card" :key="index" background="circuit">
           <template #content>
-            <BaseContent :content="link.card.content.pl" />
+            <BaseContent
+              v-if="link.card.content"
+              :content="link.card.content.pl"
+            />
           </template>
           <template #action>
             <BaseButton :target="link.to || ''" :content="link.title" route />
