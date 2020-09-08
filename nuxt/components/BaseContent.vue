@@ -1,20 +1,30 @@
 <template>
-  <div></div>
+  <div>
+    <template v-for="block in content">
+      <p :key="block._key">
+        <template v-for="span in block.children">
+          <span :key="span._key">{{ span.text }}</span>
+        </template>
+      </p>
+    </template>
+  </div>
 </template>
 
 <script lang="ts">
 import { ref, reactive, defineComponent } from '@nuxtjs/composition-api'
-import { Props } from '~/types/BaseContent'
+import { Content } from '~/types/BaseContent'
 
-export default defineComponent<Props>({
+export default defineComponent({
   props: {
     content: {
-      type: Array,
+      type: Array as () => Content,
       required: true,
     },
   },
   setup(props) {
-    return {}
+    return {
+      // content: props.content,
+    }
   },
 })
 </script>
