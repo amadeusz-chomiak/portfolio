@@ -67,7 +67,7 @@ export interface Schema {
   of?: SchemaType[];
 }
 
-const toCamelCase = (text: string) => text.charAt(0).toLowerCase() + text.slice(1)
+const toCamelCase = <T extends string>(text: T) => text.charAt(0).toLowerCase() + text.slice(1) as T
 
 type Rule = { required: () => any };
 const createSchema = (schema: Schema) => {

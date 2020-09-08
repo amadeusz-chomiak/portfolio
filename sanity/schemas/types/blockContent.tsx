@@ -1,3 +1,4 @@
+// @ts-expect-error
 import React from 'react';
 import {BiArrowFromTop} from 'react-icons/bi'
 import {RiRouteLine} from 'react-icons/ri'
