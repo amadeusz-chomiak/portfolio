@@ -45,6 +45,7 @@ const useQuery = <Result extends StateValues, Params extends object = {}>(
     try {
       const resultArray = await client.fetch(query, params)
       result.value = resultArray[0]
+      console.log('query result for', id, 'is', JSON.stringify(resultArray[0]))
     } catch (err) {
       throw new Error(err)
     }
@@ -72,7 +73,7 @@ const useQuery = <Result extends StateValues, Params extends object = {}>(
 export const useQuerySite = () =>
   useQuery<QuerySite>(
     QueryIds.site,
-    /* groq */ `*[_type=='Site']{Header, Pages[]{Page->,...}}`,
+    /* groq */ `*[_type=='site']{header, pages[]{page->,...}}`,
     {}
   )
 
