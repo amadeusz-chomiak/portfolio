@@ -42,6 +42,4 @@ interface BlockDefinition {
   // todo implement
 }
 
-export interface Props {
-  content: (Block | BlockListItem)[]
-}
+export type Content = (Block | BlockListItem)[]
