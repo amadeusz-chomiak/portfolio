@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div v-if="expand" data-testid="nav-side">
+    <div class="hidden md:flex" data-testid="nav-side">
       <TheNavigationContent />
     </div>
-    <div v-else data-testid="nav-bottom"></div>
+    <div class="flex md:hidden" data-testid="nav-bottom">
+      <ButtonIcon icon="menu"></ButtonIcon>
+    </div>
   </div>
 </template>
 
@@ -14,11 +16,7 @@ import {
   defineComponent,
   watchEffect,
 } from '@nuxtjs/composition-api'
-import { useSize } from '~/composable/useMediaQuery'
 export default defineComponent({
-  setup() {
-    const { md: expand } = useSize()
-    return { expand }
-  },
+  setup() {},
 })
 </script>
