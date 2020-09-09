@@ -59,7 +59,22 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    extend(config) {
+      // ..
+      config.module.rules.push({
+        test: /\.svg/,
+        use: {
+          loader: 'svg-url-loader',
+          options: {},
+        },
+      })
+      // Sets webpack's mode to development if `isDev` is true.
+      // if (isDev) {
+      //   config.mode = 'development'
+      // }
+    },
+  },
   generate: {
     // choose to suit your project
     interval: 2000,
