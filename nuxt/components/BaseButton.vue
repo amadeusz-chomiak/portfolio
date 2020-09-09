@@ -11,7 +11,7 @@
       :class="innerClasses"
       class="rounded-button-8 px-6 flex-1 flex justify-center"
     >
-      <slot name="content"
+      <slot
         ><p class="text-lg" :class="textClasses">{{ props.content }}</p></slot
       >
     </div>

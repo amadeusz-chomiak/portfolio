@@ -4,7 +4,7 @@ const base = new Base(Component)
 
 const content = '__test content__'
 describe('components/BaseButton.vue', () => {
-  test('Show content slot', () => base.testHasSlot('content'))
+  test('Show default slot', () => base.testHasSlot())
 
   describe('Props', () => {
     test('Show "content" prop', () =>
