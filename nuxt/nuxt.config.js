@@ -62,6 +62,10 @@ export default {
   build: {
     extend(config) {
       // ..
+      config.module.rules.find((loader) =>
+        loader.test.toString().includes('png|jpe?g|gif|svg|webp')
+      ).test = /\.(png|jpe?g|gif|webp)$/
+
       config.module.rules.push({
         test: /\.svg/,
         use: {
