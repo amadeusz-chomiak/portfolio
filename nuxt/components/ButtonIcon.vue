@@ -1,5 +1,5 @@
 <template>
-  <BaseButton v-bind="$attrs" @click="$emit('click')"
+  <BaseButton v-bind="$attrs" round @click="$emit('click')"
     ><BaseIcon :icon="icon" />
   </BaseButton>
 </template>

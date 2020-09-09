@@ -41,6 +41,16 @@ describe('components/BaseButton.vue', () => {
           ?.length
       ).toBeGreaterThan(0)
     })
+
+    test('Use rounded full class when prop "round" is true', () => {
+      base.render({ props: { round: true } })
+      const Root = base.selectRoot()
+      expect(
+        Array.from(Root.children[0].classList).find((cl) =>
+          cl.includes('rounded-full')
+        )?.length
+      ).toBeGreaterThan(0)
+    })
   })
 
   describe('Root container', () => {
