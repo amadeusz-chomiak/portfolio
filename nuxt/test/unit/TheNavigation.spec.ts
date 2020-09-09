@@ -23,13 +23,15 @@ describe('components/TheNavigation.vue', () => {
   })
 
   test('Toggle side navigation panel on click on menu button', async () => {
-    const { getByAltText, getByTestId } = base.render()
+    const { getByTestId } = base.render()
 
-    const Button = getByAltText(alt.value)
+    const Button = getByTestId('nav-button')
     await fireEvent.click(Button)
     const Panel = getByTestId('nav-panel')
     expect(Panel).toBeVisible()
     await fireEvent.click(Button)
-    expect(Panel).not.toBeVisible()
+    waitFor(() => {
+      expect(Panel).not.toBeVisible()
+    })
   })
 })
