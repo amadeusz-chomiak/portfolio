@@ -39,6 +39,12 @@ module.exports = {
     //* typography
     fontFamily: false,
     extend: {
+      screens: {
+        'sm-h': { raw: '(min-height: 400px)' },
+        'md-h': { raw: '(min-height: 680px)' },
+        'lg-h': { raw: '(min-height: 800px)' },
+        'xl-h': { raw: '(min-height: 1000px)' },
+      },
       spacing: {
         14: '3.5rem',
       },

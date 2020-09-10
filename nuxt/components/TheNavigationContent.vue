@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex-grow-0 flex-shrink-0 h-24 max-w-sm sm:max-w-md md:max-w-xs xl:max-w-sm"
+    class="w-full flex-grow-0 flex-shrink-0 h-24 max-w-xs sm:max-w-sm md:max-w-xs xl:max-w-sm"
   >
     <div v-if="links">
       <template v-for="(link, index) in links">
@@ -8,7 +8,7 @@
           v-if="link.card"
           :key="index"
           background="circuit"
-          class="transform -translate-x-10 mb-4 mx-2 md:transform-none"
+          class="transform -translate-x-10 mb-2 lg-h:mb-4 mx-2 md:transform-none"
         >
           <template #content>
             <BaseContent
@@ -34,6 +34,7 @@
           route
           secondary
           :decenter="!height.md"
+          class="mb-2 lg-h:mb-4"
           :slim="link.outside || !height.md"
         />
       </template>

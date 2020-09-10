@@ -1,7 +1,7 @@
 <template>
   <div class="bg-black flex flex-col h-screen relative">
     <div
-      class="m-4 md:mt-8 md:mb-5 md:mx-8 lg:mt-10 lg:mb-6 lg:mx-10 xl:mt-12 xl:mb-8 xl:mx-12 z-10"
+      class="m-4 md-h:mt-8 md-h:mb-5 md:mx-8 lg-h:mt-10 lg-h:mb-6 lg:mx-10 xl-h:mt-12 xl-h:mb-8 xl:mx-12 z-10"
     >
       <TheHeader />
     </div>

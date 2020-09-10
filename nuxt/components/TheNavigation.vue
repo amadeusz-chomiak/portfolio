@@ -13,7 +13,7 @@
           ></div>
           <div class="transition-panel isolation-isolate pointer-events-none">
             <div
-              class="bg-primary-950 absolute right-0 pointer-events-auto inset-y-0 rounded-l-lg max-w-xs sm:max-w-sm w-full shadow-2xl cursor-default"
+              class="bg-primary-950 absolute right-0 pointer-events-auto inset-y-0 rounded-l-lg max-w-2xs sm:max-w-xs w-full shadow-2xl cursor-default"
             ></div>
             <TheNavigationContent
               class="transform translate-x-20 mt-4 cursor-default"
