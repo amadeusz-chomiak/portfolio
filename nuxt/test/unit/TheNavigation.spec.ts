@@ -1,13 +1,13 @@
 import { waitFor, fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/TheNavigation.vue'
-import { useIcon, IconId } from '~/composable/useIcon'
-const icon: IconId = 'menu'
-const { alt } = useIcon(icon)
+// import { useIcon, IconId } from '~/composable/useIcon'
+// const icon: IconId = 'menu'
+// const { alt } = useIcon(icon)
 const base = new Base(Component)
 
 describe('components/TheNavigation.vue', () => {
-  test('Side navigation is hidden before medium viewport size', async () => {
+  test('Side navigation is hidden before medium viewport size', () => {
     const { getByTestId } = base.render()
 
     const NavSideClasses = getByTestId('nav-side').classList
@@ -15,7 +15,7 @@ describe('components/TheNavigation.vue', () => {
     expect(NavSideClasses.toString()).toContain('md:flex')
   })
 
-  test('Bottom navigation is hidden after medium viewport size', async () => {
+  test('Bottom navigation is hidden after medium viewport size', () => {
     const { getByTestId } = base.render()
 
     const NavSideClasses = getByTestId('nav-bottom').classList
@@ -30,8 +30,22 @@ describe('components/TheNavigation.vue', () => {
     const Panel = getByTestId('nav-panel')
     expect(Panel).toBeVisible()
     await fireEvent.click(Button)
-    waitFor(() => {
-      expect(Panel).not.toBeVisible()
+    await waitFor(() => {
+      expect(() => getByTestId('nav-panel')).toThrowError()
+    })
+  })
+
+  test('Toggle side navigation panel on panel click', async () => {
+    const { getByTestId } = base.render()
+
+    const Button = getByTestId('nav-button')
+    await fireEvent.click(Button)
+    const Panel = getByTestId('nav-panel')
+    expect(Panel).toBeVisible()
+    jest.runAllTimers()
+    await fireEvent.click(Panel)
+    await waitFor(() => {
+      expect(() => getByTestId('nav-panel')).toThrowError()
     })
   })
 })

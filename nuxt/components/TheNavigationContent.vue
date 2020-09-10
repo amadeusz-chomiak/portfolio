@@ -1,16 +1,29 @@
 <template>
-  <div class="w-full flex-grow-0 flex-shrink-0 h-24">
+  <div
+    class="w-full flex-grow-0 flex-shrink-0 h-24 max-w-sm sm:max-w-md md:max-w-xs xl:max-w-sm"
+  >
     <div v-if="links">
       <template v-for="(link, index) in links">
-        <BaseCard v-if="link.card" :key="index" background="circuit">
+        <BaseCard
+          v-if="link.card"
+          :key="index"
+          background="circuit"
+          class="transform -translate-x-10 mb-4 md:transform-none"
+        >
           <template #content>
             <BaseContent
               v-if="link.card.content"
+              class="mr-10 md:mr-0"
               :content="link.card.content.pl"
             />
           </template>
           <template #action>
-            <BaseButton :target="link.to || ''" :content="link.title" route />
+            <BaseButton
+              :target="link.to || ''"
+              class="mr-10 md:mr-0"
+              :content="link.title"
+              route
+            />
           </template>
         </BaseCard>
         <BaseButton
@@ -21,7 +34,7 @@
           route
           secondary
           class="mb-4"
-          :slim="link.outside"
+          :slim="link.outside || !height.md"
         />
       </template>
     </div>
@@ -36,6 +49,7 @@ import {
   computed,
 } from '@nuxtjs/composition-api'
 import { useQuerySite } from '~/composable/useDatabase'
+import { useSize } from '~/composable/useMediaQuery'
 
 export default defineComponent({
   setup() {
@@ -50,7 +64,9 @@ export default defineComponent({
       }))
     )
 
-    return { links }
+    const { height } = useSize()
+
+    return { links, height }
   },
 })
 </script>

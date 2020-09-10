@@ -5,9 +5,9 @@
     >
       <TheHeader />
     </div>
-    <div class="flex flex-col-reverse md:flex-row flex-1 z-10">
+    <div class="flex z-10 flex-col-reverse md:flex-row flex-1">
       <div
-        class="md:ml-5 md:max-w-xs lg:ml-6 xl:ml-8 xl:max-w-sm overflow-auto hover:scroll scroll-hide"
+        class="md:ml-5 lg:ml-6 xl:ml-8 overflow-auto hover:scroll scroll-hide"
       >
         <TheNavigation />
       </div>

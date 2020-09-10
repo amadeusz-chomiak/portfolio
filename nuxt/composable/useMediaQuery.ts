@@ -1,22 +1,46 @@
-import { ref, useContext, onBeforeMount } from '@nuxtjs/composition-api'
+import {
+  ref,
+  useContext,
+  onBeforeMount,
+  reactive,
+} from '@nuxtjs/composition-api'
 
-const getSizeSSR = () => {
+const isMobileSSR = () => {
   const userAgent = useContext().req?.headers['user-agent']
-  const isMobile = userAgent?.toLowerCase()?.includes('mobile')
-  return isMobile ? 600 : 1100
+  return userAgent?.toLowerCase()?.includes('mobile')
+}
+
+const getWidthSSR = () => {
+  return isMobileSSR() ? 600 : 1100
 }
 
 export const useSize = () => {
-  const sm = ref(false)
-  const md = ref(false)
-  const lg = ref(false)
-  const xl = ref(false)
+  const width = reactive({
+    sm: false,
+    md: false,
+    lg: false,
+    xl: false,
+  })
+
+  const height = reactive({
+    sm: false,
+    md: false,
+    lg: false,
+    xl: false,
+  })
+
   const resize = () => {
-    const width = process.server ? getSizeSSR() : window.innerWidth
-    sm.value = width >= 640
-    md.value = width >= 768
-    lg.value = width >= 1024
-    xl.value = width >= 1280
+    const windowWidth = process.server ? getWidthSSR() : window.innerWidth
+    width.sm = windowWidth >= 640
+    width.md = windowWidth >= 768
+    width.lg = windowWidth >= 1024
+    width.xl = windowWidth >= 1280
+
+    const windowHeight = process.server ? 600 : window.innerHeight
+    height.sm = windowHeight >= 400
+    height.md = windowHeight >= 680
+    height.lg = windowHeight >= 800
+    height.xl = windowHeight >= 1000
   }
   onBeforeMount(() => {
     resize()
@@ -24,9 +48,7 @@ export const useSize = () => {
   })
 
   return {
-    sm,
-    md,
-    lg,
-    xl,
+    width,
+    height,
   }
 }

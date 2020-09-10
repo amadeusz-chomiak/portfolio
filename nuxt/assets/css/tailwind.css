@@ -6,4 +6,8 @@
 @import './background';
 @import './scrollbar';
 
+/* purgecss start ignore */
+@import './transition';
+
+/* purgecss end ignore */
 @import 'tailwindcss/utilities';

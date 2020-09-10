@@ -1,4 +1,5 @@
 // import { fireEvent } from '@testing-library/vue'
+import { waitFor } from '@testing-library/vue'
 import { Base, useQuerySite } from '../utils/core'
 import Component from '~/components/TheNavigationContent.vue'
 const base = new Base(Component)
@@ -24,5 +25,17 @@ describe('components/TheNavigationContent.vue', () => {
       page?.card?.content?.pl?.[0]?.children?.[0]?.text ?? ''
     )
     expect(Content).toBeVisible()
+  })
+
+  test('Use slim buttons on smaller screen heights', async () => {
+    global.innerHeight = 400
+    global.dispatchEvent(new Event('resize'))
+    const { getByText } = base.render()
+    const Button = getByText(result.value?.pages?.[0]?.title?.pl ?? '')
+      .parentElement
+    await waitFor(() => {
+      // @ts-expect-error
+      expect(Button.classList.toString()).toContain('rounded-button')
+    })
   })
 })

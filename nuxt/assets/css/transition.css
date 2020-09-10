@@ -1,0 +1,37 @@
+.panel-enter-active {
+  & .transition-bg {
+    will-change: opacity;
+    transition: opacity 400ms ease-out;
+  }
+  & .transition-panel {
+    will-change: transform;
+    transition: transform 300ms ease-out;
+  }
+}
+
+.panel-leave-active {
+  & .transition-bg {
+    transition: opacity 200ms ease-in;
+  }
+  & .transition-panel {
+    transition: transform 300ms ease-in;
+  }
+}
+
+.panel-enter,
+.panel-leave-to {
+  & .transition-bg {
+    opacity: 0;
+  }
+  & .transition-panel {
+    transform: translateX(100%);
+  }
+}
+
+.panel-enter-to,
+.panel-leave {
+  opacity: 1;
+  & .transition-panel {
+    /* transform: translateX(0%); */
+  }
+}

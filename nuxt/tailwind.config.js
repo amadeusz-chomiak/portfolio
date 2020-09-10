@@ -53,6 +53,7 @@ module.exports = {
       },
       backgroundSize: {
         56: '14rem',
+        12: '3rem',
       },
     },
   },

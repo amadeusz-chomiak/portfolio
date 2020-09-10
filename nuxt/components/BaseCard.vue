@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-xl py-6 px-4" :class="rootClasses">
-    <div><slot name="content" /></div>
+    <div class="mb-2"><slot name="content" /></div>
     <div><slot name="action" /></div>
   </div>
 </template>
