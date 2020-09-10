@@ -44,7 +44,7 @@ export default defineComponent<Props>({
       type: Number,
     },
     height: {
-      default: 6,
+      default: 5,
       type: Number,
     },
   },
