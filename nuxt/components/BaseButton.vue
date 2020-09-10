@@ -11,7 +11,7 @@
     @keydown.space.enter="activete()"
     @keyup.space.enter="emitClick()"
   >
-    <div :class="innerClasses" class="flex-1 flex justify-center">
+    <div :class="innerClasses" class="flex-1 flex">
       <slot
         ><p class="text-lg" :class="textClasses">{{ props.content }}</p></slot
       >
@@ -43,6 +43,10 @@ export default defineComponent({
       default: false,
     },
     round: {
+      type: Boolean,
+      default: false,
+    },
+    decenter: {
       type: Boolean,
       default: false,
     },
@@ -80,6 +84,8 @@ export default defineComponent({
           'shadow-lg',
           'group-active:shadow-sm'
         ),
+        classes(props.decenter, 'justify-start'),
+        classes(!props.decenter, 'justify-center'),
         classes(props.round, 'rounded-full'),
         classes(!props.round, 'px-6'),
         classes(props.round && props.slim, 'p-1'),

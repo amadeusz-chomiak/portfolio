@@ -43,6 +43,24 @@ describe('components/BaseButton.vue', () => {
       ).toBeGreaterThan(0)
     })
 
+    test('Use justify start class when prop "decenter" is true', () => {
+      const { getByText } = base.render({ props: { decenter: true, content } })
+      const ContentContainer = getByText(content).parentElement
+      expect(
+        // @ts-expect-error
+        Array.from(ContentContainer.classList).find((cl) =>
+          cl.includes('justify-start')
+        )?.length
+      ).toBeGreaterThan(0)
+
+      expect(
+        // @ts-expect-error
+        Array.from(ContentContainer.classList).find((cl) =>
+          cl.includes('justify-center')
+        )?.length
+      ).toBe(undefined)
+    })
+
     test('Use rounded full class when prop "round" is true', () => {
       base.render({ props: { round: true } })
       const Root = base.selectRoot()

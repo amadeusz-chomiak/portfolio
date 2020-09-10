@@ -33,7 +33,7 @@
           :content="link.title"
           route
           secondary
-          class="mb-4"
+          :decenter="!height.md"
           :slim="link.outside || !height.md"
         />
       </template>
