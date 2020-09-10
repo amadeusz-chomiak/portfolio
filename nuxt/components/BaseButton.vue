@@ -1,11 +1,15 @@
 <template>
   <component
     :is="rootTag"
+    :role="ariaRole"
     :href="target"
     :to="target"
     :class="rootClasses"
-    class="p-1 flex outline-none group"
-    @click="$emit('click')"
+    tabindex="0"
+    class="p-1 pointer-events-auto flex outline-none group border-transparent transform transition-all duration-75 hocus:border-primary-500 hocus:border-opacity-75 border-2 active:scale-95 active:translate-y-1"
+    @click="emitClick()"
+    @keydown.space.enter="activete()"
+    @keyup.space.enter="emitClick()"
   >
     <div :class="innerClasses" class="flex-1 flex justify-center">
       <slot
@@ -16,12 +20,7 @@
 </template>
 
 <script lang="ts">
-import {
-  ref,
-  reactive,
-  defineComponent,
-  computed,
-} from '@nuxtjs/composition-api'
+import { ref, defineComponent, computed } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -48,29 +47,23 @@ export default defineComponent({
       default: false,
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const rootTag = computed(() =>
-      props.target ? (props.route ? 'nuxt-link' : 'a') : 'button'
+      props.target ? (props.route ? 'nuxt-link' : 'a') : 'div'
     )
+
+    const ariaRole = computed(() => (props.target ? 'link' : 'button'))
+
     const classes = (condition: boolean, ...classes: string[]) =>
       condition ? classes : []
-
+    const active = ref(false)
     const rootClasses = computed(() =>
       [
-        classes(
-          props.secondary,
-          'border-2',
-          'border-transparent',
-          'hocus:border-primary-500',
-          'hocus:border-opacity-75',
-          'transform',
-          'transition-transform',
-          'duration-75',
-          'active:scale-95',
-          'active:bg-primary-800',
-          'bg-opacity-25',
-          'active:translate-y-1'
-        ),
+        classes(props.secondary, 'bg-opacity-25', 'active:bg-primary-800'),
+        classes(!props.secondary, 'active:border-opacity-50'),
+        classes(props.secondary && active.value, 'bg-primary-800'),
+        classes(!props.secondary && active.value, 'border-opacity-50'),
+        classes(active.value, 'scale-95', 'translate-y-1'),
         classes(props.route, 'border-opacity-50'),
         classes(props.round, 'rounded-full'),
         classes(!props.round && props.slim, 'rounded-button-7'),
@@ -85,12 +78,7 @@ export default defineComponent({
           !props.secondary,
           'bg-primary-600',
           'shadow-lg',
-          'group-active:shadow-sm',
-          'transform',
-          'transition-transform',
-          'duration-75',
-          'group-active:scale-95',
-          'group-active:translate-y-1'
+          'group-active:shadow-sm'
         ),
         classes(props.round, 'rounded-full'),
         classes(!props.round, 'px-6'),
@@ -104,12 +92,28 @@ export default defineComponent({
     const textClasses = computed(() =>
       props.secondary ? ['text-primary-200'] : ['text-primary-50']
     )
+    const deactivete = () => {
+      active.value = false
+    }
+    const emitClick = () => {
+      emit('click')
+      deactivete()
+    }
+
+    const activete = () => {
+      active.value = true
+    }
+
     return {
       props,
       rootTag,
       rootClasses,
       innerClasses,
       textClasses,
+      ariaRole,
+      emitClick,
+      activete,
+      deactivete,
     }
   },
 })

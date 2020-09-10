@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/BaseButton.vue'
 const base = new Base(Component)
@@ -54,13 +55,32 @@ describe('components/BaseButton.vue', () => {
   })
 
   describe('Root container', () => {
-    test('Root container is a "button", by default', () => {
+    test('Root container is a "div" with aria role of "button", by default', () => {
       base.render()
       const Root = base.selectRoot()
-      expect(Root.tagName.toLowerCase()).toBe('button')
+      expect(Root.tagName.toLowerCase()).toBe('div')
+      expect(Root).toHaveAttribute('role', 'button')
     })
 
-    test('Root container emit click on click', () => base.testEmitter())
+    test('Root container emit click on click', async () => {
+      const { emitted } = base.render()
+      const Root = base.selectRoot()
+      await fireEvent.click(Root)
+      expect(emitted().click).toBeTruthy()
+    })
+    test('Root container emit click on enter', async () => {
+      const { emitted } = base.render()
+      const Root = base.selectRoot()
+      await fireEvent.keyUp(Root, { key: 'Enter', code: 'Enter' })
+      expect(emitted().click).toBeTruthy()
+    })
+
+    test('Root container emit click on space', async () => {
+      const { emitted } = base.render()
+      const Root = base.selectRoot()
+      await fireEvent.keyUp(Root, { key: 'Space', code: 'Space' })
+      expect(emitted().click).not.toBeTruthy()
+    })
 
     test('Root container is an "a" tag, if target is set', () => {
       base.render({ props: { target: '#home' } })
