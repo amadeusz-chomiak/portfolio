@@ -8,7 +8,7 @@
           v-if="link.card"
           :key="index"
           background="circuit"
-          class="transform -translate-x-10 mb-4 md:transform-none"
+          class="transform -translate-x-10 mb-4 mx-2 md:transform-none"
         >
           <template #content>
             <BaseContent
