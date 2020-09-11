@@ -5,14 +5,14 @@
     >
       <TheHeader />
     </div>
-    <div class="flex z-10 flex-col-reverse md:flex-row flex-1">
+    <div class="flex z-10 flex-col-reverse md:flex-row overflow-auto h-full">
       <div
         class="md:ml-5 lg:ml-6 xl:ml-8 overflow-auto hover:scroll scroll-hide"
       >
         <TheNavigation />
       </div>
       <main
-        class="px-4 md:px-5 md:mt-8 md:max-w-md lg:px-6 lg:mt-10 lg:max-w-lg xl:px-8 xl:mt-12 xl:max-w-4xl flex-1 overflow-auto"
+        class="px-4 max-h-full md:px-5 md:mt-8 md:max-w-md lg:px-6 lg:mt-10 lg:max-w-lg xl:px-8 xl:mt-12 xl:max-w-4xl flex-1 overflow-auto"
       >
         <Nuxt />
       </main>
