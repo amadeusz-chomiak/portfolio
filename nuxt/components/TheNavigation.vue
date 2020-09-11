@@ -22,7 +22,7 @@
         </div>
       </transition>
       <div
-        class="flex justify-end bg-primary-950 rounded-t-lg p-4 z-20 shadow-2xl md:hidden"
+        class="flex justify-end bg-primary-950 rounded-t-lg px-4 py-2 z-20 shadow-2xl md:hidden"
         data-testid="nav-bottom"
       >
         <ButtonIcon
