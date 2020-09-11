@@ -1,8 +1,8 @@
 <template>
   <div
-    class="w-full flex-grow-0 flex-shrink-0 h-24 max-w-xs sm:max-w-sm md:max-w-xs xl:max-w-sm"
+    class="w-full h-24 flex-shrink-0 max-w-xs sm:max-w-sm md:max-w-xs xl:max-w-sm"
   >
-    <div v-if="links">
+    <template v-if="links">
       <template v-for="(link, index) in links">
         <BaseCard
           v-if="link.card"
@@ -33,22 +33,17 @@
           :content="link.title"
           route
           secondary
-          :decenter="!height.md"
+          :decenter="!width.md"
           class="mb-2 lg-h:mb-4"
           :slim="link.outside || !height.md"
         />
       </template>
-    </div>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import {
-  ref,
-  reactive,
-  defineComponent,
-  computed,
-} from '@nuxtjs/composition-api'
+import { defineComponent, computed } from '@nuxtjs/composition-api'
 import { useQuerySite } from '~/composable/useDatabase'
 import { useSize } from '~/composable/useMediaQuery'
 
@@ -65,9 +60,9 @@ export default defineComponent({
       }))
     )
 
-    const { height } = useSize()
+    const { height, width } = useSize()
 
-    return { links, height }
+    return { links, height, width }
   },
 })
 </script>
