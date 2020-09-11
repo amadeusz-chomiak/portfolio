@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+
 import Vue from 'vue'
 
 //* BaseComponents
@@ -12,6 +13,10 @@ import ButtonIcon from '~/components/ButtonIcon.vue'
 
 //* The...
 import TheNavigationContent from '~/components/TheNavigationContent.vue'
+// @ts-expect-error
+window.IntersectionObserver = jest.fn(() => ({
+  observe: jest.fn(),
+}))
 
 //* BaseComponents
 Vue.component('BaseButton', BaseButton)
