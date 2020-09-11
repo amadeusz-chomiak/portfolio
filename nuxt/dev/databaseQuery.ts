@@ -81,6 +81,11 @@ export const querySite = {
               'image-9dfb1ae9d53afacc310e21df0b44524945ee0046-1780x1182-jpg',
             _type: 'reference',
           },
+          alt: {
+            _type: 'localeText',
+            pl:
+              'Planeta Ziemia opleciona liniami światła łączącymi wszystkich ludzi',
+          },
         },
       },
       title: { _type: 'localeString', pl: 'Potrzeba' },
