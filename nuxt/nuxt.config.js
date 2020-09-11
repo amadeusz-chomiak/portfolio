@@ -34,7 +34,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/focusLock'],
+  plugins: ['~/plugins/polyfills', '~/plugins/focusLock'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

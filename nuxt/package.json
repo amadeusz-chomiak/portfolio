@@ -23,6 +23,7 @@
     "@sanity/client": "^1.150.1",
     "@sanity/image-url": "^0.140.19",
     "hygen": "^6.0.4",
+    "intersection-observer": "^0.11.0",
     "nuxt": "^2.14.0",
     "portal-vue": "^2.1.7",
     "svg-url-loader": "^6.0.0",
