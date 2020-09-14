@@ -18,7 +18,7 @@ import {
   ObserverPropType,
 } from '~/composable/useObserver'
 interface Props extends ObserverPropType {
-  page: { content: { pl: unknown } }
+  page: { content: { pl: unknown; en: unknown } }
 }
 
 export default defineComponent<Props>({

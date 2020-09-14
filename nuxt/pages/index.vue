@@ -31,9 +31,11 @@ import {
 } from '@nuxtjs/composition-api'
 import { useQuerySite, useImage } from '~/composable/useDatabase'
 import SiteHero from '~/components/SiteHero.vue'
+import SiteSolution from '~/components/SiteSolution.vue'
 export default defineComponent({
   components: {
     SiteHero,
+    SiteSolution,
   },
   setup() {
     const { result } = useQuerySite()
