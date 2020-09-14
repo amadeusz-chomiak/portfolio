@@ -42,11 +42,16 @@ import {
   reactive,
   defineComponent,
   watchEffect,
+  useContext,
+  watch,
 } from '@nuxtjs/composition-api'
 export default defineComponent({
   setup() {
     const panelOpen = ref(false)
-
+    const { route } = useContext()
+    watch(route, () => {
+      panelOpen.value = false
+    })
     return {
       panelOpen,
     }
