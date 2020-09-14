@@ -4,7 +4,7 @@
 @import './font';
 @import './border';
 @import './background';
-@import './scrollbar';
+@import './scroll';
 
 /* purgecss start ignore */
 @import './transition';

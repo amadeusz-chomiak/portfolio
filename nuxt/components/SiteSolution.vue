@@ -1,5 +1,5 @@
 <template>
-  <BaseContent id="SiteSolution" :content="content" class="text-primary-50" />
+  <BaseContent id="solution" :content="content" class="text-primary-50" />
 </template>
 
 <script lang="ts">
@@ -30,7 +30,7 @@ export default defineComponent<Props>({
     },
   },
   setup(props) {
-    useObserverObserve(props, 'SiteSolution')
+    useObserverObserve(props, 'solution')
 
     const content = computed(() => props.page.content.pl)
     return { content }

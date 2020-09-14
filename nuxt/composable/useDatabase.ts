@@ -94,3 +94,8 @@ export const useImage = (
       ? imageBuilder.image(image).auto('format').height(height).fit('max').url()
       : ''
   )
+
+export const usePageIdTransformer = () => ({
+  toComponent: (id?: string) => id?.replace('page', 'Site'),
+  toPath: (id?: string) => id?.toLowerCase().replace('page', ''),
+})

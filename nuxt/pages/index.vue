@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-h-full relative z-10 scroll scroll-rounded-b-full scroll-wide snap snap-y snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+    class="max-h-full relative z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
   >
     <template v-if="pagesComponent">
       <article
@@ -37,7 +37,11 @@ import {
   onUnmounted,
   ref,
 } from '@nuxtjs/composition-api'
-import { useQuerySite, useImage } from '~/composable/useDatabase'
+import {
+  useQuerySite,
+  useImage,
+  usePageIdTransformer,
+} from '~/composable/useDatabase'
 import SiteHero from '~/components/SiteHero.vue'
 import SiteSolution from '~/components/SiteSolution.vue'
 export default defineComponent({
@@ -50,10 +54,10 @@ export default defineComponent({
     const pages = computed(() =>
       result.value?.pages?.filter((page) => !page?.outside)
     )
-    const transformId = (id?: string) => id?.replace('page', 'Site')
+    const { toComponent, toPath } = usePageIdTransformer()
     const pagesComponent = computed(() =>
       pages.value?.map((page) => ({
-        name: transformId(page?.page?._id),
+        name: toComponent(page?.page?._id),
         page: page?.page,
       }))
     )
@@ -61,7 +65,7 @@ export default defineComponent({
     const intersectionKey = ref<string>()
     const image = computed(() => {
       const intersetionPage = pages.value?.find(
-        (page) => transformId(page?.page?._id) === intersectionKey.value
+        (page) => toPath(page?.page?._id) === intersectionKey.value
       )
       const image = intersetionPage?.page?.image
       return {
@@ -79,7 +83,7 @@ export default defineComponent({
         {
           root: document.querySelector('main'),
           rootMargin: '0px',
-          threshold: 0.9,
+          threshold: 0.6,
         }
       )
     })

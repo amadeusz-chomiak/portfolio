@@ -22,7 +22,6 @@
               :target="link.to || ''"
               class="mr-10 md:mr-0"
               :content="link.title"
-              route
             />
           </template>
         </BaseCard>
@@ -31,8 +30,8 @@
           :key="index"
           :target="link.to || ''"
           :content="link.title"
-          route
           secondary
+          :route="link.outside"
           :decenter="!width.md"
           class="mb-2 lg-h:mb-4"
           :slim="link.outside || !height.md"
@@ -44,17 +43,18 @@
 
 <script lang="ts">
 import { defineComponent, computed } from '@nuxtjs/composition-api'
-import { useQuerySite } from '~/composable/useDatabase'
+import { useQuerySite, usePageIdTransformer } from '~/composable/useDatabase'
 import { useSize } from '~/composable/useMediaQuery'
 
 export default defineComponent({
   setup() {
     const { result } = useQuerySite()
+    const { toPath } = usePageIdTransformer()
     const pages = computed(() => result.value?.pages)
     const links = computed(() =>
       pages.value?.map((page) => ({
         title: page?.title?.pl,
-        to: page?.page?._id,
+        to: `${page?.outside ? '' : '#'}${toPath(page?.page?._id)}`,
         card: page?.card,
         outside: page?.outside,
       }))

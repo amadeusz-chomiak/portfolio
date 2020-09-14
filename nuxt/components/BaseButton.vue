@@ -20,7 +20,12 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, computed } from '@nuxtjs/composition-api'
+import {
+  ref,
+  defineComponent,
+  computed,
+  useContext,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -60,9 +65,16 @@ export default defineComponent({
 
     const classes = (condition: boolean, ...classes: string[]) =>
       condition ? classes : []
+
+    const { route } = useContext()
+    const linkActive = computed(() => {
+      if (!props.target) return false
+      return route.value.fullPath.includes(props.target)
+    })
     const active = ref(false)
     const rootClasses = computed(() =>
       [
+        classes(linkActive.value, 'nuxt-link-exact-active'),
         classes(props.secondary, 'bg-opacity-25', 'active:bg-primary-800'),
         classes(!props.secondary, 'active:border-opacity-50'),
         classes(props.secondary && active.value, 'bg-primary-800'),

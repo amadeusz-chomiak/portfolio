@@ -54,7 +54,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', 'portal-vue/nuxt'],
+  modules: ['@nuxtjs/pwa'],
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
