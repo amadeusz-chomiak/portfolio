@@ -6,11 +6,11 @@ const observer = {
   observe: jest.fn(),
 }
 const page = useQuerySite().result.value?.pages?.find(
-  (page) => page?.page?._id === 'page[page name]'
+  (page) => page?.page?._id === 'pageContact'
 )?.page
 
 describe('components/SiteContact.vue', () => {
-  test('Register itself for observer from "observer" prop', async () => {
+  test('Register itself for observer from "observer" prop', () => {
     base.render({
       props: {
         observer,
