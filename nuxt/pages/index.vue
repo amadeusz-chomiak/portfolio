@@ -44,10 +44,14 @@ import {
 } from '~/composable/useDatabase'
 import SiteHero from '~/components/SiteHero.vue'
 import SiteSolution from '~/components/SiteSolution.vue'
+import SitePromotion from '~/components/SitePromotion.vue'
+import SiteContact from '~/components/SiteContact.vue'
 export default defineComponent({
   components: {
     SiteHero,
     SiteSolution,
+    SitePromotion,
+    SiteContact,
   },
   setup() {
     const { result } = useQuerySite()

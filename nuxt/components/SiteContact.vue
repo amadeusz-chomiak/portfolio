@@ -1,11 +1,16 @@
 <template>
   <div>
-    <BaseContent id="SiteContact" :content="content" class="text-primary-50" />
+    <BaseContent id="contact" :content="content" class="text-primary-50" />
   </div>
 </template>
 
 <script lang="ts">
-import { ref, reactive, computed, defineComponent } from '@nuxtjs/composition-api'
+import {
+  ref,
+  reactive,
+  computed,
+  defineComponent,
+} from '@nuxtjs/composition-api'
 
 import {
   useObserverProp,
@@ -25,10 +30,10 @@ export default defineComponent<Props>({
     },
   },
   setup(props) {
-    useObserverObserve(props, SiteContact)
+    useObserverObserve(props, 'contact')
 
     const content = computed(() => props.page.content.pl)
     return { content }
-  }
+  },
 })
 </script>
