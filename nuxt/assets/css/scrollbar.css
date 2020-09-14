@@ -1,35 +1,72 @@
 @variants hover {
-  .scroll-hide {
-    scrollbar-color: transparent bg-black;
-    scrollbar-width: thin;
-
-    &::-webkit-scrollbar {
-      @apply w-1;
-    }
+  .scroll {
+    /* stylelint-disable function-whitespace-after */
+    scrollbar-color: theme('colors.primary.600') theme('colors.black') 32;
+    /* stylelint-enable function-whitespace-after */
 
     &::-webkit-scrollbar-track {
-      @apply rounded-full bg-black;
+      @apply bg-black bg-opacity-50;
     }
 
     &::-webkit-scrollbar-thumb {
-      @apply rounded-full bg-transparent;
+      @apply bg-primary-600;
     }
   }
+}
+@variants hover {
+  .scroll-wide {
+    scrollbar-width: auto;
 
-  .scroll {
-    scrollbar-color: theme('colors.primary.600') theme('colors.black');
+    &::-webkit-scrollbar {
+      @apply w-2;
+    }
+  }
+}
+
+@variants hover {
+  .scroll-rounded-full {
+    &::-webkit-scrollbar-track {
+      @apply rounded-full;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-full;
+    }
+  }
+}
+
+@variants hover {
+  .scroll-rounded-b-full {
+    &::-webkit-scrollbar-track {
+      @apply rounded-b-full;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-b-full;
+    }
+  }
+}
+
+@variants hover {
+  .scroll-thin {
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
       @apply w-1;
     }
+  }
+}
+
+@variants hover {
+  .scroll-hide {
+    scrollbar-color: transparent bg-black;
 
     &::-webkit-scrollbar-track {
-      @apply rounded-full bg-black;
+      @apply bg-black bg-opacity-25;
     }
 
     &::-webkit-scrollbar-thumb {
-      @apply rounded-full bg-primary-600;
+      @apply bg-transparent;
     }
   }
 }

@@ -1,5 +1,7 @@
 <template>
-  <div class="max-h-full">
+  <div
+    class="max-h-full scroll scroll-rounded-b-full scroll-wide snap snap-y snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+  >
     <portal to="background-image"
       ><img
         class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
@@ -8,13 +10,13 @@
       />
     </portal>
     <template v-if="pagesComponent">
-      <component
-        :is="page.name"
+      <article
         v-for="page in pagesComponent"
         :key="page.name"
-        :observer="observer"
-        :page="page.page"
-      />
+        class="min-h-screen snap-start md:max-w-md lg:max-w-lg xl:max-w-4xl"
+      >
+        <component :is="page.name" :observer="observer" :page="page.page" />
+      </article>
     </template>
   </div>
 </template>
