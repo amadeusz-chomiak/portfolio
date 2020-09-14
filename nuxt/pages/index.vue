@@ -1,23 +1,31 @@
 <template>
   <div
-    class="max-h-full scroll scroll-rounded-b-full scroll-wide snap snap-y snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+    class="max-h-full relative z-10 scroll scroll-rounded-b-full scroll-wide snap snap-y snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
   >
-    <portal to="background-image"
-      ><img
-        class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
-        :src="image.src.value"
-        :alt="image.alt"
-      />
-    </portal>
     <template v-if="pagesComponent">
       <article
         v-for="page in pagesComponent"
         :key="page.name"
-        class="min-h-screen snap-start md:max-w-md lg:max-w-lg xl:max-w-4xl"
+        class="min-h-screen z-10 snap-start md:max-w-md lg:max-w-lg xl:max-w-4xl"
       >
         <component :is="page.name" :observer="observer" :page="page.page" />
       </article>
     </template>
+    <div
+      class="fixed inset-0 -z-10 flex justify-end md:left-auto md:right-0 md:w-2/3 xl:w-3/4"
+    >
+      <transition name="fade" mode="out-in">
+        <img
+          :key="image.src.value"
+          class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
+          :src="image.src.value"
+          :alt="image.alt"
+        />
+      </transition>
+      <div
+        class="hidden md:block absolute inset-0 bg-gradient-to-l from-transparent to-black"
+      />
+    </div>
   </div>
 </template>
 

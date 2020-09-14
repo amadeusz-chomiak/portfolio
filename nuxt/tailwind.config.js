@@ -61,6 +61,9 @@ module.exports = {
         56: '14rem',
         12: '3rem',
       },
+      zIndex: {
+        '-10': '-10',
+      },
     },
   },
   future: {

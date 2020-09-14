@@ -35,3 +35,21 @@
     /* transform: translateX(0%); */
   }
 }
+
+.fade-enter-active {
+  transition: opacity 200ms ease-out;
+}
+
+.fade-leave-active {
+  transition: opacity 200ms ease-in;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0 !important;
+}
+
+.panfadeel-enter-to,
+.fade-leave {
+  opacity: 1 !important;
+}

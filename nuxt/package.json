@@ -25,7 +25,6 @@
     "hygen": "^6.0.4",
     "intersection-observer": "^0.11.0",
     "nuxt": "^2.14.0",
-    "portal-vue": "^2.1.7",
     "svg-url-loader": "^6.0.0",
     "vue-focus-lock": "^1.4.0"
   },
