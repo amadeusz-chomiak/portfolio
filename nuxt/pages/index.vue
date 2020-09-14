@@ -64,7 +64,6 @@ export default defineComponent({
     onMounted(() => {
       observer.value = new IntersectionObserver(
         (entries) => {
-          console.log('intersect', entries)
           const intersection = entries.find((entry) => entry.isIntersecting)
           const id = intersection?.target.getAttribute('id')
           if (id) intersectionKey.value = id
@@ -75,7 +74,6 @@ export default defineComponent({
           threshold: 0.9,
         }
       )
-      console.log('new observer', observer.value)
     })
 
     onUnmounted(() => {

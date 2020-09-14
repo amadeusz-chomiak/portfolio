@@ -18,7 +18,7 @@ export const useObserverObserve = (
         const element = document.getElementById(componentId)
         if (element) {
           props.observer.observe(element)
-          console.log('observer', props.observer)
+          // console.log('observer', props.observer)
         } else {
           console.error('no element', props.observer)
         }
