@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseContent id="contact" :content="content" class="text-primary-50" />
+    <BaseContent id="contact" :content="content" class="site-content" />
   </div>
 </template>
 

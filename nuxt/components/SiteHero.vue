@@ -1,5 +1,5 @@
 <template>
-  <BaseContent id="hero" :content="content" class="text-primary-50" />
+  <BaseContent id="hero" :content="content" class="site-content" />
 </template>
 
 <script lang="ts">

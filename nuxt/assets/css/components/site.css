@@ -1,0 +1,3 @@
+.site-content {
+  @apply text-primary-50 max-w-md;
+}

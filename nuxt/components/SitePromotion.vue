@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseContent id="promotion" :content="content" class="text-primary-50" />
+    <BaseContent id="promotion" :content="content" class="site-content" />
   </div>
 </template>
 
