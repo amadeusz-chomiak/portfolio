@@ -19,10 +19,12 @@ export const useObserverObserve = (
         if (element) {
           props.observer.observe(element)
           // console.log('observer', props.observer)
-        } else {
-          console.error('no element', props.observer)
         }
-      } else console.error('no observer', props.observer)
+        // else {
+        // console.error('no element', props.observer)
+        // }
+      }
+      // else console.error('no observer', props.observer)
     })
   })
 }
