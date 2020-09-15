@@ -12,7 +12,7 @@
       </article>
     </template>
     <div
-      class="fixed inset-0 -z-10 flex justify-end md:left-auto md:right-0 md:w-2/3 xl:w-3/4"
+      class="fixed inset-0 -z-10 flex justify-end md:left-auto md:opacity-75 md:right-0 md:w-2/3 xl:w-3/4"
     >
       <transition name="fade" mode="out-in">
         <img

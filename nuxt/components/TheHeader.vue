@@ -17,7 +17,7 @@
           >{{ headerTitle }}</span
         >
         <span
-          class="font-light md:font-normal italic text-md md:text-xl lg:text-2xl lg:tracking-wide md:text-opacity-75 text-primary-100 block md:flex-shrink-0"
+          class="font-light md:font-normal italic text-md md:text-xl lg:text-2xl lg:tracking-wide md:text-opacity-95 text-primary-100 block md:flex-shrink-0"
           >{{ headerSubtitle }}</span
         >
       </h1>

@@ -38,7 +38,7 @@ export default defineComponent({
         .map((mark) => {
           switch (mark) {
             case 'strong':
-              return ['font-semibold']
+              return ['font-semibold', 'tracking-wide']
             case 'em':
               return ['italic']
           }
@@ -50,7 +50,7 @@ export default defineComponent({
       let tag
       switch (style) {
         case 'title':
-          classes = ['text-xl']
+          classes = ['text-2xl', 'font-semibold', 'tracking-wide']
           tag = 'h2'
           break
         case 'subtitle':
@@ -58,7 +58,7 @@ export default defineComponent({
           tag = 'h3'
           break
         case 'normal':
-          classes = []
+          classes = ['pl-2']
           tag = 'p'
           break
         case 'unimportant':
