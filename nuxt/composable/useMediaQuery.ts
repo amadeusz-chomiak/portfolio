@@ -52,3 +52,8 @@ export const useSize = () => {
     height,
   }
 }
+
+export const useClass = () => ({
+  classes: (condition: boolean, ...classes: string[]) =>
+    condition ? classes : [],
+})

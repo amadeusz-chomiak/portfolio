@@ -26,6 +26,7 @@ import {
   computed,
   useContext,
 } from '@nuxtjs/composition-api'
+import { useClass } from '~/composable/useMediaQuery'
 
 export default defineComponent({
   props: {
@@ -66,10 +67,7 @@ export default defineComponent({
     )
 
     const ariaRole = computed(() => (props.target ? 'link' : 'button'))
-
-    const classes = (condition: boolean, ...classes: string[]) =>
-      condition ? classes : []
-
+    const { classes } = useClass()
     const { route } = useContext()
     const linkActive = computed(() => {
       if (!props.target) return false
