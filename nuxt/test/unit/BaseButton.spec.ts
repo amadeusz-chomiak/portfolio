@@ -61,6 +61,15 @@ describe('components/BaseButton.vue', () => {
       ).toBe(undefined)
     })
 
+    test('Content container get classes from "class-inner" prop', () => {
+      const { getByText } = base.render({
+        props: { classInner: ['h-18'], content },
+      })
+      const ContentContainer = getByText(content).parentElement
+      // @ts-expect-error
+      expect(ContentContainer.classList).toContain('h-18')
+    })
+
     test('Use rounded full class when prop "round" is true', () => {
       base.render({ props: { round: true } })
       const Root = base.selectRoot()

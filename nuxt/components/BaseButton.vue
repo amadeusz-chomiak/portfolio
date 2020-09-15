@@ -11,9 +11,9 @@
     @keydown.space.enter="activete()"
     @keyup.space.enter="emitClick()"
   >
-    <div :class="innerClasses" class="flex-1 flex">
+    <div :class="[...innerClasses, ...classInner]" class="flex-1 flex">
       <slot
-        ><p class="text-lg" :class="textClasses">{{ props.content }}</p></slot
+        ><p class="text-lg" :class="textClasses">{{ content }}</p></slot
       >
     </div>
   </component>
@@ -54,6 +54,10 @@ export default defineComponent({
     decenter: {
       type: Boolean,
       default: false,
+    },
+    classInner: {
+      type: Array,
+      default: [],
     },
   },
   setup(props, { emit }) {
