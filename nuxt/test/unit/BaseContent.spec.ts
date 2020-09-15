@@ -83,7 +83,7 @@ describe('components/BaseContent.vue', () => {
       const Paragraph = Span.parentElement
       expect(Span).toBeVisible()
       expect(Paragraph?.tagName.toLowerCase()).toBe('h2')
-      expect(Paragraph?.classList).toContain('text-xl')
+      expect(Paragraph?.classList).toContain('text-2xl')
     })
   })
 
