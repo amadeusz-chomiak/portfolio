@@ -12,20 +12,22 @@ interface RouteDef {
   to: string
 }
 
-type Marks = LiteralUnion<'strong' | 'em'>
+export type MarkDef = LinkDef | RouteDef
+
+export type Mark = LiteralUnion<'strong' | 'em'>
 interface Span {
   _key: string
   _type: 'span'
   text: string
-  marks: Marks[]
+  marks: Mark[]
 }
 
-type TextStyles = 'normal' | 'subtitle' | 'title' | 'unimportant'
+export type TextStyles = 'normal' | 'subtitle' | 'title' | 'unimportant'
 interface Block {
   _key: string
   _type: 'block'
   children: Span[]
-  markDefs: (LinkDef | RouteDef)[]
+  markDefs: MarkDef[]
   style: TextStyles
 }
 

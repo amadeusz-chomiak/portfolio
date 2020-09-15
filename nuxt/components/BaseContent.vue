@@ -1,18 +1,27 @@
 <template>
   <div>
     <template v-for="block in content">
-      <p :key="block._key">
+      <component
+        :is="style(block.style).tag"
+        :key="block._key"
+        :class="style(block.style).classes"
+      >
         <template v-for="span in block.children">
-          <span :key="span._key">{{ span.text }}</span>
+          <span
+            :key="span._key"
+            :class="markClasses(span.marks, block.markDefs)"
+            >{{ span.text }}</span
+          >
         </template>
-      </p>
+      </component>
     </template>
   </div>
 </template>
 
 <script lang="ts">
 import { ref, reactive, defineComponent } from '@nuxtjs/composition-api'
-import { Content } from '~/types/BaseContent'
+import { Content, Mark, MarkDef, TextStyles } from '~/types/BaseContent'
+// import { useClass } from '~/composable/useMediaQuery'
 
 export default defineComponent({
   props: {
@@ -22,8 +31,51 @@ export default defineComponent({
     },
   },
   setup(props) {
+    // const { classes } = useClass()
+
+    const markClasses = (marks: Mark[], markDefs: MarkDef[]) =>
+      marks
+        .map((mark) => {
+          switch (mark) {
+            case 'strong':
+              return ['font-semibold']
+            case 'em':
+              return ['italic']
+          }
+        })
+        .flat()
+
+    const style = (style: TextStyles) => {
+      let classes: string[]
+      let tag
+      switch (style) {
+        case 'title':
+          classes = ['text-xl']
+          tag = 'h2'
+          break
+        case 'subtitle':
+          classes = ['text-lg']
+          tag = 'h3'
+          break
+        case 'normal':
+          classes = []
+          tag = 'p'
+          break
+        case 'unimportant':
+          classes = ['text-opacity-75']
+          tag = 'p'
+          break
+      }
+
+      return {
+        classes,
+        tag,
+      }
+    }
+
     return {
-      // content: props.content,
+      markClasses,
+      style,
     }
   },
 })
