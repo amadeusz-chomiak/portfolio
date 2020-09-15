@@ -39,7 +39,9 @@ jest.mock('@nuxtjs/composition-api', () => {
     ...originalModule,
     useContext: jest.fn().mockReturnValue({
       route: {
-        value: undefined,
+        value: {
+          fullPath: '_fullPath_',
+        },
       },
       query: {
         value: undefined,
