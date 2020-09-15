@@ -32,7 +32,8 @@
           :content="link.title"
           secondary
           :route="link.outside"
-          :decenter="!width.md"
+          :decenter="true"
+          :class-inner="['md:justify-center']"
           class="mb-2 lg-h:mb-4"
           :slim="link.outside || !height.md"
         />
@@ -60,9 +61,9 @@ export default defineComponent({
       }))
     )
 
-    const { height, width } = useSize()
+    const { height } = useSize()
 
-    return { links, height, width }
+    return { links, height }
   },
 })
 </script>

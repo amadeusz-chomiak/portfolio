@@ -57,7 +57,7 @@ export default defineComponent({
     },
     classInner: {
       type: Array,
-      default: [],
+      default: () => [],
     },
   },
   setup(props, { emit }) {
