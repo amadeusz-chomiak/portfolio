@@ -1,6 +1,6 @@
 import { computed } from '@nuxtjs/composition-api'
 import '@testing-library/jest-dom'
-
+import '~/plugins/focusLock'
 import Vue from 'vue'
 
 //* BaseComponents
