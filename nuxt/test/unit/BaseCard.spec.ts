@@ -5,6 +5,7 @@ const base = new Base(Component)
 describe('components/BaseCard.vue', () => {
   test('show "content" slot', () => base.testHasSlot('content'))
   test('show "action" slot', () => base.testHasSlot('action'))
+  test('show "icon" slot', () => base.testHasSlot('icon'))
   test('Set background class for "background" prop equal to "circuit"', () => {
     const renderer = base.render({ props: { background: 'circuit' } })
     const Root = base.selectRoot(renderer)
@@ -15,12 +16,12 @@ describe('components/BaseCard.vue', () => {
     const renderer = base.render({ props: { background: 'dark' } })
     const Root = base.selectRoot(renderer)
 
-    expect(Root).toHaveClass('bg-primary-600')
+    expect(Root).toHaveClass('bg-primary-800')
   })
   test('Set background class for "background" prop equal to "darker"', () => {
     const renderer = base.render({ props: { background: 'darker' } })
     const Root = base.selectRoot(renderer)
 
-    expect(Root).toHaveClass('bg-primary-800')
+    expect(Root).toHaveClass('bg-primary-900')
   })
 })

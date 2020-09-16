@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-xl py-6 px-4" :class="rootClasses">
-    <div class="mb-2"><slot name="content" /></div>
+    <div class="mb-2"><slot name="icon" /><slot name="content" /></div>
     <div><slot name="action" /></div>
   </div>
 </template>
@@ -24,13 +24,13 @@ export default defineComponent({
     const rootClasses = computed(() => {
       switch (props.background) {
         case 'darker':
-          return ['bg-primary-800']
+          return ['bg-primary-900']
 
         case 'circuit':
           return ['bg-circuit']
 
         default:
-          return ['bg-primary-600']
+          return ['bg-primary-800']
       }
     })
 
