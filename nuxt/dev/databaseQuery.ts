@@ -512,87 +512,87 @@ export const querySite = {
       },
       title: { _type: 'localeString', pl: 'Współpracujmy' },
     },
-    {
-      _key: 'e67a0d75b2b6',
-      _type: 'page',
-      outside: true,
-      page: {
-        _createdAt: '2020-09-08T09:50:17Z',
-        _id: 'pageAbout',
-        _rev: 'MdZkBq3rwiPBKKi9PZtpMx',
-        _type: 'pageAbout',
-        _updatedAt: '2020-09-08T09:51:13Z',
-        content: {
-          _type: 'localeBlockContent',
-          pl: [
-            {
-              _key: '755cff04c061',
-              _type: 'block',
-              children: [
-                {
-                  _key: 'cac2cbac38a8',
-                  _type: 'span',
-                  marks: [],
-                  text: 'Kontakt',
-                },
-              ],
-              markDefs: [],
-              style: 'title',
-            },
-          ],
-        },
-        emailButton: {
-          _type: 'button',
-          title: { _type: 'localeString', pl: 'Napisz do mnie' },
-        },
-        emailContent: {
-          _type: 'localeBlockContent',
-          pl: [
-            {
-              _key: 'fba92845dc1c',
-              _type: 'block',
-              children: [
-                {
-                  _key: 'a7480dddc248',
-                  _type: 'span',
-                  marks: [],
-                  text: 'Mój E-mail',
-                },
-              ],
-              markDefs: [],
-              style: 'title',
-            },
-          ],
-        },
-        githubButton: {
-          _type: 'button',
-          title: {
-            _type: 'localeString',
-            pl: 'Obejrzyj moje publiczne projekty',
-          },
-        },
-        githubContent: {
-          _type: 'localeBlockContent',
-          pl: [
-            {
-              _key: '97e2248dec77',
-              _type: 'block',
-              children: [
-                {
-                  _key: '316bd8f1487b',
-                  _type: 'span',
-                  marks: [],
-                  text: 'Mój GitHub',
-                },
-              ],
-              markDefs: [],
-              style: 'title',
-            },
-          ],
-        },
-      },
-      title: { _type: 'localeString', pl: 'Kontakt' },
-    },
+    // {
+    //   _key: 'e67a0d75b2b6',
+    //   _type: 'page',
+    //   outside: true,
+    //   page: {
+    //     _createdAt: '2020-09-08T09:50:17Z',
+    //     _id: 'pageAbout',
+    //     _rev: 'MdZkBq3rwiPBKKi9PZtpMx',
+    //     _type: 'pageAbout',
+    //     _updatedAt: '2020-09-08T09:51:13Z',
+    //     content: {
+    //       _type: 'localeBlockContent',
+    //       pl: [
+    //         {
+    //           _key: '755cff04c061',
+    //           _type: 'block',
+    //           children: [
+    //             {
+    //               _key: 'cac2cbac38a8',
+    //               _type: 'span',
+    //               marks: [],
+    //               text: 'Kontakt',
+    //             },
+    //           ],
+    //           markDefs: [],
+    //           style: 'title',
+    //         },
+    //       ],
+    //     },
+    //     emailButton: {
+    //       _type: 'button',
+    //       title: { _type: 'localeString', pl: 'Napisz do mnie' },
+    //     },
+    //     emailContent: {
+    //       _type: 'localeBlockContent',
+    //       pl: [
+    //         {
+    //           _key: 'fba92845dc1c',
+    //           _type: 'block',
+    //           children: [
+    //             {
+    //               _key: 'a7480dddc248',
+    //               _type: 'span',
+    //               marks: [],
+    //               text: 'Mój E-mail',
+    //             },
+    //           ],
+    //           markDefs: [],
+    //           style: 'title',
+    //         },
+    //       ],
+    //     },
+    //     githubButton: {
+    //       _type: 'button',
+    //       title: {
+    //         _type: 'localeString',
+    //         pl: 'Obejrzyj moje publiczne projekty',
+    //       },
+    //     },
+    //     githubContent: {
+    //       _type: 'localeBlockContent',
+    //       pl: [
+    //         {
+    //           _key: '97e2248dec77',
+    //           _type: 'block',
+    //           children: [
+    //             {
+    //               _key: '316bd8f1487b',
+    //               _type: 'span',
+    //               marks: [],
+    //               text: 'Mój GitHub',
+    //             },
+    //           ],
+    //           markDefs: [],
+    //           style: 'title',
+    //         },
+    //       ],
+    //     },
+    //   },
+    //   title: { _type: 'localeString', pl: 'Kontakt' },
+    // },
   ],
 }
 
