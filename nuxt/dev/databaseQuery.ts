@@ -23,12 +23,13 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:20:52Z',
         _id: 'pageHero',
-        _rev: 'MdZkBq3rwiPBKKi9PZtqz7',
+        _rev: 'MQLMTq0EAOWCXWhVFjFAIQ',
         _type: 'pageHero',
-        _updatedAt: '2020-09-08T09:51:24Z',
+        _updatedAt: '2020-09-16T15:42:57Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
+            { _key: '3e25e6b703a8', _type: 'column', set: 'only-first' },
             {
               _key: 'd560a448790d',
               _type: 'block',
@@ -82,6 +83,7 @@ export const querySite = {
             _type: 'reference',
           },
         },
+        layout: { column: { _type: 'column', set: 'only-first' } },
       },
       title: { _type: 'localeString', pl: 'Potrzeba' },
     },
@@ -92,12 +94,13 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:21:29Z',
         _id: 'pageSolution',
-        _rev: 'n6hhUy2cDIEP6FOIXkwd2A',
+        _rev: 'MQLMTq0EAOWCXWhVFjEl3Q',
         _type: 'pageSolution',
-        _updatedAt: '2020-09-08T09:51:22Z',
+        _updatedAt: '2020-09-16T15:41:27Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
+            { _key: '3700aebb6bba', _type: 'column', set: 'only-first' },
             {
               _key: 'c71d68a1ac2a',
               _type: 'block',
@@ -137,6 +140,7 @@ export const querySite = {
             _type: 'reference',
           },
         },
+        layout: { column: { _type: 'column', set: 'both' } },
         solutions: [
           {
             _createdAt: '2020-09-08T09:22:27Z',
@@ -205,12 +209,13 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:22:51Z',
         _id: 'pagePromotion',
-        _rev: 'kxPviwKqiOdMF7ZkiqUOhs',
+        _rev: 'MQLMTq0EAOWCXWhVFjEuPz',
         _type: 'pagePromotion',
-        _updatedAt: '2020-09-08T09:51:19Z',
+        _updatedAt: '2020-09-16T15:41:56Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
+            { _key: 'df4dfd347bd5', _type: 'column', set: 'only-first' },
             {
               _key: 'a7c3c1455c07',
               _type: 'block',
@@ -262,6 +267,7 @@ export const querySite = {
             _type: 'reference',
           },
         },
+        layout: { column: { _type: 'column', set: 'both' } },
         promotions: [
           {
             _createdAt: '2020-09-08T09:25:22Z',
@@ -451,12 +457,13 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:49:25Z',
         _id: 'pageContact',
-        _rev: 'kxPviwKqiOdMF7ZkiqUOMa',
+        _rev: 'MQLMTq0EAOWCXWhVFjF5Zc',
         _type: 'pageContact',
-        _updatedAt: '2020-09-08T09:51:15Z',
+        _updatedAt: '2020-09-16T15:42:41Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
+            { _key: 'b49b9a075790', _type: 'column', set: 'only-first' },
             {
               _key: 'c398888f39fc',
               _type: 'block',
@@ -509,90 +516,10 @@ export const querySite = {
             _type: 'reference',
           },
         },
+        layout: { column: { _type: 'column', set: 'only-first' } },
       },
       title: { _type: 'localeString', pl: 'Współpracujmy' },
     },
-    // {
-    //   _key: 'e67a0d75b2b6',
-    //   _type: 'page',
-    //   outside: true,
-    //   page: {
-    //     _createdAt: '2020-09-08T09:50:17Z',
-    //     _id: 'pageAbout',
-    //     _rev: 'MdZkBq3rwiPBKKi9PZtpMx',
-    //     _type: 'pageAbout',
-    //     _updatedAt: '2020-09-08T09:51:13Z',
-    //     content: {
-    //       _type: 'localeBlockContent',
-    //       pl: [
-    //         {
-    //           _key: '755cff04c061',
-    //           _type: 'block',
-    //           children: [
-    //             {
-    //               _key: 'cac2cbac38a8',
-    //               _type: 'span',
-    //               marks: [],
-    //               text: 'Kontakt',
-    //             },
-    //           ],
-    //           markDefs: [],
-    //           style: 'title',
-    //         },
-    //       ],
-    //     },
-    //     emailButton: {
-    //       _type: 'button',
-    //       title: { _type: 'localeString', pl: 'Napisz do mnie' },
-    //     },
-    //     emailContent: {
-    //       _type: 'localeBlockContent',
-    //       pl: [
-    //         {
-    //           _key: 'fba92845dc1c',
-    //           _type: 'block',
-    //           children: [
-    //             {
-    //               _key: 'a7480dddc248',
-    //               _type: 'span',
-    //               marks: [],
-    //               text: 'Mój E-mail',
-    //             },
-    //           ],
-    //           markDefs: [],
-    //           style: 'title',
-    //         },
-    //       ],
-    //     },
-    //     githubButton: {
-    //       _type: 'button',
-    //       title: {
-    //         _type: 'localeString',
-    //         pl: 'Obejrzyj moje publiczne projekty',
-    //       },
-    //     },
-    //     githubContent: {
-    //       _type: 'localeBlockContent',
-    //       pl: [
-    //         {
-    //           _key: '97e2248dec77',
-    //           _type: 'block',
-    //           children: [
-    //             {
-    //               _key: '316bd8f1487b',
-    //               _type: 'span',
-    //               marks: [],
-    //               text: 'Mój GitHub',
-    //             },
-    //           ],
-    //           markDefs: [],
-    //           style: 'title',
-    //         },
-    //       ],
-    //     },
-    //   },
-    //   title: { _type: 'localeString', pl: 'Kontakt' },
-    // },
   ],
 }
 
