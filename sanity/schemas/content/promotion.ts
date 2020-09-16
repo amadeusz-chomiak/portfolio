@@ -1,3 +1,4 @@
+import { BsFillStarFill } from 'react-icons/bs';
 import { createPage } from '../utils/page';
 import {
   create,
@@ -21,4 +22,17 @@ export default createObject({
       collapsed: 'disallow',
     }),
   ],
+  preview: {
+    select: {
+      promotion: 'promotion',
+    },
+    prepare({ promotion }) {
+      const content = promotion.content.pl;
+      return {
+        title: content[0].children[0].text,
+        subtitle: content[1].children[0].text,
+        media: BsFillStarFill,
+      };
+    },
+  },
 });
