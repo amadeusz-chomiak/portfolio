@@ -1,5 +1,17 @@
 <template>
-  <BaseContent id="solution" :content="content" class="site-content" />
+  <div>
+    <BaseContent id="solution" :content="content" class="site-content" />
+    <div>
+      <BaseCard v-for="solution in solutions" :key="solution._id">
+        <template #content>
+          <BaseContent
+            class="text-primary-100"
+            :content="solution.solution.content.pl"
+          />
+        </template>
+      </BaseCard>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,7 +30,7 @@ import {
   ObserverPropType,
 } from '~/composable/useObserver'
 interface Props extends ObserverPropType {
-  page: { content: { pl: unknown; en: unknown } }
+  page: { content: { pl: unknown; en: unknown }; solutions: unknown }
 }
 
 export default defineComponent<Props>({
@@ -33,7 +45,8 @@ export default defineComponent<Props>({
     useObserverObserve(props, 'solution')
 
     const content = computed(() => props.page.content.pl)
-    return { content }
+    const solutions = computed(() => props.page.solutions)
+    return { content, solutions }
   },
 })
 </script>

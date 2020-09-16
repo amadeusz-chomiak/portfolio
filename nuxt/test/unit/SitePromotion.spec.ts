@@ -31,4 +31,18 @@ describe('components/SitePromotion.vue', () => {
       getByText(page?.content?.pl?.[0]?.children?.[0]?.text ?? '')
     ).toBeVisible()
   })
+
+  test('Render promotion cards from "page" prop', () => {
+    const { getByText } = base.render({
+      props: {
+        page,
+      },
+    })
+    expect(
+      getByText(
+        page?.promotions?.[0]?.promotion?.content?.pl?.[0]?.children?.[0]?.text?.trim() ??
+          ''
+      )
+    ).toBeVisible()
+  })
 })

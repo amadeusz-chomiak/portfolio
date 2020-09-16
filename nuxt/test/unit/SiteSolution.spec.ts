@@ -10,7 +10,7 @@ const page = useQuerySite().result.value?.pages?.find(
   (page) => page?.page?._id === 'pageSolution'
 )?.page
 describe('components/SiteSolution.vue', () => {
-  test('Register itself for observer from "observer" prop', async () => {
+  test('Register itself for observer from "observer" prop', () => {
     base.render({
       props: {
         observer,
@@ -29,6 +29,20 @@ describe('components/SiteSolution.vue', () => {
     })
     expect(
       getByText(page?.content?.pl?.[0]?.children?.[0]?.text ?? '')
+    ).toBeVisible()
+  })
+
+  test('Render solution cards from "page" prop', () => {
+    const { getByText } = base.render({
+      props: {
+        page,
+      },
+    })
+    expect(
+      getByText(
+        page?.solutions?.[0]?.solution?.content?.pl?.[0]?.children?.[0]?.text ??
+          ''
+      )
     ).toBeVisible()
   })
 })

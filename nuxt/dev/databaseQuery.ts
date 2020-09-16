@@ -81,11 +81,6 @@ export const querySite = {
               'image-9dfb1ae9d53afacc310e21df0b44524945ee0046-1780x1182-jpg',
             _type: 'reference',
           },
-          alt: {
-            _type: 'localeText',
-            pl:
-              'Planeta Ziemia opleciona liniami światła łączącymi wszystkich ludzi',
-          },
         },
       },
       title: { _type: 'localeString', pl: 'Potrzeba' },
@@ -144,9 +139,60 @@ export const querySite = {
         },
         solutions: [
           {
-            _key: '707dff7c24ef',
-            _ref: '3a9f2a79-ae9b-42ca-9e27-71565b9cca0b',
-            _type: 'reference',
+            _createdAt: '2020-09-08T09:22:27Z',
+            _id: '3a9f2a79-ae9b-42ca-9e27-71565b9cca0b',
+            _rev: 'kxPviwKqiOdMF7ZkiqST8a',
+            _type: 'solution',
+            _updatedAt: '2020-09-08T09:22:27Z',
+            solution: {
+              _type: 'card',
+              content: {
+                _type: 'localeBlockContent',
+                pl: [
+                  {
+                    _key: 'b3a2b6b28bee',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '25b73b57621d',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Wszystko w jednym miejscu',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'title',
+                  },
+                  {
+                    _key: '361f7cae6776',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '100d7b96b276',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Wszystkie usługi, z których będzie ',
+                      },
+                      {
+                        _key: 'f237fa3478fb',
+                        _type: 'span',
+                        marks: [],
+                        text: 'korzystać',
+                      },
+                      {
+                        _key: '4a8d98b9c57c',
+                        _type: 'span',
+                        marks: [],
+                        text:
+                          ' Twoja strona, znajdziesz w jednym miejscu. Aby maksymalnie ułatwić Ci pracę, opiszę też do czego każda z nich służy.',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'normal',
+                  },
+                ],
+              },
+            },
           },
         ],
       },
@@ -218,9 +264,142 @@ export const querySite = {
         },
         promotions: [
           {
-            _key: '35c4c026a36f',
-            _ref: '03dc6fa5-015a-4853-9d37-b842e1266604',
-            _type: 'reference',
+            _createdAt: '2020-09-08T09:25:22Z',
+            _id: '03dc6fa5-015a-4853-9d37-b842e1266604',
+            _rev: 'MdZkBq3rwiPBKKi9PZrIfJ',
+            _type: 'promotion',
+            _updatedAt: '2020-09-08T09:25:22Z',
+            promotion: {
+              _type: 'card',
+              content: {
+                _type: 'localeBlockContent',
+                pl: [
+                  {
+                    _key: 'a5a09c2d1a8c',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: 'd6837454282d',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Promocja ',
+                      },
+                      {
+                        _key: 'e70d75569337',
+                        _type: 'span',
+                        marks: ['em'],
+                        text: '"Wszystko co najlepsze"',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'title',
+                  },
+                  {
+                    _key: 'cf0d09ee00ba',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: 'af89624b8fb5',
+                        _type: 'span',
+                        marks: [],
+                        text:
+                          'Pozwól mi wybrać technologie które znam najlepiej, dzięki czemu projekt będzie tańszy i szybszy w realizacji.',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'normal',
+                  },
+                  {
+                    _key: '2b40999a96ac',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '3f603c2a7315',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Technologie',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'subtitle',
+                  },
+                  {
+                    _key: 'aa391f7d5ba6',
+                    _type: 'definition',
+                    color: {
+                      _type: 'color',
+                      alpha: 1,
+                      hex: '#42b883',
+                      hsl: {
+                        _type: 'hslaColor',
+                        a: 1,
+                        h: 153.05084745762713,
+                        l: 0.4901960784313726,
+                        s: 0.4719999999999999,
+                      },
+                      hsv: {
+                        _type: 'hsvaColor',
+                        a: 1,
+                        h: 153.05084745762713,
+                        s: 0.6413043478260869,
+                        v: 0.7215686274509804,
+                      },
+                      rgb: { _type: 'rgbaColor', a: 1, b: 131, g: 184, r: 66 },
+                    },
+                    content:
+                      'Jest nowoczesnym systemem, zarządzającym strukturą, działaniem i wyglądem strony. Jest to jeden z 3 najczęściej używanych systemów tego typu.',
+                    text: 'Vue.js',
+                    textBefore: 'Ekosystem',
+                    title: 'Vue.js',
+                  },
+                  {
+                    _key: '5261c47e7278',
+                    _type: 'definition',
+                    color: {
+                      _type: 'color',
+                      alpha: 1,
+                      hex: '#f03e2f',
+                      hsl: {
+                        _type: 'hslaColor',
+                        a: 1,
+                        h: 4.663212435233159,
+                        l: 0.5627450980392157,
+                        s: 0.8654708520179372,
+                      },
+                      hsv: {
+                        _type: 'hsvaColor',
+                        a: 1,
+                        h: 4.663212435233159,
+                        s: 0.8041666666666667,
+                        v: 0.9411764705882353,
+                      },
+                      rgb: { _type: 'rgbaColor', a: 1, b: 47, g: 62, r: 240 },
+                    },
+                    content:
+                      'Jest bardzo prostym w obsłudze systemem CMS, dzięki któremu błyskawicznie zmienisz treść Twojej strony',
+                    text: 'Sanity CMS',
+                    textBefore: 'System zarządzania treścią',
+                    title: 'Sanity CMS',
+                  },
+                  {
+                    _key: '26268397d57a',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '05bc8239fa1f',
+                        _type: 'span',
+                        marks: [],
+                        text:
+                          'Jeśli potrzebujesz czegoś więcej nie martw się, ostatecznie o udzieleniu promocji decyduję po indywidualnej konsultacji.',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'unimportant',
+                  },
+                ],
+              },
+            },
+            value: { _type: 'localeString', pl: '300zł' },
           },
         ],
       },
@@ -416,4 +595,5 @@ export const querySite = {
     },
   ],
 }
+
 export type QuerySite = DeepPartial<typeof querySite>

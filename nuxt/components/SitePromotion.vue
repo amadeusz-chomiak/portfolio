@@ -1,6 +1,16 @@
 <template>
   <div>
     <BaseContent id="promotion" :content="content" class="site-content" />
+    <div>
+      <BaseCard v-for="promotion in promotions" :key="promotion._id">
+        <template #content>
+          <BaseContent
+            class="text-primary-100"
+            :content="promotion.promotion.content.pl"
+          />
+        </template>
+      </BaseCard>
+    </div>
   </div>
 </template>
 
@@ -18,7 +28,7 @@ import {
   ObserverPropType,
 } from '~/composable/useObserver'
 interface Props extends ObserverPropType {
-  page: { content: { pl: unknown; en: unknown } }
+  page: { content: { pl: unknown; en: unknown }; promotions: unknown }
 }
 
 export default defineComponent<Props>({
@@ -33,7 +43,9 @@ export default defineComponent<Props>({
     useObserverObserve(props, 'promotion')
 
     const content = computed(() => props.page.content.pl)
-    return { content }
+    const promotions = computed(() => props.page.promotions)
+
+    return { content, promotions }
   },
 })
 </script>

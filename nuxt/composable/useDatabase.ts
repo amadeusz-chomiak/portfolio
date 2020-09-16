@@ -1,4 +1,10 @@
-import { ref, computed, reactive, watchEffect } from '@nuxtjs/composition-api'
+import {
+  ref,
+  computed,
+  reactive,
+  watchEffect,
+  ComputedRef,
+} from '@nuxtjs/composition-api'
 import sanityClient from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 import { querySite, QuerySite } from '~/dev/databaseQuery'
@@ -45,7 +51,14 @@ const useQuery = <Result extends StateValues, Params extends object = {}>(
     try {
       const resultArray = await client.fetch(query, params)
       result.value = resultArray[0]
-      console.log('query result for', id, 'is', JSON.stringify(resultArray[0]))
+      console.log(
+        'query result for',
+        id,
+        'is',
+        resultArray[0],
+        'stringify',
+        JSON.stringify(resultArray[0])
+      )
     } catch (err) {
       throw new Error(err)
     }
@@ -73,7 +86,7 @@ const useQuery = <Result extends StateValues, Params extends object = {}>(
 export const useQuerySite = () =>
   useQuery<QuerySite>(
     QueryIds.site,
-    /* groq */ `*[_type=='site']{header, pages[]{page->,...}}`,
+    /* groq */ `*[_type=='site']{header, pages[]{page->{solutions[]->, promotions[]->,...},...}}`,
     {}
   )
 
