@@ -64,10 +64,9 @@ export default defineComponent({
   },
   setup() {
     const { route } = useContext()
-    watchEffect(() => {
-      const hash = route.value.hash
-      if (hash) {
-        const Target = document.querySelector(hash)
+    watch(route, (to, from) => {
+      if (to.hash && from && from.name !== to.name) {
+        const Target = document.querySelector(to.hash)
         Target?.scrollIntoView()
       }
     })
