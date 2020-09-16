@@ -524,3 +524,7 @@ export const querySite = {
 }
 
 export type QuerySite = DeepPartial<typeof querySite>
+
+export interface ColumnSettings {
+  set: 'only-first' | 'only-second' | 'both'
+}

@@ -6,7 +6,12 @@
       <article
         v-for="page in pagesComponent"
         :key="page.name"
-        class="min-h-screen z-10 snap-start md:max-w-md lg:max-w-lg xl:max-w-3xl flex flex-col"
+        class="min-h-screen z-10 snap-start md:max-w-md flex flex-col"
+        :class="
+          page.column.set === 'only-first'
+            ? []
+            : ['lg:max-w-lg', 'xl:max-w-3xl']
+        "
       >
         <component :is="page.name" :observer="observer" :page="page.page" />
         <BaseButton
@@ -55,6 +60,8 @@ import SiteHero from '~/components/SiteHero.vue'
 import SiteSolution from '~/components/SiteSolution.vue'
 import SitePromotion from '~/components/SitePromotion.vue'
 import SiteContact from '~/components/SiteContact.vue'
+import { ColumnSettings } from '~/dev/databaseQuery'
+
 export default defineComponent({
   components: {
     SiteHero,
@@ -84,6 +91,7 @@ export default defineComponent({
           content: page?.link?.pl,
           target: toPath(pages.value?.[index + 1]?.page?._id, true),
         },
+        column: page?.page?.layout?.column as ColumnSettings,
       }))
     )
     const observer = ref<IntersectionObserver>()
