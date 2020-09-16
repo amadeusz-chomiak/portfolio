@@ -78,7 +78,7 @@ export const useQuerySite = () =>
   )
 
 export const useImage = (
-  image:
+  image: ComputedRef<
     | DeepPartial<{
         _type: string
         asset: {
@@ -86,12 +86,18 @@ export const useImage = (
           _type: string
         }
       }>
-    | undefined,
+    | undefined
+  >,
   height: number = 1200
 ) =>
   computed(() =>
-    image
-      ? imageBuilder.image(image).auto('format').height(height).fit('max').url()
+    image.value
+      ? imageBuilder
+          .image(image.value)
+          .auto('format')
+          .height(height)
+          .fit('max')
+          .url()
       : ''
   )
 

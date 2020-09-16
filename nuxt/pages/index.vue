@@ -71,10 +71,10 @@ export default defineComponent({
       const intersetionPage = pages.value?.find(
         (page) => toPath(page?.page?._id) === intersectionKey.value
       )
-      const image = intersetionPage?.page?.image
+      const imageObject = computed(() => intersetionPage?.page?.image)
       return {
-        src: useImage(image),
-        alt: image?.alt?.pl,
+        src: useImage(imageObject),
+        alt: imageObject.value?.alt?.pl,
       }
     })
     onMounted(() => {

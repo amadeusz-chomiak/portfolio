@@ -33,7 +33,10 @@ export default defineComponent({
   setup() {
     const { result } = useQuerySite()
     const header = computed(() => result.value?.header)
-    const headerPicture = useImage(header.value?.image, 224)
+    const headerPicture = useImage(
+      computed(() => header.value?.image),
+      224
+    )
     const headerAlt = computed(() => header.value?.image?.alt?.pl)
 
     const headerTitle = computed(() => header.value?.title?.pl)
