@@ -120,7 +120,7 @@ export const usePageIdTransformer = () => ({
     if (!id) return undefined
 
     const path: string = id.toLowerCase().replace('page', '')
-    if (path && withHash) return `#${path}`
+    if (path && withHash) return `/#${path}`
     return path
   },
 })

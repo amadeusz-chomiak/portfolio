@@ -42,6 +42,9 @@ import {
   onMounted,
   onUnmounted,
   ref,
+  useContext,
+  watch,
+  watchEffect,
 } from '@nuxtjs/composition-api'
 import {
   useQuerySite,
@@ -60,6 +63,15 @@ export default defineComponent({
     SiteContact,
   },
   setup() {
+    const { route } = useContext()
+    watchEffect(() => {
+      const hash = route.value.hash
+      if (hash) {
+        const Target = document.querySelector(hash)
+        Target?.scrollIntoView()
+      }
+    })
+
     const { result } = useQuerySite()
     const pages = computed(() =>
       result.value?.pages?.filter((page) => !page?.outside)
