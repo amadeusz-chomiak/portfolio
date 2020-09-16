@@ -116,5 +116,6 @@ export const useImage = (
 
 export const usePageIdTransformer = () => ({
   toComponent: (id?: string) => id?.replace('page', 'Site'),
-  toPath: (id?: string) => id?.toLowerCase().replace('page', ''),
+  toPath: (id?: string, withHash = false) =>
+    `${withHash ? '#' : ''}${id?.toLowerCase().replace('page', '')}`,
 })
