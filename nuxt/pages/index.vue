@@ -1,17 +1,17 @@
 <template>
   <div
-    class="max-h-full relative z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+    class="max-h-full relative z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-proximity overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
   >
     <template v-if="pagesComponent">
       <article
         v-for="page in pagesComponent"
         :key="page.name"
-        class="min-h-screen z-10 snap-start md:max-w-md lg:max-w-lg xl:max-w-4xl flex flex-col"
+        class="min-h-screen z-10 snap-start md:max-w-md lg:max-w-lg xl:max-w-3xl flex flex-col"
       >
         <component :is="page.name" :observer="observer" :page="page.page" />
         <BaseButton
           v-if="page.link.target"
-          class="mt-2 self-end transform translate-x-1/2"
+          class="mt-2 self-end transform lg:translate-x-1/2"
           :target="page.link.target"
           :content="page.link.content"
         />
