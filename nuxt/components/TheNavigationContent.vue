@@ -22,6 +22,7 @@
               :target="link.to || ''"
               class="mr-10 md:mr-0"
               :content="link.title"
+              fill
             />
           </template>
         </BaseCard>
@@ -31,6 +32,7 @@
           :target="link.to || ''"
           :content="link.title"
           secondary
+          fill
           :route="link.outside"
           :decenter="true"
           :class-inner="['md:justify-center']"

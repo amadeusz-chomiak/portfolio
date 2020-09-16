@@ -34,6 +34,16 @@ describe('components/BaseButton.vue', () => {
       ).toBeGreaterThan(0)
     })
 
+    test('Use flex grow classes when prop "fill" is true', () => {
+      const { getByText } = base.render({ props: { fill: true, content } })
+      const Button = getByText(content).parentElement
+
+      expect(
+        Array.from(Button?.classList ?? []).find((cl) => cl.includes('flex-1'))
+          ?.length
+      ).toBeGreaterThan(0)
+    })
+
     test('Use small padding class when prop "slim" is true', () => {
       base.render({ props: { slim: true } })
       const Root = base.selectRoot()

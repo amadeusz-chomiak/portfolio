@@ -11,7 +11,7 @@
     @keydown.space.enter="activete()"
     @keyup.space.enter="emitClick()"
   >
-    <div :class="[...innerClasses, ...classInner]" class="flex-1 flex">
+    <div :class="[...innerClasses, ...classInner]" class="flex">
       <slot
         ><p class="text-lg" :class="textClasses">{{ content }}</p></slot
       >
@@ -45,6 +45,10 @@ export default defineComponent({
       default: false,
     },
     slim: {
+      type: Boolean,
+      default: false,
+    },
+    fill: {
       type: Boolean,
       default: false,
     },
@@ -106,6 +110,7 @@ export default defineComponent({
         classes(props.round && !props.slim, 'p-3'),
         classes(!props.round && props.slim, 'rounded-button-6', 'py-1'),
         classes(!props.round && !props.slim, 'rounded-button-8', 'py-3'),
+        classes(props.fill, 'flex-1'),
       ].flat()
     )
 

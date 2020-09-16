@@ -6,9 +6,15 @@
       <article
         v-for="page in pagesComponent"
         :key="page.name"
-        class="min-h-screen z-10 snap-start md:max-w-md lg:max-w-lg xl:max-w-4xl"
+        class="min-h-screen z-10 snap-start md:max-w-md lg:max-w-lg xl:max-w-4xl flex flex-col"
       >
         <component :is="page.name" :observer="observer" :page="page.page" />
+        <BaseButton
+          v-if="page.link.target"
+          class="mt-2 self-end transform translate-x-1/2"
+          :target="page.link.target"
+          :content="page.link.content"
+        />
       </article>
     </template>
     <div
@@ -60,9 +66,13 @@ export default defineComponent({
     )
     const { toComponent, toPath } = usePageIdTransformer()
     const pagesComponent = computed(() =>
-      pages.value?.map((page) => ({
+      pages.value?.map((page, index) => ({
         name: toComponent(page?.page?._id),
         page: page?.page,
+        link: {
+          content: page?.link?.pl,
+          target: toPath(pages.value?.[index + 1]?.page?._id, true),
+        },
       }))
     )
     const observer = ref<IntersectionObserver>()
