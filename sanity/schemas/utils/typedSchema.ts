@@ -1,7 +1,9 @@
+import { IconType } from "react-icons/lib";
+
 type SchemaTypesBasic = 'string' | 'text' | 'boolean' | 'number';
 type SchemaSpecial = 'reference' | 'array';
 type SchemaTypesWithFields = 'object' | 'image' | 'document';
-type SchemaTypesComponents = 'card' | 'button' | 'definition';
+type SchemaTypesComponents = 'card' | 'button' | 'definition' | 'column';
 export type SchemaTypesPages =
   | 'pageAbout'
   | 'pageContact'
@@ -33,11 +35,11 @@ type Validation = 'error' | 'warn' | 'no';
 interface PreviewSelect {
   title?: string;
   subtitle?: string;
-  media?: string | JSX.Element;
+  media?: string | JSX.Element | IconType;
 }
 
 interface PreviewSelectAny extends PreviewSelect {
-  [key: string]: string | JSX.Element;
+  [key: string]: string | JSX.Element | IconType;
 }
 
 type PreviewSelectData<T extends PreviewSelectAny> = {

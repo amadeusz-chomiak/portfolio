@@ -1,13 +1,15 @@
 // @ts-expect-error
 import React from 'react';
-import {BiArrowFromTop} from 'react-icons/bi'
-import {RiRouteLine} from 'react-icons/ri'
+import { BiArrowFromTop } from 'react-icons/bi';
+import { RiRouteLine } from 'react-icons/ri';
 const addStyle = (value: string, size: number, opacity: number = 1) => ({
   title: value,
   value: value,
   blockEditor: {
     render: (props) => (
-      <span style={{ fontFamily: 'Montserrat', fontSize: `${size}rem`, opacity }}>
+      <span
+        style={{ fontFamily: 'Montserrat', fontSize: `${size}rem`, opacity }}
+      >
         {props.children}
       </span>
     ),
@@ -57,9 +59,7 @@ export default {
             name: 'route',
             type: 'object',
             icon: RiRouteLine,
-            fields: [
-              createRouteLink()
-            ],
+            fields: [createRouteLink()],
           },
           {
             title: 'URL',
@@ -79,9 +79,11 @@ export default {
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-
     {
       type: 'definition',
+    },
+    {
+      type: 'column',
     },
   ],
 };

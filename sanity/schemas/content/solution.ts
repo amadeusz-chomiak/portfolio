@@ -17,6 +17,7 @@ export default createObject({
     createObject({
       type: 'card',
       name: 'solution',
+      collapsed: 'disallow'
     }),
   ],
 });

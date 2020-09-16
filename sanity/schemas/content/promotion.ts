@@ -18,6 +18,7 @@ export default createObject({
     createObject({
       type: 'card',
       name: 'promotion',
+      collapsed: 'disallow',
     }),
   ],
 });

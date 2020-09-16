@@ -10,6 +10,20 @@ const analyticVersions: Analytic[] = [
   { title: 'Third version for analytic', url: 'c' },
 ];
 
+const addLayout = () => [
+  createObject({
+    name: 'layout',
+    title: 'Layout of the page',
+    description: `You can set how page will be shown on the website`,
+    fields: [
+      createObject({
+        type: 'column',
+        name: 'column',
+      })
+    ],
+  })
+]
+
 const addAnalytic = (fields: Schema[]) =>
   analyticVersions.map((analytic) =>
     createObject({
@@ -36,6 +50,7 @@ export const createPage = (name: string, customFields: Schema[], title = name) =
     type: 'document',
     fields: [
       ...fields,
+      ...addLayout(),
       ...addAnalytic(fields)
     ],
     preview: {

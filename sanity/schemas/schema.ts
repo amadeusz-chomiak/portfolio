@@ -22,6 +22,7 @@ import blockContent from './types/blockContent'
 import card from './components/card'
 import button from './components/button'
 import definition from './components/definition'
+import column from './components/column';
 
 //* Import locales
 // import blockContent from './locale/BlockContent'
@@ -57,6 +58,7 @@ export default createSchema({
     card,
     button,
     definition,
+    column,
 
     // locales schemas
     localeText,
