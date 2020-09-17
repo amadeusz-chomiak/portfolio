@@ -23,9 +23,9 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:20:52Z',
         _id: 'pageHero',
-        _rev: 'MQLMTq0EAOWCXWhVFjFAIQ',
+        _rev: 'qD2nwhohCpR7vPHyE9S7sR',
         _type: 'pageHero',
-        _updatedAt: '2020-09-16T15:42:57Z',
+        _updatedAt: '2020-09-17T13:10:31Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
@@ -52,31 +52,41 @@ export const querySite = {
                   _key: 'a3accc7fd87f',
                   _type: 'span',
                   marks: [],
-                  text: 'Czas to wykorzystać. ',
+                  text: 'Czas to wykorzystać. Z internetu korzysta już ',
                 },
-              ],
-              markDefs: [],
-              style: 'normal',
-            },
-            {
-              _key: '9a72e1cc6a54',
-              _type: 'block',
-              children: [
                 {
-                  _key: 'f6e72f545600',
+                  _key: '5e853dabd93c',
+                  _type: 'span',
+                  marks: ['5b57ce29936a'],
+                  text: '4.5 biliona potencjalnych klientów',
+                },
+                {
+                  _key: '2a83ea0847bd',
                   _type: 'span',
                   marks: [],
                   text:
-                    'Przeprowadzę Cię przez cały proces – szybko i bez boleśnie ;)',
+                    '. Szybka i wygodna strona internetowa pozwoli Ci ich zdobyć. ',
                 },
               ],
-              markDefs: [],
+              markDefs: [
+                {
+                  _key: '5b57ce29936a',
+                  _type: 'link',
+                  href:
+                    'https://mobirank.pl/2020/01/31/raport-digital-i-mobile-na-swiecie-w-2020-roku/',
+                },
+              ],
               style: 'normal',
             },
           ],
         },
         image: {
           _type: 'image',
+          alt: {
+            _type: 'localeText',
+            pl:
+              'Widok na ogrom ziemi w nocy. Gdy światła miast łączą całą populację planety.',
+          },
           asset: {
             _ref:
               'image-9dfb1ae9d53afacc310e21df0b44524945ee0046-1780x1182-jpg',
@@ -94,9 +104,9 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:21:29Z',
         _id: 'pageSolution',
-        _rev: 'MQLMTq0EAOWCXWhVFjEl3Q',
+        _rev: 'qD2nwhohCpR7vPHyE9SB2U',
         _type: 'pageSolution',
-        _updatedAt: '2020-09-16T15:41:27Z',
+        _updatedAt: '2020-09-17T13:12:00Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
@@ -124,16 +134,37 @@ export const querySite = {
                   _type: 'span',
                   marks: [],
                   text:
-                    'Z wykształcenia jestem programistą wizualnej części strony i projektantem graficznym. Każda strona ma zagwarantowane poniższe funkcje',
+                    'Oszczędzę Tobie kilka miesięcy nauki, wielu bolesnych porażek i straty nawet',
+                },
+                { _key: '68aeb128b628', _type: 'span', marks: [], text: '' },
+                { _key: 'ddf1d72998c1', _type: 'span', marks: [], text: '' },
+                { _key: '184b80d962e2', _type: 'span', marks: [], text: '' },
+                { _key: 'd9b41cd9445c', _type: 'span', marks: [], text: '​ ' },
+                {
+                  _key: '016572282226',
+                  _type: 'span',
+                  marks: ['6d996232c16c'],
+                  text: '16% zysków przez zbyt wolne działanie strony',
                 },
               ],
-              markDefs: [],
+              markDefs: [
+                {
+                  _key: '6d996232c16c',
+                  _type: 'link',
+                  href:
+                    'https://www.sitespect.com/blog-case-study-quantifying-the-impact-of-page-speed/',
+                },
+              ],
               style: 'normal',
             },
           ],
         },
         image: {
           _type: 'image',
+          alt: {
+            _type: 'localeText',
+            pl: 'Wielka ciemna tarcza zegara ze złotymi wskazówkami.',
+          },
           asset: {
             _ref:
               'image-609b3bafa7482c185a62d25a59b61b5555d5e70e-1780x1182-jpg',
@@ -145,9 +176,9 @@ export const querySite = {
           {
             _createdAt: '2020-09-08T09:22:27Z',
             _id: '3a9f2a79-ae9b-42ca-9e27-71565b9cca0b',
-            _rev: 'kxPviwKqiOdMF7ZkiqST8a',
+            _rev: 'qD2nwhohCpR7vPHyE9Nggu',
             _type: 'solution',
-            _updatedAt: '2020-09-08T09:22:27Z',
+            _updatedAt: '2020-09-17T11:12:43Z',
             solution: {
               _type: 'card',
               content: {
@@ -197,6 +228,193 @@ export const querySite = {
                 ],
               },
             },
+            value: {
+              _type: 'localeString',
+              pl: 'Oszczędź 10 minut tygodniowo',
+            },
+          },
+          {
+            _createdAt: '2020-09-17T09:51:33Z',
+            _id: '4de86f1a-7f34-4518-b7c5-889d5a804155',
+            _rev: '2jL4beAYAvILht20Wp2QTJ',
+            _type: 'solution',
+            _updatedAt: '2020-09-17T11:20:08Z',
+            solution: {
+              _type: 'card',
+              content: {
+                _type: 'localeBlockContent',
+                pl: [
+                  {
+                    _key: '7e9dd46ad382',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '7a26be842576',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Najszybsza z możliwych',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'title',
+                  },
+                  {
+                    _key: '1e04ec46eca7',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '392ce6632bc7',
+                        _type: 'span',
+                        marks: [],
+                        text:
+                          'Strona dostępna poniżej sekundy z praktycznie każdego miejsca na ziemi. Dzięki temu utrzymasz ',
+                      },
+                      {
+                        _key: 'a46a7eae1919',
+                        _type: 'span',
+                        marks: [],
+                        text: 'zaangażowanie',
+                      },
+                      {
+                        _key: '972bdbd1f80b',
+                        _type: 'span',
+                        marks: [],
+                        text: ' odwiedzających.',
+                      },
+                      {
+                        _key: '6fc0a0738ab2',
+                        _type: 'span',
+                        marks: [],
+                        text: '​ ',
+                      },
+                      {
+                        _key: '09d8bf3a3aea',
+                        _type: 'span',
+                        marks: ['2d398328973b'],
+                        text: 'Dowiedz się więcej.',
+                      },
+                    ],
+                    markDefs: [
+                      {
+                        _key: '2d398328973b',
+                        _type: 'link',
+                        href: 'https://takaoto.pro/szybkosc-ladowania-seo-ux/',
+                      },
+                    ],
+                    style: 'normal',
+                  },
+                ],
+              },
+            },
+            value: { _type: 'localeString', pl: 'Zwiększ pozycję w Google' },
+          },
+          {
+            _createdAt: '2020-09-17T11:41:47Z',
+            _id: '353c7c47-1719-4510-b31f-be8568e06872',
+            _rev: '2jL4beAYAvILht20Wp3Jbd',
+            _type: 'solution',
+            _updatedAt: '2020-09-17T11:57:52Z',
+            solution: {
+              _type: 'card',
+              content: {
+                _type: 'localeBlockContent',
+                pl: [
+                  {
+                    _key: 'e88b31ad2c61',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '40c54a97bce4',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Jesteś w kontroli',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'title',
+                  },
+                  {
+                    _key: '2fd9aad72d90',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '3f839e8b00c3',
+                        _type: 'span',
+                        marks: [],
+                        text:
+                          'Podejmuj zyskowne decyzje z pomocą analityki. Wszystko zgodnie z',
+                      },
+                      {
+                        _key: '15bbe5d980f6',
+                        _type: 'span',
+                        marks: [],
+                        text: '​ ',
+                      },
+                      {
+                        _key: '18e7acd96058',
+                        _type: 'span',
+                        marks: ['f53d91b36f56'],
+                        text: 'RODO',
+                      },
+                    ],
+                    markDefs: [
+                      {
+                        _key: 'f53d91b36f56',
+                        _type: 'link',
+                        href:
+                          'https://www.gov.pl/web/cyfryzacja/rodo-informacje',
+                      },
+                    ],
+                    style: 'normal',
+                  },
+                ],
+              },
+            },
+            value: { _type: 'localeString', pl: 'Ciągły wzrost dochodu' },
+          },
+          {
+            _createdAt: '2020-09-17T11:58:29Z',
+            _id: 'd22a6b5f-47f4-4c26-af7f-cb848419ab73',
+            _rev: '2jL4beAYAvILht20Wp3dxD',
+            _type: 'solution',
+            _updatedAt: '2020-09-17T12:11:31Z',
+            solution: {
+              _type: 'card',
+              content: {
+                _type: 'localeBlockContent',
+                pl: [
+                  {
+                    _key: '250e963ce607',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '291e062437e3',
+                        _type: 'span',
+                        marks: [],
+                        text: 'Łatwa w edycji',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'title',
+                  },
+                  {
+                    _key: 'f90de58b6b38',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: 'b4c3f495eee3',
+                        _type: 'span',
+                        marks: [],
+                        text:
+                          'Zmieniaj dowolną treść strony w intuicyjnym edytorze.',
+                      },
+                    ],
+                    markDefs: [],
+                    style: 'normal',
+                  },
+                ],
+              },
+            },
           },
         ],
       },
@@ -209,9 +427,9 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:22:51Z',
         _id: 'pagePromotion',
-        _rev: 'MQLMTq0EAOWCXWhVFjEuPz',
+        _rev: '2jL4beAYAvILht20Wp5G92',
         _type: 'pagePromotion',
-        _updatedAt: '2020-09-16T15:41:56Z',
+        _updatedAt: '2020-09-17T13:12:23Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
@@ -261,6 +479,7 @@ export const querySite = {
         },
         image: {
           _type: 'image',
+          alt: { _type: 'localeText', pl: 'Błyszczące zimne ognie.' },
           asset: {
             _ref:
               'image-97190e0bace01d407c323a7d6426988f03e08a3d-1780x1182-jpg',
@@ -272,9 +491,9 @@ export const querySite = {
           {
             _createdAt: '2020-09-08T09:25:22Z',
             _id: '03dc6fa5-015a-4853-9d37-b842e1266604',
-            _rev: 'MdZkBq3rwiPBKKi9PZrIfJ',
+            _rev: 'EKvk0y0sZhG3MJulrnmRg3',
             _type: 'promotion',
-            _updatedAt: '2020-09-08T09:25:22Z',
+            _updatedAt: '2020-09-17T09:49:01Z',
             promotion: {
               _type: 'card',
               content: {
@@ -288,13 +507,13 @@ export const querySite = {
                         _key: 'd6837454282d',
                         _type: 'span',
                         marks: [],
-                        text: 'Promocja ',
+                        text: 'Propozycja ',
                       },
                       {
                         _key: 'e70d75569337',
                         _type: 'span',
                         marks: ['em'],
-                        text: '"Wszystko co najlepsze"',
+                        text: '"Dwa tygodnie szybciej"',
                       },
                     ],
                     markDefs: [],
@@ -315,6 +534,7 @@ export const querySite = {
                     markDefs: [],
                     style: 'normal',
                   },
+                  { _key: 'faebb4d013eb', _type: 'column', set: 'only-second' },
                   {
                     _key: '2b40999a96ac',
                     _type: 'block',
@@ -387,6 +607,7 @@ export const querySite = {
                     textBefore: 'System zarządzania treścią',
                     title: 'Sanity CMS',
                   },
+                  { _key: 'ed1e03c4ca85', _type: 'column', set: 'both' },
                   {
                     _key: '26268397d57a',
                     _type: 'block',
@@ -396,7 +617,7 @@ export const querySite = {
                         _type: 'span',
                         marks: [],
                         text:
-                          'Jeśli potrzebujesz czegoś więcej nie martw się, ostatecznie o udzieleniu promocji decyduję po indywidualnej konsultacji.',
+                          'Jeśli potrzebujesz czegoś więcej, nie martw się, wszystko co powyżej wymieniłem spersonalizuję pod Twoje indywidualne potrzeby.',
                       },
                     ],
                     markDefs: [],
@@ -405,7 +626,7 @@ export const querySite = {
                 ],
               },
             },
-            value: { _type: 'localeString', pl: '300zł' },
+            value: { _type: 'localeString', pl: 'Oszczędź 2400zł' },
           },
         ],
       },
@@ -457,9 +678,9 @@ export const querySite = {
       page: {
         _createdAt: '2020-09-08T09:49:25Z',
         _id: 'pageContact',
-        _rev: 'MQLMTq0EAOWCXWhVFjF5Zc',
+        _rev: 'EKvk0y0sZhG3MJulroTIMo',
         _type: 'pageContact',
-        _updatedAt: '2020-09-16T15:42:41Z',
+        _updatedAt: '2020-09-17T13:12:49Z',
         content: {
           _type: 'localeBlockContent',
           pl: [
@@ -510,6 +731,7 @@ export const querySite = {
         },
         image: {
           _type: 'image',
+          alt: { _type: 'localeText', pl: 'Dwa wieżowce połączone mostem.' },
           asset: {
             _ref:
               'image-5bd954e715de6df824e8eb9342acfc5ba407ec69-1780x1182-jpg',
