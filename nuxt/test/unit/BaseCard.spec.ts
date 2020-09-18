@@ -24,4 +24,11 @@ describe('components/BaseCard.vue', () => {
 
     expect(Root).toHaveClass('bg-primary-900')
   })
+  test('Set paddings class for "small" prop set to true', () => {
+    const renderer = base.render({ props: { small: true } })
+    const Root = base.selectRoot(renderer)
+
+    expect(Root).toHaveClass('p-2')
+    expect(Root).not.toHaveClass('pt-6')
+  })
 })

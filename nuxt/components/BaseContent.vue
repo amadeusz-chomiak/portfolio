@@ -126,15 +126,15 @@ export default defineComponent({
           classes = [
             ['font-semibold', 'tracking-wide'],
             createClasses(props.level === 2, 'text-2xl'),
-            createClasses(props.level === 3, 'text-xl'),
-            createClasses(props.level === 4, 'text-lg'),
+            createClasses(props.level === 3, 'text-xl', 'pl-1'),
+            createClasses(props.level === 4, 'text-lg', 'pl-2'),
           ].flat()
           tag = `h${props.level}`
           break
         case 'subtitle':
           classes = [
-            createClasses(props.level === 2, 'text-lg'),
-            createClasses(props.level === 3, 'text-md'),
+            createClasses(props.level === 2, 'text-lg', 'pl-1'),
+            createClasses(props.level === 3, 'text-md', 'pl-2'),
             // createClasses(props.level === 4, ''),
           ].flat()
           tag = `h${props.level + 1}`
