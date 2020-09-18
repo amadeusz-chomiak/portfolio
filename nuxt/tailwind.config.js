@@ -47,9 +47,22 @@ module.exports = {
       },
       spacing: {
         14: '3.5rem',
+        xs: '20rem',
+        sm: '24rem',
+        md: '28rem',
+        lg: '32rem',
+        xl: '36rem',
+        '2xl': '42rem',
+        '3xl': '48rem',
+        '4xl': '56rem',
+        '5xl': '64rem',
+        '6xl': '72rem',
       },
       maxWidth: {
         '2xs': '16rem',
+      },
+      minHeight: {
+        nuxt: 'calc(100vh - 20rem)',
       },
       borderWidth: {
         3: '3px',
@@ -95,6 +108,9 @@ module.exports = {
     translate: ['responsive', 'active', 'group-active'],
     borderOpacity: ['responsive', 'active', 'group-active'],
     boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-active'],
+    margin: ['responsive', 'first'],
+    minHeight: ['responsive', 'last'],
+    scrollSnapType: ['responsive'],
   },
   plugins: [
     require('tailwindcss-blend-mode')(),

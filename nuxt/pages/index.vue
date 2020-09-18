@@ -1,12 +1,12 @@
 <template>
   <div
-    class="max-h-full z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-proximity overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+    class="max-h-full shadow-inner flex flex-col items-center md:items-start z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-proximity xl:snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
   >
     <template v-if="pagesComponent">
       <article
         v-for="page in pagesComponent"
         :key="page.name"
-        class="min-h-screen mb-64 z-10 snap-start max-w-md flex flex-col"
+        class="min-h-nuxt flex-shrink-0 mb-64 z-10 snap-start max-w-md flex flex-col"
         :class="
           page.column.set === 'only-first'
             ? ['lg:max-w-sm']

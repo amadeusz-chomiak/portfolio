@@ -2,7 +2,11 @@
   <div>
     <BaseContent id="promotion" :content="content" class="site-content" />
     <div>
-      <BaseCard v-for="promotion in promotions" :key="promotion._id">
+      <BaseCard
+        v-for="promotion in promotions"
+        :key="promotion._id"
+        class="m-2"
+      >
         <template #content>
           <BaseContent
             class="text-primary-100"

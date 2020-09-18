@@ -1,8 +1,12 @@
 <template>
   <div>
     <BaseContent id="solution" :content="content" class="site-content" />
-    <div>
-      <BaseCard v-for="solution in solutions" :key="solution._id">
+    <div class="flex flex-wrap">
+      <BaseCard
+        v-for="solution in solutions"
+        :key="solution._id"
+        class="m-2 w-xs flex-grow"
+      >
         <template #content>
           <BaseContent
             class="text-primary-100"
