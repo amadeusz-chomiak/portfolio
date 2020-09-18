@@ -1,3 +1,5 @@
+import { ColumnSettings } from '~/dev/databaseQuery'
+
 type LiteralUnion<T extends U, U = string> = T | (U & never)
 
 interface LinkDef {
@@ -40,8 +42,18 @@ interface BlockListItem extends Block {
 
 interface BlockDefinition {
   _key: string
-  _type: 'Definition'
+  _type: 'definition'
   // todo implement
 }
 
-export type Content = (Block | BlockListItem)[]
+interface BlockPageSettings extends ColumnSettings {
+  _key: string
+  _type: 'column'
+}
+
+export type ContentText = (Block | BlockListItem)[]
+export type Content = (Block | BlockListItem | BlockPageSettings)[]
+
+export interface ContentColumn extends ColumnSettings {
+  content: ContentText
+}

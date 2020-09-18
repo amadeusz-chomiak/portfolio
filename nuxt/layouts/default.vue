@@ -11,7 +11,9 @@
       >
         <TheNavigation />
       </div>
-      <main class="max-h-full flex-1 overflow-auto md:mt-8 lg:mt-10 xl:mt-12">
+      <main
+        class="max-h-full relative z-0 flex-1 overflow-auto md:mt-8 lg:mt-10 xl:mt-12"
+      >
         <Nuxt />
       </main>
     </div>

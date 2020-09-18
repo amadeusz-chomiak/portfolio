@@ -4,6 +4,7 @@ import { Content } from '~/types/BaseContent'
 
 const enum Paragraph {
   normal,
+  columnOnlySecond,
   title,
   marks,
 }
@@ -24,6 +25,8 @@ const content: Content = [
     markDefs: [],
     style: 'normal',
   },
+  //* column settings
+  { _key: '3700aebb6bba', _type: 'column', set: 'only-second' },
   {
     //* style title
     _key: 'a7c3c1455c07',
@@ -64,9 +67,9 @@ const content: Content = [
 const base = new Base(Component, { props: { content } })
 
 describe('components/BaseContent.vue', () => {
-  describe('paragraph style tests', () => {
-    const normal = content[Paragraph.normal].children[0].text
-    const title = content[Paragraph.title].children[0].text
+  const normal = content[Paragraph.normal].children[0].text
+  const title = content[Paragraph.title].children[0].text
+  describe('paragraph style', () => {
     test('Render content with style "normal" with normal styles', () => {
       const { getByText } = base.render()
       const Span = getByText(normal)
@@ -87,7 +90,7 @@ describe('components/BaseContent.vue', () => {
     })
   })
 
-  describe('span marks tests', () => {
+  describe('span marks', () => {
     const marksParagraph = content[Paragraph.marks]
     const em = marksParagraph.children[0].text
     const strong = marksParagraph.children[1].text
@@ -104,6 +107,20 @@ describe('components/BaseContent.vue', () => {
       const Span = getByText(strong)
       expect(Span).toBeVisible()
       expect(Span.classList).toContain('font-semibold')
+    })
+  })
+
+  describe('column settings', () => {
+    test('Render content inside both column div, by default', () => {
+      const { getByText } = base.render()
+      const Column = getByText(normal).parentElement?.parentElement
+      expect(Column?.classList).toContain('lg:w-full')
+    })
+
+    test('Render content inside only second column div, after marker', () => {
+      const { getByText } = base.render()
+      const Column = getByText(title).parentElement?.parentElement
+      expect(Column?.classList).toContain('lg:w-1/2')
     })
   })
 })

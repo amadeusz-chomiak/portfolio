@@ -29,7 +29,6 @@ export const querySite = {
         content: {
           _type: 'localeBlockContent',
           pl: [
-            { _key: '3e25e6b703a8', _type: 'column', set: 'only-first' },
             {
               _key: 'd560a448790d',
               _type: 'block',
@@ -110,7 +109,6 @@ export const querySite = {
         content: {
           _type: 'localeBlockContent',
           pl: [
-            { _key: '3700aebb6bba', _type: 'column', set: 'only-first' },
             {
               _key: 'c71d68a1ac2a',
               _type: 'block',
@@ -519,6 +517,7 @@ export const querySite = {
                     markDefs: [],
                     style: 'title',
                   },
+                  { _key: 'faebb4d013eb', _type: 'column', set: 'only-first' },
                   {
                     _key: 'cf0d09ee00ba',
                     _type: 'block',
@@ -684,7 +683,6 @@ export const querySite = {
         content: {
           _type: 'localeBlockContent',
           pl: [
-            { _key: 'b49b9a075790', _type: 'column', set: 'only-first' },
             {
               _key: 'c398888f39fc',
               _type: 'block',

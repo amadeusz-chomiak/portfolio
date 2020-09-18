@@ -1,27 +1,47 @@
 <template>
-  <div>
-    <template v-for="block in content">
-      <component
-        :is="style(block.style).tag"
-        :key="block._key"
-        :class="style(block.style).classes"
-      >
-        <template v-for="span in block.children">
-          <span
-            :key="span._key"
-            :class="markClasses(span.marks, block.markDefs)"
-            >{{ span.text }}</span
-          >
-        </template>
-      </component>
-    </template>
+  <div class="flex flex-wrap">
+    <div
+      v-for="(column, index) in columnContent"
+      :key="index"
+      class="p-1"
+      :class="columnClasses(column.set)"
+    >
+      <template v-for="block in column.content">
+        <component
+          :is="style(block.style).tag"
+          :key="block._key"
+          :class="style(block.style).classes"
+        >
+          <template v-for="span in block.children">
+            <span
+              :key="span._key"
+              :class="markClasses(span.marks, block.markDefs)"
+              >{{ span.text }}</span
+            >
+          </template>
+        </component>
+      </template>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent } from '@nuxtjs/composition-api'
-import { Content, Mark, MarkDef, TextStyles } from '~/types/BaseContent'
+import {
+  ref,
+  reactive,
+  defineComponent,
+  computed,
+} from '@nuxtjs/composition-api'
+import {
+  Content,
+  ContentText,
+  ContentColumn,
+  Mark,
+  MarkDef,
+  TextStyles,
+} from '~/types/BaseContent'
 // import { useClass } from '~/composable/useMediaQuery'
+import { ColumnSettings } from '~/dev/databaseQuery'
 
 export default defineComponent({
   props: {
@@ -32,8 +52,31 @@ export default defineComponent({
   },
   setup(props) {
     // const { classes } = useClass()
+    const columnContent = computed<ContentColumn[]>(() => {
+      let columnSet: ColumnSettings['set'] = 'both'
+      return (
+        props.content.reduce((columns, content) => {
+          if (content._type === 'column') columnSet = content.set
+          else {
+            const lastColumn: ContentColumn = columns[columns.length - 1]
+            if (lastColumn?.set === columnSet) {
+              lastColumn.content.push(content)
+            } else {
+              columns.push({
+                set: columnSet,
+                content: [content],
+              })
+            }
+          }
+          return columns
+        }, [] as ContentColumn[]) ?? []
+      )
+    })
 
-    const markClasses = (marks: Mark[], markDefs: MarkDef[]) =>
+    const columnClasses = (set: ColumnSettings['set']) =>
+      set === 'both' ? 'lg:w-full' : 'lg:w-1/2'
+
+    const markClasses = (marks: Mark[], _markDefs: MarkDef[]) =>
       marks
         .map((mark) => {
           switch (mark) {
@@ -62,7 +105,7 @@ export default defineComponent({
           tag = 'p'
           break
         case 'unimportant':
-          classes = ['text-opacity-75']
+          classes = ['opacity-75', 'pl-2']
           tag = 'p'
           break
       }
@@ -75,7 +118,9 @@ export default defineComponent({
 
     return {
       markClasses,
+      columnClasses,
       style,
+      columnContent,
     }
   },
 })
