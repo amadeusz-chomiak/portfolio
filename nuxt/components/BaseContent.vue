@@ -48,7 +48,7 @@ import {
   MarkDef,
   TextStyles,
 } from '~/types/BaseContent'
-// import { useClass } from '~/composable/useMediaQuery'
+import { useClass } from '~/composable/useMediaQuery'
 import { ColumnSettings } from '~/dev/databaseQuery'
 
 export default defineComponent({
@@ -57,9 +57,13 @@ export default defineComponent({
       type: Array as () => Content,
       required: true,
     },
+    level: {
+      type: Number,
+      default: 2,
+    },
   },
   setup(props) {
-    // const { classes } = useClass()
+    const { classes: createClasses } = useClass()
     const columnContent = computed<ContentColumn[]>(() => {
       let columnSet: ColumnSettings['set'] = 'both'
       return (
@@ -119,12 +123,21 @@ export default defineComponent({
       let tag
       switch (style) {
         case 'title':
-          classes = ['text-2xl', 'font-semibold', 'tracking-wide']
-          tag = 'h2'
+          classes = [
+            ['font-semibold', 'tracking-wide'],
+            createClasses(props.level === 2, 'text-2xl'),
+            createClasses(props.level === 3, 'text-xl'),
+            createClasses(props.level === 4, 'text-lg'),
+          ].flat()
+          tag = `h${props.level}`
           break
         case 'subtitle':
-          classes = ['text-lg']
-          tag = 'h3'
+          classes = [
+            createClasses(props.level === 2, 'text-lg'),
+            createClasses(props.level === 3, 'text-md'),
+            // createClasses(props.level === 4, ''),
+          ].flat()
+          tag = `h${props.level + 1}`
           break
         case 'normal':
           classes = ['pl-2']
@@ -143,7 +156,9 @@ export default defineComponent({
     }
 
     return {
-      mark,
+      markTag,
+      markTo,
+      markClasses,
       columnClasses,
       style,
       columnContent,

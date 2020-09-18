@@ -9,6 +9,7 @@
       >
         <template #content>
           <BaseContent
+            :level="3"
             class="text-primary-100"
             :content="solution.solution.content.pl"
           />

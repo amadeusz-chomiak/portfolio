@@ -1,15 +1,17 @@
+import { fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/BaseContent.vue'
-import { Content } from '~/types/BaseContent'
+import { ContentText } from '~/types/BaseContent'
 
 const enum Paragraph {
   normal,
   columnOnlySecond,
   title,
+  subtitle,
   marks,
 }
 
-const content: Content = [
+const content = [
   {
     //* style normal
     _key: 'a7c3c1455c07dsas',
@@ -41,6 +43,21 @@ const content: Content = [
     ],
     markDefs: [],
     style: 'title',
+  },
+  {
+    //* style subtitle
+    _key: 'a7sc3c1455c07',
+    _type: 'block',
+    children: [
+      {
+        _key: '7c0ad9e6ce4cd',
+        _type: 'span',
+        marks: [],
+        text: 'subtitle',
+      },
+    ],
+    markDefs: [],
+    style: 'subtitle',
   },
   {
     //* marks
@@ -75,12 +92,13 @@ const content: Content = [
     ],
     style: 'normal',
   },
-]
+] as ContentText
 const base = new Base(Component, { props: { content } })
 
 describe('components/BaseContent.vue', () => {
   const normal = content[Paragraph.normal].children[0].text
   const title = content[Paragraph.title].children[0].text
+  const subtitle = content[Paragraph.subtitle].children[0].text
   describe('paragraph style', () => {
     test('Render content with style "normal" with normal styles', () => {
       const { getByText } = base.render()
@@ -99,6 +117,39 @@ describe('components/BaseContent.vue', () => {
       expect(Span).toBeVisible()
       expect(Paragraph?.tagName.toLowerCase()).toBe('h2')
       expect(Paragraph?.classList).toContain('text-2xl')
+    })
+
+    test('Render content with style "title" with proper level from "level" prop', async () => {
+      const { getByText, updateProps } = base.render({
+        props: { level: 3, content },
+      })
+      const Span = getByText(title)
+      const Paragraph = Span.parentElement
+      expect(Span).toBeVisible()
+      // expect(Paragraph?.tagName.toLowerCase()).toBe('h2')
+      // expect(Paragraph?.classList).toContain('text-2xl')
+      // await updateProps({ level: 3, content: { ...content } })
+      expect(Paragraph?.tagName.toLowerCase()).toBe('h3')
+      expect(Paragraph?.classList).toContain('text-xl')
+      // await updateProps({ level: 4, content: { ...content } })
+      // expect(Paragraph?.tagName.toLowerCase()).toBe('h4')
+      // expect(Paragraph?.classList).toContain('text-lg')
+    })
+
+    test('Render content with style "subtitle" with proper level from "level" prop', async () => {
+      const { getByText, updateProps } = base.render({
+        props: { level: 3, content },
+      })
+      const Span = getByText(subtitle)
+      const Paragraph = Span.parentElement
+      expect(Span).toBeVisible()
+      // expect(Paragraph?.tagName.toLowerCase()).toBe('h3')
+      // expect(Paragraph?.classList).toContain('text-lg')
+      // await updateProps({ level: 3, content: { ...content } })
+      expect(Paragraph?.tagName.toLowerCase()).toBe('h4')
+      expect(Paragraph?.classList).toContain('text-md')
+      // await updateProps({ level: 4, content: { ...content } })
+      // expect(Paragraph?.tagName.toLowerCase()).toBe('h5')
     })
   })
 
