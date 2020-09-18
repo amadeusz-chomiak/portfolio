@@ -59,8 +59,20 @@ const content: Content = [
         marks: ['strong'],
         text: 'strong',
       },
+      {
+        _key: 'd7eb55be733a',
+        _type: 'span',
+        marks: ['f53d91b36f56'],
+        text: 'link',
+      },
     ],
-    markDefs: [],
+    markDefs: [
+      {
+        _key: 'f53d91b36f56',
+        _type: 'link',
+        href: 'href',
+      },
+    ],
     style: 'normal',
   },
 ]
@@ -94,6 +106,7 @@ describe('components/BaseContent.vue', () => {
     const marksParagraph = content[Paragraph.marks]
     const em = marksParagraph.children[0].text
     const strong = marksParagraph.children[1].text
+    const link = marksParagraph.children[2].text
 
     test('Render span with "em" mark', () => {
       const { getByText } = base.render()
@@ -107,6 +120,14 @@ describe('components/BaseContent.vue', () => {
       const Span = getByText(strong)
       expect(Span).toBeVisible()
       expect(Span.classList).toContain('font-semibold')
+    })
+
+    test('Render link with "link" mark', () => {
+      const { getByText } = base.render()
+      const Span = getByText(link) as HTMLLinkElement
+      expect(Span).toBeVisible()
+      expect(Span.tagName.toLowerCase()).toBe('a')
+      expect(Span.href).toContain('href')
     })
   })
 

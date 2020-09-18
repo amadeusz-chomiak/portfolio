@@ -16,12 +16,12 @@ interface RouteDef {
 
 export type MarkDef = LinkDef | RouteDef
 
-export type Mark = LiteralUnion<'strong' | 'em'>
+export type Mark = 'strong' | 'em'
 interface Span {
   _key: string
   _type: 'span'
   text: string
-  marks: Mark[]
+  marks: (Mark | string)[]
 }
 
 export type TextStyles = 'normal' | 'subtitle' | 'title' | 'unimportant'

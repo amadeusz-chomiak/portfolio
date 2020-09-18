@@ -13,10 +13,12 @@
           :class="style(block.style).classes"
         >
           <template v-for="span in block.children">
-            <span
+            <component
+              :is="mark(span.marks, block.markDefs).tag"
               :key="span._key"
-              :class="markClasses(span.marks, block.markDefs)"
-              >{{ span.text }}</span
+              :href="mark(span.marks, block.markDefs).href"
+              :class="mark(span.marks, block.markDefs).classes"
+              >{{ span.text }}</component
             >
           </template>
         </component>
@@ -76,8 +78,10 @@ export default defineComponent({
     const columnClasses = (set: ColumnSettings['set']) =>
       set === 'both' ? 'lg:w-full' : 'lg:w-1/2'
 
-    const markClasses = (marks: Mark[], _markDefs: MarkDef[]) =>
-      marks
+    const mark = (marks: (Mark | string)[], markDefs: MarkDef[]) => {
+      const findMarkDef = (mark: string) =>
+        markDefs.find((def) => def._key === mark)
+      const classes = marks
         .map((mark) => {
           switch (mark) {
             case 'strong':
@@ -85,8 +89,28 @@ export default defineComponent({
             case 'em':
               return ['italic']
           }
+
+          const markDef = findMarkDef(mark)
+
+          if (markDef?._type === 'link') return ['underline', 'primary-400']
+          // if (markDef?._type === 'Route') return ['underline', 'primary-400']
         })
         .flat()
+      const tag = marks.reduce(
+        (_, mark) => (findMarkDef(mark) === undefined ? 'span' : 'a'),
+        'span'
+      )
+
+      const href = marks.reduce((_, mark) => {
+        const markDef = findMarkDef(mark)
+        if (markDef && 'href' in markDef) return markDef.href
+      }, '')
+      return {
+        classes,
+        tag,
+        href,
+      }
+    }
 
     const style = (style: TextStyles) => {
       let classes: string[]
@@ -117,7 +141,7 @@ export default defineComponent({
     }
 
     return {
-      markClasses,
+      mark,
       columnClasses,
       style,
       columnContent,
