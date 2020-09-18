@@ -10,7 +10,7 @@ interface LinkDef {
 
 interface RouteDef {
   _key: string
-  _type: 'Route'
+  _type: 'route'
   to: string
 }
 

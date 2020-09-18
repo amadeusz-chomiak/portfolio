@@ -13,12 +13,18 @@
           :class="style(block.style).classes"
         >
           <template v-for="span in block.children">
-            <component
-              :is="mark(span.marks, block.markDefs).tag"
+            <span
+              v-if="markTag(span.marks, block.markDefs) === 'span'"
               :key="span._key"
-              :href="mark(span.marks, block.markDefs).href"
-              :class="mark(span.marks, block.markDefs).classes"
-              >{{ span.text }}</component
+              :class="markClasses(span.marks)"
+              >{{ span.text }}</span
+            >
+            <BaseLink
+              v-else-if="markTag(span.marks, block.markDefs) === 'link'"
+              :key="span._key"
+              :to="markTo(span.marks, block.markDefs)"
+              :class="markClasses(span.marks)"
+              >{{ span.text }}</BaseLink
             >
           </template>
         </component>
@@ -77,11 +83,27 @@ export default defineComponent({
 
     const columnClasses = (set: ColumnSettings['set']) =>
       set === 'both' ? 'lg:w-full' : 'lg:w-1/2'
+    const findMarkDef = (mark: string, markDefs: MarkDef[]) =>
+      markDefs.find((def) => def._key === mark)
 
-    const mark = (marks: (Mark | string)[], markDefs: MarkDef[]) => {
-      const findMarkDef = (mark: string) =>
-        markDefs.find((def) => def._key === mark)
-      const classes = marks
+    const markTag = (marks: (Mark | string)[], markDefs: MarkDef[]) =>
+      marks.reduce((tag, mark) => {
+        const markDef = findMarkDef(mark, markDefs)
+        if (markDef?._type === 'link') return 'link'
+        if (markDef?._type === 'route') return 'route'
+        return tag
+      }, 'span')
+
+    const markTo = (marks: (Mark | string)[], markDefs: MarkDef[]) =>
+      marks.reduce((to, mark) => {
+        const markDef = findMarkDef(mark, markDefs)
+        if (markDef && 'to' in markDef) return markDef.to
+        if (markDef && 'href' in markDef) return markDef.href
+        return to
+      }, '')
+
+    const markClasses = (marks: (Mark | string)[]) =>
+      marks
         .map((mark) => {
           switch (mark) {
             case 'strong':
@@ -89,28 +111,8 @@ export default defineComponent({
             case 'em':
               return ['italic']
           }
-
-          const markDef = findMarkDef(mark)
-
-          if (markDef?._type === 'link') return ['underline', 'primary-400']
-          // if (markDef?._type === 'Route') return ['underline', 'primary-400']
         })
         .flat()
-      const tag = marks.reduce(
-        (_, mark) => (findMarkDef(mark) === undefined ? 'span' : 'a'),
-        'span'
-      )
-
-      const href = marks.reduce((_, mark) => {
-        const markDef = findMarkDef(mark)
-        if (markDef && 'href' in markDef) return markDef.href
-      }, '')
-      return {
-        classes,
-        tag,
-        href,
-      }
-    }
 
     const style = (style: TextStyles) => {
       let classes: string[]
