@@ -10,6 +10,11 @@ describe('components/BaseIcon.vue', () => {
     expect(getByAltText(alt.value)).toBeVisible()
   })
 
+  test('fallback to icon text when no id found', () => {
+    const { getByText } = base.render({ props: { icon: '?' } })
+    expect(getByText('?')).toBeVisible()
+  })
+
   test('set icon color based on "color" prop', () => {
     const { getByAltText } = base.render({
       props: { icon, color: 500 },

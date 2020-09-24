@@ -20,4 +20,8 @@ describe('components/ButtonIcon.vue', () => {
     const { getByAltText } = base.render()
     expect(getByAltText(alt.value)).toBeVisible()
   })
+  test('pass "color" prop to BaseIcon', () => {
+    const { getByAltText } = base.render({ props: { color: '#fff', icon } })
+    expect(getByAltText(alt.value)).toHaveStyle('color: #fff')
+  })
 })

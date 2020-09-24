@@ -12,6 +12,8 @@ import BaseLink from '~/components/BaseLink.vue'
 
 //* Button
 import ButtonIcon from '~/components/ButtonIcon.vue'
+//* DefinitionBox
+import DefinitionBox from '~/components/DefinitionBox.vue'
 
 //* The...
 import TheNavigationContent from '~/components/TheNavigationContent.vue'
@@ -29,6 +31,8 @@ Vue.component('BaseLink', BaseLink)
 
 //* Button
 Vue.component('ButtonIcon', ButtonIcon)
+//* DefinitionBox
+Vue.component('DefinitionBox', DefinitionBox)
 
 //* The...
 Vue.component('TheNavigationContent', TheNavigationContent)

@@ -14,61 +14,42 @@ describe('components/BaseButton.vue', () => {
     test('Use primary style classes, by default', () => {
       const { getByText } = base.render({ props: { content } })
       const Button = getByText(content).parentElement
-      expect(
-        Array.from(Button?.classList ?? '').find((cl) =>
-          cl.includes('bg-primary')
-        )?.length
-      ).toBeGreaterThan(0)
+      expect(Button).toHaveClass('bg-primary-600')
+
       //* check to not have secondary style borders
-      expect(
-        Array.from(Button?.classList ?? '').find((cl) => cl.includes('border'))
-          ?.length
-      ).toBe(undefined)
+      expect(Button).not.toHaveClass('border-3')
     })
 
     test('Use border classes when prop "secondary" is true', () => {
       base.render({ props: { secondary: true } })
       const Root = base.selectRoot()
-      expect(
-        Array.from(Root.classList).find((cl) => cl.includes('border'))?.length
-      ).toBeGreaterThan(0)
+      expect(Root.children[0]).toHaveClass('border-3')
+    })
+
+    test('Use flex-inline class when prop "inline" is true', () => {
+      base.render({ props: { inline: true } })
+      const Root = base.selectRoot()
+      expect(Root).toHaveClass('inline-flex')
     })
 
     test('Use flex grow classes when prop "fill" is true', () => {
       const { getByText } = base.render({ props: { fill: true, content } })
       const Button = getByText(content).parentElement
-
-      expect(
-        Array.from(Button?.classList ?? []).find((cl) => cl.includes('flex-1'))
-          ?.length
-      ).toBeGreaterThan(0)
+      expect(Button).toHaveClass('flex-1')
     })
 
     test('Use small padding class when prop "slim" is true', () => {
       base.render({ props: { slim: true } })
       const Root = base.selectRoot()
-      expect(
-        Array.from(Root.children[0].classList).find((cl) => cl.includes('py-1'))
-          ?.length
-      ).toBeGreaterThan(0)
+      expect(Root.children[0]).toHaveClass('py-1')
     })
 
     test('Use justify start class when prop "decenter" is true', () => {
       const { getByText } = base.render({ props: { decenter: true, content } })
       const ContentContainer = getByText(content).parentElement
-      expect(
-        // @ts-expect-error
-        Array.from(ContentContainer.classList).find((cl) =>
-          cl.includes('justify-start')
-        )?.length
-      ).toBeGreaterThan(0)
+      expect(ContentContainer).toHaveClass('justify-start')
 
-      expect(
-        // @ts-expect-error
-        Array.from(ContentContainer.classList).find((cl) =>
-          cl.includes('justify-center')
-        )?.length
-      ).toBe(undefined)
+      expect(ContentContainer).not.toHaveClass('justify-center')
     })
 
     test('Content container get classes from "class-inner" prop', () => {
@@ -76,18 +57,14 @@ describe('components/BaseButton.vue', () => {
         props: { classInner: ['h-18'], content },
       })
       const ContentContainer = getByText(content).parentElement
-      // @ts-expect-error
-      expect(ContentContainer.classList).toContain('h-18')
+
+      expect(ContentContainer).toHaveClass('h-18')
     })
 
     test('Use rounded full class when prop "round" is true', () => {
       base.render({ props: { round: true } })
       const Root = base.selectRoot()
-      expect(
-        Array.from(Root.children[0].classList).find((cl) =>
-          cl.includes('rounded-full')
-        )?.length
-      ).toBeGreaterThan(0)
+      expect(Root.children[0]).toHaveClass('rounded-full')
     })
   })
 

@@ -9,6 +9,7 @@
       <template v-for="block in column.content">
         <component
           :is="style(block.style).tag"
+          v-if="block._type === 'block'"
           :key="block._key"
           :class="style(block.style).classes"
         >
@@ -28,6 +29,12 @@
             >
           </template>
         </component>
+        <DefinitionBox
+          v-else-if="block._type === 'definition'"
+          :key="block._key"
+          :definition="block"
+          class="ml-2"
+        />
       </template>
     </div>
   </div>

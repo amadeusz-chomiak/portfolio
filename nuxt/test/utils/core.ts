@@ -97,6 +97,19 @@ export class Base<V extends Vue> {
   }
 
   /**
+   * Test if root element is of desired html tag
+   */
+  testRootTag(tag: string, propsOverload?: object) {
+    const renderer = propsOverload
+      ? this.render({ props: propsOverload })
+      : this.render()
+    const Root = this.selectRoot(renderer)
+
+    expect(Root.tagName.toLowerCase()).toBe(tag.toLowerCase())
+    this.clear()
+  }
+
+  /**
    * Test if your query return visible element, let You easily override props
    */
   testPropInline(select: select, propsOverload?: object) {

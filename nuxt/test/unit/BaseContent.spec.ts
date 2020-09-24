@@ -9,6 +9,7 @@ const enum Paragraph {
   title,
   subtitle,
   marks,
+  definition,
 }
 
 const content = [
@@ -91,6 +92,36 @@ const content = [
       },
     ],
     style: 'normal',
+  },
+  //* type definition
+  {
+    _key: '5261c47e7278',
+    _type: 'definition',
+    color: {
+      _type: 'color',
+      alpha: 1,
+      hex: '#f03e2f',
+      hsl: {
+        _type: 'hslaColor',
+        a: 1,
+        h: 4.663212435233159,
+        l: 0.5627450980392157,
+        s: 0.8654708520179372,
+      },
+      hsv: {
+        _type: 'hsvaColor',
+        a: 1,
+        h: 4.663212435233159,
+        s: 0.8041666666666667,
+        v: 0.9411764705882353,
+      },
+      rgb: { _type: 'rgbaColor', a: 1, b: 47, g: 62, r: 240 },
+    },
+    content: 'content',
+    text: 'text',
+    textBefore: 'textBefore',
+    textAfter: 'textAfter',
+    title: 'title',
   },
 ] as ContentText
 const base = new Base(Component, { props: { content } })
@@ -193,6 +224,17 @@ describe('components/BaseContent.vue', () => {
       const { getByText } = base.render()
       const Column = getByText(title).parentElement?.parentElement
       expect(Column?.classList).toContain('lg:w-1/2')
+    })
+  })
+
+  describe('definition', () => {
+    // @ts-expect-error
+    const definition = content[Paragraph.definition].text
+
+    test('Render definition text', () => {
+      const { getByText } = base.render()
+      const Span = getByText(definition)
+      expect(Span).toBeVisible()
     })
   })
 })

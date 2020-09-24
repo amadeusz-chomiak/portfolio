@@ -1,6 +1,6 @@
 <template>
   <BaseButton v-bind="$attrs" round @click="$emit('click')"
-    ><BaseIcon :icon="icon" />
+    ><BaseIcon :icon="icon" :color="color" />
   </BaseButton>
 </template>
 
@@ -12,6 +12,9 @@ export default defineComponent({
     icon: {
       type: String,
       required: true,
+    },
+    color: {
+      type: String,
     },
   },
   setup() {

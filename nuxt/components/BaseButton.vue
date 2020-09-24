@@ -6,7 +6,7 @@
     :to="target"
     :class="rootClasses"
     tabindex="0"
-    class="p-1 pointer-events-auto flex outline-none group border-transparent transform transition-all duration-75 hocus:border-primary-500 hocus:border-opacity-75 border-2 active:scale-95 active:translate-y-1"
+    class="p-1 pointer-events-auto outline-none group border-transparent transform transition-all duration-75 hocus:border-primary-500 hocus:border-opacity-75 border-2 active:scale-95 active:translate-y-1"
     @click="emitClick()"
     @keydown.space.enter="activete()"
     @keyup.space.enter="emitClick()"
@@ -56,6 +56,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    inline: {
+      type: Boolean,
+      default: false,
+    },
     decenter: {
       type: Boolean,
       default: false,
@@ -81,6 +85,8 @@ export default defineComponent({
     const rootClasses = computed(() =>
       [
         classes(linkActive.value, 'nuxt-link-exact-active'),
+        classes(props.inline, 'inline-flex'),
+        classes(!props.inline, 'flex'),
         classes(props.secondary, 'bg-opacity-25', 'active:bg-primary-800'),
         classes(!props.secondary, 'active:border-opacity-50'),
         classes(props.secondary && active.value, 'bg-primary-800'),
