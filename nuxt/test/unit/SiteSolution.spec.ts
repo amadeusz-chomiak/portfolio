@@ -28,7 +28,7 @@ describe('components/SiteSolution.vue', () => {
       },
     })
     expect(
-      getByText(page?.content?.pl?.[0]?.children?.[0]?.text ?? '')
+      getByText(page?.content?.pl?.[1]?.children?.[0]?.text ?? '')
     ).toBeVisible()
   })
 
