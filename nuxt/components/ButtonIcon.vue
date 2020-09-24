@@ -1,6 +1,6 @@
 <template>
-  <BaseButton v-bind="$attrs" round @click="$emit('click')"
-    ><BaseIcon :icon="icon" :color="color" />
+  <BaseButton v-bind="$attrs" :slim="slim" round @click="$emit('click')"
+    ><BaseIcon :icon="icon" :color="color" :height="slim ? 4 : 5" />
   </BaseButton>
 </template>
 
@@ -15,6 +15,10 @@ export default defineComponent({
     },
     color: {
       type: String,
+    },
+    slim: {
+      type: Boolean,
+      default: false,
     },
   },
   setup() {

@@ -32,8 +32,15 @@ export default defineComponent({
         classes(props.background === 'darker', 'bg-primary-900'),
         classes(props.background === 'circuit', 'bg-circuit'),
         classes(props.background === 'dark', 'bg-primary-800'),
-        classes(props.small, 'p-2', 'rounded-lg'),
-        classes(!props.small, 'pt-6', ' pb-4', 'px-4', 'rounded-xl'),
+        classes(props.small, 'p-2', 'rounded-lg', 'shadow-lg'),
+        classes(
+          !props.small,
+          'pt-6',
+          ' pb-4',
+          'px-4',
+          'rounded-xl',
+          'shadow-xl'
+        ),
       ].flat()
     )
 

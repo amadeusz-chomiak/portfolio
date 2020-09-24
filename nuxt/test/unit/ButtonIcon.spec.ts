@@ -24,4 +24,10 @@ describe('components/ButtonIcon.vue', () => {
     const { getByAltText } = base.render({ props: { color: '#fff', icon } })
     expect(getByAltText(alt.value)).toHaveStyle('color: #fff')
   })
+  test('set "height" prop for BaseIcon, based on "slim" prop', () => {
+    const { getByAltText } = base.render({
+      props: { icon, slim: true },
+    })
+    expect(getByAltText(alt.value)).toHaveClass('h-4')
+  })
 })

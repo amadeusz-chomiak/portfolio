@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/DefinitionBox.vue'
 const definition = {
@@ -50,5 +51,23 @@ describe('components/DefinitionBox.vue', () => {
     const { getByText } = base.render()
     const Button = getByText('?')
     expect(Button).toHaveStyle('color: #f03e2f')
+  })
+  test('Change ButtonIcon based on showPopup ref', async () => {
+    const { getByText, getByTestId } = base.render()
+    const Button = getByTestId('toggle')
+    expect(getByText('?')).toBeVisible()
+    await fireEvent.click(Button)
+    expect(() => getByText('?')).toThrowError()
+    await fireEvent.click(Button)
+    expect(getByText('?')).toBeVisible()
+  })
+  test('show popup content only after button click', async () => {
+    const { getByText, getByTestId } = base.render()
+    const Button = getByTestId('toggle')
+    expect(() => getByText('content')).toThrowError()
+    await fireEvent.click(Button)
+    expect(getByText('content')).toBeVisible()
+    await fireEvent.click(Button)
+    expect(() => getByText('content')).toThrowError()
   })
 })

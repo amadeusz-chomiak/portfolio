@@ -14,6 +14,7 @@ import BaseLink from '~/components/BaseLink.vue'
 import ButtonIcon from '~/components/ButtonIcon.vue'
 //* DefinitionBox
 import DefinitionBox from '~/components/DefinitionBox.vue'
+import DefinitionPopup from '~/components/DefinitionPopup.vue'
 
 //* The...
 import TheNavigationContent from '~/components/TheNavigationContent.vue'
@@ -33,6 +34,7 @@ Vue.component('BaseLink', BaseLink)
 Vue.component('ButtonIcon', ButtonIcon)
 //* DefinitionBox
 Vue.component('DefinitionBox', DefinitionBox)
+Vue.component('DefinitionPopup', DefinitionPopup)
 
 //* The...
 Vue.component('TheNavigationContent', TheNavigationContent)
