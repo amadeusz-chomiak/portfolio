@@ -3,7 +3,7 @@
     <div
       v-for="(column, index) in columnContent"
       :key="index"
-      class="p-1"
+      class="p-1 xl:p-2"
       :class="columnClasses(column.set)"
     >
       <template v-for="block in column.content">

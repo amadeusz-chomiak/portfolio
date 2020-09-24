@@ -58,9 +58,14 @@ module.exports = {
         '5xl': '64rem',
         '6xl': '72rem',
       },
+      inset: {
+        '1/2': '50%',
+        full: '100%',
+      },
       maxWidth: {
         '2xs': '16rem',
       },
+      minWidth: (theme) => theme('spacing'),
       minHeight: {
         nuxt: 'calc(100vh - 20rem)',
       },

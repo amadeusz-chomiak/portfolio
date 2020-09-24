@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" mode="out-in">
+  <transition name="fade" :duration="100" mode="out-in">
     <img
       v-if="show('close')"
       src="~/assets/icons/close.svg"
