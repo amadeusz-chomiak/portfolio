@@ -34,7 +34,6 @@ const definition = {
 const base = new Base(Component, { props: { definition } })
 
 describe('components/DefinitionBox.vue', () => {
-  test('Root tag is a paragraph', () => base.testRootTag('p'))
   test('Render "textBefore" from "definition" prop', () =>
     base.testPropInline((select) => select.getByText('textBefore')))
   test('Render "text" from "definition" prop', () =>
