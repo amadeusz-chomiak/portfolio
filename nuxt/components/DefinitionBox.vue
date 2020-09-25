@@ -1,13 +1,13 @@
 <template>
-  <p class="relative mb-3 mr-4 lg:mr-5 xl:mr-10">
-    <span>{{ definition.textBefore }}</span>
-    <span class="font-semibold" :style="{ color: definition.color.hex }">{{
-      definition.text
-    }}</span>
-    <span>{{ definition.textAfter }}</span>
-    <span
-      class="absolute block left-full top-1/2 min-w-12 transform -translate-y-1/2"
-    >
+  <div class="relative mb-3 mr-4 lg:mr-5 xl:mr-10">
+    <p class="">
+      <span>{{ definition.textBefore }}</span>
+      <span class="font-semibold" :style="{ color: definition.color.hex }">{{
+        definition.text
+      }}</span>
+      <span>{{ definition.textAfter }}</span>
+    </p>
+    <div class="absolute left-full top-1/2 min-w-12 transform -translate-y-1/2">
       <ButtonIcon
         :icon="showPopup ? 'close' : '?'"
         secondary
@@ -17,7 +17,7 @@
         :color="definition.color.hex"
         @click="showPopup = !showPopup"
       ></ButtonIcon>
-    </span>
+    </div>
     <transition name="fade" :duration="100">
       <DefinitionPopup
         v-if="showPopup"
@@ -27,7 +27,7 @@
         :color="definition.color.hex"
       ></DefinitionPopup>
     </transition>
-  </p>
+  </div>
 </template>
 
 <script lang="ts">
