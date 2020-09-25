@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-h-full shadow-inner flex flex-col items-center md:items-start z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-proximity xl:snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+    class="max-h-full shadow-inner flex flex-col items-center md:items-start z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-proximity xl-h:snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
   >
     <template v-if="pagesComponent">
       <article
@@ -28,7 +28,7 @@
       <transition name="fade" mode="out-in">
         <img
           :key="image.src.value"
-          class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none"
+          class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none xl:opacity-100"
           :src="image.src.value"
           :alt="image.alt"
         />
