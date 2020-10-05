@@ -1,9 +1,29 @@
+import { fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/BaseTextarea.vue'
-const base = new Base(Component)
+const base = new Base(Component, {
+  props: { value: 'value', placeholder: 'placeholder', title: 'title' },
+})
 
 describe('components/BaseTextarea.vue', () => {
-  test('', async () => {
+  test('works with v-model', async () => {
+    const { getByText, emitted } = base.render()
+    const Textarea = getByText('value')
+    await fireEvent.input(Textarea)
+    expect(emitted().input[0]).toStrictEqual(['value'])
+  })
+  test('has placeholder prefixed with "Np. "', () => {
     const { getByText } = base.render()
+    const Textarea = getByText('value')
+    expect(Textarea).toHaveProperty('placeholder', 'Np. placeholder')
+  })
+  test('has title', () => {
+    const { getByText } = base.render()
+    const Title = getByText('title') as HTMLLabelElement
+    expect(Title).toBeVisible()
+    expect(Title.tagName.toLowerCase()).toBe('label')
+    const Textarea = getByText('value')
+    expect(Title.htmlFor.length).toBeGreaterThan(0)
+    expect(Title.htmlFor).toBe(Textarea.id)
   })
 })

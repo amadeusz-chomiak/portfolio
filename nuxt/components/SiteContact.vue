@@ -5,8 +5,14 @@
       <BaseInput
         v-model="email"
         title="Podaj e-mail kontaktowy"
-        placeholder="przykładowy@poczta.com"
+        placeholder="przykładowy.email@poczta.com"
         type="email"
+        class="mb-4"
+      />
+      <BaseTextarea
+        v-model="description"
+        title="Opisz czego potrzebujesz"
+        placeholder="Potrzebuję strony dla transkrypcji mojego podcastu o gotowaniu i umieszczania przepisów premium"
       />
     </form>
   </div>
@@ -42,7 +48,8 @@ export default defineComponent<Props>({
 
     const content = computed(() => props.page.content.pl)
     const email = ref('')
-    return { content, email }
+    const description = ref('')
+    return { content, email, description }
   },
 })
 </script>
