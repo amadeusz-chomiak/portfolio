@@ -117,11 +117,11 @@ const content = [
       },
       rgb: { _type: 'rgbaColor', a: 1, b: 47, g: 62, r: 240 },
     },
-    content: 'content',
-    text: 'text',
-    textBefore: 'textBefore',
-    textAfter: 'textAfter',
-    title: 'title',
+    content: 'definition_content',
+    text: 'definition_text',
+    textBefore: 'definition_textBefore',
+    textAfter: 'definition_textAfter',
+    title: 'definition_title',
   },
 ] as ContentText
 const base = new Base(Component, { props: { content } })
