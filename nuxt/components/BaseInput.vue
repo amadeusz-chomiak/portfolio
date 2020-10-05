@@ -1,10 +1,11 @@
 <template>
   <div class="group relative">
-    <p class="text-primary-50">{{ title }}</p>
+    <label :for="id" class="text-primary-50 mb-1">{{ title }}</label>
     <input
-      class="w-full rounded-xl border-4 py-2 px-4 text-primary-50 bg-black bg-opacity-75 placeholder-primary-200 placeholder-opacity-25 outline-none"
+      :id="id"
+      class="w-full rounded-xl border-4 py-2 px-4 text-primary-50 bg-black bg-opacity-75 placeholder-primary-200 placeholder-opacity-50 outline-none"
       :class="inputClasses"
-      :placeholder="placeholder"
+      :placeholder="'Np. ' + placeholder"
       :value="value"
       :type="type"
       @input="$emit('input', $event.target.value)"
@@ -30,6 +31,7 @@ import {
   computed,
 } from '@nuxtjs/composition-api'
 import { useClass } from '~/composable/useMediaQuery'
+import { useId } from '~/composable/useId'
 
 export default defineComponent({
   props: {
@@ -78,7 +80,9 @@ export default defineComponent({
         classes(invalidBlured, 'border-warning'),
       ].flat()
     })
-    return { validation, inputClasses, blured }
+
+    const id = useId()
+    return { validation, inputClasses, blured, id }
   },
 })
 </script>

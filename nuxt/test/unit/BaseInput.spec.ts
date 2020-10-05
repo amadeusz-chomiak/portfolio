@@ -13,10 +13,10 @@ describe('components/BaseInput.vue', () => {
     expect(emitted().input[0]).toStrictEqual(['value'])
   })
 
-  test('has placeholder', () => {
+  test('has placeholder prefixed with "Np. "', () => {
     const { getByDisplayValue } = base.render()
     const Input = getByDisplayValue('value')
-    expect(Input).toHaveProperty('placeholder', 'placeholder')
+    expect(Input).toHaveProperty('placeholder', 'Np. placeholder')
   })
 
   test('has type', () => {
@@ -26,9 +26,13 @@ describe('components/BaseInput.vue', () => {
   })
 
   test('has title', () => {
-    const { getByText } = base.render()
-    const Title = getByText('title')
+    const { getByText, getByDisplayValue } = base.render()
+    const Title = getByText('title') as HTMLLabelElement
     expect(Title).toBeVisible()
+    expect(Title.tagName.toLowerCase()).toBe('label')
+    const Input = getByDisplayValue('value')
+    expect(Title.htmlFor.length).toBeGreaterThan(0)
+    expect(Title.htmlFor).toBe(Input.id)
   })
 
   test('use validation based on "type" prop', () => {
