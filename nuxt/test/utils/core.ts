@@ -14,7 +14,6 @@ export { useQuerySite } from '~/composable/useDatabase'
 type LiteralUnion<T extends U, U = string> = T | (U & never)
 
 interface Temp<V extends Vue> {
-  options?: RenderOptions<V>
   testName?: string
   renderer?: ComponentHarness
 }
@@ -29,6 +28,36 @@ type selectWithQuery<T extends string> = (
 const testText = '__testText__'
 const testTag = `<div>${testText}</div>`
 
+/**
+ * Performs a deep merge of `source` into `target`.
+ * Mutates `target` only but not its objects and arrays.
+ */
+function mergeDeep(
+  target: { [key: string]: any },
+  source: { [key: string]: any }
+) {
+  const isObject = (obj: object) => obj && typeof obj === 'object'
+
+  if (!isObject(target) || !isObject(source)) {
+    return source
+  }
+
+  Object.keys(source).forEach((key) => {
+    const targetValue = target[key]
+    const sourceValue = source[key]
+
+    if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+      target[key] = targetValue.concat(sourceValue)
+    } else if (isObject(targetValue) && isObject(sourceValue)) {
+      target[key] = mergeDeep(Object.assign({}, targetValue), sourceValue)
+    } else {
+      target[key] = sourceValue
+    }
+  })
+
+  return target
+}
+
 export class Base<V extends Vue> {
   protected temp: Temp<V> = {}
   constructor(
@@ -36,23 +65,23 @@ export class Base<V extends Vue> {
     protected options: RenderOptions<V> = {}
   ) {}
 
-  render(additionalOptions?: RenderOptions<V>) {
-    const renderer = render(this.Component, {
-      stubs: ['nuxt-link'],
-      ...this.options,
-      ...this.temp.options,
-      ...additionalOptions,
-    })
+  render(additionalOptions: RenderOptions<V> = {}) {
+    const renderer = render(
+      this.Component,
+      mergeDeep(
+        {
+          stubs: ['nuxt-link'],
+          ...this.options,
+        },
+        additionalOptions
+      )
+    )
     this.temp.renderer = renderer
     return renderer
   }
 
   clear() {
     this.temp = {}
-  }
-
-  setOptions(tempOptions: RenderOptions<V>) {
-    this.temp.options = tempOptions
   }
 
   selectRoot(renderer?: ComponentHarness) {
