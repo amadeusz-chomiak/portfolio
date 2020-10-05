@@ -111,11 +111,13 @@ module.exports = {
     ],
     scale: ['responsive', 'active', 'group-active'],
     translate: ['responsive', 'active', 'group-active'],
+    borderRadius: ['responsive', 'group-focus-within'],
     borderOpacity: ['responsive', 'active', 'group-active'],
     boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-active'],
     margin: ['responsive', 'first'],
     minHeight: ['responsive', 'last'],
     scrollSnapType: ['responsive'],
+    display: ['responsive', 'hover', 'focus', 'group-focus-within'],
   },
   plugins: [
     require('tailwindcss-blend-mode')(),

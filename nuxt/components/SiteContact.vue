@@ -1,6 +1,14 @@
 <template>
   <div>
     <BaseContent id="contact" :content="content" class="site-content" />
+    <form>
+      <BaseInput
+        v-model="email"
+        title="Podaj e-mail kontaktowy"
+        placeholder="przykładowy@poczta.com"
+        type="email"
+      />
+    </form>
   </div>
 </template>
 
@@ -33,7 +41,8 @@ export default defineComponent<Props>({
     useObserverObserve(props, 'contact')
 
     const content = computed(() => props.page.content.pl)
-    return { content }
+    const email = ref('')
+    return { content, email }
   },
 })
 </script>
