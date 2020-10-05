@@ -39,6 +39,7 @@
           class="mb-2 lg-h:mb-4"
           :slim="link.outside || !height.md"
         />
+        <!-- :class="overrideRouteClasses(index)" -->
       </template>
     </template>
   </div>
@@ -62,6 +63,8 @@ export default defineComponent({
         outside: page?.outside,
       }))
     )
+
+    // const overrideRouteClasses = ['nuxt-link-exact-active']
 
     const { height } = useSize()
 
