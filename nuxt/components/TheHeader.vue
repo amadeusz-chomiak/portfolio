@@ -1,15 +1,18 @@
 <template>
   <header class="flex items-center">
-    <div class="mr-4 flex-shrink-0 rounded-full relative self-start">
-      <img
-        class="rounded-full h-12 md:h-14 lg:h-16"
-        :src="headerPicture"
-        :alt="headerAlt"
-      />
-      <div
-        class="rounded-full absolute inset-0 bg-primary-600 blend-soft-light"
-      />
-    </div>
+    <BaseLink to="https://github.com/amadeusz-chomiak">
+      <div class="mr-4 flex-shrink-0 rounded-full relative self-start">
+        <img
+          class="rounded-full h-12 md:h-14 lg:h-16"
+          :src="headerPicture"
+          :alt="headerAlt"
+        />
+        <BaseIcon icon="github" class="rounded-full absolute inset-0" />
+        <div
+          class="rounded-full absolute inset-0 bg-primary-600 blend-soft-light"
+        />
+      </div>
+    </BaseLink>
     <div>
       <h1 class="inline-flex flex-wrap items-baseline">
         <span

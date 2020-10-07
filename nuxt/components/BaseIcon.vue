@@ -15,6 +15,15 @@
       :style="style"
       :class="classes"
     />
+
+    <img
+      v-else-if="show('github')"
+      src="~/assets/icons/github.svg"
+      :alt="alt"
+      :style="style"
+      :class="classes"
+    />
+
     <div v-else class="flex justify-center" :class="classes">
       <p :style="style" class="text-lg font-semibold leading-none select-none">
         {{ icon }}
@@ -52,7 +61,6 @@ export default defineComponent<Props>({
       type: [Number, String],
     },
     height: {
-      default: 5,
       type: Number,
     },
   },
@@ -66,8 +74,7 @@ export default defineComponent<Props>({
         typeof props.color === 'number',
         `text-primary-${props.color}`
       ),
-      `h-${props.height}`,
-      `w-${props.height}`,
+      ...(props.height ? [`h-${props.height}`, `w-${props.height}`] : []),
     ])
     const style = computed(() =>
       typeof props.color === 'string'

@@ -25,6 +25,7 @@
         class="flex justify-end bg-primary-950 rounded-t-lg px-4 py-2 z-20 shadow-2xl md:hidden"
         data-testid="nav-bottom"
       >
+        <ButtonGithub />
         <ButtonIcon
           :icon="panelOpen ? 'close' : 'menu'"
           data-testid="nav-button"
