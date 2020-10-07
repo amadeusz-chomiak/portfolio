@@ -6,6 +6,8 @@
     :to="target"
     :class="rootClasses"
     :tabindex="tabindex"
+    :target="outside ? '_blank' : '_self'"
+    rel="noopener"
     class="p-1 pointer-events-auto outline-none group border-transparent transform transition-all duration-75 border-2"
     @click="emitClick()"
     @keydown.space.enter="activete()"
@@ -35,6 +37,10 @@ export default defineComponent({
     },
     target: {
       type: [String, Object],
+    },
+    outside: {
+      type: Boolean,
+      default: false,
     },
     route: {
       type: Boolean,

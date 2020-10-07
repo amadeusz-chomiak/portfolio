@@ -43,7 +43,11 @@ describe('components/BaseButton.vue', () => {
       const Root = base.selectRoot()
       expect(Root.children[0]).toHaveClass('py-1')
     })
-
+    test('Set target _blank when "outside" prop is true', () => {
+      base.render({ props: { outside: true } })
+      const Root = base.selectRoot()
+      expect(Root).toHaveAttribute('target', '_blank')
+    })
     test('Prevent click when prop "disabled" is true', async () => {
       const { emitted } = base.render({ props: { disabled: true } })
       const Root = base.selectRoot()
