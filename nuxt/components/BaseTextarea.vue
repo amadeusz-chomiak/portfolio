@@ -3,7 +3,7 @@
     <label :for="id" class="text-primary-50 mb-1">{{ title }}</label>
     <textarea
       :id="id"
-      class="w-full h-32 rounded-xl border-4 py-2 px-4 border-primary-600 text-primary-50 bg-black bg-opacity-75 placeholder-primary-200 placeholder-opacity-50 outline-none"
+      class="w-full h-32 rounded-xl scroll scroll-thin border-4 py-2 px-4 border-primary-600 text-primary-50 bg-black bg-opacity-75 placeholder-primary-200 placeholder-opacity-50 outline-none"
       :placeholder="'Np. ' + placeholder"
       @input="$emit('input', $event.target.value)"
       >{{ value }}</textarea

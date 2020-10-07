@@ -1,7 +1,7 @@
 <template>
   <div>
     <BaseContent id="contact" :content="content" class="site-content" />
-    <form @submit.prevent="submit">
+    <form class="flex flex-col ml-3" @submit.prevent="submit">
       <BaseInput
         v-model="email"
         title="Podaj e-mail kontaktowy"
@@ -20,6 +20,7 @@
         type="submit"
         content="Rozpocznijmy współpracę"
         :disabled="valid"
+        class="mt-2 self-end transform lg:translate-x-1/2"
         @click="submit"
       />
     </form>
