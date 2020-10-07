@@ -44,6 +44,14 @@ describe('components/BaseButton.vue', () => {
       expect(Root.children[0]).toHaveClass('py-1')
     })
 
+    test('Prevent click when prop "disabled" is true', async () => {
+      const { emitted } = base.render({ props: { disabled: true } })
+      const Root = base.selectRoot()
+      await fireEvent.click(Root)
+      expect(emitted().click).not.toBeTruthy()
+      expect(Root).toHaveAttribute('tabindex', '-1')
+    })
+
     test('Use justify start class when prop "decenter" is true', () => {
       const { getByText } = base.render({ props: { decenter: true, content } })
       const ContentContainer = getByText(content).parentElement

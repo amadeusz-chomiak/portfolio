@@ -5,8 +5,8 @@
     :href="target"
     :to="target"
     :class="rootClasses"
-    tabindex="0"
-    class="p-1 pointer-events-auto outline-none group border-transparent transform transition-all duration-75 hocus:border-primary-500 hocus:border-opacity-75 border-2 active:scale-95 active:translate-y-1"
+    :tabindex="tabindex"
+    class="p-1 pointer-events-auto outline-none group border-transparent transform transition-all duration-75 border-2"
     @click="emitClick()"
     @keydown.space.enter="activete()"
     @keyup.space.enter="emitClick()"
@@ -60,6 +60,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     decenter: {
       type: Boolean,
       default: false,
@@ -96,15 +100,23 @@ export default defineComponent({
         classes(props.round, 'rounded-full'),
         classes(!props.round && props.slim, 'rounded-button-7'),
         classes(!props.round && !props.slim, 'rounded-button-9'),
+        classes(props.disabled, 'cursor-not-allowed', 'opacity-50'),
+        classes(
+          !props.disabled,
+          'hocus:border-primary-500',
+          'hocus:border-opacity-75',
+          'active:scale-95',
+          'active:translate-y-1'
+        ),
       ].flat()
     )
 
     const innerClasses = computed(() =>
       [
         classes(props.secondary, 'border-3', 'border-primary-600'),
+        classes(!props.secondary, 'bg-primary-600'),
         classes(
-          !props.secondary,
-          'bg-primary-600',
+          !props.secondary && !props.disabled,
           'shadow-lg',
           'group-active:shadow-sm'
         ),
@@ -127,13 +139,17 @@ export default defineComponent({
       active.value = false
     }
     const emitClick = () => {
+      if (props.disabled) return
       emit('click')
       deactivete()
     }
 
     const activete = () => {
+      if (props.disabled) return
       active.value = true
     }
+
+    const tabindex = computed(() => (props.disabled ? -1 : 0))
 
     return {
       props,
@@ -145,6 +161,7 @@ export default defineComponent({
       emitClick,
       activete,
       deactivete,
+      tabindex,
     }
   },
 })
