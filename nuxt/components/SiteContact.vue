@@ -57,6 +57,7 @@ export default defineComponent<Props>({
     const content = computed(() => props.page.content.pl)
     const email = ref('')
     const description = ref('')
+    // TODO submit to firebase
     const submit = () => console.log('submit', email.value, description.value)
     const valid = ref(false)
     const setValid = (payload: undefined | string) =>
