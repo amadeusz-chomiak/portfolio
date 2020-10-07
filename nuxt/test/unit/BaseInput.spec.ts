@@ -25,6 +25,14 @@ describe('components/BaseInput.vue', () => {
     expect(Input).toHaveProperty('type', 'email')
   })
 
+  test('has required text', () => {
+    const { getByText } = base.render({
+      props: { required: 'required', value: '' },
+    })
+    const Required = getByText('required')
+    expect(Required).toBeVisible()
+  })
+
   test('has title', () => {
     const { getByText, getByDisplayValue } = base.render()
     const Title = getByText('title') as HTMLLabelElement
@@ -39,6 +47,25 @@ describe('components/BaseInput.vue', () => {
     const { getByText } = base.render({ props: { type: 'email' } })
     const Helper = getByText('Podaj poprawną nazwę zakończoną @')
     expect(Helper).toBeVisible()
+  })
+
+  test('emit validation event with validation data', () => {
+    const { emitted } = base.render({
+      props: { type: 'email' },
+    })
+    expect(emitted().validation).toStrictEqual([
+      ['Podaj poprawną nazwę zakończoną @'],
+    ])
+    //! doesn't seem to works in vue 2
+    // const Input = getByDisplayValue('value')
+    // await fireEvent.input(Input)
+    // await updateProps({
+    //   value: 'change',
+    // })
+
+    // await waitFor(() => {
+    //   expect(emitted().validation.length).toBe(2)
+    // })
   })
 
   test('set invalided styles on blur if data is invalid', async () => {

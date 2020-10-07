@@ -1,18 +1,26 @@
 <template>
   <div>
     <BaseContent id="contact" :content="content" class="site-content" />
-    <form>
+    <form @submit.prevent="submit">
       <BaseInput
         v-model="email"
         title="Podaj e-mail kontaktowy"
         placeholder="przykładowy.email@poczta.com"
         type="email"
         class="mb-4"
+        required="jest wymagany"
+        @validation="setValid"
       />
       <BaseTextarea
         v-model="description"
         title="Opisz czego potrzebujesz"
         placeholder="Potrzebuję strony dla transkrypcji mojego podcastu o gotowaniu i umieszczania przepisów premium"
+      />
+      <BaseButton
+        type="submit"
+        content="Rozpocznijmy współpracę"
+        :disabled="valid"
+        @click="submit"
       />
     </form>
   </div>
@@ -49,7 +57,11 @@ export default defineComponent<Props>({
     const content = computed(() => props.page.content.pl)
     const email = ref('')
     const description = ref('')
-    return { content, email, description }
+    const submit = () => console.log('submit', email.value, description.value)
+    const valid = ref(false)
+    const setValid = (payload: undefined | string) =>
+      (valid.value = payload !== undefined)
+    return { content, email, description, submit, setValid, valid }
   },
 })
 </script>

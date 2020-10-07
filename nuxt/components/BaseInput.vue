@@ -1,6 +1,15 @@
 <template>
   <div class="group relative">
-    <label :for="id" class="text-primary-50 mb-1">{{ title }}</label>
+    <label :for="id" class="text-primary-50 mb-1"
+      >{{ title
+      }}<span v-if="required && !!validation" class="text-primary-100">
+        —
+        <span
+          :class="invalidBlured ? ['text-warning', 'text-opacity-100'] : []"
+          >{{ required }}</span
+        ></span
+      ></label
+    >
     <input
       :id="id"
       class="w-full rounded-xl border-4 py-2 px-4 text-primary-50 bg-black bg-opacity-75 placeholder-primary-200 placeholder-opacity-50 outline-none"
@@ -29,6 +38,7 @@ import {
   reactive,
   defineComponent,
   computed,
+  watch,
 } from '@nuxtjs/composition-api'
 import { useClass } from '~/composable/useMediaQuery'
 import { useId } from '~/composable/useId'
@@ -51,8 +61,11 @@ export default defineComponent({
       type: String as () => 'email',
       required: true,
     },
+    required: {
+      type: String,
+    },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const validation = computed(() => {
       if (props.type === 'email') {
         const beforeAt = RegExp(
@@ -66,23 +79,24 @@ export default defineComponent({
         if (!afterAt) return 'Podaj poprawną nazwę Twojego dostawcy emaila'
         return undefined
       }
+      if (props.required && props.value === '') return 'Musisz wypełnić to pole'
       return undefined
     })
-
+    watch(validation, (to) => emit('validation', to), { immediate: true })
     const blured = ref(false)
     const { classes } = useClass()
+    const invalidBlured = computed(() => blured.value && !!validation.value)
 
     const inputClasses = computed(() => {
-      const invalidBlured = blured.value && !!validation.value
       return [
         classes(!!validation.value, 'group-focus-within:rounded-b-none'),
-        classes(!invalidBlured, 'border-primary-600'),
-        classes(invalidBlured, 'border-warning'),
+        classes(!invalidBlured.value, 'border-primary-600'),
+        classes(invalidBlured.value, 'border-warning'),
       ].flat()
     })
 
     const id = useId()
-    return { validation, inputClasses, blured, id }
+    return { validation, inputClasses, blured, id, invalidBlured }
   },
 })
 </script>
