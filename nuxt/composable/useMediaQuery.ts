@@ -1,9 +1,4 @@
-import {
-  ref,
-  useContext,
-  onBeforeMount,
-  reactive,
-} from '@nuxtjs/composition-api'
+import { useContext, reactive, onMounted } from '@nuxtjs/composition-api'
 
 const isMobileSSR = () => {
   const userAgent = useContext().req?.headers['user-agent']
@@ -42,7 +37,7 @@ export const useSize = () => {
     height.lg = windowHeight >= 800
     height.xl = windowHeight >= 1000
   }
-  onBeforeMount(() => {
+  onMounted(() => {
     resize()
     if (process.client) window.addEventListener('resize', resize)
   })

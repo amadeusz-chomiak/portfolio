@@ -1,10 +1,10 @@
 <template>
-  <BaseButton
+  <ButtonIcon
     target="https://github.com/amadeusz-chomiak"
     secondary
     outside
-    content="Mój Github"
-  ></BaseButton>
+    icon="github"
+  ></ButtonIcon>
 </template>
 
 <script lang="ts">

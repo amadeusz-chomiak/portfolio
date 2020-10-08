@@ -34,7 +34,7 @@
           secondary
           fill
           :route="link.outside"
-          :decenter="true"
+          :decenter="!width.md"
           :class-inner="['md:justify-center']"
           class="mb-2 lg-h:mb-4"
           :slim="link.outside || !height.md"
@@ -66,9 +66,9 @@ export default defineComponent({
 
     // const overrideRouteClasses = ['nuxt-link-exact-active']
 
-    const { height } = useSize()
+    const { height, width } = useSize()
 
-    return { links, height }
+    return { links, height, width }
   },
 })
 </script>
