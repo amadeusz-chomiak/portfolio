@@ -26,7 +26,8 @@
     "intersection-observer": "^0.11.0",
     "nuxt": "^2.14.0",
     "svg-url-loader": "^6.0.0",
-    "vue-focus-lock": "^1.4.0"
+    "vue-focus-lock": "^1.4.0",
+    "vue-unicons": "^2.3.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.0",
