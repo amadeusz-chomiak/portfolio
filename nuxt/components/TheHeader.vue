@@ -1,12 +1,15 @@
 <template>
   <header class="flex items-center">
     <BaseButton
+      ref="ButtonAvatar"
       secondary
       target="https://github.com/amadeusz-chomiak"
       outside
+      inline
       round
       slim
-      class="group mr-4 flex-shrink-0 rounded-full self-start"
+      class="mr-2 group flex-shrink-0 lg:mr-4"
+      data-testid="button-avatar"
     >
       <div class="relative">
         <img
@@ -19,7 +22,7 @@
           class="rounded-full absolute inset-0 opacity-0 transition-opacity duration-300 group-hocus:opacity-100"
         />
         <div
-          class="rounded-full absolute inset-0 bg-primary-600 blend-soft-light group-hocus:opacity-0"
+          class="rounded-full absolute inset-0 bg-primary-600 transition-opacity duration-300 blend-soft-light group-hocus:opacity-0"
         />
       </div>
     </BaseButton>
@@ -39,11 +42,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  computed,
+  onMounted,
+  ref,
+} from '@nuxtjs/composition-api'
 import { useQuerySite, useImage } from '~/composable/useDatabase'
 
 export default defineComponent({
   setup() {
+    const ButtonAvatar = ref<{ $el: HTMLElement } | undefined>(undefined)
+    onMounted(() => {
+      ButtonAvatar.value?.$el.focus()
+    })
+
     const { result } = useQuerySite()
     const header = computed(() => result.value?.header)
     const headerPicture = useImage(
@@ -54,7 +67,13 @@ export default defineComponent({
 
     const headerTitle = computed(() => header.value?.title?.pl)
     const headerSubtitle = computed(() => header.value?.subtitle?.pl)
-    return { headerAlt, headerPicture, headerTitle, headerSubtitle }
+    return {
+      headerAlt,
+      headerPicture,
+      headerTitle,
+      headerSubtitle,
+      ButtonAvatar,
+    }
   },
 })
 </script>
