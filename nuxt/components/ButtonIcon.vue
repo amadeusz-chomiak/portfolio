@@ -1,6 +1,10 @@
 <template>
   <BaseButton v-bind="$attrs" :slim="slim" round @click="$emit('click')"
-    ><BaseIcon :icon="icon" :color="color" :height="slim ? 4 : 5" />
+    ><BaseIcon
+      :icon="icon"
+      :style="iconStyle"
+      :class="[...(slim ? ['h-4', 'w-4'] : ['h-5', 'w-5']), ...iconClasses]"
+    />
   </BaseButton>
 </template>
 
@@ -13,8 +17,13 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    color: {
-      type: String,
+    iconClasses: {
+      type: Array,
+      default: () => ['text-primary-50'],
+    },
+    iconStyle: {
+      type: Object,
+      default: () => {},
     },
     slim: {
       type: Boolean,

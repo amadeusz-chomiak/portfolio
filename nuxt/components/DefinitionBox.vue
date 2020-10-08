@@ -14,7 +14,7 @@
         inline
         slim
         data-testid="toggle"
-        :color="definition.color.hex"
+        :icon-style="{ color: definition.color.hex }"
         @click="showPopup = !showPopup"
       ></ButtonIcon>
     </div>

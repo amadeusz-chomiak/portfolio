@@ -11,6 +11,7 @@
 
 /* purgecss start ignore */
 @import './transition';
-
+@import './overrides';
 /* purgecss end ignore */
+
 @import 'tailwindcss/utilities';

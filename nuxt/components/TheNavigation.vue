@@ -30,6 +30,7 @@
           :icon="panelOpen ? 'close' : 'menu'"
           data-testid="nav-button"
           secondary
+          color="text-primary-50"
           class="z-20"
           @click="panelOpen = !panelOpen"
         ></ButtonIcon>
