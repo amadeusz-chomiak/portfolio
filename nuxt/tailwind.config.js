@@ -109,6 +109,7 @@ module.exports = {
       'active',
       'group-active',
     ],
+    opacity: ['responsive', 'group-hocus'],
     scale: ['responsive', 'active', 'group-active'],
     translate: ['responsive', 'active', 'group-active'],
     borderRadius: ['responsive', 'group-focus-within'],
