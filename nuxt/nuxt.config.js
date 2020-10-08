@@ -14,14 +14,15 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Stwórzmy Twoją część internetu – Amadeusz Chomiak',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content:
+          'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który przeprowadzi Cię przez cały proces i zadba, aby Twoja nowa strona, była szybka, wygodna i elegancka.',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -34,7 +35,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/polyfills', '~/plugins/focusLock'],
+  plugins: [
+    '~/plugins/polyfills',
+    '~/plugins/focusLock',
+    { src: '~/plugins/vueUnicons', mode: 'client' },
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
