@@ -13,7 +13,7 @@
     @keydown.space.enter="activete()"
     @keyup.space.enter="emitClick()"
   >
-    <div :class="[...innerClasses, ...classInner]" class="flex">
+    <div :class="innerClasses" class="flex">
       <slot
         ><p class="text-lg" :class="textClasses">{{ content }}</p></slot
       >
@@ -114,6 +114,7 @@ export default defineComponent({
           'active:scale-95',
           'active:translate-y-1'
         ),
+        props.classInner,
       ].flat()
     )
 
