@@ -114,7 +114,6 @@ export default defineComponent({
           'active:scale-95',
           'active:translate-y-1'
         ),
-        props.classInner,
       ].flat()
     )
 
@@ -136,6 +135,7 @@ export default defineComponent({
         classes(!props.round && props.slim, 'rounded-button-6', 'py-1'),
         classes(!props.round && !props.slim, 'rounded-button-8', 'py-3'),
         classes(props.fill, 'flex-1'),
+        props.classInner,
       ].flat()
     )
 
