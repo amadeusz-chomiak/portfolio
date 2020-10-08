@@ -13,16 +13,16 @@
     >
       <div class="relative">
         <img
-          class="rounded-full h-12 md:h-14 lg:h-16 transition-opacity duration-300 group-hocus:opacity-0"
+          class="rounded-full h-12 md:h-14 lg:h-16 transition-opacity duration-100 group-hocus:opacity-0"
           :src="headerPicture"
           :alt="headerAlt"
         />
         <BaseIcon
           icon="github"
-          class="rounded-full absolute inset-0 opacity-0 transition-opacity duration-300 group-hocus:opacity-100"
+          class="rounded-full absolute inset-0 opacity-0 transition-opacity duration-100 group-hocus:opacity-100"
         />
         <div
-          class="rounded-full absolute inset-0 bg-primary-600 transition-opacity duration-300 blend-soft-light group-hocus:opacity-0"
+          class="rounded-full absolute inset-0 bg-primary-600 transition-opacity duration-100 blend-soft-light group-hocus:opacity-0"
         />
       </div>
     </BaseButton>
