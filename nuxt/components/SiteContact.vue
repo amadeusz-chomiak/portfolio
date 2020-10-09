@@ -18,8 +18,8 @@
       />
       <BaseButton
         type="submit"
-        content="Rozpocznijmy współpracę"
-        :disabled="valid"
+        :content="request.adding.value ? 'wysyłam' : 'Rozpocznijmy współpracę'"
+        :disabled="!valid || request.adding.value"
         class="mt-2 self-end transform lg:translate-x-1/2"
         @click="submit"
       />
@@ -40,6 +40,8 @@ import {
   useObserverObserve,
   ObserverPropType,
 } from '~/composable/useObserver'
+
+import { firestore } from '~/composable/useFirebase'
 interface Props extends ObserverPropType {
   page: { content: { pl: unknown; en: unknown } }
 }
@@ -58,12 +60,17 @@ export default defineComponent<Props>({
     const content = computed(() => props.page.content.pl)
     const email = ref('')
     const description = ref('')
-    // TODO submit to firebase
-    const submit = () => console.log('submit', email.value, description.value)
+
+    const request = firestore().useAddCooperationRequest()
     const valid = ref(false)
     const setValid = (payload: undefined | string) =>
-      (valid.value = payload !== undefined)
-    return { content, email, description, submit, setValid, valid }
+      (valid.value = payload === undefined)
+    const submit = async () => {
+      console.log('submit', valid.value)
+      if (valid.value)
+        await request.add({ email: email.value, request: description.value })
+    }
+    return { content, email, description, submit, setValid, valid, request }
   },
 })
 </script>
