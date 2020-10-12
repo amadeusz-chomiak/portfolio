@@ -3,6 +3,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    jest: true,
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
@@ -14,4 +15,10 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {},
+  globals: {
+    page: true,
+    browser: true,
+    context: true,
+    jestPuppeteer: true,
+  },
 }
