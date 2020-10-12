@@ -6,7 +6,7 @@ import Component from '~/components/<%= h.changeCase.pascal(name) %>.vue'
 const base = new Base(Component)
 
 describe('components/<%= h.changeCase.pascal(name) %>.vue', () => {
-  test('', async () => {
+  it('', async () => {
     const { getByText } = base.render()
   })
 })

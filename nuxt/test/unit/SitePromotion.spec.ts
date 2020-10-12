@@ -10,7 +10,7 @@ const page = useQuerySite().result.value?.pages?.find(
 )?.page
 
 describe('components/SitePromotion.vue', () => {
-  test('Register itself for observer from "observer" prop', () => {
+  it('Register itself for observer from "observer" prop', () => {
     base.render({
       props: {
         observer,
@@ -21,7 +21,7 @@ describe('components/SitePromotion.vue', () => {
     expect(observer.observe).toBeCalled()
   })
 
-  test('Render content from "page" prop', () => {
+  it('Render content from "page" prop', () => {
     const { getByText } = base.render({
       props: {
         page,
@@ -32,7 +32,7 @@ describe('components/SitePromotion.vue', () => {
     ).toBeVisible()
   })
 
-  test('Render promotion cards from "page" prop', () => {
+  it('Render promotion cards from "page" prop', () => {
     const { getByText } = base.render({
       props: {
         page,

@@ -6,26 +6,26 @@ const base = new Base(Component, {
 })
 
 describe('components/BaseInput.vue', () => {
-  test('works with v-model', async () => {
+  it('works with v-model', async () => {
     const { getByDisplayValue, emitted } = base.render()
     const Input = getByDisplayValue('value')
     await fireEvent.input(Input)
     expect(emitted().input[0]).toStrictEqual(['value'])
   })
 
-  test('has placeholder prefixed with "Np. "', () => {
+  it('has placeholder prefixed with "Np. "', () => {
     const { getByDisplayValue } = base.render()
     const Input = getByDisplayValue('value')
     expect(Input).toHaveProperty('placeholder', 'Np. placeholder')
   })
 
-  test('has type', () => {
+  it('has type', () => {
     const { getByDisplayValue } = base.render({ props: { type: 'email' } })
     const Input = getByDisplayValue('value')
     expect(Input).toHaveProperty('type', 'email')
   })
 
-  test('has required text', () => {
+  it('has required text', () => {
     const { getByText } = base.render({
       props: { required: 'required', value: '' },
     })
@@ -33,7 +33,7 @@ describe('components/BaseInput.vue', () => {
     expect(Required).toBeVisible()
   })
 
-  test('has title', () => {
+  it('has title', () => {
     const { getByText, getByDisplayValue } = base.render()
     const Title = getByText('title') as HTMLLabelElement
     expect(Title).toBeVisible()
@@ -43,13 +43,13 @@ describe('components/BaseInput.vue', () => {
     expect(Title.htmlFor).toBe(Input.id)
   })
 
-  test('use validation based on "type" prop', () => {
+  it('use validation based on "type" prop', () => {
     const { getByText } = base.render({ props: { type: 'email' } })
     const Helper = getByText('Podaj poprawną nazwę zakończoną @')
     expect(Helper).toBeVisible()
   })
 
-  test('emit validation event with validation data', () => {
+  it('emit validation event with validation data', () => {
     const { emitted } = base.render({
       props: { type: 'email' },
     })
@@ -68,7 +68,7 @@ describe('components/BaseInput.vue', () => {
     // })
   })
 
-  test('set invalided styles on blur if data is invalid', async () => {
+  it('set invalided styles on blur if data is invalid', async () => {
     const { getByDisplayValue } = base.render({ props: { type: 'email' } })
     const Input = getByDisplayValue('value')
     await fireEvent.blur(Input)

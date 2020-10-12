@@ -9,13 +9,13 @@ const base = new Base(Component, {
 })
 
 describe('components/DefinitionPopup.vue', () => {
-  test('Render "title" from prop', () =>
+  it('Render "title" from prop', () =>
     base.testPropInline((select) => select.getByText('title')))
 
-  test('Render "content" from prop', () =>
+  it('Render "content" from prop', () =>
     base.testPropInline((select) => select.getByText('content')))
 
-  test('set title color to "color" prop', () => {
+  it('set title color to "color" prop', () => {
     const { getByText } = base.render()
     const MainText = getByText('title')
     expect(MainText).toHaveStyle('color: #fff')
