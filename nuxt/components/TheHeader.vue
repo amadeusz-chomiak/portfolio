@@ -13,7 +13,7 @@
     >
       <div class="relative">
         <img
-          class="rounded-full h-12 md:h-14 lg:h-16 transition-opacity duration-100 group-hocus:opacity-0"
+          class="rounded-full h-12 md:h-14 lg:h-16 w-12 md:w-14 lg:w-16 transition-opacity duration-100 group-hocus:opacity-0"
           :src="headerPicture"
           :alt="headerAlt"
         />
