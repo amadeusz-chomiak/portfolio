@@ -131,7 +131,7 @@ describe('components/BaseContent.vue', () => {
   const title = content[Paragraph.title].children[0].text
   const subtitle = content[Paragraph.subtitle].children[0].text
   describe('paragraph style', () => {
-    test('Render content with style "normal" with normal styles', () => {
+    it('Render content with style "normal" with normal styles', () => {
       const { getByText } = base.render()
       const Span = getByText(normal)
       const Paragraph = Span.parentElement
@@ -141,7 +141,7 @@ describe('components/BaseContent.vue', () => {
       expect(Paragraph?.tagName.toLowerCase()).toBe('p')
     })
 
-    test('Render content with style "title" with title styles', () => {
+    it('Render content with style "title" with title styles', () => {
       const { getByText } = base.render()
       const Span = getByText(title)
       const Paragraph = Span.parentElement
@@ -150,7 +150,7 @@ describe('components/BaseContent.vue', () => {
       expect(Paragraph?.classList).toContain('text-2xl')
     })
 
-    test('Render content with style "title" with proper level from "level" prop', async () => {
+    it('Render content with style "title" with proper level from "level" prop', async () => {
       const { getByText, updateProps } = base.render({
         props: { level: 3, content },
       })
@@ -167,7 +167,7 @@ describe('components/BaseContent.vue', () => {
       // expect(Paragraph?.classList).toContain('text-lg')
     })
 
-    test('Render content with style "subtitle" with proper level from "level" prop', async () => {
+    it('Render content with style "subtitle" with proper level from "level" prop', async () => {
       const { getByText, updateProps } = base.render({
         props: { level: 3, content },
       })
@@ -190,21 +190,21 @@ describe('components/BaseContent.vue', () => {
     const strong = marksParagraph.children[1].text
     const link = marksParagraph.children[2].text
 
-    test('Render span with "em" mark', () => {
+    it('Render span with "em" mark', () => {
       const { getByText } = base.render()
       const Span = getByText(em)
       expect(Span).toBeVisible()
       expect(Span.classList).toContain('italic')
     })
 
-    test('Render span with "strong" mark', () => {
+    it('Render span with "strong" mark', () => {
       const { getByText } = base.render()
       const Span = getByText(strong)
       expect(Span).toBeVisible()
       expect(Span.classList).toContain('font-semibold')
     })
 
-    test('Render link with "link" mark', () => {
+    it('Render link with "link" mark', () => {
       const { getByText } = base.render()
       const Span = getByText(link) as HTMLLinkElement
       expect(Span).toBeVisible()
@@ -214,13 +214,13 @@ describe('components/BaseContent.vue', () => {
   })
 
   describe('column settings', () => {
-    test('Render content inside both column div, by default', () => {
+    it('Render content inside both column div, by default', () => {
       const { getByText } = base.render()
       const Column = getByText(normal).parentElement?.parentElement
       expect(Column?.classList).toContain('lg:w-full')
     })
 
-    test('Render content inside only second column div, after marker', () => {
+    it('Render content inside only second column div, after marker', () => {
       const { getByText } = base.render()
       const Column = getByText(title).parentElement?.parentElement
       expect(Column?.classList).toContain('lg:w-1/2')
@@ -231,7 +231,7 @@ describe('components/BaseContent.vue', () => {
     // @ts-expect-error
     const definition = content[Paragraph.definition].text
 
-    test('Render definition text', () => {
+    it('Render definition text', () => {
       const { getByText } = base.render()
       const Span = getByText(definition)
       expect(Span).toBeVisible()

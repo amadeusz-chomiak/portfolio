@@ -6,7 +6,7 @@ const base = new Base(Component)
 const { result } = useQuerySite()
 
 describe('components/TheNavigationContent.vue', () => {
-  test('Render site links', () => {
+  it('Render site links', () => {
     const { getByText } = base.render()
     const pages = result.value?.pages
     pages?.forEach((page) => {
@@ -15,7 +15,7 @@ describe('components/TheNavigationContent.vue', () => {
     })
   })
 
-  test('Render main link card', () => {
+  it('Render main link card', () => {
     const { getByText } = base.render()
     const page = result.value?.pages?.find((page) => page?.card)
     const Button = getByText(page?.card?.action?.primary?.pl ?? '')
@@ -27,7 +27,7 @@ describe('components/TheNavigationContent.vue', () => {
     expect(Content).toBeVisible()
   })
 
-  test('Use slim buttons on smaller screen heights', async () => {
+  it('Use slim buttons on smaller screen heights', async () => {
     global.innerHeight = 400
     global.dispatchEvent(new Event('resize'))
     const { getByText } = base.render()

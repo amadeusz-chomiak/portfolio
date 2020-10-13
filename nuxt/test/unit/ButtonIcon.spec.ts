@@ -7,8 +7,8 @@ const { alt } = useIcon(icon)
 const base = new Base(Component, { props: { icon } })
 describe('components/ButtonIcon.vue', () => {
   describe('correctly extends BaseButton', () => {
-    test('Root container emit click on click', () => base.testEmitter())
-    test('Use border classes when prop "secondary" is true', () => {
+    it('Root container emit click on click', () => base.testEmitter())
+    it('Use border classes when prop "secondary" is true', () => {
       base.render({ props: { secondary: true, icon } })
       const Root = base.selectRoot()
       expect(
@@ -16,15 +16,15 @@ describe('components/ButtonIcon.vue', () => {
       ).toBeGreaterThan(0)
     })
   })
-  test('Create svg icon, based of icon prop', () => {
+  it('Create svg icon, based of icon prop', () => {
     const { getByAltText } = base.render()
     expect(getByAltText(alt.value)).toBeVisible()
   })
-  test('pass "color" prop to BaseIcon', () => {
+  it('pass "color" prop to BaseIcon', () => {
     const { getByAltText } = base.render({ props: { color: '#fff', icon } })
     expect(getByAltText(alt.value)).toHaveStyle('color: #fff')
   })
-  test('set "height" prop for BaseIcon, based on "slim" prop', () => {
+  it('set "height" prop for BaseIcon, based on "slim" prop', () => {
     const { getByAltText } = base.render({
       props: { icon, slim: true },
     })

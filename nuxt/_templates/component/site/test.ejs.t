@@ -13,7 +13,7 @@ const page = useQuerySite().result.value?.pages?.find(
 )?.page
 
 describe('components/<%= h.changeCase.pascal(name) %>.vue', () => {
-  test('Register itself for observer from "observer" prop', async () => {
+  it('Register itself for observer from "observer" prop', async () => {
     base.render({
       props: {
         observer,
@@ -24,7 +24,7 @@ describe('components/<%= h.changeCase.pascal(name) %>.vue', () => {
     expect(observer.observe).toBeCalled()
   })
 
-  test('Render content from "page" prop', () => {
+  it('Render content from "page" prop', () => {
     const { getByText } = base.render({
       props: {
         page,

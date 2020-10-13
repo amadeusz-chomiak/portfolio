@@ -17,4 +17,5 @@ module.exports = {
     '<rootDir>/pages/**/*.vue',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testMatch: ['**/unit/?(*.)+(spec|test).[jt]s?(x)'],
 }
