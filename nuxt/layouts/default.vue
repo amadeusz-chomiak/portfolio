@@ -17,5 +17,33 @@
         <Nuxt />
       </main>
     </div>
+    <ModalScreen
+      :show="cooperationState.showModal"
+      title="Otrzymałem Twoją wiadomość"
+      data-testid="contact-form-modal"
+      @close="cooperationSet('showModal', false)"
+    >
+      <p class="text-primary-100">
+        W ciągu kilku dni poinformuję Cię o czasie w jakim, będę mógł wykonać
+        Twój projekt
+      </p>
+    </ModalScreen>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+import { useStore } from '@/composable/useStore'
+export default defineComponent({
+  setup() {
+    const {
+      state: cooperationState,
+      set: cooperationSet,
+    } = useStore.requestCooperation
+    return {
+      cooperationState,
+      cooperationSet,
+    }
+  },
+})
+</script>

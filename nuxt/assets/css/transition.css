@@ -49,7 +49,52 @@
   opacity: 0 !important;
 }
 
-.panfadeel-enter-to,
+.fade-enter-to,
 .fade-leave {
   opacity: 1 !important;
+}
+
+.modal-enter-active {
+  & .transition-bg {
+    transition: opacity 200ms ease-out 100ms;
+  }
+  & .transition-card {
+    transition: transform 400ms ease-out;
+  }
+
+}
+
+.modal-leave-active {
+  & .transition-bg {
+    transition: opacity 200ms ease-in 100ms;
+  }
+  & .transition-card {
+    transition: transform 400ms ease-in;
+  }
+
+}
+
+.modal-enter,
+.modal-leave-to {
+  & .transition-bg {
+    opacity: 0 !important;
+  }
+  & .transition-card {
+    transform: translateY(100vh);
+  }
+  @media (prefers-reduced-motion) {
+    & .transition-card {
+      transform: none;
+    }
+  }
+}
+
+.modal-enter-to,
+.modal-leave {
+  & .transition-bg {
+    opacity: 1 !important;
+  }
+  & .transition-card {
+    transform: translateY(0);
+  }
 }
