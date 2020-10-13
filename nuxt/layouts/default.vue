@@ -17,5 +17,6 @@
         <Nuxt />
       </main>
     </div>
+    <ModalScreen />
   </div>
 </template>
