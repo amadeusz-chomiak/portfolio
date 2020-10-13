@@ -9,18 +9,21 @@
         type="email"
         class="mb-4"
         required="jest wymagany"
+        data-testid="contact-form-email"
         @validation="setValid"
       />
       <BaseTextarea
         v-model="description"
         title="Opisz czego potrzebujesz"
         placeholder="Potrzebuję strony dla transkrypcji mojego podcastu o gotowaniu i umieszczania przepisów premium"
+        data-testid="contact-form-description"
       />
       <BaseButton
         type="submit"
         :content="request.adding.value ? 'wysyłam' : 'Rozpocznijmy współpracę'"
         :disabled="!valid || request.adding.value"
         class="mt-2 self-end transform lg:translate-x-1/2"
+        data-testid="contact-form-submit"
         @click="submit"
       />
     </form>
