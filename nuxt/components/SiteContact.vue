@@ -45,6 +45,7 @@ import {
 } from '~/composable/useObserver'
 
 import { firestore } from '~/composable/useFirebase'
+import { useStore } from '~/composable/useStore'
 interface Props extends ObserverPropType {
   page: { content: { pl: unknown; en: unknown } }
 }
@@ -68,10 +69,14 @@ export default defineComponent<Props>({
     const valid = ref(false)
     const setValid = (payload: undefined | string) =>
       (valid.value = payload === undefined)
+
     const submit = async () => {
       console.log('submit', valid.value)
-      if (valid.value)
-        await request.add({ email: email.value, request: description.value })
+      try {
+        if (valid.value)
+          await request.add({ email: email.value, request: description.value })
+        useStore.requestCooperation.set('showModal', true)
+      } catch (error) {}
     }
     return { content, email, description, submit, setValid, valid, request }
   },
