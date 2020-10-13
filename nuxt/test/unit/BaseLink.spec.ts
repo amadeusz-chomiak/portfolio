@@ -10,10 +10,10 @@ const base = new Base(Component, {
 })
 
 describe('components/BaseLink.vue', () => {
-  test('has default slot', () => base.testHasSlot())
-  test('render "content" prop', () =>
+  it('has default slot', () => base.testHasSlot())
+  it('render "content" prop', () =>
     base.testPropInline(({ getByText }) => getByText(content)))
-  test('Set href to "to" prop content', () => {
+  it('Set href to "to" prop content', () => {
     base.render()
     const Root = base.selectRoot() as HTMLLinkElement
     expect(Root.href).toContain(to)

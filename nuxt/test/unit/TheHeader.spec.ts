@@ -5,7 +5,7 @@ const base = new Base(Component)
 const { result } = useQuerySite()
 
 describe('components/TheHeader.vue', () => {
-  test('Display avatar image', () => {
+  it('Display avatar image', () => {
     const { getByAltText } = base.render()
 
     const Image = getByAltText(
@@ -15,13 +15,13 @@ describe('components/TheHeader.vue', () => {
     expect(Image.src).toContain('https://cdn.sanity.io/images/')
   })
 
-  test('Display Title', () => {
+  it('Display Title', () => {
     const { getByText } = base.render()
     const Title = getByText(result.value?.header?.title?.pl ?? '')
     expect(Title).toBeVisible()
   })
 
-  test('Display Subtitle', () => {
+  it('Display Subtitle', () => {
     const { getByText } = base.render()
     const Subtitle = getByText(result.value?.header?.subtitle?.pl ?? '')
     expect(Subtitle).toBeVisible()

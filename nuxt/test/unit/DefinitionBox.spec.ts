@@ -34,24 +34,24 @@ const definition = {
 const base = new Base(Component, { props: { definition } })
 
 describe('components/DefinitionBox.vue', () => {
-  test('Render "textBefore" from "definition" prop', () =>
+  it('Render "textBefore" from "definition" prop', () =>
     base.testPropInline((select) => select.getByText('textBefore')))
-  test('Render "text" from "definition" prop', () =>
+  it('Render "text" from "definition" prop', () =>
     base.testPropInline((select) => select.getByText('text')))
-  test('Render "textAfter" from "definition" prop', () =>
+  it('Render "textAfter" from "definition" prop', () =>
     base.testPropInline((select) => select.getByText('textAfter')))
 
-  test('set main text color to definition color', () => {
+  it('set main text color to definition color', () => {
     const { getByText } = base.render()
     const MainText = getByText('text')
     expect(MainText).toHaveStyle('color: #f03e2f')
   })
-  test('Render ButtonIcon with "?" as an icon, with definition color', () => {
+  it('Render ButtonIcon with "?" as an icon, with definition color', () => {
     const { getByText } = base.render()
     const Button = getByText('?')
     expect(Button).toHaveStyle('color: #f03e2f')
   })
-  test('Change ButtonIcon based on showPopup ref', async () => {
+  it('Change ButtonIcon based on showPopup ref', async () => {
     const { getByText, getByTestId } = base.render()
     const Button = getByTestId('toggle')
     expect(getByText('?')).toBeVisible()
@@ -60,7 +60,7 @@ describe('components/DefinitionBox.vue', () => {
     await fireEvent.click(Button)
     expect(getByText('?')).toBeVisible()
   })
-  test('show popup content only after button click', async () => {
+  it('show popup content only after button click', async () => {
     const { getByText, getByTestId } = base.render()
     const Button = getByTestId('toggle')
     expect(() => getByText('content')).toThrowError()

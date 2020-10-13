@@ -4,7 +4,7 @@ import { useIcon } from '~/composable/useIcon'
 const base = new Base(Component)
 const { alt } = useIcon('github')
 describe('components/ButtonGithub.vue', () => {
-  test('Render content', () => {
+  it('Render content', () => {
     const { getByAltText } = base.render()
     expect(getByAltText(alt.value)).toBeVisible()
   })
