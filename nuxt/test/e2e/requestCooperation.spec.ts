@@ -55,10 +55,13 @@ describe('request cooperation form', () => {
       (Button as HTMLButtonElement).click()
     )
   })
-
   it('should remove created test email without errors', async () => {
     await page.waitFor(5000)
     const result = await testRequestCooperation()
     expect(result).toBe(true)
+  })
+
+  it('should display congratulation modal', async () => {
+    await page.$('[data-testid="contact-form-modal"]')
   })
 })
