@@ -217,8 +217,7 @@ export const querySite = {
                         _key: '4a8d98b9c57c',
                         _type: 'span',
                         marks: [],
-                        text:
-                          ' Twoja strona, znajdziesz w jednym miejscu. Aby maksymalnie ułatwić Ci pracę, opiszę też do czego każda z nich służy.',
+                        text: ' Twoja strona, znajdziesz w jednym miejscu.',
                       },
                     ],
                     markDefs: [],
@@ -462,14 +461,13 @@ export const querySite = {
                   _key: 'd7eb55be733a',
                   _type: 'span',
                   marks: ['strong'],
-                  text: '2300zł ',
+                  text: '2300zł',
                 },
                 {
                   _key: 'c6f3a3458137',
                   _type: 'span',
                   marks: [],
-                  text:
-                    'w dwa tygodnie. Większe projekty wyceniam indywidualnie.',
+                  text: '. Większe projekty wyceniam indywidualnie.',
                 },
               ],
               markDefs: [],
@@ -608,22 +606,22 @@ export const querySite = {
                     textBefore: 'System zarządzania treścią',
                     title: 'Sanity CMS',
                   },
-                  { _key: 'ed1e03c4ca85', _type: 'column', set: 'both' },
-                  {
-                    _key: '26268397d57a',
-                    _type: 'block',
-                    children: [
-                      {
-                        _key: '05bc8239fa1f',
-                        _type: 'span',
-                        marks: [],
-                        text:
-                          'Jeśli potrzebujesz czegoś więcej, nie martw się, wszystko co powyżej wymieniłem spersonalizuję pod Twoje indywidualne potrzeby.',
-                      },
-                    ],
-                    markDefs: [],
-                    style: 'unimportant',
-                  },
+                  // { _key: 'ed1e03c4ca85', _type: 'column', set: 'both' },
+                  // {
+                  //   _key: '26268397d57a',
+                  //   _type: 'block',
+                  //   children: [
+                  //     {
+                  //       _key: '05bc8239fa1f',
+                  //       _type: 'span',
+                  //       marks: [],
+                  //       text:
+                  //         'Jeśli potrzebujesz czegoś więcej, nie martw się, wszystko co powyżej wymieniłem spersonalizuję pod Twoje indywidualne potrzeby.',
+                  //     },
+                  //   ],
+                  //   markDefs: [],
+                  //   style: 'unimportant',
+                  // },
                 ],
               },
             },
@@ -707,13 +705,8 @@ export const querySite = {
                   _key: '452509f67c07',
                   _type: 'span',
                   marks: [],
-                  text: 'Podaj swojego ',
-                },
-                {
-                  _key: 'c18619d673dd',
-                  _type: 'span',
-                  marks: [],
-                  text: 'emalia',
+                  text:
+                    'Wypełnij poniższe informacje, abym mógł się z Tobą skontaktować',
                 },
               ],
               markDefs: [],
@@ -727,7 +720,7 @@ export const querySite = {
             _type: 'localeText',
             pl: 'Nie martw się, rozpoczęcie współpracy jest darmowe.',
           },
-          title: { _type: 'localeString', pl: 'Rozpocznijmy współpracę' },
+          title: { _type: 'localeString', pl: 'Wyślij' },
         },
         image: {
           _type: 'image',
