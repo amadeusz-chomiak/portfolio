@@ -79,9 +79,10 @@ export default defineComponent({
     })
 
     const { result } = useQuerySite()
-    const pages = computed(() =>
-      result.value?.pages?.filter((page) => !page?.outside)
-    )
+    const pages = computed(() => result.value?.pages)
+    // const pages = computed(() =>
+    //   result.value?.pages?.filter((page) => !page?.outside)
+    // )
     const { toComponent, toPath } = usePageIdTransformer()
     const pagesComponent = computed(() =>
       pages.value?.map((page, index) => ({

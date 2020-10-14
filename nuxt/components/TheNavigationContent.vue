@@ -58,9 +58,11 @@ export default defineComponent({
     const links = computed(() =>
       pages.value?.map((page) => ({
         title: page?.title?.pl,
-        to: toPath(page?.page?._id, !page?.outside),
+        to: toPath(page?.page?._id, true),
+        // to: toPath(page?.page?._id, !page?.outside),
         card: page?.card,
-        outside: page?.outside,
+        outside: false,
+        // outside: page?.outside,
       }))
     )
 
