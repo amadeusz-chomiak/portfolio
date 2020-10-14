@@ -19,13 +19,13 @@
     </div>
     <ModalScreen
       :show="cooperationState.showModal"
-      title="Otrzymałem Twoją wiadomość"
+      title="Otrzymałem Twoją wiadomość."
       data-testid="contact-form-modal"
       @close="cooperationSet('showModal', false)"
     >
       <p class="text-primary-100">
         W ciągu kilku dni poinformuję Cię o czasie w jakim, będę mógł wykonać
-        Twój projekt
+        Twój projekt.
       </p>
     </ModalScreen>
   </div>

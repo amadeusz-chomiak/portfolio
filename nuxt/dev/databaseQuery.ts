@@ -462,13 +462,14 @@ export const querySite = {
                   _key: 'd7eb55be733a',
                   _type: 'span',
                   marks: ['strong'],
-                  text: '1200zł ',
+                  text: '2300zł ',
                 },
                 {
                   _key: 'c6f3a3458137',
                   _type: 'span',
                   marks: [],
-                  text: 'w tydzień. Większe projekty wyceniam indywidualnie.',
+                  text:
+                    'w dwa tygodnie. Większe projekty wyceniam indywidualnie.',
                 },
               ],
               markDefs: [],
