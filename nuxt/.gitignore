@@ -71,6 +71,9 @@ typings/
 # Nuxt generate
 dist
 
+# Firebase deploy
+.firebase
+
 # vuepress build output
 .vuepress/dist
 
