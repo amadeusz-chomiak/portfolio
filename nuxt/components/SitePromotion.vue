@@ -1,7 +1,7 @@
 <template>
   <div>
     <BaseContent id="promotion" :content="content" class="site-content" />
-    <div>
+    <div class="flex">
       <BaseCard
         v-for="promotion in promotions"
         :key="promotion._id"

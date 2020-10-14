@@ -13,7 +13,7 @@
           <template #content>
             <BaseContent
               v-if="link.card.content"
-              class="mr-10 md:mr-0"
+              class="mr-10 md:mr-0 font-medium"
               :content="link.card.content.pl"
             />
           </template>
