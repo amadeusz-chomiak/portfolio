@@ -5,7 +5,7 @@
       <BaseCard
         v-for="promotion in promotions"
         :key="promotion._id"
-        class="m-2"
+        class="m-2 sm:w-xs flex-grow"
       >
         <template #content>
           <BaseContent

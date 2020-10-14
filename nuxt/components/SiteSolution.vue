@@ -6,7 +6,7 @@
         v-for="solution in solutions"
         :key="solution._id"
         small
-        class="m-2 w-xs flex-grow"
+        class="m-2 sm:w-xs flex-grow"
       >
         <template #content>
           <BaseContent
