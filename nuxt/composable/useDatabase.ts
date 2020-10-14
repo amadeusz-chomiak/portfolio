@@ -31,12 +31,12 @@ type State = { [QueryIds.site]?: QuerySite }
 let state = reactive<State>({})
 type StateKeys = keyof State
 type StateValues = State[StateKeys]
-
-if (!isProduction) {
-  state = reactive({
-    [QueryIds.site]: querySite,
-  })
-}
+// ! fix for reactivity error
+// if (!isProduction) {
+state = reactive({
+  [QueryIds.site]: querySite,
+})
+// }
 
 const fetchingQueries = new Set<QueryIds>()
 
@@ -51,14 +51,14 @@ const useQuery = <Result extends StateValues, Params extends object = {}>(
     try {
       const resultArray = await client.fetch(query, params)
       result.value = resultArray[0]
-      console.log(
-        'query result for',
-        id,
-        'is',
-        resultArray[0],
-        'stringify',
-        JSON.stringify(resultArray[0])
-      )
+      // console.log(
+      //   'query result for',
+      //   id,
+      //   'is',
+      //   resultArray[0],
+      //   'stringify',
+      //   JSON.stringify(resultArray[0])
+      // )
     } catch (err) {
       throw new Error(err)
     }
