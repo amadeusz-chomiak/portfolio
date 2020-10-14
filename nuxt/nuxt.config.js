@@ -60,6 +60,14 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/pwa'],
+  pwa: {
+    manifest: {
+      useWebmanifestExtension: false,
+    },
+    meta: {
+      lang: 'pl-PL',
+    },
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
