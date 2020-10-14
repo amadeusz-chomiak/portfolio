@@ -49,11 +49,6 @@
   opacity: 0 !important;
 }
 
-.fade-enter-to,
-.fade-leave {
-  opacity: 1 !important;
-}
-
 .modal-enter-active {
   & .transition-bg {
     transition: opacity 200ms ease-out 100ms;
