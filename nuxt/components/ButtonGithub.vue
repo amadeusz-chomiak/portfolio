@@ -3,16 +3,17 @@
     target="https://github.com/amadeusz-chomiak"
     secondary
     outside
-    icon="github"
+    :icon="github"
   ></ButtonIcon>
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent } from '@nuxtjs/composition-api'
+import { ref, defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    return {}
+    const github = ref('github')
+    return { github }
   },
 })
 </script>
