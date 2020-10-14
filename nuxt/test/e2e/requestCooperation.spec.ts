@@ -1,4 +1,8 @@
-import { firestoreTestCollection } from '../utils/firebase'
+import { waitFor } from '@testing-library/vue'
+import {
+  firestoreTestCollection,
+  firestoreWaitForWrites,
+} from '../utils/firebase'
 jest.setTimeout(30000)
 page.on('pageerror', (err) => {
   console.error(err)
@@ -54,6 +58,7 @@ describe('request cooperation form', () => {
     await page.$eval('[data-testid="contact-form-submit"]', (Button) =>
       (Button as HTMLButtonElement).click()
     )
+    await firestoreWaitForWrites()
   })
   it('should remove created test email without errors', async () => {
     await page.waitFor(5000)
@@ -62,6 +67,7 @@ describe('request cooperation form', () => {
   })
 
   it('should display congratulation modal', async () => {
-    await page.$('[data-testid="contact-form-modal"]')
+    const modal = await page.$('[data-testid="contact-form-modal"]')
+    expect(modal?.isIntersectingViewport()).toBe(true)
   })
 })

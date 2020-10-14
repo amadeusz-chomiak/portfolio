@@ -18,5 +18,5 @@ const firestore = app.firestore()
 
 const getCollection = (name: keyof FirestoreCollections) =>
   firestore.collection(nameToDev(name))
-
+export const firestoreWaitForWrites = () => firestore.waitForPendingWrites()
 export const firestoreTestCollection = getCollection('cooperationRequest')
