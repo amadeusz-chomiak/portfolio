@@ -1,0 +1,7 @@
+{
+  "name": "firebase",
+  "scripts": {
+    "deploy:storage:firestore": "firebase deploy --only storage,firestore"
+  },
+  "private": true
+}
