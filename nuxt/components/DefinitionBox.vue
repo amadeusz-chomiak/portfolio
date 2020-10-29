@@ -31,7 +31,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  ref,
+  watch,
+  onUnmounted,
+} from '@nuxtjs/composition-api'
 
 interface Props {
   definition: {
@@ -59,6 +64,18 @@ export default defineComponent({
   },
   setup() {
     const showPopup = ref(false)
+
+    const hidePopup = () => {
+      showPopup.value = false
+    }
+    watch(showPopup, (show) => {
+      if (show) window.addEventListener('mousedown', hidePopup)
+      else window.removeEventListener('mousedown', hidePopup)
+    })
+    onUnmounted(() => {
+      window.removeEventListener('mousedown', hidePopup)
+    })
+
     return { showPopup }
   },
 })
