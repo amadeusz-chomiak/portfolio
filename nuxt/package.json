@@ -22,7 +22,6 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/composition-api": "^0.12.3",
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@sanity/client": "^1.150.1",
     "@sanity/image-url": "^0.140.19",
     "firebase": "^7.23.0",
