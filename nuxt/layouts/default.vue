@@ -23,10 +23,29 @@
       data-testid="contact-form-modal"
       @close="cooperationSet('showModal', false)"
     >
-      <p class="text-primary-100">
-        W ciągu kilku dni poinformuję Cię o czasie w jakim, będę mógł wykonać
-        Twój projekt.
-      </p>
+      <div class="flex flex-col">
+        <p class="text-primary-100 flex-1 w-md mb-4 sm:mb-0 sm:mr-4">
+          <span class="text-primary-50"
+            >Jest mi niezmiernie miło, stać się częścią Twojego sukcesu!</span
+          ><br />
+          W ciągu kilku najbliższych dni otrzymasz odemnie emaila ze wszystkimi
+          szczegółami.<br />
+          <span class="text-primary-200"
+            >Pozdrawiam<br />
+            Amadeusz Chomiak</span
+          >
+        </p>
+        <BaseButton
+          content="Wspaniale"
+          fill
+          @click="cooperationSet('showModal', false)"
+        />
+      </div>
+      <img
+        class="flex-1 w-sm"
+        src="~/assets/images/undrawEnvelope.svg"
+        alt="Otwieram kopertę z Twoją wiadomością. Obrazek ze strony undraw.co"
+      />
     </ModalScreen>
   </div>
 </template>
