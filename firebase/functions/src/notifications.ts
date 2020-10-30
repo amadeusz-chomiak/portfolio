@@ -25,8 +25,5 @@ export const cooperationRequestNotification = functions.firestore.document('coop
   } catch (error) {
     console.error(error)
   }
-  finally {
-    return
-  }
-
+  return
 })
