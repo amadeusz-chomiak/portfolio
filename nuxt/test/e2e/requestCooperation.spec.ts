@@ -1,4 +1,3 @@
-import { waitFor } from '@testing-library/vue'
 import {
   firestoreTestCollection,
   firestoreWaitForWrites,
