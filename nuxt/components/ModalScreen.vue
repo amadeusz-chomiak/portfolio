@@ -2,7 +2,7 @@
   <transition name="modal" :duration="500">
     <div
       v-if="show"
-      class="fixed z-50 inset-0 flex max-h-screen items-center justify-center p-4 md:p-8 lg:p-16 xl:p-24"
+      class="fixed z-50 inset-0 flex max-h-screen items-center justify-center p-4 md:p-6 lg:p-8 xl:p-10"
     >
       <div
         class="transition-bg cursor-pointer absolute inset-0 bg-crosses"
@@ -10,11 +10,11 @@
         @click="close"
       />
       <BaseCard
-        class="transition-card cursor-default max-h-full overflow-auto w-full scroll scroll-thin scroll-rounded-full z-10 relative"
+        class="transition-card cursor-default max-h-full overflow-auto scroll scroll-thin scroll-rounded-full z-10 relative"
       >
         <template #content>
           <FocusLock>
-            <div>
+            <div class="lg:m-2 xl:m-4 2xl:m-6">
               <div class="flex justify-between items-end">
                 <p class="text-primary-50 text-2xl">{{ title }}</p>
                 <ButtonIcon

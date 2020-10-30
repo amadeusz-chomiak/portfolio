@@ -36,8 +36,11 @@ export default defineComponent({
         classes(
           !props.small,
           'pt-6',
-          ' pb-4',
+          'pb-4',
           'px-4',
+          '2xl:pt-8',
+          '2xl:pb-6',
+          '2xl:px-6',
           'rounded-xl',
           'shadow-xl'
         ),

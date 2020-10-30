@@ -20,11 +20,13 @@
     <ModalScreen
       :show="cooperationState.showModal"
       title="Otrzymałem Twoją wiadomość."
-      data-testid="contact-form-modal"
       @close="cooperationSet('showModal', false)"
     >
-      <div class="flex flex-col">
-        <p class="text-primary-100 flex-1 w-md mb-4 sm:mb-0 sm:mr-4">
+      <div
+        class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4"
+        data-testid="contact-form-modal"
+      >
+        <p class="text-primary-100 flex-1 2xl:text-lg">
           <span class="text-primary-50"
             >Jest mi niezmiernie miło, stać się częścią Twojego sukcesu!</span
           ><br />
@@ -42,7 +44,7 @@
         />
       </div>
       <img
-        class="flex-1 w-sm"
+        class="md:flex-1 w-sm h-64 lg:h-sm 2xl:h-lg 2xl:w-lg bg-left-top"
         src="~/assets/images/undrawEnvelope.svg"
         alt="Otwieram kopertę z Twoją wiadomością. Obrazek ze strony undraw.co"
       />
