@@ -14,18 +14,52 @@ describe('components/BaseIcon.vue', () => {
     const { getByText } = base.render({ props: { icon: '?' } })
     expect(getByText('?')).toBeVisible()
   })
-
-  it('set icon color based on "color" prop', () => {
-    const { getByAltText } = base.render({
-      props: { icon, color: 500 },
+  describe('icon-classes prop', () => {
+    it('pass "iconClasses" prop to unicon', () => {
+      const { getByAltText } = base.render({
+        props: { icon, iconClasses: ['icon-class'] },
+      })
+      expect(getByAltText(alt.value)).toHaveClass('icon-class')
     })
-    expect(getByAltText(alt.value).classList).toContain('text-primary-500')
+
+    it('pass "iconClasses" prop to github icon', () => {
+      const { alt: githubAlt } = useIcon('github')
+
+      const { getByAltText } = base.render({
+        props: { icon: 'github', iconClasses: ['icon-class'] },
+      })
+      expect(getByAltText(githubAlt.value)).toHaveClass('icon-class')
+    })
+
+    it('pass "iconClasses" prop to text icon', () => {
+      const { getByText } = base.render({
+        props: { icon: '?', iconClasses: ['icon-class'] },
+      })
+      expect(getByText('?').parentElement).toHaveClass('icon-class')
+    })
   })
-
-  it('set icon height based on "height" prop', () => {
-    const { getByAltText } = base.render({
-      props: { icon, height: 16 },
+  describe('icon-style prop', () => {
+    it('pass "iconStyle" prop to unicon', () => {
+      const { getByAltText } = base.render({
+        props: { icon, iconStyle: { color: '#fff' } },
+      })
+      expect(getByAltText(alt.value)).toHaveStyle('color: #fff')
     })
-    expect(getByAltText(alt.value).classList).toContain('h-16')
+
+    it('pass "iconStyle" prop to github icon', () => {
+      const { alt: githubAlt } = useIcon('github')
+
+      const { getByAltText } = base.render({
+        props: { icon: 'github', iconStyle: { color: '#fff' } },
+      })
+      expect(getByAltText(githubAlt.value)).toHaveStyle('color: #fff')
+    })
+
+    it('pass "iconStyle" prop to text icon', () => {
+      const { getByText } = base.render({
+        props: { icon: '?', iconStyle: { color: '#fff' } },
+      })
+      expect(getByText('?').parentElement).toHaveStyle('color: #fff')
+    })
   })
 })

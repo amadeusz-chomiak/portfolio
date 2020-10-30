@@ -2,7 +2,12 @@ import { fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/BaseInput.vue'
 const base = new Base(Component, {
-  props: { value: 'value', placeholder: 'placeholder', title: 'title' },
+  props: {
+    value: 'value',
+    placeholder: 'placeholder',
+    title: 'title',
+    type: 'email',
+  },
 })
 
 describe('components/BaseInput.vue', () => {

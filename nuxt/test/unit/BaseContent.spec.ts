@@ -1,4 +1,3 @@
-import { fireEvent } from '@testing-library/vue'
 import { Base } from '../utils/core'
 import Component from '~/components/BaseContent.vue'
 import { ContentText } from '~/types/BaseContent'
@@ -151,8 +150,8 @@ describe('components/BaseContent.vue', () => {
     })
 
     it('Render content with style "title" with proper level from "level" prop', async () => {
-      const { getByText, updateProps } = base.render({
-        props: { level: 3, content },
+      const { getByText } = base.render({
+        props: { level: 3 },
       })
       const Span = getByText(title)
       const Paragraph = Span.parentElement
@@ -168,8 +167,8 @@ describe('components/BaseContent.vue', () => {
     })
 
     it('Render content with style "subtitle" with proper level from "level" prop', async () => {
-      const { getByText, updateProps } = base.render({
-        props: { level: 3, content },
+      const { getByText } = base.render({
+        props: { level: 3 },
       })
       const Span = getByText(subtitle)
       const Paragraph = Span.parentElement

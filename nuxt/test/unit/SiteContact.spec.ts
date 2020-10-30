@@ -22,13 +22,13 @@ describe('components/SiteContact.vue', () => {
   })
 
   it('Render content from "page" prop', () => {
-    const { getByText } = base.render({
+    const { getAllByText } = base.render({
       props: {
         page,
       },
     })
     expect(
-      getByText(page?.content?.pl?.[0]?.children?.[0]?.text ?? '')
+      getAllByText(page?.content?.pl?.[2]?.children?.[0]?.text ?? '')[0]
     ).toBeVisible()
   })
 })

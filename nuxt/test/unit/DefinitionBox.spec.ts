@@ -48,7 +48,7 @@ describe('components/DefinitionBox.vue', () => {
   })
   it('Render ButtonIcon with "?" as an icon, with definition color', () => {
     const { getByText } = base.render()
-    const Button = getByText('?')
+    const Button = getByText('?').parentElement
     expect(Button).toHaveStyle('color: #f03e2f')
   })
   it('Change ButtonIcon based on showPopup ref', async () => {

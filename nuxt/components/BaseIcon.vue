@@ -1,18 +1,19 @@
 <template>
   <transition name="fade" :duration="100" mode="out-in">
-    <div v-if="unicon">
+    <template v-if="unicon">
       <client-only>
-        <unicon :name="unicon" :alt="alt" :class="classes" />
+        <unicon :name="unicon" :style="iconStyle" :alt="alt" :class="classes" />
       </client-only>
-    </div>
+    </template>
     <img
       v-else-if="show('github')"
       src="~/assets/icons/github.svg"
       :alt="alt"
+      :style="iconStyle"
       :class="classes"
     />
 
-    <div v-else class="flex justify-center" :class="classes">
+    <div v-else class="flex justify-center" :style="iconStyle" :class="classes">
       <p class="text-lg font-semibold leading-none select-none">
         {{ icon }}
       </p>
@@ -34,8 +35,7 @@ import { useIcon, IconId } from '~/composable/useIcon'
 
 interface Props {
   icon: IconId
-  color: number
-  height: number
+  iconClasses: string[]
 }
 
 export default defineComponent<Props>({
@@ -44,10 +44,18 @@ export default defineComponent<Props>({
       required: true,
       type: String,
     },
+    iconClasses: {
+      default: () => [],
+      type: Array,
+    },
+    iconStyle: {
+      type: Object,
+      default: () => {},
+    },
   },
   setup(props) {
     const icon = computed(() => props.icon)
-    const classes = ['fill-current', 'select-none']
+    const classes = ['fill-current', 'select-none', props.iconClasses]
     const show = (id: IconId) => icon.value === id
     const { alt, unicon } = useIcon(icon)
     return { classes, show, alt, unicon }

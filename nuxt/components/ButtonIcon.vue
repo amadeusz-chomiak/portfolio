@@ -2,8 +2,11 @@
   <BaseButton v-bind="$attrs" :slim="slim" round @click="$emit('click')"
     ><BaseIcon
       :icon="icon"
-      :style="iconStyle"
-      :class="[...(slim ? ['h-4', 'w-4'] : ['h-5', 'w-5']), ...iconClasses]"
+      :icon-style="iconStyle"
+      :icon-classes="[
+        ...(slim ? ['h-4', 'w-4'] : ['h-5', 'w-5']),
+        ...iconClasses,
+      ]"
     />
   </BaseButton>
 </template>

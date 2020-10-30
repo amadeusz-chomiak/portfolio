@@ -10,16 +10,15 @@ describe('components/TheNavigation.vue', () => {
   it('Side navigation is hidden before medium viewport size', () => {
     const { getByTestId } = base.render()
 
-    const NavSideClasses = getByTestId('nav-side').classList
-    expect(NavSideClasses.toString()).toContain('hidden')
-    expect(NavSideClasses.toString()).toContain('md:flex')
+    const NavSideClasses = getByTestId('nav-side')
+    expect(NavSideClasses).toHaveClass('hidden')
+    expect(NavSideClasses).toHaveClass('md:flex')
   })
 
   it('Bottom navigation is hidden after medium viewport size', () => {
     const { getByTestId } = base.render()
 
-    const NavSideClasses = getByTestId('nav-bottom').classList
-    expect(NavSideClasses.toString()).toContain('md:hidden')
+    expect(getByTestId('nav-bottom')).toHaveClass('md:hidden')
   })
 
   it('Toggle side navigation panel on click on menu button', async () => {

@@ -58,6 +58,12 @@ function mergeDeep(
   return target
 }
 
+const Unicon = Vue.component('Unicon', {
+  render(createElement) {
+    return createElement('img')
+  },
+})
+
 export class Base<V extends Vue> {
   protected temp: Temp<V> = {}
   constructor(
@@ -70,7 +76,11 @@ export class Base<V extends Vue> {
       this.Component,
       mergeDeep(
         {
-          stubs: ['nuxt-link'],
+          stubs: {
+            'nuxt-link': true,
+            'client-only': true,
+            Unicon,
+          },
           ...this.options,
         },
         additionalOptions

@@ -28,6 +28,7 @@
       </transition>
       <div
         class="flex justify-between bg-primary-950 rounded-t-lg px-1 sm:px-6 py-2 shadow-2xl md:hidden"
+        data-testid="nav-bottom"
       >
         <BaseButton
           :content="contactButton.content"
@@ -36,7 +37,6 @@
         />
         <div
           class="flex justify-end bg-primary-950 z-20 rounded-full"
-          data-testid="nav-bottom"
           :class="panelOpen ? ['shadow-lg'] : []"
         >
           <ButtonGithub class="z-20" />

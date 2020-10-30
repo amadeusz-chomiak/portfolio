@@ -1,10 +1,10 @@
-import { computed, Ref } from '@nuxtjs/composition-api'
+import { computed, unref, Ref } from '@nuxtjs/composition-api'
 
 export type IconId = 'close' | 'menu' | 'github'
 
-export const useIcon = (icon: Ref<IconId>) => {
+export const useIcon = (icon: IconId | Ref<IconId>) => {
   const alt = computed(() => {
-    switch (icon.value) {
+    switch (unref(icon)) {
       case 'close':
         return 'zamknij'
       case 'menu':
@@ -15,7 +15,7 @@ export const useIcon = (icon: Ref<IconId>) => {
   })
 
   const unicon = computed(() => {
-    switch (icon.value) {
+    switch (unref(icon)) {
       case 'close':
         return 'times'
       case 'menu':
