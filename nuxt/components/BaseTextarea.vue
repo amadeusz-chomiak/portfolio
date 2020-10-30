@@ -30,7 +30,7 @@ export default defineComponent({
     },
   },
   setup() {
-    const id = useId()
+    const { id } = useId()
     return { id }
   },
 })

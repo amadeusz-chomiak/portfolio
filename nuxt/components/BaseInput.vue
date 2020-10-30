@@ -95,7 +95,7 @@ export default defineComponent({
       ].flat()
     })
 
-    const id = useId()
+    const { id } = useId()
     return { validation, inputClasses, blured, id, invalidBlured }
   },
 })
