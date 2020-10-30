@@ -20,12 +20,10 @@
     <ModalScreen
       :show="cooperationState.showModal"
       title="Otrzymałem Twoją wiadomość."
+      data-testid="contact-form-modal"
       @close="cooperationSet('showModal', false)"
     >
-      <div
-        class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4"
-        data-testid="contact-form-modal"
-      >
+      <div class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4">
         <p class="text-primary-100 flex-1 2xl:text-lg">
           <span class="text-primary-50"
             >Jest mi niezmiernie miło, stać się częścią Twojego sukcesu!</span

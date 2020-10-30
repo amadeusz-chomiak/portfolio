@@ -67,6 +67,6 @@ describe('request cooperation form', () => {
 
   it('should display congratulation modal', async () => {
     const modal = await page.$('[data-testid="contact-form-modal"]')
-    expect(modal?.isIntersectingViewport()).toBe(true)
+    expect(await modal?.isIntersectingViewport()).toBe(true)
   })
 })
