@@ -4,7 +4,7 @@ service cloud.firestore {
     match /cooperationRequest/{id} {
       allow create: if true
     }
-     match /cooperationRequestBev/{id} {
+     match /cooperationRequestDev/{id} {
       allow create: if true
       allow delete: if true
     }
