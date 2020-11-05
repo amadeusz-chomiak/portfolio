@@ -279,26 +279,8 @@ export const querySite = {
                         marks: [],
                         text: ' odwiedzających.',
                       },
-                      {
-                        _key: '6fc0a0738ab2',
-                        _type: 'span',
-                        marks: [],
-                        text: '​ ',
-                      },
-                      {
-                        _key: '09d8bf3a3aea',
-                        _type: 'span',
-                        marks: ['2d398328973b'],
-                        text: 'Dowiedz się więcej.',
-                      },
                     ],
-                    markDefs: [
-                      {
-                        _key: '2d398328973b',
-                        _type: 'link',
-                        href: 'https://takaoto.pro/szybkosc-ladowania-seo-ux/',
-                      },
-                    ],
+                    markDefs: [],
                     style: 'normal',
                   },
                 ],
@@ -553,23 +535,7 @@ export const querySite = {
                     _type: 'definition',
                     color: {
                       _type: 'color',
-                      alpha: 1,
                       hex: '#42b883',
-                      hsl: {
-                        _type: 'hslaColor',
-                        a: 1,
-                        h: 153.05084745762713,
-                        l: 0.4901960784313726,
-                        s: 0.4719999999999999,
-                      },
-                      hsv: {
-                        _type: 'hsvaColor',
-                        a: 1,
-                        h: 153.05084745762713,
-                        s: 0.6413043478260869,
-                        v: 0.7215686274509804,
-                      },
-                      rgb: { _type: 'rgbaColor', a: 1, b: 131, g: 184, r: 66 },
                     },
                     content:
                       'Jest nowoczesnym systemem, zarządzającym strukturą, działaniem i wyglądem strony. Jest to jeden z 3 najczęściej używanych systemów tego typu.',
@@ -582,23 +548,7 @@ export const querySite = {
                     _type: 'definition',
                     color: {
                       _type: 'color',
-                      alpha: 1,
-                      hex: '#f03e2f',
-                      hsl: {
-                        _type: 'hslaColor',
-                        a: 1,
-                        h: 4.663212435233159,
-                        l: 0.5627450980392157,
-                        s: 0.8654708520179372,
-                      },
-                      hsv: {
-                        _type: 'hsvaColor',
-                        a: 1,
-                        h: 4.663212435233159,
-                        s: 0.8041666666666667,
-                        v: 0.9411764705882353,
-                      },
-                      rgb: { _type: 'rgbaColor', a: 1, b: 47, g: 62, r: 240 },
+                      hex: '#fd5e51',
                     },
                     content:
                       'Jest bardzo prostym w obsłudze systemem CMS, dzięki któremu błyskawicznie zmienisz treść Twojej strony',
@@ -606,6 +556,46 @@ export const querySite = {
                     textBefore: 'System zarządzania treścią',
                     title: 'Sanity CMS',
                   },
+                  {
+                    _key: '52617e5447278',
+                    _type: 'definition',
+                    color: {
+                      _type: 'color',
+                      hex: '#8781ff',
+                    },
+                    content:
+                      'Nowoczesny system płatności kartą. Jeden z najczęściej wybieranych na świecie.',
+                    text: 'Stripe',
+                    textBefore: 'Płatności',
+                    title: 'Stripe',
+                  },
+                  {
+                    _key: '5261c47e5447278',
+                    _type: 'definition',
+                    color: {
+                      _type: 'color',
+                      hex: '#FFCA28',
+                    },
+                    content:
+                      'Zapewnia szybkość i bezpieczeństwo serwerów Google. Jednocześnie jest jednym z najtańszych rozwiązań na rynku.',
+                    text: 'Firebase',
+                    textBefore: 'Serwer',
+                    title: 'Firebase',
+                  },
+                  {
+                    _key: '5261c47e547278',
+                    _type: 'definition',
+                    color: {
+                      _type: 'color',
+                      hex: '#8983f1',
+                    },
+                    content:
+                      'Prosta analityka stworzona, by ułatwić Ci podejmowanie strategicznych decyzji. Nie wymaga informacji o ciasteczkach.',
+                    text: 'Plausible',
+                    textBefore: 'Analityka',
+                    title: 'Plausible',
+                  },
+
                   // { _key: 'ed1e03c4ca85', _type: 'column', set: 'both' },
                   // {
                   //   _key: '26268397d57a',
