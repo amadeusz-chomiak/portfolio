@@ -15,6 +15,9 @@ export default {
    */
   head: {
     title: 'Stwórzmy Twoją część internetu – Amadeusz Chomiak',
+    htmlAttrs: {
+      lang: 'pl',
+    },
     meta: [
       // todo add open graph tags
       { charset: 'utf-8' },
