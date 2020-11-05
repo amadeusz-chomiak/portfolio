@@ -27,8 +27,10 @@
         </div>
       </transition>
       <div
-        class="flex fixed inset-x-0 bottom-0 z-20 justify-between rounded-t-lg px-1 sm:px-6 py-2 md:hidden"
-        :class="panelOpen ? [] : ['bg-primary-950', 'shadow-2xl']"
+        class="flex fixed inset-x-0 bottom-0 z-20 transform sm-h:transform-none xs:transform-none transition-transform duration-150 ease-in justify-between rounded-t-lg px-1 sm:px-6 py-2 md:hidden"
+        :class="
+          panelOpen ? [] : ['bg-primary-950', 'shadow-2xl', 'translate-y-full']
+        "
         data-testid="nav-bottom"
       >
         <BaseButton
@@ -48,6 +50,7 @@
             secondary
             color="text-primary-50"
             class="z-20"
+            :title="panelOpen ? 'Zamknij menu' : 'Otwórz menu'"
             @click="panelOpen = !panelOpen"
           ></ButtonIcon>
         </div>

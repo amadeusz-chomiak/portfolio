@@ -44,6 +44,7 @@ module.exports = {
         'md-h': { raw: '(min-height: 680px)' },
         'lg-h': { raw: '(min-height: 800px)' },
         'xl-h': { raw: '(min-height: 1000px)' },
+        xs: '400px',
         '2xl': '1560px',
       },
       spacing: {
