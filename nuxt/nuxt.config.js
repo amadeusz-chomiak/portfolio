@@ -16,6 +16,7 @@ export default {
   head: {
     title: 'Stwórzmy Twoją część internetu – Amadeusz Chomiak',
     meta: [
+      // todo add open graph tags
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
@@ -25,7 +26,10 @@ export default {
           'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który przeprowadzi Cię przez cały proces i zadba, aby Twoja nowa strona, była szybka, wygodna i elegancka.',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'canonical', href: 'https://amadeo.dev/' },
+    ],
   },
   /*
    ** Global CSS
