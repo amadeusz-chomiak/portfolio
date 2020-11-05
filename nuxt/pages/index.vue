@@ -49,7 +49,6 @@ import {
   ref,
   useContext,
   watch,
-  watchEffect,
 } from '@nuxtjs/composition-api'
 import {
   useQuerySite,

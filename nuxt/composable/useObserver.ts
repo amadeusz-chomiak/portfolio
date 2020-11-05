@@ -1,4 +1,4 @@
-import { onMounted, watch, watchEffect } from '@nuxtjs/composition-api'
+import { onMounted, watchEffect } from '@nuxtjs/composition-api'
 
 export interface ObserverPropType {
   observer: IntersectionObserver

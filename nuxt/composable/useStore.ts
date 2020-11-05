@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { reactive, UnwrapRef, shallowReadonly } from '@nuxtjs/composition-api'
 
 interface State {

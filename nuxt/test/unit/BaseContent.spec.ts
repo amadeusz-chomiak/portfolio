@@ -149,7 +149,7 @@ describe('components/BaseContent.vue', () => {
       expect(Paragraph?.classList).toContain('text-2xl')
     })
 
-    it('Render content with style "title" with proper level from "level" prop', async () => {
+    it('Render content with style "title" with proper level from "level" prop', () => {
       const { getByText } = base.render({
         props: { level: 3 },
       })
@@ -166,7 +166,7 @@ describe('components/BaseContent.vue', () => {
       // expect(Paragraph?.classList).toContain('text-lg')
     })
 
-    it('Render content with style "subtitle" with proper level from "level" prop', async () => {
+    it('Render content with style "subtitle" with proper level from "level" prop', () => {
       const { getByText } = base.render({
         props: { level: 3 },
       })

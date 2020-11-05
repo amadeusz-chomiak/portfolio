@@ -10,7 +10,7 @@ const page = useQuerySite().result.value?.pages?.find(
 )?.page
 
 describe('components/SiteHero.vue', () => {
-  it('Register itself for observer from "observer" prop', async () => {
+  it('Register itself for observer from "observer" prop', () => {
     base.render({
       props: {
         observer,
