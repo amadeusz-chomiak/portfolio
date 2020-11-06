@@ -94,5 +94,6 @@ export default {
   generate: {
     // choose to suit your project
     interval: 2000,
+    fallback: '404.html',
   },
 }
