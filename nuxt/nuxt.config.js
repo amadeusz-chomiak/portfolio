@@ -19,7 +19,7 @@ export default {
       lang: 'pl',
     },
     meta: [
-      // todo add open graph tags
+      // TODO add open graph tags
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
@@ -29,10 +29,22 @@ export default {
           'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który przeprowadzi Cię przez cały proces i zadba, aby Twoja nowa strona, była szybka, wygodna i elegancka.',
       },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'canonical', href: 'https://amadeo.dev/' },
+    script: [
+      {
+        type: 'application/ld+json',
+        json: {
+          '@context': 'https://schema.org/',
+          '@type': 'Person',
+          name: 'Amadeusz Chomiak',
+          url: 'https://amadeusz.dev/',
+          image:
+            'https://cdn.sanity.io/images/29z9xfxx/production/3a628b41bbf67a3395580c6c4de76b3273091183-437x437.jpg?h=437&fit=max&auto=format',
+          sameAs: 'https://github.com/amadeusz-chomiak',
+          jobTitle: 'Frontend developer & designer',
+        },
+      },
     ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Global CSS
