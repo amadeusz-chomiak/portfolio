@@ -1,5 +1,6 @@
 <template>
   <base-card class="flex max-w-3xl">
+    <!-- TODO add special inner shadow for brands of the same color as background -->
     <div
       class="w-10 h-10 mr-4 rounded-full flex-shrink-0 dark:bg-opacity-75"
       :style="brandBackgroundStyle"
@@ -56,7 +57,7 @@ export default defineComponent({
   },
   setup(props) {
     const { backgroundStyle: brandBackgroundStyle } = useColor(
-      props.service.brand.color
+      props.service.brand.color,
     )
     return { brandBackgroundStyle }
   },
