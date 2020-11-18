@@ -15,29 +15,44 @@ export const useDefinitions = () => {
   })
 
   // renderer.add(category.contentEditor.add(service.sanity))
-  // renderer.add(
-  //   category.analytic.add(service.plausible).add(
-  //     service.firebase.detach().links("add", "analytics", {
-  //       title: "analytics",
-  //       description: "analytics",
-  //       href: "test",
-  //     })
-  //   )
-  // )
+  renderer.add(
+    category.analytic.add(
+      service.plausible
+        .links("add", "dashboard", {
+          title: "Panel kontrolny",
+          description:
+            "Znajdziesz tu aktualne dane analityczne (wymaga logowania)",
+          href: "https://plausible.io/login",
+        })
+        .links("initialize", "pricing", {
+          title: "cennik",
+          description: "dowiesz się o aktualnych cenach",
+        })
+    )
+  )
   renderer.add(category.server.add(service.firebase))
 
   renderer.add(category.domain.add(service.googleDomains))
- 
+
   renderer.add(
-    category.development.add(
-      service.developer
-        .links("add", "email", {
-          title: "wyślij",
-          description: "wyślij do mnie email na pomoc@amadeusz.dev",
-          href: "mailto:pomoc@amadeusz.dev",
+    category.development
+      .add(
+        service.developer
+          .links("add", "email", {
+            title: "wyślij",
+            description: "wyślij do mnie email na pomoc@amadeusz.dev",
+            href: "mailto:pomoc@amadeusz.dev",
+          })
+          .brand({ name: "Amadeusz Chomiak" })
+      )
+      .add(
+        service.github.links("add", "project", {
+          title: "Projekt",
+          description:
+            "Znajdziesz tu kod całego projektu, jak i jego wcześniejsze wersje (wymaga logowania)",
+          href: "https://github.com/amadeusz-chomiak/Portfolio-of-Mine",
         })
-        .brand({ name: "Amadeusz Chomiak" })
-    )
+      )
   )
 
   return {

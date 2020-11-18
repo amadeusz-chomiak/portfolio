@@ -66,11 +66,24 @@ export const GoogleDomains = createService({
     onColor: "black",
   },
   links: {
-    dashboard: 'https://domains.google.com/registrar/',
-    payments: "https://domains.google.com/registrar/billing"
+    dashboard: "https://domains.google.com/registrar/",
+    payments: "https://domains.google.com/registrar/billing",
   },
   price: {
     cost: "paid",
     renew: "yearly",
+  },
+})
+
+export const Github = createService({
+  brand: {
+    name: "github",
+    color: "#24292e",
+    onColor: "white",
+  },
+  links: {},
+  price: {
+    cost: "free",
+    renew: "never"
   },
 })

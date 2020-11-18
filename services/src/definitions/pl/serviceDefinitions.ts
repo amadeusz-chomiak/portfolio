@@ -16,11 +16,10 @@ const price = new Price({
     quarterly: "co kwartał",
     yearly: "co rok",
   },
-  compose({ renew, cost }) {
-    if (renew) {
-      return `Usługa ${cost} ${renew}`
-    }
-    return cost
+  compose({ renew, cost }, originalPrice) {
+    if (originalPrice.cost === "free") return cost
+
+    return `Usługa ${cost} ${renew}`
   },
 })
 
@@ -52,10 +51,7 @@ export const plausible = service
       localize: price,
     },
   })
-  .links("initialize", "pricing", {
-    title: "cennik",
-    description: "dowiesz się o aktualnych cenach",
-  })
+  
 
 export const sanity = service
   .Sanity({
@@ -102,3 +98,13 @@ export const googleDomains = service
     title: "koszty",
     description: "Dowiesz się o aktualnych wydatkach (wymaga logowania)",
   })
+
+export const github = service.Github({
+  brand: {
+    description:
+      "Serce projektu. Zapewnia miejsce dla kodu całej aplikacji internetowej",
+  },
+  price: {
+    localize: price,
+  },
+})
