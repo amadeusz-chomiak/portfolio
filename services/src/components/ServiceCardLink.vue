@@ -6,7 +6,7 @@
     <a
       :href="link.href"
       :style="brandBackgroundStyle"
-      class="button text-lg w-40 bg-opacity-100 dark:bg-opacity-60 flex-shrink-0 px-5 py-2 flex items-baseline justify-between"
+      class="button text-lg bg-opacity-100 dark:bg-opacity-60 flex-shrink-0 px-5 py-2 flex items-baseline justify-between"
       target="_blank"
       rel="noreferrer"
       ><span class="first-letter:uppercase" :style="brandOnClorStyle">{{
@@ -42,7 +42,7 @@ export default defineComponent({
   setup(props) {
     const { contentStyle: brandOnClorStyle } = useColor(props.brand.onColor, 1)
     const { backgroundStyle: brandBackgroundStyle } = useColor(
-      props.brand.color,
+      props.brand.color
     )
 
     return {
