@@ -60,7 +60,8 @@ export const plausible = service
 export const sanity = service
   .Sanity({
     brand: {
-      description: "System CMS dzięki któremu z łatwością zmienisz treść strony",
+      description:
+        "System CMS dzięki któremu z łatwością zmienisz treść strony",
     },
     price: {
       localize: price,
@@ -71,14 +72,33 @@ export const sanity = service
     description: "Dowiesz się o aktualnych cenach",
   })
 
-  export const developer = service
-  .Developer({
+export const developer = service.Developer({
+  brand: {
+    name: "Amadeusz Chomiak",
+    description:
+      "Stwórzmy Twoją część internetu! Jeśli potrzebujesz pomocy, napisz do mnie",
+  },
+  price: {
+    localize: price,
+  },
+})
+
+export const googleDomains = service
+  .GoogleDomains({
     brand: {
-      name: "Amadeusz Chomiak",
-      description: "Stwórzmy Twoją część internetu! Jeśli potrzebujesz pomocy, napisz do mnie",
+      name: "domeny Google",
+      description:
+        "Zapewniają wygodną i szybką rejestrację domen z darmową certyfikacją zabezpieczeń SSL",
     },
     price: {
       localize: price,
     },
   })
-  
+  .links("initialize", "dashboard", {
+    title: "panel kontrolny",
+    description: "Sprawdź stan Twoich domen (wymaga logowania)",
+  })
+  .links("initialize", "payments", {
+    title: "koszty",
+    description: "Dowiesz się o aktualnych wydatkach (wymaga logowania)",
+  })

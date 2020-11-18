@@ -58,3 +58,19 @@ export const Developer = createService({
     renew: "onDemand",
   },
 })
+
+export const GoogleDomains = createService({
+  brand: {
+    name: "google domains",
+    color: "#f8f9fa",
+    onColor: "black",
+  },
+  links: {
+    dashboard: 'https://domains.google.com/registrar/',
+    payments: "https://domains.google.com/registrar/billing"
+  },
+  price: {
+    cost: "paid",
+    renew: "yearly",
+  },
+})
