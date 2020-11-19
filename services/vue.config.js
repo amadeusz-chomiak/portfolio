@@ -20,6 +20,7 @@ module.exports = {
     },
     manifestOptions: {
       short_name: "services",
+      background_color: "#e6e6e6",
     },
   },
 }
