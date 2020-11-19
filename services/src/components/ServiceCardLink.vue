@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col sm:flex-row flex-wrap sm:items-center bg-opacity-25 rounded-3xl"
+    class="flex flex-col sm:flex-row flex-wrap sm:items-center bg-opacity-25 rounded-3xl shadow-inner"
     :style="brandBackgroundStyle"
   >
     <a
@@ -42,7 +42,7 @@ export default defineComponent({
   setup(props) {
     const { contentStyle: brandOnClorStyle } = useColor(props.brand.onColor, 1)
     const { backgroundStyle: brandBackgroundStyle } = useColor(
-      props.brand.color
+      props.brand.color,
     )
 
     return {
