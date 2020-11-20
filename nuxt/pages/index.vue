@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-h-full shadow-inner flex flex-col items-center md:items-start z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide snap snap-y snap-proximity xl-h:snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
+    class="max-h-full shadow-inner flex flex-col items-center md:items-start z-10 scroll scroll-smooth scroll-rounded-b-full scroll-wide lg-h:snap lg-h:snap-y lg-h:snap-proximity xl-h:snap-mandatory overflow-auto px-4 md:px-5 lg:px-6 xl:px-8"
   >
     <template v-if="pagesComponent">
       <article
