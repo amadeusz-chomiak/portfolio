@@ -626,7 +626,9 @@ export const querySite = {
       _type: 'page',
       card: {
         _type: 'card',
-        action: { primary: { _type: 'localeString', pl: 'Współpracujmy' } },
+        action: {
+          primary: { _type: 'localeString', pl: 'Wyślij do mnie maila' },
+        },
         content: {
           _type: 'localeBlockContent',
           pl: [
@@ -723,7 +725,7 @@ export const querySite = {
         },
         layout: { column: { _type: 'column', set: 'only-first' } },
       },
-      title: { _type: 'localeString', pl: 'Współpracujmy' },
+      title: { _type: 'localeString', pl: 'Napisz maila' },
     },
   ],
 }

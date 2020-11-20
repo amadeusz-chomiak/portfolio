@@ -15,9 +15,12 @@
         <template #content>
           <FocusLock>
             <div class="lg:m-2 xl:m-4 2xl:m-6">
-              <div class="flex justify-between items-end">
-                <p class="text-primary-50 text-2xl">{{ title }}</p>
+              <div class="flex justify-between items-center">
+                <p class="text-primary-50 text-2xl leading-tight">
+                  {{ title }}
+                </p>
                 <ButtonIcon
+                  class="self-start"
                   secondary
                   data-testid="btn-close"
                   icon="close"

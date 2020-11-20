@@ -17,51 +17,48 @@
         <Nuxt />
       </main>
     </div>
-    <ModalScreen
+    <LazyModalScreen
       :show="cooperationState.showModal"
-      title="Otrzymałem Twoją wiadomość."
+      title="Mam nadzieję, że udało Ci się wysłać wiadomość"
       data-testid="contact-form-modal"
       @close="cooperationSet('showModal', false)"
     >
       <div class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4">
         <p class="text-primary-100 flex-1 2xl:text-lg">
-          <span class="text-primary-50"
-            >Jest mi niezmiernie miło, stać się częścią Twojego sukcesu!</span
-          ><br />
-          W ciągu kilku najbliższych dni otrzymasz odemnie emaila ze wszystkimi
-          szczegółami.<br />
-          <span class="text-primary-200"
-            >Pozdrawiam<br />
-            Amadeusz Chomiak</span
-          >
+          <span>Jeśli wystąpił jakikolwiek problem spróbuj ponownie</span>
+          <BaseButton
+            content="Spróbuj wysłać jeszcze raz"
+            fill
+            slim
+            secondary
+            @click="mail.send()"
+          />
+          <span>lub wyślij maila na</span>
+          <BaseClipboard :content="mail.to" />
+          <span>Skopiuj wzór treści maila dla maksymalnej wygody</span>
+          <BaseClipboard :content="mail.body" />
         </p>
-        <BaseButton
-          content="Wspaniale"
-          fill
-          @click="cooperationSet('showModal', false)"
-        />
       </div>
-      <img
-        class="md:flex-1 w-sm h-64 lg:h-sm 2xl:h-lg 2xl:w-lg bg-left-top"
-        src="~/assets/images/undrawEnvelope.svg"
-        alt="Otwieram kopertę z Twoją wiadomością. Obrazek ze strony undraw.co"
-      />
-    </ModalScreen>
+    </LazyModalScreen>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { useStore } from '@/composable/useStore'
+import { useMail } from '~/composable/useMail'
 export default defineComponent({
   setup() {
     const {
       state: cooperationState,
       set: cooperationSet,
     } = useStore.requestCooperation
+
+    const mail = useMail('cooperationRequestPL')
     return {
       cooperationState,
       cooperationSet,
+      mail,
     }
   },
 })

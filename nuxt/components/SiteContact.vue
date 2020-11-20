@@ -1,32 +1,15 @@
 <template>
   <div>
     <BaseContent id="contact" :content="content" class="site-content" />
-    <form class="flex flex-col ml-3" @submit.prevent="submit">
-      <BaseInput
-        v-model="email"
-        title="Podaj e-mail kontaktowy"
-        placeholder="przykładowy.email@poczta.com"
-        type="email"
-        class="mb-4"
-        required="jest wymagany"
-        data-testid="contact-form-email"
-        @validation="setValid"
-      />
-      <BaseTextarea
-        v-model="description"
-        title="Opisz czego potrzebujesz"
-        placeholder="Potrzebuję strony dla transkrypcji mojego podcastu o gotowaniu i umieszczania przepisów premium"
-        data-testid="contact-form-description"
-      />
+    <div class="flex flex-col ml-3">
       <BaseButton
         type="submit"
-        :content="request.adding.value ? 'wysyłam' : 'Rozpocznijmy współpracę'"
-        :disabled="!valid || request.adding.value"
+        content="Napisz do mnie maila"
         class="mt-2 self-end transform lg:translate-x-1/2"
         data-testid="contact-form-submit"
         @click="submit"
       />
-    </form>
+    </div>
   </div>
 </template>
 
@@ -46,6 +29,7 @@ import {
 
 import { firestore } from '~/composable/useFirebase'
 import { useStore } from '~/composable/useStore'
+import { useMail } from '~/composable/useMail'
 interface Props extends ObserverPropType {
   page: { content: { pl: unknown; en: unknown } }
 }
@@ -70,13 +54,10 @@ export default defineComponent<Props>({
     const setValid = (payload: undefined | string) =>
       (valid.value = payload === undefined)
 
-    const submit = async () => {
-      console.log('submit', valid.value)
-      try {
-        if (valid.value)
-          await request.add({ email: email.value, request: description.value })
-        useStore.requestCooperation.set('showModal', true)
-      } catch (error) {}
+    const { send } = useMail('cooperationRequestPL')
+
+    const submit = () => {
+      send()
     }
     return { content, email, description, submit, setValid, valid, request }
   },
