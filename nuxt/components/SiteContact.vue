@@ -4,7 +4,7 @@
     <div class="flex flex-col ml-3">
       <BaseButton
         type="submit"
-        content="Napisz do mnie maila"
+        content="Napisz do mnie e-mail"
         class="mt-2 self-end transform lg:translate-x-1/2"
         data-testid="contact-form-submit"
         @click="submit"

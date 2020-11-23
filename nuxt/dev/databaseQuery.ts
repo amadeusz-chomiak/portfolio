@@ -698,7 +698,7 @@ export const querySite = {
                   _type: 'span',
                   marks: [],
                   text:
-                    'Wypełnij poniższe informacje, abym mógł się z Tobą skontaktować',
+                    'Teraz jest czas na Twoje działanie. Po kliknięciu poniższego przycisku, zostaniesz przeniesiony do Twojej poczty. Większość e-maila zostanie napisana automatycznie.',
                 },
               ],
               markDefs: [],
@@ -725,7 +725,7 @@ export const querySite = {
         },
         layout: { column: { _type: 'column', set: 'only-first' } },
       },
-      title: { _type: 'localeString', pl: 'Napisz maila' },
+      title: { _type: 'localeString', pl: 'Napisz do mnie' },
     },
   ],
 }

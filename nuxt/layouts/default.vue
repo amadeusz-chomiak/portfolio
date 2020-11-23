@@ -31,12 +31,13 @@
             fill
             slim
             secondary
+            class="mb-4"
             @click="mail.send()"
           />
           <span>lub wyślij maila na</span>
-          <BaseClipboard :content="mail.to" />
+          <BaseClipboard :content="mail.to" class="mb-2 mt-1" />
           <span>Skopiuj wzór treści maila dla maksymalnej wygody</span>
-          <BaseClipboard :content="mail.body" />
+          <BaseClipboard :content="mail.body" :rows="3" class="mt-1" />
         </p>
       </div>
     </LazyModalScreen>
