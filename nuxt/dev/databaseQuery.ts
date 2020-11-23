@@ -627,7 +627,7 @@ export const querySite = {
       card: {
         _type: 'card',
         action: {
-          primary: { _type: 'localeString', pl: 'Wyślij do mnie maila' },
+          primary: { _type: 'localeString', pl: 'Współpracujmy' },
         },
         content: {
           _type: 'localeBlockContent',

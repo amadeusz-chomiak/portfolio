@@ -5,10 +5,9 @@
       class="ml-3 flex flex-col items-center self-end transform lg:translate-x-1/2"
     >
       <BaseButton
-        type="submit"
         content="Napisz do mnie e-mail"
         class="mt-2"
-        data-testid="contact-form-submit"
+        data-testid="contact-send-email"
         @click="submit"
       />
       <button class="text-primary-200" @click="showMail">

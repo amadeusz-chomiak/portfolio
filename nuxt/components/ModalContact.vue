@@ -6,10 +6,12 @@
         ? 'Kontakt'
         : 'Mam nadzieję, że udało Ci się wysłać wiadomość'
     "
-    data-testid="contact-form-modal"
     @close="cooperationSet('showModal', false)"
   >
-    <div class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4">
+    <div
+      class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4"
+      data-testid="contact-form-modal"
+    >
       <p class="text-primary-100 flex-1 2xl:text-lg">
         <span v-if="!cooperationState.manual"
           >Jeśli wystąpił jakikolwiek problem spróbuj ponownie</span
