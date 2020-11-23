@@ -12,7 +12,7 @@
       @click="copy()"
     />
     <button
-      class="flex-shrink-0 py-2 px-2 font-small-caps"
+      class="flex-shrink-0 py-2 px-2 font-small-caps text-primary-100 hover:text-white"
       :class="copied ? ['border-primary-50'] : ['border-primary-400']"
       @click="copy()"
     >
