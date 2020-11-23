@@ -89,6 +89,9 @@ module.exports = {
         90: '0.90',
         95: '0.95',
       },
+      cursor: {
+        copy: 'copy',
+      },
     },
   },
   future: {
