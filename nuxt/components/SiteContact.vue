@@ -1,14 +1,19 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <BaseContent id="contact" :content="content" class="site-content" />
-    <div class="flex flex-col ml-3">
+    <div
+      class="ml-3 flex flex-col items-center self-end transform lg:translate-x-1/2"
+    >
       <BaseButton
         type="submit"
         content="Napisz do mnie e-mail"
-        class="mt-2 self-end transform lg:translate-x-1/2"
+        class="mt-2"
         data-testid="contact-form-submit"
         @click="submit"
       />
+      <button class="text-primary-200" @click="showMail">
+        Pokaż dane kontaktowe
+      </button>
     </div>
   </div>
 </template>
@@ -59,7 +64,22 @@ export default defineComponent<Props>({
     const submit = () => {
       send()
     }
-    return { content, email, description, submit, setValid, valid, request }
+
+    const showMail = () => {
+      useStore.requestCooperation.set('showModal', true)
+      useStore.requestCooperation.set('manual', true)
+    }
+
+    return {
+      content,
+      email,
+      showMail,
+      description,
+      submit,
+      setValid,
+      valid,
+      request,
+    }
   },
 })
 </script>

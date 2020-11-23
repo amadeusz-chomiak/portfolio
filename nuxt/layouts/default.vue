@@ -16,50 +16,20 @@
       >
         <Nuxt />
       </main>
+      <LazyModalContact v-if="cooperationState" />
     </div>
-    <LazyModalScreen
-      :show="cooperationState.showModal"
-      title="Mam nadzieję, że udało Ci się wysłać wiadomość"
-      data-testid="contact-form-modal"
-      @close="cooperationSet('showModal', false)"
-    >
-      <div class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4">
-        <p class="text-primary-100 flex-1 2xl:text-lg">
-          <span>Jeśli wystąpił jakikolwiek problem spróbuj ponownie</span>
-          <BaseButton
-            content="Spróbuj wysłać jeszcze raz"
-            fill
-            slim
-            secondary
-            class="mb-4"
-            @click="mail.send()"
-          />
-          <span>lub wyślij maila na</span>
-          <BaseClipboard :content="mail.to" class="mb-2 mt-1" />
-          <span>Skopiuj wzór treści maila dla maksymalnej wygody</span>
-          <BaseClipboard :content="mail.body" :rows="3" class="mt-1" />
-        </p>
-      </div>
-    </LazyModalScreen>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { useStore } from '@/composable/useStore'
-import { useMail } from '~/composable/useMail'
 export default defineComponent({
   setup() {
-    const {
-      state: cooperationState,
-      set: cooperationSet,
-    } = useStore.requestCooperation
+    const { state: cooperationState } = useStore.requestCooperation
 
-    const mail = useMail('cooperationRequestPL')
     return {
       cooperationState,
-      cooperationSet,
-      mail,
     }
   },
 })

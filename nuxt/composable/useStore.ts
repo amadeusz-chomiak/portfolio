@@ -21,5 +21,6 @@ const storeFactory = <S extends State>(initState: S) => {
 export const useStore = {
   requestCooperation: storeFactory({
     showModal: false as boolean,
+    manual: false as boolean,
   }),
 }

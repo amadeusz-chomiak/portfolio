@@ -13,7 +13,7 @@ interface MailTemplates {
 const templates: MailTemplates = {
   cooperationRequestPL: {
     to: 'zlecenie@amadeusz.dev',
-    subject: 'Zlecenie na',
+    subject: 'Rozpocznijmy współpracę',
     body: `Wypełnienie tych kilku informacji zajmie Ci maksymalnie 5 minut i pozwoli na przygotowanie dla Ciebie planu działania.
 
 
@@ -21,15 +21,17 @@ const templates: MailTemplates = {
 Imię:
 Nazwisko:
 NIP firmy (jeśli posiadasz):
-
+Adres obecnej strony internetowej (jeśli posiadasz):
 
 2. Czego potrzebujesz
 Jeśli masz wątpliwości, poniższe informacje możemy ustalić na spotkaniu przez Skype.
 Opisz do czego potrzebujesz strony?
 
-Ile wynosi Twój maksymalny budżet? Jego podanie ułatwi mi, dopasowanie skali projektu do Twoich potrzeb.
+Jaka najwyższa cena byłaby dla Ciebie komfortowa?
+Jej podanie ułatwi mi, dopasowanie skali projektu do Twoich potrzeb.
 
-Jeśli posiadasz projekt strony, umieść go w załączniku do maila, w przeciwnym razie mogę go dla Ciebie wykonać.
+Jeśli posiadasz projekt strony, umieść go w załączniku do maila.
+W przeciwnym razie czy chcesz, abym go dla Ciebie wykonał?
 
 
 3. Wymagane funkcje (usuń zbędne odpowiedzi)
@@ -41,8 +43,13 @@ Zaawansowane SEO (optymalizacja w wynikach wyszukiwania, każdej części strony
 Potrzebuję systemu płatności TAK / NIE
 Potrzebuję wielu wersji językowych TAK / NIE
 
+4. Dodatkowe uwagi
+Opisz wszelkie dodatkowe wymagania:
 
-PS. Wysłanie tego maila nie zobowiązuje Cię do niczego, umowę podpiszemy, gdy uzgodnimy plan działania.
+
+
+PS. Wysłanie tego maila nie zobowiązuje Cię do niczego,
+umowę podpiszemy, gdy uzgodnimy plan działania (otrzymasz go za darmo).
 
 Tag ZLECENIE#87 (proszę nie usuwaj go)`,
   },
@@ -55,6 +62,7 @@ export const useMail = (templateKey: keyof typeof templates) => {
   const send = () => {
     window.open(mailto)
     setTimeout(() => {
+      useStore.requestCooperation.set('manual', false)
       useStore.requestCooperation.set('showModal', true)
     }, 500)
   }
