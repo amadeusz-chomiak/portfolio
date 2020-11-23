@@ -30,7 +30,7 @@ Opisz do czego potrzebujesz strony?
 Jaka najwyższa cena byłaby dla Ciebie komfortowa?
 Jej podanie ułatwi mi, dopasowanie skali projektu do Twoich potrzeb.
 
-Jeśli posiadasz projekt strony, umieść go w załączniku do maila.
+Jeśli posiadasz projekt strony, dodaj go do maila.
 W przeciwnym razie czy chcesz, abym go dla Ciebie wykonał?
 
 
@@ -49,9 +49,7 @@ Opisz wszelkie dodatkowe wymagania:
 
 
 PS. Wysłanie tego maila nie zobowiązuje Cię do niczego,
-umowę podpiszemy, gdy uzgodnimy plan działania (otrzymasz go za darmo).
-
-Tag ZLECENIE#87 (proszę nie usuwaj go)`,
+umowę podpiszemy, gdy uzgodnimy plan działania (otrzymasz go za darmo).`,
   },
 }
 
