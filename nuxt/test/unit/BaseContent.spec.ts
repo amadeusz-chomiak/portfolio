@@ -210,6 +210,19 @@ describe('components/BaseContent.vue', () => {
       expect(Span.tagName.toLowerCase()).toBe('a')
       expect(Span.href).toContain('href')
     })
+
+    it('Render link as a secondary button on "link-as-button" set to true', () => {
+      const { getByText } = base.render({
+        props: {
+          linkAsButton: true,
+        },
+      })
+      const Button = getByText(link)?.parentElement
+        ?.parentElement as HTMLLinkElement
+      expect(Button).toBeVisible()
+      expect(Button.tagName.toLowerCase()).toBe('a')
+      expect(Button).toHaveClass('bg-opacity-25')
+    })
   })
 
   describe('column settings', () => {
