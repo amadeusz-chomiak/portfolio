@@ -10,7 +10,7 @@
         data-testid="contact-send-email"
         @click="submit"
       />
-      <button class="text-primary-200" @click="showMail">
+      <button class="text-primary-100 hover:text-white" @click="showMail">
         Pokaż dane kontaktowe
       </button>
     </div>
