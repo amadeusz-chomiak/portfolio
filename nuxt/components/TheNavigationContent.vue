@@ -19,10 +19,10 @@
           </template>
           <template #action>
             <BaseButton
+              :target="link.to || ''"
               class="mr-10 md:mr-0"
               :content="link.title"
               fill
-              @click="send"
             />
           </template>
         </BaseCard>
@@ -49,7 +49,6 @@
 import { defineComponent, computed } from '@nuxtjs/composition-api'
 import { useQuerySite, usePageIdTransformer } from '~/composable/useDatabase'
 import { useSize } from '~/composable/useMediaQuery'
-import { useMail } from '~/composable/useMail'
 
 export default defineComponent({
   setup() {
@@ -68,11 +67,10 @@ export default defineComponent({
     )
 
     // const overrideRouteClasses = ['nuxt-link-exact-active']
-    const { send } = useMail('cooperationRequestPL')
 
     const { height, width } = useSize()
 
-    return { links, height, width, send }
+    return { links, height, width }
   },
 })
 </script>
