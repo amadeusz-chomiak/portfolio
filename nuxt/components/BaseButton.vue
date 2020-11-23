@@ -15,7 +15,7 @@
   >
     <div :class="innerClasses" class="flex">
       <slot
-        ><p class="text-lg" :class="textClasses">{{ content }}</p></slot
+        ><p :class="textClasses">{{ content }}</p></slot
       >
     </div>
   </component>
@@ -140,7 +140,10 @@ export default defineComponent({
     )
 
     const textClasses = computed(() =>
-      props.secondary ? ['text-primary-200'] : ['text-primary-50']
+      [
+        props.secondary ? ['text-primary-200'] : ['text-primary-50'],
+        props.slim ? ['text-md'] : ['text-lg'],
+      ].flat()
     )
     const deactivete = () => {
       active.value = false

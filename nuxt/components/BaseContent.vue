@@ -20,6 +20,19 @@
               :class="markClasses(span.marks)"
               >{{ span.text }}</span
             >
+            <BaseButton
+              v-else-if="
+                linkAsButton && markTag(span.marks, block.markDefs) === 'link'
+              "
+              :key="span._key"
+              :target="markTo(span.marks, block.markDefs)"
+              outside
+              secondary
+              slim
+              inline
+              :class-inner="[...markClasses(span.marks), 'text-base']"
+              :content="span.text"
+            />
             <BaseLink
               v-else-if="markTag(span.marks, block.markDefs) === 'link'"
               :key="span._key"
@@ -67,6 +80,10 @@ export default defineComponent({
     level: {
       type: Number,
       default: 2,
+    },
+    linkAsButton: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {

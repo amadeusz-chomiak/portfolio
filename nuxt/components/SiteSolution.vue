@@ -3,7 +3,7 @@
     <BaseContent id="solution" :content="content" class="site-content" />
     <div class="flex flex-wrap">
       <BaseCard
-        v-for="solution in solutions"
+        v-for="(solution, index) in solutions"
         :key="solution._id"
         small
         class="m-2 sm:w-xs flex-grow"
@@ -12,6 +12,7 @@
           <BaseContent
             :level="3"
             class="text-primary-100"
+            :link-as-button="index === 0"
             :content="solution.solution.content.pl"
           />
         </template>

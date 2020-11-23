@@ -217,10 +217,31 @@ export const querySite = {
                         _key: '4a8d98b9c57c',
                         _type: 'span',
                         marks: [],
-                        text: ' Twoja strona, znajdziesz w jednym miejscu.',
+                        text:
+                          ' Twoja strona, znajdziesz w wygodnym panelu usług.',
                       },
                     ],
                     markDefs: [],
+                    style: 'normal',
+                  },
+                  {
+                    _key: '361f7caed6776',
+                    _type: 'block',
+                    children: [
+                      {
+                        _key: '100d7b96b276',
+                        _type: 'span',
+                        marks: ['f53d91db36f56'],
+                        text: 'Zobacz panel usług tej strony',
+                      },
+                    ],
+                    markDefs: [
+                      {
+                        _key: 'f53d91db36f56',
+                        _type: 'link',
+                        href: 'https://admin.amadeusz.dev',
+                      },
+                    ],
                     style: 'normal',
                   },
                 ],
