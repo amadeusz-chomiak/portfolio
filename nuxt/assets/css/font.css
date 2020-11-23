@@ -1,3 +1,7 @@
+.font-small-caps {
+  font-variant: small-caps;
+}
+
 /* montserrat-300italic - latin-ext_latin */
 @font-face {
   font-family: 'Montserrat';

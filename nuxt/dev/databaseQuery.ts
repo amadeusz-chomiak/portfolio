@@ -626,7 +626,9 @@ export const querySite = {
       _type: 'page',
       card: {
         _type: 'card',
-        action: { primary: { _type: 'localeString', pl: 'Współpracujmy' } },
+        action: {
+          primary: { _type: 'localeString', pl: 'Współpracujmy' },
+        },
         content: {
           _type: 'localeBlockContent',
           pl: [
@@ -696,7 +698,7 @@ export const querySite = {
                   _type: 'span',
                   marks: [],
                   text:
-                    'Wypełnij poniższe informacje, abym mógł się z Tobą skontaktować',
+                    'Po kliknięciu poniższego przycisku, zostaniesz przeniesiony do Swojej poczty. Większość e-maila, wraz z dodatkową promocją, zostanie napisana automatycznie.',
                 },
               ],
               markDefs: [],

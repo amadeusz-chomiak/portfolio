@@ -35,9 +35,10 @@
       >
         <BaseButton
           :content="contactButton.content"
-          :target="contactButton.to"
+          secondary
           class="flex-shrink"
           :class="panelOpen ? ['invisible'] : []"
+          @click="send"
         />
         <div
           class="flex justify-end bg-primary-950 z-20 rounded-full"
@@ -70,6 +71,7 @@ import {
   computed,
 } from '@nuxtjs/composition-api'
 import { useQuerySite, usePageIdTransformer } from '~/composable/useDatabase'
+import { useMail } from '~/composable/useMail'
 export default defineComponent({
   setup() {
     const panelOpen = ref(false)
@@ -80,17 +82,18 @@ export default defineComponent({
 
     const { result } = useQuerySite()
     const { toPath } = usePageIdTransformer()
-
+    const { send } = useMail('cooperationRequestPL')
     const contactButton = computed(() => {
       const pages = result.value?.pages
       return {
-        content: pages?.[pages?.length - 2]?.link?.pl,
+        content: 'Napisz maila',
         to: toPath(pages?.[pages?.length - 1]?.page?._id, true),
       }
     })
     return {
       panelOpen,
       contactButton,
+      send,
     }
   },
 })
