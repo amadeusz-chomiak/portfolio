@@ -19,7 +19,7 @@ export default {
       lang: 'pl',
     },
     meta: [
-      // TODO add open graph tags
+      // TODO #8 add open graph tags @amadeusz-chomiak
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {

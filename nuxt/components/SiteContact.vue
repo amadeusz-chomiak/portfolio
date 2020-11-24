@@ -31,7 +31,7 @@ import {
   ObserverPropType,
 } from '~/composable/useObserver'
 
-import { firestore } from '~/composable/useFirebase'
+import { firestore } from '~/composable/useFirebase' // TODO #6 remove firestore @amadeusz-chomiak
 import { useStore } from '~/composable/useStore'
 import { useMail } from '~/composable/useMail'
 interface Props extends ObserverPropType {

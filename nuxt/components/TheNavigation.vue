@@ -82,7 +82,7 @@ export default defineComponent({
 
     const { result } = useQuerySite()
     const { toPath } = usePageIdTransformer()
-    const { send } = useMail('cooperationRequestPL')
+    const { send } = useMail('cooperationRequestPL') // TODO #7 change to link button to cooperation page @amadeusz-chomiak
     const contactButton = computed(() => {
       const pages = result.value?.pages
       return {
