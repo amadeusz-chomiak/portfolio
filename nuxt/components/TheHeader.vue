@@ -4,12 +4,12 @@
       ref="ButtonAvatar"
       secondary
       target="https://github.com/amadeusz-chomiak"
-      outside
       inline
       round
       slim
       class="mr-2 group flex-shrink-0 lg:mr-4"
       data-testid="button-avatar"
+      @click="trackEventGithub"
     >
       <div class="relative">
         <img
@@ -49,6 +49,7 @@ import {
   ref,
 } from '@nuxtjs/composition-api'
 import { useQuerySite, useImage } from '~/composable/useDatabase'
+import { useAnalytics } from '~/composable/useAnalytics'
 
 export default defineComponent({
   setup() {
@@ -67,12 +68,16 @@ export default defineComponent({
 
     const headerTitle = computed(() => header.value?.title?.pl)
     const headerSubtitle = computed(() => header.value?.subtitle?.pl)
+
+    const { trackEvent } = useAnalytics()
+    const trackEventGithub = () => trackEvent('link-github')
     return {
       headerAlt,
       headerPicture,
       headerTitle,
       headerSubtitle,
       ButtonAvatar,
+      trackEventGithub,
     }
   },
 })

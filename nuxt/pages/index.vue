@@ -49,12 +49,14 @@ import {
   ref,
   useContext,
   watch,
+  onBeforeMount,
 } from '@nuxtjs/composition-api'
 import {
   useQuerySite,
   useImage,
   usePageIdTransformer,
 } from '~/composable/useDatabase'
+import { useAnalytics } from '~/composable/useAnalytics'
 import SiteHero from '~/components/SiteHero.vue'
 import SiteSolution from '~/components/SiteSolution.vue'
 import SitePromotion from '~/components/SitePromotion.vue'
@@ -75,6 +77,10 @@ export default defineComponent({
         const Target = document.querySelector(to.hash)
         Target?.scrollIntoView()
       }
+    })
+    onBeforeMount(() => {
+      const { initAnalytics } = useAnalytics()
+      initAnalytics()
     })
 
     const { result } = useQuerySite()
@@ -106,6 +112,16 @@ export default defineComponent({
         alt: imageObject.value?.alt?.pl,
       }
     })
+    const { trackEvent, untractEvent } = useAnalytics()
+    watch(intersectionKey, async (key) => {
+      untractEvent('engagement')
+      try {
+        await trackEvent('engagement', { site: `${key}` }, 5000)
+      } catch (error) {
+        console.error(error)
+      }
+    })
+
     onMounted(() => {
       observer.value = new IntersectionObserver(
         (entries) => {

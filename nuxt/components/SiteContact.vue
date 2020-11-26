@@ -34,6 +34,7 @@ import {
 import { firestore } from '~/composable/useFirebase' // TODO #6 remove firestore @amadeusz-chomiak
 import { useStore } from '~/composable/useStore'
 import { useMail } from '~/composable/useMail'
+import { useAnalytics } from '~/composable/useAnalytics'
 interface Props extends ObserverPropType {
   page: { content: { pl: unknown; en: unknown } }
 }
@@ -59,12 +60,22 @@ export default defineComponent<Props>({
       (valid.value = payload === undefined)
 
     const { send } = useMail('cooperationRequestPL')
-
-    const submit = () => {
+    const { trackEvent } = useAnalytics()
+    const submit = async () => {
+      try {
+        await trackEvent('link-mailto')
+      } catch (error) {
+        console.error(error)
+      }
       send()
     }
 
-    const showMail = () => {
+    const showMail = async () => {
+      try {
+        await trackEvent('show-contact-info')
+      } catch (error) {
+        console.error(error)
+      }
       useStore.requestCooperation.set('showModal', true)
       useStore.requestCooperation.set('manual', true)
     }

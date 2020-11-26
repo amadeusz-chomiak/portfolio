@@ -86,7 +86,7 @@ export default defineComponent({
     const contactButton = computed(() => {
       const pages = result.value?.pages
       return {
-        content: 'Napisz maila',
+        content: pages?.[pages?.length - 2]?.link?.pl,
         to: toPath(pages?.[pages?.length - 1]?.page?._id, true),
       }
     })
