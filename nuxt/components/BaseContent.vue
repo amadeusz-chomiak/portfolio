@@ -20,19 +20,6 @@
               :class="markClasses(span.marks)"
               >{{ span.text }}</span
             >
-            <BaseButton
-              v-else-if="
-                linkAsButton && markTag(span.marks, block.markDefs) === 'link'
-              "
-              :key="span._key"
-              :target="markTo(span.marks, block.markDefs)"
-              outside
-              secondary
-              slim
-              inline
-              :class-inner="[...markClasses(span.marks), 'text-base']"
-              :content="span.text"
-            />
             <BaseLink
               v-else-if="markTag(span.marks, block.markDefs) === 'link'"
               :key="span._key"
@@ -48,6 +35,17 @@
           :definition="block"
           class="ml-2"
         />
+        <BaseButton
+          v-else-if="block._type === 'link'"
+          :key="block._key"
+          :target="block.href"
+          secondary
+          slim
+          inline
+          :class-inner="['text-base']"
+          @click="() => (block.goal ? trackEvent(block.goal) : undefined)"
+          >{{ block.text }}</BaseButton
+        >
       </template>
     </div>
   </div>
@@ -70,6 +68,7 @@ import {
 } from '~/types/BaseContent'
 import { useClass } from '~/composable/useMediaQuery'
 import { ColumnSettings } from '~/dev/databaseQuery'
+import { useAnalytics } from '~/composable/useAnalytics'
 
 export default defineComponent({
   props: {
@@ -80,10 +79,6 @@ export default defineComponent({
     level: {
       type: Number,
       default: 2,
-    },
-    linkAsButton: {
-      type: Boolean,
-      default: false,
     },
   },
   setup(props) {
@@ -179,6 +174,8 @@ export default defineComponent({
       }
     }
 
+    const { trackEvent } = useAnalytics()
+
     return {
       markTag,
       markTo,
@@ -186,6 +183,7 @@ export default defineComponent({
       columnClasses,
       style,
       columnContent,
+      trackEvent,
     }
   },
 })

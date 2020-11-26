@@ -226,23 +226,10 @@ export const querySite = {
                   },
                   {
                     _key: '361f7caed6776',
-                    _type: 'block',
-                    children: [
-                      {
-                        _key: '100d7b96b276',
-                        _type: 'span',
-                        marks: ['f53d91db36f56'],
-                        text: 'Zobacz panel usług tej strony',
-                      },
-                    ],
-                    markDefs: [
-                      {
-                        _key: 'f53d91db36f56',
-                        _type: 'link',
-                        href: 'https://admin.amadeusz.dev',
-                      },
-                    ],
-                    style: 'normal',
+                    _type: 'link',
+                    text: 'Zobacz panel usług tej strony',
+                    href: 'https://admin.amadeusz.dev',
+                    goal: 'link-services-panel',
                   },
                 ],
               },

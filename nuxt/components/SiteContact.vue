@@ -34,6 +34,7 @@ import {
 import { firestore } from '~/composable/useFirebase'
 import { useStore } from '~/composable/useStore'
 import { useMail } from '~/composable/useMail'
+import { useAnalytics } from '~/composable/useAnalytics'
 interface Props extends ObserverPropType {
   page: { content: { pl: unknown; en: unknown } }
 }
@@ -59,12 +60,14 @@ export default defineComponent<Props>({
       (valid.value = payload === undefined)
 
     const { send } = useMail('cooperationRequestPL')
-
+    const { trackEvent } = useAnalytics()
     const submit = () => {
+      trackEvent('link-mailto')
       send()
     }
 
     const showMail = () => {
+      trackEvent('show-contact-info')
       useStore.requestCooperation.set('showModal', true)
       useStore.requestCooperation.set('manual', true)
     }

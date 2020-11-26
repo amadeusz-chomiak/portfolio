@@ -49,12 +49,14 @@ import {
   ref,
   useContext,
   watch,
+  onBeforeMount,
 } from '@nuxtjs/composition-api'
 import {
   useQuerySite,
   useImage,
   usePageIdTransformer,
 } from '~/composable/useDatabase'
+import { useAnalytics } from '~/composable/useAnalytics'
 import SiteHero from '~/components/SiteHero.vue'
 import SiteSolution from '~/components/SiteSolution.vue'
 import SitePromotion from '~/components/SitePromotion.vue'
@@ -75,6 +77,10 @@ export default defineComponent({
         const Target = document.querySelector(to.hash)
         Target?.scrollIntoView()
       }
+    })
+    onBeforeMount(() => {
+      const { initAnalytics } = useAnalytics()
+      initAnalytics()
     })
 
     const { result } = useQuerySite()

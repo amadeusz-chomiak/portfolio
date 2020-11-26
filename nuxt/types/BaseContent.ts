@@ -40,10 +40,17 @@ interface BlockListItem extends Block {
   listItem: ListItemsStyles
 }
 
+interface BlockLink {
+  _key: string
+  _type: 'link'
+  text: string
+  href: string
+  goal?: string
+}
+
 interface BlockDefinition {
   _key: string
   _type: 'definition'
-  // todo implement
 }
 
 interface BlockPageSettings extends ColumnSettings {
@@ -51,8 +58,13 @@ interface BlockPageSettings extends ColumnSettings {
   _type: 'column'
 }
 
-export type ContentText = (Block | BlockListItem)[]
-export type Content = (Block | BlockListItem | BlockPageSettings)[]
+export type ContentText = (
+  | Block
+  | BlockListItem
+  | BlockLink
+  | BlockDefinition
+)[]
+export type Content = (Block | BlockListItem | BlockPageSettings | BlockLink)[]
 
 export interface ContentColumn extends ColumnSettings {
   content: ContentText
