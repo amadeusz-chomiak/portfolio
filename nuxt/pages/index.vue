@@ -112,6 +112,12 @@ export default defineComponent({
         alt: imageObject.value?.alt?.pl,
       }
     })
+    const { trackEvent, untractEvent } = useAnalytics()
+    watch(intersectionKey, (key) => {
+      untractEvent('engagement')
+      trackEvent('engagement', { href: `#${key}` }, 5000)
+    })
+
     onMounted(() => {
       observer.value = new IntersectionObserver(
         (entries) => {

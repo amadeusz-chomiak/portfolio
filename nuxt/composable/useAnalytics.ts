@@ -39,6 +39,8 @@ export const useAnalytics = () => {
       timeouts.set(
         name,
         setTimeout(() => {
+          if (process.env.NODE_ENV === 'development')
+            console.log('track - finish delay', name, 'options', options)
           plausible?.trackEvent(name, options)
         }, delay)
       )
