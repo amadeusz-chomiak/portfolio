@@ -31,7 +31,6 @@ import {
   ObserverPropType,
 } from '~/composable/useObserver'
 
-import { firestore } from '~/composable/useFirebase' // TODO #6 remove firestore @amadeusz-chomiak
 import { useStore } from '~/composable/useStore'
 import { useMail } from '~/composable/useMail'
 import { useAnalytics } from '~/composable/useAnalytics'
@@ -51,13 +50,6 @@ export default defineComponent<Props>({
     useObserverObserve(props, 'contact')
 
     const content = computed(() => props.page.content.pl)
-    const email = ref('')
-    const description = ref('')
-
-    const request = firestore().useAddCooperationRequest()
-    const valid = ref(false)
-    const setValid = (payload: undefined | string) =>
-      (valid.value = payload === undefined)
 
     const { send } = useMail('cooperationRequestPL')
     const { trackEvent } = useAnalytics()
@@ -82,13 +74,8 @@ export default defineComponent<Props>({
 
     return {
       content,
-      email,
       showMail,
-      description,
       submit,
-      setValid,
-      valid,
-      request,
     }
   },
 })
