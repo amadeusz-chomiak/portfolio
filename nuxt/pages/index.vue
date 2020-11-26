@@ -113,9 +113,13 @@ export default defineComponent({
       }
     })
     const { trackEvent, untractEvent } = useAnalytics()
-    watch(intersectionKey, (key) => {
+    watch(intersectionKey, async (key) => {
       untractEvent('engagement')
-      trackEvent('engagement', { href: `#${key}` }, 5000)
+      try {
+        await trackEvent('engagement', { site: `${key}` }, 5000)
+      } catch (error) {
+        console.error(error)
+      }
     })
 
     onMounted(() => {

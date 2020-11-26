@@ -61,13 +61,21 @@ export default defineComponent<Props>({
 
     const { send } = useMail('cooperationRequestPL')
     const { trackEvent } = useAnalytics()
-    const submit = () => {
-      trackEvent('link-mailto')
+    const submit = async () => {
+      try {
+        await trackEvent('link-mailto')
+      } catch (error) {
+        console.error(error)
+      }
       send()
     }
 
-    const showMail = () => {
-      trackEvent('show-contact-info')
+    const showMail = async () => {
+      try {
+        await trackEvent('show-contact-info')
+      } catch (error) {
+        console.error(error)
+      }
       useStore.requestCooperation.set('showModal', true)
       useStore.requestCooperation.set('manual', true)
     }
