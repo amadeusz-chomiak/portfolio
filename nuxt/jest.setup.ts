@@ -10,6 +10,7 @@ import BaseIcon from '~/components/BaseIcon.vue'
 import BaseLink from '~/components/BaseLink.vue'
 import BaseInput from '~/components/BaseInput.vue'
 import BaseTextarea from '~/components/BaseTextarea.vue'
+import BaseClipboard from '~/components/BaseClipboard.vue'
 
 //* Button
 import ButtonIcon from '~/components/ButtonIcon.vue'
@@ -32,6 +33,7 @@ Vue.component('BaseIcon', BaseIcon)
 Vue.component('BaseLink', BaseLink)
 Vue.component('BaseInput', BaseInput)
 Vue.component('BaseTextarea', BaseTextarea)
+Vue.component('BaseClipboard', BaseClipboard)
 
 //* Button
 Vue.component('ButtonIcon', ButtonIcon)
