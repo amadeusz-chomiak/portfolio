@@ -25,7 +25,7 @@ interface Span {
 }
 
 export type TextStyles = 'normal' | 'subtitle' | 'title' | 'unimportant'
-interface Block {
+export interface Block {
   _key: string
   _type: 'block'
   children: Span[]

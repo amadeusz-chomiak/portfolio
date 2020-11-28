@@ -1,6 +1,6 @@
 import { Base } from '../utils/core'
 import Component from '~/components/BaseContent.vue'
-import { ContentText } from '~/types/BaseContent'
+import { Block, ContentText } from '~/types/BaseContent'
 
 const enum Paragraph {
   normal,
@@ -126,9 +126,9 @@ const content = [
 const base = new Base(Component, { props: { content } })
 
 describe('components/BaseContent.vue', () => {
-  const normal = content[Paragraph.normal].children[0].text
-  const title = content[Paragraph.title].children[0].text
-  const subtitle = content[Paragraph.subtitle].children[0].text
+  const normal = (content[Paragraph.normal] as Block).children[0].text
+  const title = (content[Paragraph.title] as Block).children[0].text
+  const subtitle = (content[Paragraph.subtitle] as Block).children[0].text
   describe('paragraph style', () => {
     it('Render content with style "normal" with normal styles', () => {
       const { getByText } = base.render()
@@ -184,7 +184,7 @@ describe('components/BaseContent.vue', () => {
   })
 
   describe('span marks', () => {
-    const marksParagraph = content[Paragraph.marks]
+    const marksParagraph = content[Paragraph.marks] as Block
     const em = marksParagraph.children[0].text
     const strong = marksParagraph.children[1].text
     const link = marksParagraph.children[2].text
@@ -209,19 +209,6 @@ describe('components/BaseContent.vue', () => {
       expect(Span).toBeVisible()
       expect(Span.tagName.toLowerCase()).toBe('a')
       expect(Span.href).toContain('href')
-    })
-
-    it('Render link as a secondary button on "link-as-button" set to true', () => {
-      const { getByText } = base.render({
-        props: {
-          linkAsButton: true,
-        },
-      })
-      const Button = getByText(link)?.parentElement
-        ?.parentElement as HTMLLinkElement
-      expect(Button).toBeVisible()
-      expect(Button.tagName.toLowerCase()).toBe('a')
-      expect(Button).toHaveClass('bg-opacity-25')
     })
   })
 
