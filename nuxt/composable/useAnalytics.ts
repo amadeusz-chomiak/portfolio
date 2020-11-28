@@ -46,8 +46,10 @@ export const useAnalytics = () => {
     delay: number = 0
   ) =>
     new Promise<void>((resolve) => {
-      if (process.env.NODE_ENV === 'development')
+      if (process.env.NODE_ENV === 'development') {
         console.log('track', name, 'options', props)
+        return resolve()
+      }
       if (delay)
         timeouts.set(name, [
           setTimeout(() => {
