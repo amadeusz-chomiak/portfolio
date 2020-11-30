@@ -19,14 +19,60 @@ export default {
       lang: 'pl',
     },
     meta: [
-      // TODO #8 add open graph tags @amadeusz-chomiak
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
         content:
-          'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który przeprowadzi Cię przez cały proces i zadba, aby Twoja nowa strona, była szybka, wygodna i elegancka.',
+          'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który zadba, aby Twoja strona, była szybka, wygodna i elegancka.',
+      },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        content: 'Stwórzmy Twoją część internetu – Amadeusz Chomiak',
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content:
+          'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który zadba, aby Twoja strona, była szybka, wygodna i elegancka.',
+      },
+      {
+        hid: 'og:url',
+        name: 'og:url',
+        content: 'https://amadeusz.dev/',
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: 'https://amadeusz.dev/images/ogImage.jpg',
+      },
+      {
+        hid: 'og:image:width',
+        name: 'og:image:width',
+        content: '1201',
+      },
+      {
+        hid: 'og:image:height',
+        name: 'og:image:height',
+        content: '627',
+      },
+      {
+        hid: 'og:image:alt',
+        name: 'og:image:alt',
+        content:
+          'Wszyscy jesteśmy połączeni. Dołącz do swoich klientów. Amadeusz.dev',
+      },
+      {
+        hid: 'og:locale',
+        name: 'og:locale',
+        content: 'pl-PL',
+      },
+      {
+        hid: 'og:type',
+        name: 'og:type',
+        content: 'website',
       },
     ],
     script: [
