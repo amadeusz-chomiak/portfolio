@@ -27,6 +27,7 @@
     >
       <transition name="fade" mode="out-in">
         <img
+          v-if="width.md"
           :key="image.src.value"
           class="opacity-25 filter-blur h-full object-cover md:opacity-75 md:filter-none xl:opacity-100"
           :src="image.src.value"
@@ -62,6 +63,7 @@ import SiteSolution from '~/components/SiteSolution.vue'
 import SitePromotion from '~/components/SitePromotion.vue'
 import SiteContact from '~/components/SiteContact.vue'
 import { ColumnSettings } from '~/dev/databaseQuery'
+import { useSize } from '~/composable/useMediaQuery'
 
 export default defineComponent({
   components: {
@@ -141,10 +143,13 @@ export default defineComponent({
       observer.value?.disconnect()
     })
 
+    const { width } = useSize()
+
     return {
       pagesComponent,
       observer,
       image,
+      width,
     }
   },
 })

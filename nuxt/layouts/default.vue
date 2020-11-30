@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black flex flex-col h-screen relative">
+  <div class="bg-primary-975 md:bg-black flex flex-col h-screen relative">
     <div
       class="m-4 md-h:mt-8 md-h:mb-5 md:mx-8 lg-h:mt-10 lg-h:mb-6 lg:mx-10 xl-h:mt-12 xl-h:mb-8 xl:mx-12 z-40"
     >
