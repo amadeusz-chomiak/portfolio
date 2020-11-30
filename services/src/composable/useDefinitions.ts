@@ -20,9 +20,8 @@ export const useDefinitions = () => {
       service.plausible
         .links("add", "dashboard", {
           title: "Panel kontrolny",
-          description:
-            "Znajdziesz tu aktualne dane analityczne (wymaga logowania)",
-          href: "https://plausible.io/login",
+          description: "Znajdziesz tu aktualne dane analityczne",
+          href: "https://plausible.io/amadeusz.dev",
         })
         .links("initialize", "pricing", {
           title: "cennik",
@@ -30,9 +29,28 @@ export const useDefinitions = () => {
         })
     )
   )
-  renderer.add(category.server.add(service.firebase))
+
+  renderer.add(
+    category.searchEngine.add(
+      service.googleSearchConsole.links("initialize", "dashboard", {
+        title: "panel kontrolny",
+        description:
+          "sprawdź jak dobrze strona radzi sobie w wyszukiwarce Google (wymaga logowania)",
+        href:
+          "https://search.google.com/search-console?resource_id=sc-domain%3Aamadeusz.dev",
+      })
+    ).add(
+      service.microsoftBingWebmasterTool.links("initialize", 'dashboard', {
+        title: 'panel kontrolny',
+        description: 'sprawdź jak dobrze strona radzi sobie w wyszukiwarce Bing (wymaga logowania)',
+        href: 'https://www.bing.com/webmasters?siteUrl=https://amadeusz.dev/'
+      })
+    )
+  )
 
   renderer.add(category.domain.add(service.googleDomains))
+  
+  renderer.add(category.server.add(service.firebase))
 
   renderer.add(
     category.development

@@ -75,6 +75,36 @@ export const GoogleDomains = createService({
   },
 })
 
+export const GoogleSearchConsole = createService({
+  brand: {
+    name: 'google search console',
+    color: '#455a64',
+    onColor: 'white',
+  },
+  price: {
+    cost: 'free',
+    renew: 'never',
+  },
+  links: {
+    dashboard: 'https://search.google.com/search-console'
+  }
+})
+
+export const MicrosoftBingWebmasterTool = createService({
+  brand: {
+    name: 'microsoft bing webmaster tool',
+    color: '#00809d',
+    onColor: 'white',
+  },
+  price: {
+    cost: 'free',
+    renew: 'never',
+  },
+  links: {
+    dashboard: 'https://www.bing.com/webmasters'
+  }
+})
+
 export const Github = createService({
   brand: {
     name: "github",

@@ -99,6 +99,24 @@ export const googleDomains = service
     description: "Dowiesz się o aktualnych wydatkach (wymaga logowania)",
   })
 
+export const googleSearchConsole = service.GoogleSearchConsole({
+  brand: {
+    description: 'Zarządza widocznością Tej strony w wyszukiwarce Google'
+  },
+  price: {
+    localize: price
+  }
+})
+
+export const microsoftBingWebmasterTool = service.MicrosoftBingWebmasterTool({
+  brand: {
+    description: 'Zarządza widocznością Tej strony w wyszukiwarce Bing'
+  },
+  price: {
+    localize: price
+  }
+})
+
 export const github = service.Github({
   brand: {
     description:

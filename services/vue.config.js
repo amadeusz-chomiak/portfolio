@@ -11,7 +11,7 @@ module.exports = {
       })
   },
   pwa: {
-    name: "Panel usług",
+    name: "Panel usług Amadeusz.dev",
     manifestPath: "site.webmanifest",
     themeColor: "#e6e6e6",
     iconPaths: {
@@ -19,7 +19,7 @@ module.exports = {
       msTileImage: "img/icons/mstile-144x144.png",
     },
     manifestOptions: {
-      short_name: "services",
+      short_name: "Amadeusz.dev",
       background_color: "#e6e6e6",
     },
   },
