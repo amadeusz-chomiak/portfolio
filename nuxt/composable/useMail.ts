@@ -34,14 +34,14 @@ Jeśli posiadasz projekt strony, dodaj go do maila.
 W przeciwnym razie czy chcesz, abym go dla Ciebie wykonał?
 
 
-3. Wymagane funkcje (usuń zbędne odpowiedzi)
+3. Wymagane funkcje (dopisz TAK do wybranych)
 Proste i tanie:
-Potrzebuję systemów społecznościowych (newsletter, powiadomienia push, komentarze) TAK / NIE
+Potrzebuję systemów społecznościowych (newsletter, powiadomienia push, komentarze):
 
 Zaawansowane:
-Zaawansowane SEO (optymalizacja w wynikach wyszukiwania, każdej części strony) TAK / NIE
-Potrzebuję systemu płatności TAK / NIE
-Potrzebuję wielu wersji językowych TAK / NIE
+Zaawansowane SEO (optymalizacja w wynikach wyszukiwania każdej części strony):
+Potrzebuję systemu płatności:
+Potrzebuję wielu wersji językowych:
 
 4. Dodatkowe uwagi
 Opisz wszelkie dodatkowe wymagania:
