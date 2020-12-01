@@ -27,7 +27,7 @@
                   @click="close"
                 />
               </div>
-              <div class="flex flex-wrap">
+              <div>
                 <slot />
               </div>
             </div> </FocusLock

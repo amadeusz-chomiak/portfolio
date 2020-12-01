@@ -6,7 +6,7 @@
       <article
         v-for="page in pagesComponent"
         :key="page.name"
-        class="min-h-nuxt flex-shrink-0 mb-64 z-10 snap-start max-w-md flex flex-col"
+        class="min-h-nuxt flex-shrink-0 pb-64 z-10 snap-start max-w-md flex flex-col"
         :class="
           page.column.set === 'only-first'
             ? ['lg:max-w-sm']

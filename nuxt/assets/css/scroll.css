@@ -57,7 +57,7 @@
 
 @variants hover {
   .scroll-hide {
-    scrollbar-color: transparent theme('colors.black');
+    scrollbar-color: transparent #07070732;
 
     &::-webkit-scrollbar-track {
       @apply bg-black bg-opacity-25;

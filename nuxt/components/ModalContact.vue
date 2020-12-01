@@ -9,7 +9,7 @@
     @close="cooperationSet('showModal', false)"
   >
     <div
-      class="flex flex-col w-md mb-4 sm:mb-0 sm:mr-4"
+      class="flex flex-col sm:w-md mb-4 sm:mb-0 sm:mr-4"
       data-testid="contact-form-modal"
     >
       <p class="text-primary-100 flex-1 2xl:text-lg">
