@@ -1,8 +1,6 @@
 @variants hover {
   .scroll {
-    /* stylelint-disable function-whitespace-after */
-    scrollbar-color: theme('colors.primary.600') theme('colors.black') 32;
-    /* stylelint-enable function-whitespace-after */
+    scrollbar-color: theme('colors.primary.600') #07070732;
 
     &::-webkit-scrollbar-track {
       @apply bg-black bg-opacity-50;
@@ -59,7 +57,7 @@
 
 @variants hover {
   .scroll-hide {
-    scrollbar-color: transparent bg-black;
+    scrollbar-color: transparent theme('colors.black');
 
     &::-webkit-scrollbar-track {
       @apply bg-black bg-opacity-25;
