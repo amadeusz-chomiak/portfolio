@@ -29,49 +29,49 @@ export default {
       },
       {
         hid: 'og:title',
-        name: 'og:title',
+        property: 'og:title',
         content: 'Stwórzmy Twoją część internetu – Amadeusz Chomiak',
       },
       {
         hid: 'og:description',
-        name: 'og:description',
+        property: 'og:description',
         content:
           'Nie marnuj czasu zgadując, jakiej strony potrzebujesz. Wybierz specjalistę, który zadba, aby Twoja strona, była szybka, wygodna i elegancka.',
       },
       {
         hid: 'og:url',
-        name: 'og:url',
+        property: 'og:url',
         content: 'https://amadeusz.dev/',
       },
       {
         hid: 'og:image',
-        name: 'og:image',
+        property: 'og:image',
         content: 'https://amadeusz.dev/images/ogImage.jpg',
       },
       {
         hid: 'og:image:width',
-        name: 'og:image:width',
+        property: 'og:image:width',
         content: '1201',
       },
       {
         hid: 'og:image:height',
-        name: 'og:image:height',
+        property: 'og:image:height',
         content: '627',
       },
       {
         hid: 'og:image:alt',
-        name: 'og:image:alt',
+        property: 'og:image:alt',
         content:
           'Wszyscy jesteśmy połączeni. Dołącz do swoich klientów. Amadeusz.dev',
       },
       {
         hid: 'og:locale',
-        name: 'og:locale',
+        property: 'og:locale',
         content: 'pl-PL',
       },
       {
         hid: 'og:type',
-        name: 'og:type',
+        property: 'og:type',
         content: 'website',
       },
     ],
