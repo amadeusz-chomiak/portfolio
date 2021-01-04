@@ -17,11 +17,11 @@ export const useDefinitions = () => {
   // renderer.add(category.contentEditor.add(service.sanity))
   renderer.add(
     category.analytic.add(
-      service.plausible
+      service.insights
         .links("add", "dashboard", {
           title: "Panel kontrolny",
-          description: "Znajdziesz tu aktualne dane analityczne",
-          href: "https://plausible.io/amadeusz.dev",
+          description: "Znajdziesz tu aktualne dane analityczne (wymaga logowania)",
+          href: "https://getinsights.io/projects/lCc5ds2wBECNisS4",
         })
         .links("initialize", "pricing", {
           title: "cennik",

@@ -31,6 +31,21 @@ export const Plausible = createService({
   },
 })
 
+export const Insights = createService({
+  brand: {
+    name: "insights",
+    color: "#2565da",
+    onColor: "white",
+  },
+  links: {
+    pricing: "https://getinsights.io/billing",
+  },
+  price: {
+    cost: "flexible",
+    renew: "monthly",
+  },
+})
+
 export const Sanity = createService({
   brand: {
     name: "sanity",

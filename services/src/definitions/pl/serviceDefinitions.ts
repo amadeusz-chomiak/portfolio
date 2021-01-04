@@ -42,16 +42,23 @@ export const firebase = service
     description: "dowiesz się o aktualnych cenach",
   })
 
-export const plausible = service
-  .Plausible({
-    brand: {
-      description: "Prosta i przyjazna RODO, analityka",
-    },
-    price: {
-      localize: price,
-    },
-  })
-  
+export const plausible = service.Plausible({
+  brand: {
+    description: "Prosta i przyjazna RODO, analityka",
+  },
+  price: {
+    localize: price,
+  },
+})
+
+export const insights = service.Insights({
+  brand: {
+    description: "Prosta i przyjazna RODO, analityka",
+  },
+  price: {
+    localize: price,
+  },
+})
 
 export const sanity = service
   .Sanity({
@@ -101,20 +108,20 @@ export const googleDomains = service
 
 export const googleSearchConsole = service.GoogleSearchConsole({
   brand: {
-    description: 'Zarządza widocznością Tej strony w wyszukiwarce Google'
+    description: "Zarządza widocznością Tej strony w wyszukiwarce Google",
   },
   price: {
-    localize: price
-  }
+    localize: price,
+  },
 })
 
 export const microsoftBingWebmasterTool = service.MicrosoftBingWebmasterTool({
   brand: {
-    description: 'Zarządza widocznością Tej strony w wyszukiwarce Bing'
+    description: "Zarządza widocznością Tej strony w wyszukiwarce Bing",
   },
   price: {
-    localize: price
-  }
+    localize: price,
+  },
 })
 
 export const github = service.Github({
