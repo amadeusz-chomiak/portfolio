@@ -14,7 +14,7 @@ const templates: MailTemplates = {
   cooperationRequestPL: {
     to: 'zlecenie@amadeusz.dev',
     subject: 'Rozpocznijmy współpracę',
-    body: `Wypełnienie tych kilku informacji zajmie Ci maksymalnie 5 minut i pozwoli na przygotowanie dla Ciebie planu działania.
+    body: `Wypełnienie tych kilku informacji zajmie Ci maksymalnie kilka minut i pozwoli na przygotowanie dla Ciebie planu działania.
 
 
 1. Kontakt
@@ -23,29 +23,21 @@ Nazwisko:
 NIP firmy (jeśli posiadasz):
 Adres obecnej strony internetowej (jeśli posiadasz):
 
+
 2. Czego potrzebujesz
-Jeśli masz wątpliwości, poniższe informacje możemy ustalić na spotkaniu przez Skype.
-Opisz do czego potrzebujesz strony?
+Opisz do czego potrzebujesz strony? Jaki problem ma rozwiązać?
+
 
 Jaka najwyższa cena byłaby dla Ciebie komfortowa?
 Jej podanie ułatwi mi, dopasowanie skali projektu do Twoich potrzeb.
 
-Jeśli posiadasz projekt strony, dodaj go do maila.
+
+Jeśli posiadasz projekt strony (to jak ma wyglądać strona), dodaj go do maila.
 W przeciwnym razie czy chcesz, abym go dla Ciebie wykonał?
 
 
-3. Wymagane funkcje (dopisz TAK do wybranych)
-Proste i tanie:
-Potrzebuję systemów społecznościowych (newsletter, powiadomienia push, komentarze):
-
-Zaawansowane:
-Zaawansowane SEO (optymalizacja w wynikach wyszukiwania każdej części strony):
-Potrzebuję systemu płatności:
-Potrzebuję wielu wersji językowych:
-
-4. Dodatkowe uwagi
+3. Dodatkowe uwagi
 Opisz wszelkie dodatkowe wymagania:
-
 
 
 PS. Wysłanie tego maila nie zobowiązuje Cię do niczego,
