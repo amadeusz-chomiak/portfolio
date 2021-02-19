@@ -1,4 +1,4 @@
-# Portfolio of mine
+# Portfolio
 
 **:construction: My portfolio page is currently only in polish language :construction:**
 
