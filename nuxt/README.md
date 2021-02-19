@@ -1,20 +1,28 @@
-# nuxt
+# nuxt frontend app
 
-## Build Setup
+If You have more questions please contact Me directly at [job@amadeo.dev](mailto:job@amadeo.dev)
 
-```bash
-# install dependencies
-$ yarn install
+## How to create a new component?
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+Use globally installed *Hygen* to generate new components from \_templates directory
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+``` bash
+hygen component new [name]
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+**Naming convencions** <span class="colour" style="color:rgb(212, 212, 212)">— use </span>[Vue.js style guide](https://v3.vuejs.org/style-guide):
+
+* Use *PascalCase*
+* Base components (atoms from atomic design) prefix with *Base...*
+* Single instance components prefix with *The...*
+
+Write component based on [TDD approach](https://en.wikipedia.org/wiki/Test-driven_development)
+
+## How to publish the frontend?
+
+To publish the frontend run these commands:
+
+``` bash
+yarn run dev
+yarn run publish
+```
