@@ -1,1 +1,0 @@
-//* general interface parts (repeated on entire page)

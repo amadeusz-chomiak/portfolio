@@ -8,7 +8,6 @@ If You have some questions about Me, please contact directly at [job@amadeo.dev]
 
 * firebase — place for firebase cloud functions
 * nuxt — place for the frontend. [Go to website](https://amadeusz.dev)
-* ~~sanity — place for sanity CMS~~ [obsolete]
 * services — place for frontend admin panel with list of all used services. [Go to admin panel](https://admin.amadeusz.dev)
 
 ### License
