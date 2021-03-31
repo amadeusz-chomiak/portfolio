@@ -1,6 +1,6 @@
-# Portfolio
+# Sales website
 
-**:construction: My portfolio page is currently only in polish language :construction:**
+**:construction: This site is currently available only in Polish language :construction:**
 
 If You have some questions about Me, please contact directly at [job@amadeo.dev](mailto:job@amadeo.dev)
 
