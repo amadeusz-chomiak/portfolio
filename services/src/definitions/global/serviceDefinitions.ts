@@ -1,14 +1,14 @@
 import { createService } from "../definitionGenerator"
 
-export const Firebase = createService({
+export const Firebase = createService<"dashboard" | "pricing">({
   brand: {
     name: "firebase",
     color: "#FFA000",
     onColor: "black",
   },
   links: {
-    dashboard: "https://console.firebase.google.com/",
-    pricing: "https://firebase.google.com/pricing",
+    dashboard: { href: "https://console.firebase.google.com/" },
+    pricing: { href: "https://firebase.google.com/pricing" },
   },
   price: {
     cost: "flexible",
@@ -16,14 +16,14 @@ export const Firebase = createService({
   },
 })
 
-export const Plausible = createService({
+export const Plausible = createService<"pricing">({
   brand: {
     name: "plausible",
     color: "#5850ec",
     onColor: "white",
   },
   links: {
-    pricing: "https://plausible.io/#pricing",
+    pricing: { href: "https://plausible.io/#pricing" },
   },
   price: {
     cost: "paid",
@@ -31,29 +31,14 @@ export const Plausible = createService({
   },
 })
 
-export const Insights = createService({
-  brand: {
-    name: "insights",
-    color: "#2565da",
-    onColor: "white",
-  },
-  links: {
-    pricing: "https://getinsights.io/billing",
-  },
-  price: {
-    cost: "flexible",
-    renew: "monthly",
-  },
-})
-
-export const Sanity = createService({
+export const Sanity = createService<"pricing">({
   brand: {
     name: "sanity",
     color: "#f03e2f",
     onColor: "white",
   },
   links: {
-    pricing: "https://www.sanity.io/pricing/compare",
+    pricing: { href: "https://www.sanity.io/pricing/compare" },
   },
   price: {
     cost: "flexible",
@@ -74,15 +59,15 @@ export const Developer = createService({
   },
 })
 
-export const GoogleDomains = createService({
+export const GoogleDomains = createService<"dashboard" | "payments">({
   brand: {
     name: "google domains",
     color: "#f8f9fa",
     onColor: "black",
   },
   links: {
-    dashboard: "https://domains.google.com/registrar/",
-    payments: "https://domains.google.com/registrar/billing",
+    dashboard: { href: "https://domains.google.com/registrar/" },
+    payments: { href: "https://domains.google.com/registrar/billing" },
   },
   price: {
     cost: "paid",
@@ -90,34 +75,32 @@ export const GoogleDomains = createService({
   },
 })
 
-export const GoogleSearchConsole = createService({
+export const GoogleSearchConsole = createService<"dashboard">({
   brand: {
-    name: 'google search console',
-    color: '#455a64',
-    onColor: 'white',
+    name: "google search console",
+    color: "#455a64",
+    onColor: "white",
   },
   price: {
-    cost: 'free',
-    renew: 'never',
+    cost: "free",
   },
   links: {
-    dashboard: 'https://search.google.com/search-console'
-  }
+    dashboard: { href: "https://search.google.com/search-console" },
+  },
 })
 
-export const MicrosoftBingWebmasterTool = createService({
+export const MicrosoftBingWebmasterTool = createService<"dashboard">({
   brand: {
-    name: 'microsoft bing webmaster tool',
-    color: '#00809d',
-    onColor: 'white',
+    name: "microsoft bing webmaster tool",
+    color: "#00809d",
+    onColor: "white",
   },
   price: {
-    cost: 'free',
-    renew: 'never',
+    cost: "free",
   },
   links: {
-    dashboard: 'https://www.bing.com/webmasters'
-  }
+    dashboard: { href: "https://www.bing.com/webmasters" },
+  },
 })
 
 export const Github = createService({
@@ -129,6 +112,5 @@ export const Github = createService({
   links: {},
   price: {
     cost: "free",
-    renew: "never"
   },
 })

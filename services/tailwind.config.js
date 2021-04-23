@@ -1,24 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-    defaultLineHeights: true,
-    standardFontWeights: true,
-  },
-  experimental: {
-    additionalBreakpoint: true,
-    applyComplexClasses: true,
-  },
   purge: {
     content: ["src/**/*.vue", "public/index.html"],
     // These options are passed through directly to PurgeCSS
     options: {
-      whitelist: ["dark"],
+      safelist: ["dark"],
     },
   },
+  darkMode: "class",
   theme: {
-    darkSelector: ".dark",
     colors: {
       primary: {
         200: "#b8cdea", //18%
@@ -58,17 +48,33 @@ module.exports = {
           "0 0 17px -3px rgba(0, 0, 0, 0.1), 0 0 8px -2px rgba(0, 0, 0, 0.05)",
         "light-inner": "inset 0 -2px 6px 0 rgba(255, 255, 255, 0.05)",
       },
+      borderWidth: {
+        px: "1px",
+      },
       opacity: {
         60: "0.6",
+      },
+      ringColor: {
+        current: "currentColor",
+      },
+      ringOffsetColor: {
+        current: "currentColor",
       },
     },
   },
   variants: {
-    scale: ({ after }) => after(["active"]),
-    boxShadow: ({ after }) => after(["active", "dark"]),
-    backgroundColor: ({ before }) => before(["dark"]),
-    backgroundOpacity: ({ before }) => before(["dark"]),
-    textColor: ({ before }) => before(["dark"]),
+    extend: {
+      scale: ["active", "disabled"],
+      boxShadow: ["active", "disabled"],
+      opacity: ["disabled"],
+      cursor: ["disabled"],
+      ringWidth: ["focus-visible", "hover"],
+      ringOpacity: ["focus-visible", "hover"],
+      outline: ["focus"],
+      borderColor: ["focus-visible"],
+      width: ["focus"],
+      position: ["focus"],
+      padding: ["focus"],
+    },
   },
-  plugins: [require("tailwindcss-dark-mode")()],
 }
