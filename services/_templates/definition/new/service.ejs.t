@@ -36,14 +36,16 @@ export const firebase = service
     price: {
       localize: price,
     },
-  })
-  .link("initialize", "dashboard", {
-    title: "",
-    description: "",
-  })
-  .link("initialize", "pricing", {
-    title: "",
-    description: "",
+    links: {
+      pricing: {
+        title: "",
+        description: "",
+      },
+      dashboard: {
+        title: "",
+        description: "",
+      }
+    }
   })
 
 export const plausible = service
@@ -55,10 +57,12 @@ export const plausible = service
     price: {
       localize: price,
     },
-  })
-  .link("initialize", "pricing", {
-    title: "",
-    description: "",
+    links: {
+      price: {
+        title: "",
+        description: "",
+      }
+    }
   })
 
 export const sanity = service
@@ -70,8 +74,74 @@ export const sanity = service
     price: {
       localize: price,
     },
+    links: {
+      price: {
+        title: "",
+        description: "",
+      }
+    }
   })
-  .link("initialize", "pricing", {
-    title: "",
-    description: "",
-  })
+
+export const googleDomains = service.GoogleDomains({
+  brand: {
+    description: ""
+  },
+  price: {
+    localize: price
+  },
+  links: {
+    payments: {
+      title: '',
+      description: ''
+    },
+    dashboard: {
+      title: '',
+      description: ''
+    }
+  }
+})
+
+export const googleSearchConsole = service.GoogleSearchConsole({
+  brand: {
+    description: ""
+  },
+  price: {
+    localize: price
+  },
+  links: {
+    dashboard: {
+      title: '',
+      description: ''
+    }
+  }
+})
+
+export const microsoftBingWebmasterTool = service.MicrosoftBingWebmasterTool({
+  brand: {
+    description: ""
+  },
+  price: {
+    localize: price
+  },
+  links: {
+    dashboard: {
+      title: '',
+      description: ''
+    }
+  }
+})
+
+export const github = service.Github({
+  brand: {
+    description: ""
+  },
+  price: {
+    localize: price
+  },
+  links: {
+    dashboard: {
+      title: '',
+      description: ''
+    }
+  }
+})

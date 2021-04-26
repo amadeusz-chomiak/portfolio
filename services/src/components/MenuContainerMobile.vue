@@ -1,4 +1,51 @@
 <template>
+  <div class="flex-1 order-1 flex justify-between z-10 items-center">
+    <header>
+      <h1 class="sr-only">
+        {{ header.title }}
+      </h1>
+      <a
+        class="link text-2xl sm:text-3xl text-primary-700 dark:text-primary-200 underline font-small-caps"
+        :href="header.link.href"
+        target="_blank"
+        rel="noreferrer"
+        >{{ header.link.title }}</a
+      >
+    </header>
+    <section
+      class="flex justify-end space-x-2"
+      :aria-labelledby="controlsHeadingId"
+    >
+      <h2 :id="controlsHeadingId" class="sr-only">{{ controls.title }}</h2>
+      <transition-fade duration="duration-600">
+        <button-new-version
+          v-if="serviceWorkerWaiting"
+          tooltip-right
+          :render="render"
+        />
+      </transition-fade>
+      <button-toggle-color-scheme :render="render" />
+      <div :role="mobileShowContent ? '' : 'navigation'">
+        <button
+          :id="navigationIds.toggleButton"
+          v-focus-target:back="{
+            query: '#' + navigationIds.lastLink,
+            enable: mobileShowContent,
+          }"
+          :aria-expanded="mobileShowContent"
+          :aria-label="controls.navigation.buttonLabel"
+          class="button button-primary p-3 sm:p-4 mr-1 sm:ml-3"
+          data-testid="toggle"
+          @click="mobileShowContent = !mobileShowContent"
+        >
+          <base-icon
+            class="h-5 w-5 text-white"
+            :icon="mobileShowContent ? 'close' : 'menu'"
+          />
+        </button>
+      </div>
+    </section>
+  </div>
   <transition
     appear
     appear-active-class="transform transition-transform duration-200 ease-in"
@@ -16,49 +63,37 @@
       class="transform transition-all duration-200 ease-in flex flex-col p-2 sm:p-4 fixed inset-x-0 bottom-0 shadow-center-lg bg-gray-200 dark:bg-gray-800 rounded-t-xl"
     >
       <MenuContainerContent
-        class="mb-14 sm:mb-20 mt-4 ml-5 sm:ml-8 sm:pl-1"
+        class="mb-14 sm:mb-20 mt-4 mr-5 sm:mr-7 text-right"
         :render="render.categories"
+        :focus-targets-id="navigationIds"
       />
     </div>
   </transition>
-  <div class="flex-1 flex justify-between z-10 items-center">
-    <button
-      class="button button-primary p-3 sm:p-4 mr-1 sm:ml-3"
-      data-testid="toggle"
-      @click="mobileShowContent = !mobileShowContent"
-    >
-      <base-icon
-        class="h-5 w-5 text-white"
-        :icon="mobileShowContent ? 'close' : 'menu'"
-      />
-    </button>
-    <a
-      class="text-2xl sm:text-3xl text-primary-700 dark:text-primary-200 underline font-small-caps"
-      :href="header.link.href"
-      target="_blank"
-      rel="noreferrer"
-      >{{ header.link.title }}</a
-    >
-    <button
-      class="button button-primary p-3 sm:p-4 mr-1 sm:mr-3"
-      data-testid="toggle-color-scheme"
-      @click="setColorScheme(!isLight)"
-    >
-      <base-icon class="h-5 text-white" :icon="isLight ? 'sun' : 'moon'" />
-    </button>
-  </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, computed } from "vue"
+import {
+  ref,
+  defineComponent,
+  computed,
+  defineAsyncComponent,
+  reactive,
+} from "vue"
 import MenuContainerContent from "./MenuContainerContent.vue"
+import ButtonToggleColorScheme from "./ButtonToggleColorScheme.vue"
+const ButtonNewVersion = defineAsyncComponent(() =>
+  import("./ButtonNewVersion.vue"),
+)
 import { Render } from "@/composable/useDefinitions"
-import { usePrefersColorScheme } from "@/composable/usePrefersColorScheme"
 import { onBeforeRouteUpdate } from "vue-router"
+import { useVersionControl } from "@/composable/useVersionControl"
+import { useId } from "@/composable/useId"
 
 export default defineComponent({
   components: {
     MenuContainerContent,
+    ButtonToggleColorScheme,
+    ButtonNewVersion,
   },
   props: {
     render: {
@@ -72,11 +107,25 @@ export default defineComponent({
       mobileShowContent.value = false
     })
 
-    const { isLight, setColorScheme } = usePrefersColorScheme()
-
     const header = computed(() => props.render.interface.header)
+    const controls = computed(() => props.render.interface.controls)
 
-    return { mobileShowContent, isLight, setColorScheme, header }
+    const { serviceWorkerWaiting } = useVersionControl()
+
+    const navigationIds = reactive({
+      lastLink: useId().id,
+      toggleButton: useId().id,
+    })
+
+    const controlsHeadingId = useId().id
+    return {
+      mobileShowContent,
+      header,
+      navigationIds,
+      controls,
+      serviceWorkerWaiting,
+      controlsHeadingId,
+    }
   },
 })
 </script>
