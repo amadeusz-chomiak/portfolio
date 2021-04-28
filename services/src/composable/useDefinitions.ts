@@ -40,7 +40,7 @@ const renderer = new Renderer({
       },
     },
     //* change mobile navigation toggle button aria-label for a11y only
-    navigation: { buttonLabel: "manu nawigacji" },
+    navigation: { buttonLabel: "menu nawigacji" },
   },
 })
 
